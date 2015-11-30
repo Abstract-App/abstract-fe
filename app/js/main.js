@@ -37,6 +37,22 @@ module.exports = exports['default'];
 },{}],2:[function(require,module,exports){
 'use strict';
 
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+exports['default'] = {
+  URL: 'http://beabstract.herokuapp.com/',
+  CONFIG: {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }
+};
+module.exports = exports['default'];
+
+},{}],3:[function(require,module,exports){
+'use strict';
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 var _angular = require('angular');
@@ -49,9 +65,13 @@ var _config = require('./config');
 
 var _config2 = _interopRequireDefault(_config);
 
-_angular2['default'].module('app.core', ['ui.router']).config(_config2['default']);
+var _constantsServerconstant = require('./constants/serverconstant');
 
-},{"./config":1,"angular":7,"angular-ui-router":5}],3:[function(require,module,exports){
+var _constantsServerconstant2 = _interopRequireDefault(_constantsServerconstant);
+
+_angular2['default'].module('app.core', ['ui.router']).constant(_constantsServerconstant2['default'], 'SERVER').config(_config2['default']);
+
+},{"./config":1,"./constants/serverconstant":2,"angular":8,"angular-ui-router":6}],4:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -64,7 +84,7 @@ require('../app.core/index');
 
 _angular2['default'].module('app.upload', ['app.core']);
 
-},{"../app.core/index":2,"angular":7}],4:[function(require,module,exports){
+},{"../app.core/index":3,"angular":8}],5:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -81,7 +101,7 @@ require('./app.upload/index');
 
 _angular2['default'].module('app', ['app.core', 'app.upload']);
 
-},{"./app.core/index":2,"./app.upload/index":3,"angular":7,"angular-ui-router":5}],5:[function(require,module,exports){
+},{"./app.core/index":3,"./app.upload/index":4,"angular":8,"angular-ui-router":6}],6:[function(require,module,exports){
 /**
  * State-based routing for AngularJS
  * @version v0.2.15
@@ -4452,7 +4472,7 @@ angular.module('ui.router.state')
   .filter('isState', $IsStateFilter)
   .filter('includedByState', $IncludedByStateFilter);
 })(window, window.angular);
-},{}],6:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.8
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -33471,11 +33491,11 @@ $provide.value("$locale", {
 })(window, document);
 
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
-},{}],7:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 require('./angular');
 module.exports = angular;
 
-},{"./angular":6}]},{},[4])
+},{"./angular":7}]},{},[5])
 
 
 //# sourceMappingURL=main.js.map
