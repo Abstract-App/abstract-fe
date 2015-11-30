@@ -1,9 +1,9 @@
 <h2>Register</h2>
 
-<form>
-  <input placeholder="First Name">
-  <input placeholder="Last Name">
-  <input placeholder="Create Username">
-  <input placeholder="Password">
+<form ng-submit="vm.register(user)">
+  <input placeholder="First Name" ng-model="user.firstname">
+  <input placeholder="Last Name" ng-model="user.lastname">
+  <input placeholder="Create Username" ng-model="user.username">
+  <input placeholder="Password" ng-model="user.password">
   <button>Register</button>
 </form>

@@ -115,7 +115,18 @@ module.exports = exports['default'];
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var RegisterController = function RegisterController(UserService, $state) {};
+var RegisterController = function RegisterController(UserService, $state) {
+
+  var vm = this;
+
+  vm.register = register;
+
+  function register(userObj) {
+    UserService.register(userObj).then(function (res) {
+      console.log(res);
+    });
+  }
+};
 
 RegisterController.$inject = ['UserService', '$state'];
 
@@ -170,11 +181,11 @@ var UserService = function UserService($http, SERVER) {
 
   function register(userObj) {
     var user = new User(userObj);
-    $http.post(url + 'signup', user, SERVER.CONFIG);
+    return $http.post(url + 'signup', user, SERVER.CONFIG);
   }
 
   function login(user) {
-    $http.post(url + 'signin', user, SERVER.CONFIG);
+    return $http.post(url + 'signin', user, SERVER.CONFIG);
   }
 };
 
