@@ -1,5 +1,8 @@
-import $ from 'jquery';
-import _ from 'underscore';
-import moment from 'moment';
+import angular from 'angular';
+import 'angular-ui-router';
 
-console.log('Hello, World');
+import './app.core/index';
+
+angular
+  .module('app', ['app.core'])
+;
