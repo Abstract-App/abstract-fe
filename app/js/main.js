@@ -11,9 +11,21 @@ var config = function config($stateProvider, $urlRouterProvider) {
   $stateProvider.state('root', {
     abstract: true,
     templateUrl: 'templates/app-layout/layout.tpl.html'
+  }).state('root2', {
+    abstract: true,
+    templateUrl: 'templates/app-layout/layout2.tpl.html'
   }).state('root.home', {
     url: '/',
     templateUrl: 'templates/app-projects/splash.tpl.html'
+  }).state('root.register', {
+    url: '/register',
+    templateUrl: 'templates/app-user/register.tpl.html'
+  }).state('root.login', {
+    url: '/login',
+    templateUrl: 'templates/app-user/login.tpl.html'
+  }).state('root2.upload', {
+    url: '/upload',
+    templateUrl: 'templates/app-upload/upload.tpl.html'
   });
 };
 
@@ -39,7 +51,20 @@ var _config2 = _interopRequireDefault(_config);
 
 _angular2['default'].module('app.core', ['ui.router']).config(_config2['default']);
 
-},{"./config":1,"angular":6,"angular-ui-router":4}],3:[function(require,module,exports){
+},{"./config":1,"angular":7,"angular-ui-router":5}],3:[function(require,module,exports){
+'use strict';
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+var _angular = require('angular');
+
+var _angular2 = _interopRequireDefault(_angular);
+
+require('../app.core/index');
+
+_angular2['default'].module('app.upload', ['app.core']);
+
+},{"../app.core/index":2,"angular":7}],4:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -52,9 +77,11 @@ require('angular-ui-router');
 
 require('./app.core/index');
 
-_angular2['default'].module('app', ['app.core']);
+require('./app.upload/index');
 
-},{"./app.core/index":2,"angular":6,"angular-ui-router":4}],4:[function(require,module,exports){
+_angular2['default'].module('app', ['app.core', 'app.upload']);
+
+},{"./app.core/index":2,"./app.upload/index":3,"angular":7,"angular-ui-router":5}],5:[function(require,module,exports){
 /**
  * State-based routing for AngularJS
  * @version v0.2.15
@@ -4425,7 +4452,7 @@ angular.module('ui.router.state')
   .filter('isState', $IsStateFilter)
   .filter('includedByState', $IncludedByStateFilter);
 })(window, window.angular);
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.8
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -33444,11 +33471,11 @@ $provide.value("$locale", {
 })(window, document);
 
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
-},{}],6:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 require('./angular');
 module.exports = angular;
 
-},{"./angular":5}]},{},[3])
+},{"./angular":6}]},{},[4])
 
 
 //# sourceMappingURL=main.js.map
