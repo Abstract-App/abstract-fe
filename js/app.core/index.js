@@ -7,6 +7,6 @@ import SERVER from './constants/serverconstant';
 
 angular
   .module('app.core', ['ui.router'])
-  .constant(SERVER, 'SERVER')
+  .constant('SERVER', SERVER)
   .config(config)
 ;

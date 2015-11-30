@@ -1,5 +1,5 @@
 export default {
-  URL: 'http://beabstract.herokuapp.com/',
+  URL: 'https://beabstract.herokuapp.com/',
   CONFIG: {
     headers: {
       'Content-Type': 'application/json'

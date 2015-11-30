@@ -22,6 +22,7 @@ var config = function config($stateProvider, $urlRouterProvider) {
     templateUrl: 'templates/app-user/register.tpl.html'
   }).state('root.login', {
     url: '/login',
+    controller: 'LoginController as vm',
     templateUrl: 'templates/app-user/login.tpl.html'
   }).state('root2.upload', {
     url: '/upload',
@@ -41,7 +42,7 @@ Object.defineProperty(exports, '__esModule', {
   value: true
 });
 exports['default'] = {
-  URL: 'http://beabstract.herokuapp.com/',
+  URL: 'https://beabstract.herokuapp.com/',
   CONFIG: {
     headers: {
       'Content-Type': 'application/json'
@@ -69,9 +70,9 @@ var _constantsServerconstant = require('./constants/serverconstant');
 
 var _constantsServerconstant2 = _interopRequireDefault(_constantsServerconstant);
 
-_angular2['default'].module('app.core', ['ui.router']).constant(_constantsServerconstant2['default'], 'SERVER').config(_config2['default']);
+_angular2['default'].module('app.core', ['ui.router']).constant('SERVER', _constantsServerconstant2['default']).config(_config2['default']);
 
-},{"./config":1,"./constants/serverconstant":2,"angular":8,"angular-ui-router":6}],4:[function(require,module,exports){
+},{"./config":1,"./constants/serverconstant":2,"angular":12,"angular-ui-router":10}],4:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -84,7 +85,105 @@ require('../app.core/index');
 
 _angular2['default'].module('app.upload', ['app.core']);
 
-},{"../app.core/index":3,"angular":8}],5:[function(require,module,exports){
+},{"../app.core/index":3,"angular":12}],5:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+var LoginController = function LoginController(UserService, $state) {
+
+  var vm = this;
+
+  vm.signin = signin;
+
+  function signin(user) {
+    UserService.login(user).then(function (res) {
+      console.log(res);
+    });
+  }
+};
+
+LoginController.$inject = ['UserService', '$state'];
+
+exports['default'] = LoginController;
+module.exports = exports['default'];
+
+},{}],6:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+var RegisterController = function RegisterController(UserService, $state) {};
+
+RegisterController.$inject = ['UserService', '$state'];
+
+exports['default'] = RegisterController;
+module.exports = exports['default'];
+
+},{}],7:[function(require,module,exports){
+'use strict';
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+var _angular = require('angular');
+
+var _angular2 = _interopRequireDefault(_angular);
+
+require('../app.core/index');
+
+var _servicesUserservice = require('./services/userservice');
+
+var _servicesUserservice2 = _interopRequireDefault(_servicesUserservice);
+
+var _controllersLogincontroller = require('./controllers/logincontroller');
+
+var _controllersLogincontroller2 = _interopRequireDefault(_controllersLogincontroller);
+
+var _controllersRegistercontroller = require('./controllers/registercontroller');
+
+var _controllersRegistercontroller2 = _interopRequireDefault(_controllersRegistercontroller);
+
+_angular2['default'].module('app.user', ['app.core']).controller('LoginController', _controllersLogincontroller2['default']).controller('RegisterController', _controllersRegistercontroller2['default']).service('UserService', _servicesUserservice2['default']);
+
+},{"../app.core/index":3,"./controllers/logincontroller":5,"./controllers/registercontroller":6,"./services/userservice":8,"angular":12}],8:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+var UserService = function UserService($http, SERVER) {
+
+  var url = SERVER.URL;
+
+  this.register = register;
+  this.login = login;
+
+  var User = function User(userObj) {
+    this.firstname = userObj.firstname;
+    this.lastname = userObj.lastname;
+    this.email = userObj.email;
+    this.username = userObj.username;
+    this.password = userObj.password;
+  };
+
+  function register(userObj) {
+    var user = new User(userObj);
+    $http.post(url + 'signup', user, SERVER.CONFIG);
+  }
+
+  function login(user) {
+    $http.post(url + 'signin', user, SERVER.CONFIG);
+  }
+};
+
+UserService.$inject = ['$http', 'SERVER'];
+
+exports['default'] = UserService;
+module.exports = exports['default'];
+
+},{}],9:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -97,11 +196,13 @@ require('angular-ui-router');
 
 require('./app.core/index');
 
+require('./app.user/index');
+
 require('./app.upload/index');
 
-_angular2['default'].module('app', ['app.core', 'app.upload']);
+_angular2['default'].module('app', ['app.core', 'app.user', 'app.upload']);
 
-},{"./app.core/index":3,"./app.upload/index":4,"angular":8,"angular-ui-router":6}],6:[function(require,module,exports){
+},{"./app.core/index":3,"./app.upload/index":4,"./app.user/index":7,"angular":12,"angular-ui-router":10}],10:[function(require,module,exports){
 /**
  * State-based routing for AngularJS
  * @version v0.2.15
@@ -4472,7 +4573,7 @@ angular.module('ui.router.state')
   .filter('isState', $IsStateFilter)
   .filter('includedByState', $IncludedByStateFilter);
 })(window, window.angular);
-},{}],7:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.8
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -33491,11 +33592,11 @@ $provide.value("$locale", {
 })(window, document);
 
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
-},{}],8:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 require('./angular');
 module.exports = angular;
 
-},{"./angular":7}]},{},[5])
+},{"./angular":11}]},{},[9])
 
 
 //# sourceMappingURL=main.js.map
