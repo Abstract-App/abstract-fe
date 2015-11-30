@@ -25,6 +25,7 @@ let config = function($stateProvider, $urlRouterProvider) {
     })
     .state('root2.upload', {
       url: '/upload',
+      controller: 'ImageController as vm',
       templateUrl: 'templates/app-upload/upload.tpl.html'
     });
   
