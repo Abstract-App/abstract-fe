@@ -129,7 +129,7 @@ var RegisterController = function RegisterController(UserService, $state) {
   function register(user) {
     UserService.register(user).then(function (res) {
       console.log(res);
-      $state.go('root.home');
+      $state.go('root2.addprofile');
     });
   }
 };
