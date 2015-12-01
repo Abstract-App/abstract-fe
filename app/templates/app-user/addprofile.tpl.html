@@ -2,7 +2,8 @@
 
 <form>
   <label><h4>PROFILE IMAGE</h4></label>
-  <div><img ng-src="#"></div>
+  <div><img ng-show="vm.profile.picture" ng-src="{{vm.profile.picture}}"></div>
+  <input type="file" name="picture" ng-model="profile.picture">
   <button>Upload</button>
 </form>
 <form>
