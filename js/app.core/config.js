@@ -32,9 +32,31 @@ let config = function($stateProvider, $urlRouterProvider) {
     .state('root2.upload', {
       url: '/upload',
       templateUrl: 'templates/app-upload/upload.tpl.html'
+    })
+    .state('image', {
+      parent: 'root2.upload',
+      url: '/image',
+      templateUrl: 'templates/app-upload/imageupload.tpl.html'
+    })
+    .state('text', {
+      parent: 'root2.upload',
+      url: '/text',
+      templateUrl: 'templates/app-upload/textupload.tpl.html'
+    })
+    .state('link', {
+      parent: 'root2.upload',
+      url: '/link',
+      templateUrl: 'templates/app-upload/linkupload.tpl.html'
+    })
+    .state('quote', {
+      parent: 'root2.upload',
+      url: '/quote',
+      templateUrl: 'templates/app-upload/quoteupload.tpl.html'
+    })
+    .state('root2.mood', {
+      url: '/mood',
+      templateUrl: 'templates/app-upload/moodupload.tpl.html'
     });
-  
-
 };
 
 config.$inject = ['$stateProvider','$urlRouterProvider'];
