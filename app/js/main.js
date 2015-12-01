@@ -19,7 +19,11 @@ var config = function config($stateProvider, $urlRouterProvider) {
     templateUrl: 'templates/app-projects/splash.tpl.html'
   }).state('root.register', {
     url: '/register',
+    controller: 'RegisterController as vm',
     templateUrl: 'templates/app-user/register.tpl.html'
+  }).state('root2.addprofile', {
+    url: '/register/addprofile',
+    templateUrl: 'templates/app-user/addprofile.tpl.html'
   }).state('root.login', {
     url: '/login',
     controller: 'LoginController as vm',
@@ -122,9 +126,10 @@ var RegisterController = function RegisterController(UserService, $state) {
 
   vm.register = register;
 
-  function register(userObj) {
-    UserService.register(userObj).then(function (res) {
+  function register(user) {
+    UserService.register(user).then(function (res) {
       console.log(res);
+      $state.go('root.home');
     });
   }
 };
@@ -175,7 +180,9 @@ var UserService = function UserService($http, SERVER, $cookies, $state) {
 
   this.register = register;
   this.login = login;
+  this.logout = logout;
   this.userSuccess = userSuccess;
+  this.checkAuth = checkAuth;
 
   var User = function User(userObj) {
     this.firstname = userObj.firstname;
@@ -194,10 +201,29 @@ var UserService = function UserService($http, SERVER, $cookies, $state) {
     return $http.post(url + 'signin', user, SERVER.CONFIG);
   }
 
+  function logout() {
+    $cookies.remove('Auth-Token');
+    SERVER.CONFIG.headers.auth_token = null;
+    console.log('logged out');
+    $state.go('root.home');
+  }
+
   function userSuccess(res) {
     $cookies.put('Auth-Token', res.data.auth_token);
     SERVER.CONFIG.headers.auth_token = res.data.auth_token;
     $state.go('root.home');
+  }
+
+  function checkAuth() {
+    var token = $cookies.get('Auth-Token');
+
+    if (token) {
+      SERVER.CONFIG.headers.auth_token = token;
+    } else {
+      $state.go('root.home');
+    }
+
+    console.log(token);
   }
 };
 

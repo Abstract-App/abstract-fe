@@ -4,9 +4,10 @@ let RegisterController = function(UserService, $state) {
 
   vm.register = register;
 
-  function register (userObj) {
-    UserService.register(userObj).then( (res) => {
+  function register (user) {
+    UserService.register(user).then( (res) => {
       console.log(res);
+      $state.go('root.home');
     });
   }
   
