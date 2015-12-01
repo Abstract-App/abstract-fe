@@ -1,9 +1,12 @@
-let UserService = function($http, SERVER) {
+let UserService = function($http, SERVER, $cookies, $state) {
+
+  console.log(SERVER);
   
   let url = SERVER.URL;
 
   this.register = register;
   this.login = login;
+  this.userSuccess = userSuccess;
 
   let User = function (userObj) {
     this.firstname = userObj.firstname;
@@ -22,8 +25,14 @@ let UserService = function($http, SERVER) {
     return $http.post(url + 'signin', user, SERVER.CONFIG);
   }
 
+  function userSuccess (res) {
+    $cookies.put('Auth-Token', res.data.auth_token);
+    SERVER.CONFIG.headers.auth_token = res.data.auth_token;
+    $state.go('root.home');
+  }
+
 };
 
-UserService.$inject = ['$http', 'SERVER'];
+UserService.$inject = ['$http', 'SERVER', '$cookies', '$state'];
 
 export default UserService;

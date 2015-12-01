@@ -7,6 +7,7 @@ let LoginController = function(UserService, $state) {
   function signin (user) {
     UserService.login(user).then( (res) => {
       console.log(res);
+      UserService.userSuccess(res);
     });
   }
 
