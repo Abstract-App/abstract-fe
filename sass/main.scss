@@ -2,12 +2,14 @@
 // See Readme for a list of supported ones
 @import "foundation";
 
+//fonts
+$typewriter: 'Arvo', serif;
+
 body {
   background: #e2ebf3;
 }
 
 // Upload Forms
-
 .image-form {
   .uploaded-image {
     width: 200px;
@@ -30,9 +32,10 @@ body {
 }
 .text-form {
   .uploaded-text {
+    font-family: $typewriter;
+    font-size: 3em;
     width: 500px;
     height: 100px;
-    border: 1px solid grey;
   }
   textarea {
     width: 300px;
@@ -50,9 +53,10 @@ body {
 }
 .quote-form {
   .uploaded-quote {
+    font-family: $typewriter;
+    font-size: 3em;
     width: 500px;
     height: 100px;
-    border: 1px solid grey;
   }
   textarea {
     width: 300px;
