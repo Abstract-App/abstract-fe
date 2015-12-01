@@ -1,19 +1,11 @@
 <h2>create a new post</h2>
 
 <div>
-  <button id="button-image">image</button>
-  <button id="button-text">text</button>
-  <button id="button-link">link</button>
-  <button id="button-quote">quote</button>
-  <button id="button-mood">mood</button>
+  <a href="#/upload/image"><button id="button-image">image</button></a>
+  <a href="#/upload/text"><button id="button-text">text</button></a>
+  <a href="#/upload/link"><button id="button-link">link</button></a>
+  <a href="#/upload/quote"><button id="button-quote">quote</button></a>
+  <a href="#/mood"><button id="button-mood">mood</button></a>
 </div>
 
-<div class="image hidden">hi</div>
-
-<div class="text hidden">hi</div>
-
-<div class="link hidden">hi</div>
-
-<div class="quote hidden">hi</div>
-
-<div class="mood hidden">hi</div>
+<div ui-view=""></div>

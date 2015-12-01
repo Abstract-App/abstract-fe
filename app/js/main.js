@@ -25,8 +25,26 @@ var config = function config($stateProvider, $urlRouterProvider) {
     templateUrl: 'templates/app-user/login.tpl.html'
   }).state('root2.upload', {
     url: '/upload',
-    controller: 'ImageController as vm',
     templateUrl: 'templates/app-upload/upload.tpl.html'
+  }).state('image', {
+    parent: 'root2.upload',
+    url: '/image',
+    templateUrl: 'templates/app-upload/imageupload.tpl.html'
+  }).state('text', {
+    parent: 'root2.upload',
+    url: '/text',
+    templateUrl: 'templates/app-upload/textupload.tpl.html'
+  }).state('link', {
+    parent: 'root2.upload',
+    url: '/link',
+    templateUrl: 'templates/app-upload/linkupload.tpl.html'
+  }).state('quote', {
+    parent: 'root2.upload',
+    url: '/quote',
+    templateUrl: 'templates/app-upload/quoteupload.tpl.html'
+  }).state('root2.mood', {
+    url: '/mood',
+    templateUrl: 'templates/app-upload/moodupload.tpl.html'
   });
 };
 
@@ -58,18 +76,7 @@ _angular2['default'].module('app.core', ['ui.router']).config(_config2['default'
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var ImageController = function ImageController(UploadService) {
-
-  var vm = this;
-
-  vm.getForm = getForm;
-
-  function getForm(element) {
-    element.on('click', function () {
-      element.find('div').removeClass('hidden');
-    });
-  }
-};
+var ImageController = function ImageController(UploadService) {};
 
 ImageController.$inject = ['UploadService'];
 
@@ -98,26 +105,17 @@ var _servicesUploadservice2 = _interopRequireDefault(_servicesUploadservice);
 _angular2['default'].module('app.upload', ['app.core']).controller('ImageController', _controllersImagecontroller2['default']).service('UploadService', _servicesUploadservice2['default']);
 
 },{"../app.core/index":2,"./controllers/imagecontroller":3,"./services/uploadservice":5,"angular":9}],5:[function(require,module,exports){
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, '__esModule', {
+Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var UploadService = function UploadService() {
-
-  this.getForm = getForm;
-
-  function getForm(element) {
-    element.on('click', function () {
-      element.find('div').removeClass('hidden');
-    });
-  }
-};
+var UploadService = function UploadService() {};
 
 UploadService.$inject = [];
 
-exports['default'] = UploadService;
-module.exports = exports['default'];
+exports["default"] = UploadService;
+module.exports = exports["default"];
 
 },{}],6:[function(require,module,exports){
 'use strict';
