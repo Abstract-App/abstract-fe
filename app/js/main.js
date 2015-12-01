@@ -23,6 +23,7 @@ var config = function config($stateProvider, $urlRouterProvider) {
     templateUrl: 'templates/app-user/register.tpl.html'
   }).state('root2.addprofile', {
     url: '/register/addprofile',
+    controller: 'ProfileController as vm',
     templateUrl: 'templates/app-user/addprofile.tpl.html'
   }).state('root.login', {
     url: '/login',
@@ -50,6 +51,9 @@ var config = function config($stateProvider, $urlRouterProvider) {
   }).state('root2.mood', {
     url: '/mood',
     templateUrl: 'templates/app-upload/moodupload.tpl.html'
+  }).state('root2.userhome', {
+    url: '/userhome',
+    templateUrl: 'templates/app-profile/profile.tpl.html'
   });
 };
 
@@ -193,12 +197,23 @@ module.exports = exports['default'];
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var ProfileController = function ProfileController(ProfileService) {
+var ProfileController = function ProfileController(UserService, ProfileService, $state) {
 
   var vm = this;
+
+  vm.upload = upload;
+
+  function upload(profile) {
+    UserService.checkAuth();
+    console.log(profile);
+    ProfileService.upload(profile).then(function (res) {
+      console.log(res);
+      $state.go('root2.userhome');
+    });
+  }
 };
 
-ProfileController.$inject = ['ProfileService'];
+ProfileController.$inject = ['UserService', 'ProfileService', '$state'];
 
 exports['default'] = ProfileController;
 module.exports = exports['default'];
@@ -218,6 +233,7 @@ var RegisterController = function RegisterController(UserService, $state) {
   function register(user) {
     UserService.register(user).then(function (res) {
       console.log(res);
+      UserService.userSuccess(res);
       $state.go('root2.addprofile');
     });
   }
@@ -275,9 +291,14 @@ var ProfileService = function ProfileService($http, FILESERVER) {
 
   this.upload = upload;
 
-  function upload(file) {
+  function upload(profileObj) {
+
     var formData = new FormData();
-    formData.append('picture', file);
+
+    formData.append('file', profileObj);
+    formData.append('bio', profileObj);
+    formData.append('website', profileObj);
+    formData.append('location', profileObj);
 
     return $http.post(url + 'profile', formData, FILESERVER.CONFIG);
   }

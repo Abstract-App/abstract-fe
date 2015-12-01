@@ -4,9 +4,14 @@ let ProfileService = function($http, FILESERVER) {
 
   this.upload = upload;
 
-  function upload (file) {
+  function upload (profileObj) {
+
     let formData = new FormData();
-    formData.append('picture', file);
+
+    formData.append('file', profileObj);
+    formData.append('bio', profileObj);
+    formData.append('website', profileObj);
+    formData.append('location', profileObj);
 
     return $http.post(url + 'profile', formData, FILESERVER.CONFIG);
   }

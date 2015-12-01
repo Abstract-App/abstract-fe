@@ -7,6 +7,7 @@ let RegisterController = function(UserService, $state) {
   function register (user) {
     UserService.register(user).then( (res) => {
       console.log(res);
+      UserService.userSuccess(res);
       $state.go('root2.addprofile');
     });
   }

@@ -1,14 +1,13 @@
 <h2>Tell us more about you</h2>
 
-<form>
-  <label><h4>PROFILE IMAGE</h4></label>
-  <div><img ng-show="vm.profile.picture" ng-src="{{vm.profile.picture}}"></div>
-  <input type="file" name="picture" ng-model="profile.picture">
-  <button>Upload</button>
-</form>
-<form>
-  <textarea placeholder="Short Bio"></textarea>
-  <input placeholder="Website">
-  <input placeholder="3 tags that describe you">
+<form ng-submit="vm.upload(profile)">
+<!--   <label><h4>PROFILE IMAGE</h4></label>
+  <div><img ng-show="profile.picture" ng-src="{{profile.picture}}"></div> -->
+  <input type="file" id="image" ng-model="profile.picture">
+<!--   <button>add picture</button> -->
+  <textarea placeholder="Short Bio" name="bio" ng-model="profile.bio"></textarea>
+  <input placeholder="Website" name="website" ng-model="profile.website">
+  <input placeholder="Where do you live?" name="location" ng-model="profile.location">
+<!--   <input placeholder="3 tags that describe you"> -->
   <button>CONTINUE TO ABSTRACT</button>
 </form>
