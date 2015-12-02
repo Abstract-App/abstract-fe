@@ -266,7 +266,7 @@ var RegisterController = function RegisterController(UserService, $state) {
   function register(user) {
     UserService.register(user).then(function (res) {
       console.log(res);
-      UserService.userSuccess(res);
+      UserService.checkAuth();
       $state.go('root2.addprofile');
     });
   }
@@ -372,11 +372,11 @@ var UserService = function UserService($http, SERVER, $cookies, $state) {
 
   function register(userObj) {
     var user = new User(userObj);
-    return $http.post(url + 'signup', user, SERVER.CONFIG);
+    return $http.post(url + 'register', user, SERVER.CONFIG);
   }
 
   function login(user) {
-    return $http.post(url + 'signin', user, SERVER.CONFIG);
+    return $http.post(url + 'login', user, SERVER.CONFIG);
   }
 
   function logout() {

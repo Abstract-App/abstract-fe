@@ -20,11 +20,11 @@ let UserService = function($http, SERVER, $cookies, $state) {
 
   function register (userObj) {
     let user = new User(userObj);
-    return $http.post(url + 'signup', user, SERVER.CONFIG);
+    return $http.post(url + 'register', user, SERVER.CONFIG);
   }
 
   function login (user) {
-    return $http.post(url + 'signin', user, SERVER.CONFIG);
+    return $http.post(url + 'login', user, SERVER.CONFIG);
   }
 
   function logout () {
