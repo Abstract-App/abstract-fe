@@ -4,9 +4,7 @@
   <label><h4>PROFILE IMAGE</h4></label>
   <div><img ng-show="vm.profile.picture" ng-src="{{vm.profile.picture}}"></div>
   <input type="file" name="picture" ng-model="profile.picture">
-  <button>Upload</button>
-</form>
-<form>
+  <button ng-click="">Upload</button>
   <textarea placeholder="Short Bio"></textarea>
   <input placeholder="Website">
   <input placeholder="3 tags that describe you">
