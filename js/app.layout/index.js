@@ -1,13 +1,11 @@
 import angular from 'angular';
 
 import '../app.core/index';
+import '../app.user/index';
 
 import fileUpload from './directives/uploaddirective';
 
-import UploadService from './services/uploadservice';
-
 angular
-  .module('app.layout', ['app.core'])
-  .service('UploadService', UploadService)
+  .module('app.layout', ['app.core', 'app.user'])
   .directive('fileUpload', fileUpload)
 ;
