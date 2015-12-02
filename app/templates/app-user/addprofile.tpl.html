@@ -1,8 +1,8 @@
 <h2>Tell us more about you</h2>
 
-<file-upload image="vm.profile.picture"></file-upload>
-
-<form ng-submit="vm.upload(profile)">
+<!-- <file-upload image="vm.profile.picture"></file-upload> -->
+<form ng-submit="vm.uploadProfile(profile)">
+  <input type="file" ng-model="profile.picture" file-upload="uploadImage($files)">
   <textarea placeholder="Short Bio" name="bio" ng-model="profile.bio"></textarea>
   <input placeholder="Website" name="website" ng-model="profile.website">
   <input placeholder="Where do you live?" name="location" ng-model="profile.location">

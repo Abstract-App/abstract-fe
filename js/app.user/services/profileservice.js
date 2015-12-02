@@ -1,23 +1,27 @@
-let ProfileService = function($http, FILESERVER) {
-  
+let ProfileService = function($http, UserService, FILESERVER) {
+
   let url = FILESERVER.URL;
 
   this.upload = upload;
+  this.uploadForm = uploadForm;
 
-  function upload (profileObj) {
 
-    let formData = new FormData();
-
-    formData.append('file', profileObj);
-    formData.append('bio', profileObj);
-    formData.append('website', profileObj);
-    formData.append('location', profileObj);
-
-    return $http.post(url + 'profiles', formData, FILESERVER.CONFIG);
+  function upload (file) {
+    console.log(file);
+    return file;
   }
 
+  function uploadForm (profile, file) {
+    console.log(profile);
+    console.log(file);
+  }
+
+
+
+
+   
 };
 
-ProfileService.$inject = ['$http', 'FILESERVER'];
+ProfileService.$inject = ['$http', 'UserService', 'FILESERVER'];
 
 export default ProfileService;

@@ -1,4 +1,4 @@
-let UserService = function($http, SERVER, $cookies, $state) {
+let UserService = function($http, SERVER, $cookies, $state, FILESERVER) {
 
   console.log(SERVER);
   
@@ -9,6 +9,7 @@ let UserService = function($http, SERVER, $cookies, $state) {
   this.logout = logout;
   this.userSuccess = userSuccess;
   this.checkAuth = checkAuth;
+  this.checkFileAuth = checkFileAuth;
 
   let User = function (userObj) {
     this.firstname = userObj.firstname;
@@ -35,8 +36,8 @@ let UserService = function($http, SERVER, $cookies, $state) {
   }
 
   function userSuccess (res) {
-    $cookies.put('Auth-Token', res.data.auth_token);
-    SERVER.CONFIG.headers.auth_token = res.data.auth_token;
+    $cookies.put('Auth-Token', res.data.user.auth_token);
+    SERVER.CONFIG.headers.auth_token = res.data.user.auth_token;
     $state.go('root.home');
   }
 
@@ -52,8 +53,18 @@ let UserService = function($http, SERVER, $cookies, $state) {
     console.log(token);
   }
 
+  function checkFileAuth () {
+    let token = $cookies.get('Auth-Token');
+
+    if (token) {
+      FILESERVER.CONFIG.headers.auth_token = token;
+    } else {
+      $state.go('root.home');
+    }
+  }
+
 };
 
-UserService.$inject = ['$http', 'SERVER', '$cookies', '$state'];
+UserService.$inject = ['$http', 'SERVER', '$cookies', '$state', 'FILESERVER'];
 
 export default UserService;
