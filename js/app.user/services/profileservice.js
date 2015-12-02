@@ -13,7 +13,7 @@ let ProfileService = function($http, FILESERVER) {
     formData.append('website', profileObj);
     formData.append('location', profileObj);
 
-    return $http.post(url + 'profile', formData, FILESERVER.CONFIG);
+    return $http.post(url + 'profiles', formData, FILESERVER.CONFIG);
   }
 
 };

@@ -125,11 +125,31 @@ _angular2['default'].module('app.core', ['ui.router']).constant('SERVER', _const
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var ImageController = function ImageController(UploadService) {};
+var fileUpload = function fileUpload(UploadService) {
 
-ImageController.$inject = ['UploadService'];
+  return {
 
-exports['default'] = ImageController;
+    restrict: 'AE',
+    replace: true,
+    scope: {
+      image: '=image'
+    },
+    templateUrl: 'templates/app-layout/fileupload.tpl.html',
+    link: function link(scope, element, attrs) {
+      element.on('submit', function () {
+        console.log('submitted');
+        var file = element.find('input')[0].files[0];
+        UploadService.upload(file).then(function (res) {
+          console.log(res);
+        });
+      });
+    }
+  };
+};
+
+fileUpload.$inject = ['UploadService'];
+
+exports['default'] = fileUpload;
 module.exports = exports['default'];
 
 },{}],6:[function(require,module,exports){
@@ -143,28 +163,41 @@ var _angular2 = _interopRequireDefault(_angular);
 
 require('../app.core/index');
 
-var _controllersImagecontroller = require('./controllers/imagecontroller');
+var _directivesUploaddirective = require('./directives/uploaddirective');
 
-var _controllersImagecontroller2 = _interopRequireDefault(_controllersImagecontroller);
+var _directivesUploaddirective2 = _interopRequireDefault(_directivesUploaddirective);
 
 var _servicesUploadservice = require('./services/uploadservice');
 
 var _servicesUploadservice2 = _interopRequireDefault(_servicesUploadservice);
 
-_angular2['default'].module('app.upload', ['app.core']).controller('ImageController', _controllersImagecontroller2['default']).service('UploadService', _servicesUploadservice2['default']);
+_angular2['default'].module('app.layout', ['app.core']).service('UploadService', _servicesUploadservice2['default']).directive('fileUpload', _directivesUploaddirective2['default']);
 
-},{"../app.core/index":4,"./controllers/imagecontroller":5,"./services/uploadservice":7,"angular":19}],7:[function(require,module,exports){
-"use strict";
+},{"../app.core/index":4,"./directives/uploaddirective":5,"./services/uploadservice":7,"angular":19}],7:[function(require,module,exports){
+'use strict';
 
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var UploadService = function UploadService() {};
+var UploadService = function UploadService($http, FILESERVER) {
 
-UploadService.$inject = [];
+  var url = FILESERVER.URL;
 
-exports["default"] = UploadService;
-module.exports = exports["default"];
+  this.upload = upload;
+
+  function upload(file) {
+    console.log(file);
+    var imageFile = new FormData();
+    imageFile.append('upload', file);
+
+    return $http.post(url + 'profiles', imageFile, FILESERVER.CONFIG);
+  }
+};
+
+UploadService.$inject = ['$http', 'FILESERVER'];
+
+exports['default'] = UploadService;
+module.exports = exports['default'];
 
 },{}],8:[function(require,module,exports){
 'use strict';
@@ -257,6 +290,8 @@ require('angular-cookies');
 
 require('../app.core/index');
 
+require('../app.layout/index');
+
 var _servicesUserservice = require('./services/userservice');
 
 var _servicesUserservice2 = _interopRequireDefault(_servicesUserservice);
@@ -277,9 +312,9 @@ var _controllersProfilecontroller = require('./controllers/profilecontroller');
 
 var _controllersProfilecontroller2 = _interopRequireDefault(_controllersProfilecontroller);
 
-_angular2['default'].module('app.user', ['app.core', 'ngCookies']).controller('LoginController', _controllersLogincontroller2['default']).controller('RegisterController', _controllersRegistercontroller2['default']).controller('ProfileController', _controllersProfilecontroller2['default']).service('UserService', _servicesUserservice2['default']).service('ProfileService', _servicesProfileservice2['default']);
+_angular2['default'].module('app.user', ['app.core', 'app.layout', 'ngCookies']).controller('LoginController', _controllersLogincontroller2['default']).controller('RegisterController', _controllersRegistercontroller2['default']).controller('ProfileController', _controllersProfilecontroller2['default']).service('UserService', _servicesUserservice2['default']).service('ProfileService', _servicesProfileservice2['default']);
 
-},{"../app.core/index":4,"./controllers/logincontroller":8,"./controllers/profilecontroller":9,"./controllers/registercontroller":10,"./services/profileservice":12,"./services/userservice":13,"angular":19,"angular-cookies":16}],12:[function(require,module,exports){
+},{"../app.core/index":4,"../app.layout/index":6,"./controllers/logincontroller":8,"./controllers/profilecontroller":9,"./controllers/registercontroller":10,"./services/profileservice":12,"./services/userservice":13,"angular":19,"angular-cookies":16}],12:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -300,7 +335,7 @@ var ProfileService = function ProfileService($http, FILESERVER) {
     formData.append('website', profileObj);
     formData.append('location', profileObj);
 
-    return $http.post(url + 'profile', formData, FILESERVER.CONFIG);
+    return $http.post(url + 'profiles', formData, FILESERVER.CONFIG);
   }
 };
 
@@ -390,11 +425,11 @@ require('./app.core/index');
 
 require('./app.user/index');
 
-require('./app.upload/index');
+require('./app.layout/index');
 
-_angular2['default'].module('app', ['app.core', 'app.user', 'app.upload']);
+_angular2['default'].module('app', ['app.core', 'app.user', 'app.layout']);
 
-},{"./app.core/index":4,"./app.upload/index":6,"./app.user/index":11,"angular":19,"angular-ui-router":17}],15:[function(require,module,exports){
+},{"./app.core/index":4,"./app.layout/index":6,"./app.user/index":11,"angular":19,"angular-ui-router":17}],15:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.8
  * (c) 2010-2015 Google, Inc. http://angularjs.org
