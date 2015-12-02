@@ -2,6 +2,7 @@ import angular from 'angular';
 import 'angular-cookies';
 
 import '../app.core/index';
+import '../app.layout/index';
 
 import UserService from './services/userservice';
 import ProfileService from './services/profileservice';
@@ -11,7 +12,7 @@ import RegisterController from './controllers/registercontroller';
 import ProfileController from './controllers/profilecontroller';
 
 angular
-  .module('app.user', ['app.core', 'ngCookies'])
+  .module('app.user', ['app.core', 'app.layout', 'ngCookies'])
   .controller('LoginController', LoginController)
   .controller('RegisterController', RegisterController)
   .controller('ProfileController', ProfileController)

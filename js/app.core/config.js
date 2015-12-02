@@ -22,6 +22,7 @@ let config = function($stateProvider, $urlRouterProvider) {
     })
     .state('root2.addprofile', {
       url: '/register/addprofile',
+      controller: 'ProfileController as vm',
       templateUrl: 'templates/app-user/addprofile.tpl.html'
     })
     .state('root.login', {
@@ -56,6 +57,10 @@ let config = function($stateProvider, $urlRouterProvider) {
     .state('root2.mood', {
       url: '/mood',
       templateUrl: 'templates/app-upload/moodupload.tpl.html'
+    })
+    .state('root2.userhome', {
+      url: '/userhome',
+      templateUrl: 'templates/app-profile/profile.tpl.html'
     });
 };
 
