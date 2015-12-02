@@ -1,28 +1,47 @@
-let fileUpload = function(UploadService) {
+// let fileUpload = function(ProfileService) {
 
+//   return {
+
+//     restrict: 'AE',
+//     replace: true,
+//     scope: {
+//       image: '=image'
+//     },
+//     templateUrl: 'templates/app-layout/fileupload.tpl.html',
+//     link: function (scope, element, attrs) {
+//       element.on('submit', function () {
+//         console.log('submitted');
+//         let file = element.find('input')[0].files[0];
+//         ProfileService.upload(file);
+//       });
+//     }
+//   };
+  
+  
+
+// };
+
+// fileUpload.$inject = ['ProfileService'];
+
+// export default fileUpload;
+
+let fileUpload = function(ProfileService) {
+  
   return {
-
     restrict: 'AE',
-    replace: true,
-    scope: {
-      image: '=image'
-    },
-    templateUrl: 'templates/app-layout/fileupload.tpl.html',
     link: function (scope, element, attrs) {
-      element.on('submit', function () {
-        console.log('submitted');
+      element.on('change', function () {
         let file = element.find('input')[0].files[0];
-        UploadService.upload(file).then( (res) => {
-          console.log(res);
-        });
+        console.log('image added');
+        console.log(file);
+        return file;
       });
     }
   };
   
-  
 
 };
 
-fileUpload.$inject = ['UploadService'];
+fileUpload.$inject = ['ProfileService'];
 
 export default fileUpload;
