@@ -59,7 +59,8 @@ let config = function($stateProvider, $urlRouterProvider) {
       templateUrl: 'templates/app-upload/moodupload.tpl.html'
     })
     .state('root2.userhome', {
-      url: '/userhome',
+      url: '/userhome/:id',
+      controller:  'ProfileController as vm',
       templateUrl: 'templates/app-profile/profile.tpl.html'
     });
 };
