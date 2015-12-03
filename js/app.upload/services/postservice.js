@@ -5,6 +5,7 @@ let PostService = function($http, FILESERVER, UserService) {
   this.addImage = addImage;
   this.postForm = postForm;
   this.postText = postText;
+  this.postLink = postLink;
 
   function addImage (file) {
     console.log(file);
@@ -34,6 +35,17 @@ let PostService = function($http, FILESERVER, UserService) {
   function postText (textObj) {
     let t = new Text(textObj);
     return $http.post(url + 'posts', t, FILESERVER.CONFIG);
+  }
+
+  let Link = function (linkObj) {
+    this.post_type = 'link';
+    this.url = linkObj.url;
+    this.description = linkObj.description;
+  };
+
+  function postLink (linkObj) {
+    let l = new Link(linkObj);
+    return $http.post(url + 'posts', l, FILESERVER.CONFIG);
   }
 
   

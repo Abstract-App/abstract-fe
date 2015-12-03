@@ -49,6 +49,7 @@ let config = function($stateProvider, $urlRouterProvider) {
     .state('link', {
       parent: 'root2.upload',
       url: '/link',
+      controller: 'LinkController as vm',
       templateUrl: 'templates/app-upload/linkupload.tpl.html'
     })
     .state('quote', {
