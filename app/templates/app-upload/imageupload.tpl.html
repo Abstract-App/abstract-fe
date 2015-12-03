@@ -1,12 +1,12 @@
-<form class="image-form"> 
-  <div class="image-left-column">
+<form ng-submit="(vm.uploadImagePost(image))" class="image-form"> 
+<!--   <div class="image-left-column">
     <div class="uploaded-image">(image.jpg)</div>
-  </div>
+  </div> -->
 
   <div class="image-right-column">
-    <input placeholder="url">
-    <button>upload</button>
-    <textarea placeholder="description"></textarea>
+    <image-upload file="image.image"></image-upload>
+    <input placeholder="title" ng-model="image.title">
+    <textarea placeholder="description" ng-model="image.description"></textarea>
   </div>
 </section>
 

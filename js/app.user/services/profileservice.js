@@ -21,7 +21,7 @@ let ProfileService = function($http, UserService, FILESERVER) {
     formData.append('website', profile.website);
     formData.append('location', profile.location);
 
-    return $http.post(FILESERVER.URL + 'profiles', formData, FILESERVER.CONFIG);
+    return $http.post(url + 'profiles', formData, FILESERVER.CONFIG);
   }
 
   function getUser (id) {

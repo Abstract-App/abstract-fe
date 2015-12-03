@@ -1,13 +1,14 @@
 import angular from 'angular';
 
 import '../app.core/index';
+import '../app.user/index';
 
 import ImageController from './controllers/imagecontroller';
 
-import UploadService from './services/uploadservice';
+import PostService from './services/postservice';
 
 angular
-  .module('app.upload', ['app.core'])
+  .module('app.upload', ['app.core', 'app.user'])
   .controller('ImageController', ImageController)
-  .service('UploadService', UploadService)
+  .service('PostService', PostService)
 ;
