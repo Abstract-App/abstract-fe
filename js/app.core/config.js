@@ -20,7 +20,7 @@ let config = function($stateProvider, $urlRouterProvider) {
       controller: 'RegisterController as vm',
       templateUrl: 'templates/app-user/register.tpl.html'
     })
-    .state('root2.addprofile', {
+    .state('root.addprofile', {
       url: '/register/addprofile',
       controller: 'ProfileController as vm',
       templateUrl: 'templates/app-user/addprofile.tpl.html'
