@@ -1,8 +1,9 @@
-let ImageController = function(UploadService) {
+let ImageController = function(PostService) {
 
+  let vm = this;
 
 };
 
-ImageController.$inject = ['UploadService'];
+ImageController.$inject = ['PostService'];
 
 export default ImageController;
