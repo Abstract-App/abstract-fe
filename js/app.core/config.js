@@ -58,8 +58,8 @@ let config = function($stateProvider, $urlRouterProvider) {
       url: '/mood',
       templateUrl: 'templates/app-upload/moodupload.tpl.html'
     })
-    .state('root2.userhome/:id', {
-      url: '/userhome',
+    .state('root2.userhome', {
+      url: '/userhome/:id',
       controller:  'ProfileController as vm',
       templateUrl: 'templates/app-profile/profile.tpl.html'
     });

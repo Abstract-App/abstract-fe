@@ -27,7 +27,7 @@ let ProfileService = function($http, UserService, FILESERVER) {
   function getUser (id) {
     console.log(id);
     UserService.checkFileAuth();
-    return $http.get(FILESERVER.URL + 'users', id, FILESERVER.CONFIG);
+    return $http.get(FILESERVER.URL + 'users/' + id, FILESERVER.CONFIG);
   }
    
 };

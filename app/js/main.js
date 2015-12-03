@@ -51,8 +51,8 @@ var config = function config($stateProvider, $urlRouterProvider) {
   }).state('root2.mood', {
     url: '/mood',
     templateUrl: 'templates/app-upload/moodupload.tpl.html'
-  }).state('root2.userhome/:id', {
-    url: '/userhome',
+  }).state('root2.userhome', {
+    url: '/userhome/:id',
     controller: 'ProfileController as vm',
     templateUrl: 'templates/app-profile/profile.tpl.html'
   });
@@ -197,7 +197,7 @@ _angular2['default'].module('app.layout', ['app.core', 'app.user']).directive('f
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var LoginController = function LoginController(UserService, $state) {
+var LoginController = function LoginController(ProfileService, UserService, $state, $stateParams) {
 
   var vm = this;
 
@@ -205,13 +205,18 @@ var LoginController = function LoginController(UserService, $state) {
 
   function signin(user) {
     UserService.login(user).then(function (res) {
-      console.log(res);
+      console.log(res.data.user);
+      var id = res.data.user.id;
       UserService.userSuccess(res);
+      ProfileService.getUser(id).then(function (res) {
+        console.log(res);
+        $state.go('root2.userhome/' + id);
+      });
     });
   }
 };
 
-LoginController.$inject = ['UserService', '$state'];
+LoginController.$inject = ['ProfileService', 'UserService', '$state', '$stateParams'];
 
 exports['default'] = LoginController;
 module.exports = exports['default'];
@@ -227,20 +232,18 @@ var ProfileController = function ProfileController(UserService, $stateParams, Pr
   var vm = this;
 
   vm.uploadProfile = uploadProfile;
+  vm.getProfile = getProfile;
 
   function uploadProfile(profile) {
     UserService.checkFileAuth();
     ProfileService.uploadForm(profile).then(function (res) {
       console.log(res);
-      $state.go('root2.userhome');
     });
   }
 
-  activate();
-
-  function activate() {
+  function getProfile() {
     UserService.checkFileAuth();
-    ProfileService.getUser($stateParams.id).then(function (res) {
+    ProfileService.getUser($stateParams.user_id).then(function (res) {
       console.log(res);
     });
   }
@@ -349,7 +352,7 @@ var ProfileService = function ProfileService($http, UserService, FILESERVER) {
   function getUser(id) {
     console.log(id);
     UserService.checkFileAuth();
-    return $http.get(FILESERVER.URL + 'users', id, FILESERVER.CONFIG);
+    return $http.get(FILESERVER.URL + 'users/' + id, FILESERVER.CONFIG);
   }
 };
 
@@ -404,7 +407,6 @@ var UserService = function UserService($http, SERVER, $cookies, $state, FILESERV
   function userSuccess(res) {
     $cookies.put('Auth-Token', res.data.user.auth_token);
     SERVER.CONFIG.headers.auth_token = res.data.user.auth_token;
-    $state.go('root.home');
   }
 
   function checkAuth() {

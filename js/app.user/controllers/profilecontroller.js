@@ -3,20 +3,18 @@ let ProfileController = function(UserService, $stateParams, ProfileService, $sta
   let vm = this;
 
   vm.uploadProfile = uploadProfile;
+  vm.getProfile = getProfile;
 
   function uploadProfile (profile) {
     UserService.checkFileAuth();
     ProfileService.uploadForm(profile).then( (res) => {
       console.log(res);
-      $state.go('root2.userhome');
     });
   }
 
-  activate();
-
-  function activate () {
+  function getProfile () {
     UserService.checkFileAuth();
-    ProfileService.getUser($stateParams.id).then( (res) => {
+    ProfileService.getUser($stateParams.user_id).then( (res) => {
       console.log(res);
     });
   }
