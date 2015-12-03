@@ -228,8 +228,7 @@ var ProfileController = function ProfileController(UserService, ProfileService, 
   vm.uploadProfile = uploadProfile;
 
   function uploadProfile(profile) {
-
-    UserService.checkAuth();
+    UserService.checkFileAuth();
     ProfileService.uploadForm(profile).then(function (res) {
       console.log(res);
       $state.go('root2.userhome');
@@ -331,8 +330,15 @@ var ProfileService = function ProfileService($http, UserService, FILESERVER) {
 
   function uploadForm(profile) {
     console.log(profile);
-    UserService.checkAuth();
-    return $http.post(FILESERVER.URL + 'profiles', profile, FILESERVER.CONFIG);
+    UserService.checkFileAuth();
+    var formData = new FormData();
+
+    formData.append('picture', profile.picture);
+    formData.append('bio', profile.bio);
+    formData.append('website', profile.website);
+    formData.append('location', profile.location);
+
+    return $http.post(FILESERVER.URL + 'profiles', formData, FILESERVER.CONFIG);
   }
 };
 

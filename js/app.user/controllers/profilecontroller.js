@@ -5,8 +5,7 @@ let ProfileController = function(UserService, ProfileService, $state, $scope) {
   vm.uploadProfile = uploadProfile;
 
   function uploadProfile (profile) {
-
-    UserService.checkAuth();
+    UserService.checkFileAuth();
     ProfileService.uploadForm(profile).then( (res) => {
       console.log(res);
       $state.go('root2.userhome');
