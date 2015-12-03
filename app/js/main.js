@@ -120,21 +120,45 @@ var _constantsFileserverconstant2 = _interopRequireDefault(_constantsFileserverc
 _angular2['default'].module('app.core', ['ui.router']).constant('SERVER', _constantsServerconstant2['default']).constant('FILESERVER', _constantsFileserverconstant2['default']).config(_config2['default']);
 
 },{"./config":1,"./constants/fileserverconstant":2,"./constants/serverconstant":3,"angular":18,"angular-ui-router":16}],5:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+var fileUpload = function fileUpload(ProfileService) {
+
+  return {
+
+    restrict: 'E',
+    replace: true,
+    scope: {
+      image: '=image'
+    },
+    templateUrl: 'templates/app-layout/fileupload.tpl.html',
+    link: function link(scope, element, attrs) {
+      element.on('change', function () {
+        console.log('submitted');
+        var file = element.find('input')[0].files[0];
+        ProfileService.upload(file);
+      });
+    }
+  };
+};
+
+fileUpload.$inject = ['ProfileService'];
+
+exports['default'] = fileUpload;
+
 // let fileUpload = function(ProfileService) {
 
 //   return {
-
 //     restrict: 'AE',
-//     replace: true,
-//     scope: {
-//       image: '=image'
-//     },
-//     templateUrl: 'templates/app-layout/fileupload.tpl.html',
 //     link: function (scope, element, attrs) {
-//       element.on('submit', function () {
-//         console.log('submitted');
+//       element.on('change', function () {
 //         let file = element.find('input')[0].files[0];
-//         ProfileService.upload(file);
+//         console.log('image added');
+//         console.log(file);
+//         return file;
 //       });
 //     }
 //   };
@@ -144,30 +168,6 @@ _angular2['default'].module('app.core', ['ui.router']).constant('SERVER', _const
 // fileUpload.$inject = ['ProfileService'];
 
 // export default fileUpload;
-
-'use strict';
-
-Object.defineProperty(exports, '__esModule', {
-  value: true
-});
-var fileUpload = function fileUpload(ProfileService) {
-
-  return {
-    restrict: 'AE',
-    link: function link(scope, element, attrs) {
-      element.on('change', function () {
-        var file = element.find('input')[0].files[0];
-        console.log('image added');
-        console.log(file);
-        return file;
-      });
-    }
-  };
-};
-
-fileUpload.$inject = ['ProfileService'];
-
-exports['default'] = fileUpload;
 module.exports = exports['default'];
 
 },{}],6:[function(require,module,exports){
