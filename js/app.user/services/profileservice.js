@@ -4,6 +4,7 @@ let ProfileService = function($http, UserService, FILESERVER) {
 
   this.upload = upload;
   this.uploadForm = uploadForm;
+  this.getUser = getUser;
 
   function upload (file) {
     console.log(file);
@@ -21,6 +22,12 @@ let ProfileService = function($http, UserService, FILESERVER) {
     formData.append('location', profile.location);
 
     return $http.post(FILESERVER.URL + 'profiles', formData, FILESERVER.CONFIG);
+  }
+
+  function getUser (id) {
+    console.log(id);
+    UserService.checkFileAuth();
+    return $http.get(FILESERVER.URL + 'users/' + id, FILESERVER.CONFIG);
   }
    
 };

@@ -38,7 +38,6 @@ let UserService = function($http, SERVER, $cookies, $state, FILESERVER) {
   function userSuccess (res) {
     $cookies.put('Auth-Token', res.data.user.auth_token);
     SERVER.CONFIG.headers.auth_token = res.data.user.auth_token;
-    $state.go('root.home');
   }
 
   function checkAuth () {
