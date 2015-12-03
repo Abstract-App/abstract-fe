@@ -21,7 +21,7 @@ var config = function config($stateProvider, $urlRouterProvider) {
     url: '/register',
     controller: 'RegisterController as vm',
     templateUrl: 'templates/app-user/register.tpl.html'
-  }).state('root2.addprofile', {
+  }).state('root.addprofile', {
     url: '/register/addprofile',
     controller: 'ProfileController as vm',
     templateUrl: 'templates/app-user/addprofile.tpl.html'
@@ -205,12 +205,12 @@ var LoginController = function LoginController(ProfileService, UserService, $sta
 
   function signin(user) {
     UserService.login(user).then(function (res) {
-      console.log(res.data.user);
       var id = res.data.user.id;
       UserService.userSuccess(res);
       ProfileService.getUser(id).then(function (res) {
         console.log(res);
-        $state.go('root2.userhome/' + id);
+        $state.go('root2.userhome');
+        vm.user = res.data.user;
       });
     });
   }
@@ -238,12 +238,13 @@ var ProfileController = function ProfileController(UserService, $stateParams, Pr
     UserService.checkFileAuth();
     ProfileService.uploadForm(profile).then(function (res) {
       console.log(res);
+      $state.go('root2.userhome');
     });
   }
 
-  function getProfile() {
+  function getProfile(id) {
     UserService.checkFileAuth();
-    ProfileService.getUser($stateParams.user_id).then(function (res) {
+    ProfileService.getUser(id).then(function (res) {
       console.log(res);
     });
   }
@@ -270,7 +271,7 @@ var RegisterController = function RegisterController(UserService, $state) {
     UserService.register(user).then(function (res) {
       console.log(res);
       UserService.checkAuth();
-      $state.go('root2.addprofile');
+      $state.go('root.addprofile');
     });
   }
 };

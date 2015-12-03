@@ -1,6 +1,8 @@
-<h1>Welcome, {{ vm.username }}</h1>
+<div class="user-posts">
+  <h1>Welcome, {{ vm.user.username }}</h1>
 
-{{ vm.picture_thumb }}
-{{ vm.bio }}
-{{ vm.website }}
-{{ vm.location }}
+  <h3>{{ vm.user.picture_thumb }}</h3>
+  <h3>{{ vm.user.bio }}</h3>
+  <h3>{{ vm.user.website }}</h3>
+  <h3>{{ vm.user.location }}</h3>
+</div>

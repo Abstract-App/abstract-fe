@@ -9,12 +9,13 @@ let ProfileController = function(UserService, $stateParams, ProfileService, $sta
     UserService.checkFileAuth();
     ProfileService.uploadForm(profile).then( (res) => {
       console.log(res);
+      $state.go('root2.userhome');
     });
   }
 
-  function getProfile () {
+  function getProfile (id) {
     UserService.checkFileAuth();
-    ProfileService.getUser($stateParams.user_id).then( (res) => {
+    ProfileService.getUser(id).then( (res) => {
       console.log(res);
     });
   }
