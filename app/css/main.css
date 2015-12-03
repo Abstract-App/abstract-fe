@@ -6390,6 +6390,18 @@ th.hide-for-touch {
 body {
   background: #e2ebf3; }
 
+.side-bar {
+  background: #4d4d4d;
+  width: 300px;
+  position: absolute;
+  top: 45px;
+  left: 0;
+  bottom: 0; }
+
+.user-posts {
+  position: absolute;
+  left: 300px; }
+
 .image-form .uploaded-image {
   width: 200px;
   height: 200px;
