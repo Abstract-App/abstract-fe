@@ -43,6 +43,7 @@ let config = function($stateProvider, $urlRouterProvider) {
     .state('text', {
       parent: 'root2.upload',
       url: '/text',
+      controller: 'TextController as vm',
       templateUrl: 'templates/app-upload/textupload.tpl.html'
     })
     .state('link', {
