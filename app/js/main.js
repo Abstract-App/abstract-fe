@@ -462,10 +462,7 @@ var LoginController = function LoginController(ProfileService, UserService, $sta
       var id = res.data.user.id;
       UserService.userSuccess(res);
       ProfileService.getUser(id).then(function (res) {
-        console.log(res);
-        $state.go('root2.userhome');
-
-        vm.user = res.data.user;
+        $state.go('root2.userhome', { id: id });
       });
     });
   }

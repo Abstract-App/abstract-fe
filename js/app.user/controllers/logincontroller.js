@@ -9,11 +9,7 @@ let LoginController = function(ProfileService, UserService, $state, $stateParams
       let id = res.data.user.id;
       UserService.userSuccess(res);
       ProfileService.getUser(id).then( (res) => {
-        console.log(res);
-        $state.go('root2.userhome');
-
-        vm.user = res.data.user;
-
+        $state.go('root2.userhome', {id: id});
       });
     });
   }
