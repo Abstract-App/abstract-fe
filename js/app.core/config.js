@@ -13,6 +13,7 @@ let config = function($stateProvider, $urlRouterProvider) {
     })
     .state('root.home', {
       url: '/',
+      controller: 'HomeController as vm',
       templateUrl: 'templates/app-projects/splash.tpl.html'
     })
     .state('root.register', {

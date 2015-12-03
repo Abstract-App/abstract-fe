@@ -1,5 +1,6 @@
 <form ng-submit="vm.uploadTextPost(text)" class="text-form">
   <div class="uploaded-text">{{ text.status }}</div>
   <textarea ng-model="text.status" placeholder="What's on your mind?"></textarea>
+  <input placeholder="up to 3 tags that describe this (watercolor, ink, illustration)" ng-model="text.tag_phrases">
   <button>post</button>
 </form>

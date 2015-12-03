@@ -5,7 +5,8 @@ import './app.core/index';
 import './app.user/index';
 import './app.layout/index';
 import './app.upload/index';
+import './app.projects/index';
 
 angular
-  .module('app', ['app.core', 'app.user', 'app.layout'])
+  .module('app', ['app.core', 'app.user', 'app.layout', 'app.projects'])
 ;
