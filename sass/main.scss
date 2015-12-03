@@ -9,6 +9,19 @@ body {
   background: #e2ebf3;
 }
 
+.side-bar {
+  background: lighten(#333333, 10%);
+  width: 300px;
+  position: absolute;
+  top: 45px;
+  left: 0;
+  bottom: 0;
+}
+.user-posts {
+  position: absolute;
+  left: 300px;
+}
+
 // Upload Forms
 .image-form {
   .uploaded-image {
