@@ -5,20 +5,19 @@ let fileUpload = function(ProfileService) {
     restrict: 'E',
     replace: true,
     scope: {
-      image: '=image'
+      file: '='
     },
     templateUrl: 'templates/app-layout/fileupload.tpl.html',
     link: function (scope, element, attrs) {
       element.on('change', function () {
         console.log('submitted');
         let file = element.find('input')[0].files[0];
+        scope.file = file;
         ProfileService.upload(file);
       });
     }
   };
   
-  
-
 };
 
 fileUpload.$inject = ['ProfileService'];

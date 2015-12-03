@@ -5,15 +5,13 @@ let ProfileService = function($http, UserService, FILESERVER) {
   this.upload = upload;
   this.uploadForm = uploadForm;
 
-
   function upload (file) {
     console.log(file);
     return file;
   }
 
-  function uploadForm (profile, file) {
+  function uploadForm (profile) {
     console.log(profile);
-    console.log(file);
   }
 
 

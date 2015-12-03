@@ -132,13 +132,14 @@ var fileUpload = function fileUpload(ProfileService) {
     restrict: 'E',
     replace: true,
     scope: {
-      image: '=image'
+      file: '='
     },
     templateUrl: 'templates/app-layout/fileupload.tpl.html',
     link: function link(scope, element, attrs) {
       element.on('change', function () {
         console.log('submitted');
         var file = element.find('input')[0].files[0];
+        scope.file = file;
         ProfileService.upload(file);
       });
     }
@@ -225,19 +226,16 @@ var ProfileController = function ProfileController(UserService, ProfileService, 
   var vm = this;
 
   vm.uploadProfile = uploadProfile;
-  $scope.uploadImage = uploadImage;
 
-  function uploadImage(file) {
-    console.log('this could be working');
-  }
+  function uploadProfile(profile) {
 
-  function uploadProfile(profile, file) {
+    console.log($scope.file);
 
+    ProfileService.uploadForm(profile);
     // $scope.profile
     // $scope.file
 
     UserService.checkAuth();
-    ProfileService.upload(file);
     // ProfileService.uploadForm(profile, file);
     // ProfileService.upload(profile).then( (res) => {
     //   console.log(res);
@@ -332,9 +330,8 @@ var ProfileService = function ProfileService($http, UserService, FILESERVER) {
     return file;
   }
 
-  function uploadForm(profile, file) {
+  function uploadForm(profile) {
     console.log(profile);
-    console.log(file);
   }
 };
 
