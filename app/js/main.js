@@ -35,6 +35,7 @@ var config = function config($stateProvider, $urlRouterProvider) {
   }).state('image', {
     parent: 'root2.upload',
     url: '/image',
+    controller: 'ImageController as vm',
     templateUrl: 'templates/app-upload/imageupload.tpl.html'
   }).state('text', {
     parent: 'root2.upload',
@@ -234,12 +235,22 @@ _angular2['default'].module('app.layout', ['app.core', 'app.user', 'app.upload']
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var ImageController = function ImageController(PostService) {
+var ImageController = function ImageController(PostService, UserService, $stateParams, $state) {
 
   var vm = this;
+
+  vm.uploadImagePost = uploadImagePost;
+
+  function uploadImagePost(image) {
+    UserService.checkFileAuth();
+    PostService.postForm(image, $stateParams.user_id).then(function (res) {
+      console.log(res);
+      $state.go('root2.userhome');
+    });
+  }
 };
 
-ImageController.$inject = ['PostService'];
+ImageController.$inject = ['PostService', 'UserService', '$stateParams', '$state'];
 
 exports['default'] = ImageController;
 module.exports = exports['default'];
@@ -278,11 +289,26 @@ var PostService = function PostService($http, FILESERVER, UserService) {
   var url = FILESERVER.URL;
 
   this.addImage = addImage;
-  // this.postForm = postForm;
+  this.postForm = postForm;
 
   function addImage(file) {
     console.log(file);
     return file;
+  }
+
+  function postForm(image, userId) {
+    console.log(image);
+
+    UserService.checkFileAuth();
+
+    var formData = new FormData();
+
+    formData.append('post_type', 'image');
+    formData.append('image', image.image);
+    formData.append('title', image.title);
+    formData.append('description', image.description);
+
+    return $http.post(url + 'users/' + userId + '/posts', formData, FILESERVER.CONFIG);
   }
 };
 
@@ -439,7 +465,7 @@ var ProfileService = function ProfileService($http, UserService, FILESERVER) {
     formData.append('website', profile.website);
     formData.append('location', profile.location);
 
-    return $http.post(FILESERVER.URL + 'profiles', formData, FILESERVER.CONFIG);
+    return $http.post(url + 'profiles', formData, FILESERVER.CONFIG);
   }
 };
 
