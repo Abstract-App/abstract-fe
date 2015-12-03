@@ -1,5 +1,5 @@
-<form class="quote-form">
-  <div class="uploaded-quote">{{ quote }}</div>
-  <textarea ng-model="quote" placeholder="What's on your mind?"></textarea>
+<form ng-submit="vm.uploadQuotePost(quote)" class="quote-form">
+  <div class="uploaded-quote">"{{ quote.quote }}"</div>
+  <textarea ng-model="quote.quote" placeholder="What's on your mind?"></textarea>
   <button>post</button>
 </form>

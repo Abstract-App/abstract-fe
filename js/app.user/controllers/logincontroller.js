@@ -11,7 +11,7 @@ let LoginController = function(ProfileService, UserService, $state, $stateParams
       UserService.userSuccess(res);
       ProfileService.getUser(id).then( (res) => {
         console.log(res);
-        $state.go('root2.userhome/' + id);
+        $state.go('root2.userhome');
       });
     });
   }

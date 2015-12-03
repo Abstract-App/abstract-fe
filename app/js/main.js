@@ -50,6 +50,7 @@ var config = function config($stateProvider, $urlRouterProvider) {
   }).state('quote', {
     parent: 'root2.upload',
     url: '/quote',
+    controller: 'QuoteController as vm',
     templateUrl: 'templates/app-upload/quoteupload.tpl.html'
   }).state('root2.mood', {
     url: '/mood',
@@ -123,7 +124,7 @@ var _constantsFileserverconstant2 = _interopRequireDefault(_constantsFileserverc
 
 _angular2['default'].module('app.core', ['ui.router']).constant('SERVER', _constantsServerconstant2['default']).constant('FILESERVER', _constantsFileserverconstant2['default']).config(_config2['default']);
 
-},{"./config":1,"./constants/fileserverconstant":2,"./constants/serverconstant":3,"angular":24,"angular-ui-router":22}],5:[function(require,module,exports){
+},{"./config":1,"./constants/fileserverconstant":2,"./constants/serverconstant":3,"angular":25,"angular-ui-router":23}],5:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -232,7 +233,7 @@ var _directivesPostdirective2 = _interopRequireDefault(_directivesPostdirective)
 
 _angular2['default'].module('app.layout', ['app.core', 'app.user', 'app.upload']).directive('fileUpload', _directivesUploaddirective2['default']).directive('imageUpload', _directivesPostdirective2['default']);
 
-},{"../app.core/index":4,"../app.upload/index":11,"../app.user/index":16,"./directives/postdirective":5,"./directives/uploaddirective":6,"angular":24}],8:[function(require,module,exports){
+},{"../app.core/index":4,"../app.upload/index":12,"../app.user/index":17,"./directives/postdirective":5,"./directives/uploaddirective":6,"angular":25}],8:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -290,6 +291,32 @@ module.exports = exports['default'];
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
+var QuoteController = function QuoteController(PostService, UserService, $state) {
+
+  var vm = this;
+
+  vm.uploadQuotePost = uploadQuotePost;
+
+  function uploadQuotePost(quote) {
+    UserService.checkFileAuth();
+    PostService.postQuote(quote).then(function (res) {
+      console.log(res);
+      $state.go('root2.userhome');
+    });
+  }
+};
+
+QuoteController.$inject = ['PostService', 'UserService', '$state'];
+
+exports['default'] = QuoteController;
+module.exports = exports['default'];
+
+},{}],11:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
 var TextController = function TextController(PostService, UserService, $stateParams, $state) {
 
   var vm = this;
@@ -310,7 +337,7 @@ TextController.$inject = ['PostService', 'UserService', '$stateParams', '$state'
 exports['default'] = TextController;
 module.exports = exports['default'];
 
-},{}],11:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -335,13 +362,17 @@ var _controllersLinkcontroller = require('./controllers/linkcontroller');
 
 var _controllersLinkcontroller2 = _interopRequireDefault(_controllersLinkcontroller);
 
+var _controllersQuotecontroller = require('./controllers/quotecontroller');
+
+var _controllersQuotecontroller2 = _interopRequireDefault(_controllersQuotecontroller);
+
 var _servicesPostservice = require('./services/postservice');
 
 var _servicesPostservice2 = _interopRequireDefault(_servicesPostservice);
 
-_angular2['default'].module('app.upload', ['app.core', 'app.user']).controller('ImageController', _controllersImagecontroller2['default']).controller('TextController', _controllersTextcontroller2['default']).controller('LinkController', _controllersLinkcontroller2['default']).service('PostService', _servicesPostservice2['default']);
+_angular2['default'].module('app.upload', ['app.core', 'app.user']).controller('ImageController', _controllersImagecontroller2['default']).controller('TextController', _controllersTextcontroller2['default']).controller('LinkController', _controllersLinkcontroller2['default']).controller('QuoteController', _controllersQuotecontroller2['default']).service('PostService', _servicesPostservice2['default']);
 
-},{"../app.core/index":4,"../app.user/index":16,"./controllers/imagecontroller":8,"./controllers/linkcontroller":9,"./controllers/textcontroller":10,"./services/postservice":12,"angular":24}],12:[function(require,module,exports){
+},{"../app.core/index":4,"../app.user/index":17,"./controllers/imagecontroller":8,"./controllers/linkcontroller":9,"./controllers/quotecontroller":10,"./controllers/textcontroller":11,"./services/postservice":13,"angular":25}],13:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -355,6 +386,7 @@ var PostService = function PostService($http, FILESERVER, UserService) {
   this.postForm = postForm;
   this.postText = postText;
   this.postLink = postLink;
+  this.postQuote = postQuote;
 
   function addImage(file) {
     console.log(file);
@@ -396,6 +428,16 @@ var PostService = function PostService($http, FILESERVER, UserService) {
     var l = new Link(linkObj);
     return $http.post(url + 'posts', l, FILESERVER.CONFIG);
   }
+
+  var Quote = function Quote(quoteObj) {
+    this.post_type = 'quote';
+    this.quote = quoteObj.quote;
+  };
+
+  function postQuote(quoteObj) {
+    var q = new Quote(quoteObj);
+    return $http.post(url + 'posts', q, FILESERVER.CONFIG);
+  }
 };
 
 PostService.$inject = ['$http', 'FILESERVER', 'UserService'];
@@ -403,7 +445,7 @@ PostService.$inject = ['$http', 'FILESERVER', 'UserService'];
 exports['default'] = PostService;
 module.exports = exports['default'];
 
-},{}],13:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -422,7 +464,7 @@ var LoginController = function LoginController(ProfileService, UserService, $sta
       UserService.userSuccess(res);
       ProfileService.getUser(id).then(function (res) {
         console.log(res);
-        $state.go('root2.userhome/' + id);
+        $state.go('root2.userhome');
       });
     });
   }
@@ -433,7 +475,7 @@ LoginController.$inject = ['ProfileService', 'UserService', '$state', '$statePar
 exports['default'] = LoginController;
 module.exports = exports['default'];
 
-},{}],14:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -466,7 +508,7 @@ ProfileController.$inject = ['UserService', '$stateParams', 'ProfileService', '$
 exports['default'] = ProfileController;
 module.exports = exports['default'];
 
-},{}],15:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -492,7 +534,7 @@ RegisterController.$inject = ['UserService', '$state'];
 exports['default'] = RegisterController;
 module.exports = exports['default'];
 
-},{}],16:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -529,7 +571,7 @@ var _controllersProfilecontroller2 = _interopRequireDefault(_controllersProfilec
 
 _angular2['default'].module('app.user', ['app.core', 'app.layout', 'ngCookies']).controller('LoginController', _controllersLogincontroller2['default']).controller('RegisterController', _controllersRegistercontroller2['default']).controller('ProfileController', _controllersProfilecontroller2['default']).service('UserService', _servicesUserservice2['default']).service('ProfileService', _servicesProfileservice2['default']);
 
-},{"../app.core/index":4,"../app.layout/index":7,"./controllers/logincontroller":13,"./controllers/profilecontroller":14,"./controllers/registercontroller":15,"./services/profileservice":17,"./services/userservice":18,"angular":24,"angular-cookies":21}],17:[function(require,module,exports){
+},{"../app.core/index":4,"../app.layout/index":7,"./controllers/logincontroller":14,"./controllers/profilecontroller":15,"./controllers/registercontroller":16,"./services/profileservice":18,"./services/userservice":19,"angular":25,"angular-cookies":22}],18:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -573,7 +615,7 @@ ProfileService.$inject = ['$http', 'UserService', 'FILESERVER'];
 exports['default'] = ProfileService;
 module.exports = exports['default'];
 
-},{}],18:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -649,7 +691,7 @@ UserService.$inject = ['$http', 'SERVER', '$cookies', '$state', 'FILESERVER'];
 exports['default'] = UserService;
 module.exports = exports['default'];
 
-},{}],19:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -670,7 +712,7 @@ require('./app.upload/index');
 
 _angular2['default'].module('app', ['app.core', 'app.user', 'app.layout']);
 
-},{"./app.core/index":4,"./app.layout/index":7,"./app.upload/index":11,"./app.user/index":16,"angular":24,"angular-ui-router":22}],20:[function(require,module,exports){
+},{"./app.core/index":4,"./app.layout/index":7,"./app.upload/index":12,"./app.user/index":17,"angular":25,"angular-ui-router":23}],21:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.8
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -993,11 +1035,11 @@ angular.module('ngCookies').provider('$$cookieWriter', function $$CookieWriterPr
 
 })(window, window.angular);
 
-},{}],21:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 require('./angular-cookies');
 module.exports = 'ngCookies';
 
-},{"./angular-cookies":20}],22:[function(require,module,exports){
+},{"./angular-cookies":21}],23:[function(require,module,exports){
 /**
  * State-based routing for AngularJS
  * @version v0.2.15
@@ -5368,7 +5410,7 @@ angular.module('ui.router.state')
   .filter('isState', $IsStateFilter)
   .filter('includedByState', $IncludedByStateFilter);
 })(window, window.angular);
-},{}],23:[function(require,module,exports){
+},{}],24:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.8
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -34387,11 +34429,11 @@ $provide.value("$locale", {
 })(window, document);
 
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
-},{}],24:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 require('./angular');
 module.exports = angular;
 
-},{"./angular":23}]},{},[19])
+},{"./angular":24}]},{},[20])
 
 
 //# sourceMappingURL=main.js.map

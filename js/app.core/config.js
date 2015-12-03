@@ -55,6 +55,7 @@ let config = function($stateProvider, $urlRouterProvider) {
     .state('quote', {
       parent: 'root2.upload',
       url: '/quote',
+      controller: 'QuoteController as vm',
       templateUrl: 'templates/app-upload/quoteupload.tpl.html'
     })
     .state('root2.mood', {

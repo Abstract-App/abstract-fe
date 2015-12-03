@@ -6,6 +6,7 @@ import '../app.user/index';
 import ImageController from './controllers/imagecontroller';
 import TextController from './controllers/textcontroller';
 import LinkController from './controllers/linkcontroller';
+import QuoteController from './controllers/quotecontroller';
 
 import PostService from './services/postservice';
 
@@ -14,5 +15,6 @@ angular
   .controller('ImageController', ImageController)
   .controller('TextController', TextController)
   .controller('LinkController', LinkController)
+  .controller('QuoteController', QuoteController)
   .service('PostService', PostService)
 ;
