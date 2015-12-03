@@ -51,8 +51,9 @@ var config = function config($stateProvider, $urlRouterProvider) {
   }).state('root2.mood', {
     url: '/mood',
     templateUrl: 'templates/app-upload/moodupload.tpl.html'
-  }).state('root2.userhome', {
+  }).state('root2.userhome/:id', {
     url: '/userhome',
+    controller: 'ProfileController as vm',
     templateUrl: 'templates/app-profile/profile.tpl.html'
   });
 };
@@ -221,7 +222,7 @@ module.exports = exports['default'];
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var ProfileController = function ProfileController(UserService, ProfileService, $state, $scope) {
+var ProfileController = function ProfileController(UserService, $stateParams, ProfileService, $state, $scope) {
 
   var vm = this;
 
@@ -233,16 +234,19 @@ var ProfileController = function ProfileController(UserService, ProfileService, 
       console.log(res);
       $state.go('root2.userhome');
     });
+  }
 
-    // ProfileService.uploadForm(profile, file);
-    // ProfileService.upload(profile).then( (res) => {
-    //   console.log(res);
-    //   $state.go('root2.userhome');
-    // });
+  activate();
+
+  function activate() {
+    UserService.checkFileAuth();
+    ProfileService.getUser($stateParams.id).then(function (res) {
+      console.log(res);
+    });
   }
 };
 
-ProfileController.$inject = ['UserService', 'ProfileService', '$state', '$scope'];
+ProfileController.$inject = ['UserService', '$stateParams', 'ProfileService', '$state', '$scope'];
 
 exports['default'] = ProfileController;
 module.exports = exports['default'];
@@ -322,6 +326,7 @@ var ProfileService = function ProfileService($http, UserService, FILESERVER) {
 
   this.upload = upload;
   this.uploadForm = uploadForm;
+  this.getUser = getUser;
 
   function upload(file) {
     console.log(file);
@@ -339,6 +344,12 @@ var ProfileService = function ProfileService($http, UserService, FILESERVER) {
     formData.append('location', profile.location);
 
     return $http.post(FILESERVER.URL + 'profiles', formData, FILESERVER.CONFIG);
+  }
+
+  function getUser(id) {
+    console.log(id);
+    UserService.checkFileAuth();
+    return $http.get(FILESERVER.URL + 'users', id, FILESERVER.CONFIG);
   }
 };
 

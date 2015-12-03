@@ -1,4 +1,4 @@
-let ProfileController = function(UserService, ProfileService, $state, $scope) {
+let ProfileController = function(UserService, $stateParams, ProfileService, $state, $scope) {
   
   let vm = this;
 
@@ -10,17 +10,19 @@ let ProfileController = function(UserService, ProfileService, $state, $scope) {
       console.log(res);
       $state.go('root2.userhome');
     });
+  }
 
+  activate();
 
-    // ProfileService.uploadForm(profile, file);
-    // ProfileService.upload(profile).then( (res) => {
-    //   console.log(res);
-    //   $state.go('root2.userhome');
-    // });
+  function activate () {
+    UserService.checkFileAuth();
+    ProfileService.getUser($stateParams.id).then( (res) => {
+      console.log(res);
+    });
   }
 
 };
 
-ProfileController.$inject = ['UserService', 'ProfileService', '$state', '$scope'];
+ProfileController.$inject = ['UserService', '$stateParams', 'ProfileService', '$state', '$scope'];
 
 export default ProfileController;
