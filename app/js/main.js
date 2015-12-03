@@ -229,13 +229,12 @@ var ProfileController = function ProfileController(UserService, ProfileService, 
 
   function uploadProfile(profile) {
 
-    console.log($scope.file);
-
-    ProfileService.uploadForm(profile);
-    // $scope.profile
-    // $scope.file
-
     UserService.checkAuth();
+    ProfileService.uploadForm(profile).then(function (res) {
+      console.log(res);
+      $state.go('root2.userhome');
+    });
+
     // ProfileService.uploadForm(profile, file);
     // ProfileService.upload(profile).then( (res) => {
     //   console.log(res);
@@ -332,6 +331,8 @@ var ProfileService = function ProfileService($http, UserService, FILESERVER) {
 
   function uploadForm(profile) {
     console.log(profile);
+    UserService.checkAuth();
+    return $http.post(FILESERVER.URL + 'profiles', profile, FILESERVER.CONFIG);
   }
 };
 

@@ -6,13 +6,13 @@ let ProfileController = function(UserService, ProfileService, $state, $scope) {
 
   function uploadProfile (profile) {
 
-    console.log($scope.file);
-
-    ProfileService.uploadForm(profile);
-    // $scope.profile
-    // $scope.file
-
     UserService.checkAuth();
+    ProfileService.uploadForm(profile).then( (res) => {
+      console.log(res);
+      $state.go('root2.userhome');
+    });
+
+
     // ProfileService.uploadForm(profile, file);
     // ProfileService.upload(profile).then( (res) => {
     //   console.log(res);

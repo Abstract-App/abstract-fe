@@ -12,11 +12,9 @@ let ProfileService = function($http, UserService, FILESERVER) {
 
   function uploadForm (profile) {
     console.log(profile);
+    UserService.checkAuth();
+    return $http.post(FILESERVER.URL + 'profiles', profile, FILESERVER.CONFIG);
   }
-
-
-
-
    
 };
 
