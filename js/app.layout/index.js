@@ -3,12 +3,15 @@ import angular from 'angular';
 import '../app.core/index';
 import '../app.user/index';
 import '../app.upload/index';
+import '../app.projects/index';
 
 import fileUpload from './directives/uploaddirective';
 import imageUpload from './directives/postdirective';
+import splashTiles from './directives/splashdirective';
 
 angular
-  .module('app.layout', ['app.core', 'app.user', 'app.upload'])
+  .module('app.layout', ['app.core', 'app.user', 'app.upload', 'app.projects'])
   .directive('fileUpload', fileUpload)
   .directive('imageUpload', imageUpload)
+  .directive('splashTiles', splashTiles)
 ;
