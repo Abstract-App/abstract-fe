@@ -3,7 +3,7 @@ let HomeController = function(ProjectService) {
   let vm = this;
 
   ProjectService.getPosts().then( (res) => {
-    console.log(res);
+    console.log(res.data.posts);
   });
   
 

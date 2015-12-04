@@ -5,7 +5,7 @@ let TextController = function(PostService, UserService, $stateParams, $state) {
   vm.uploadTextPost = uploadTextPost;
 
   function uploadTextPost (text) {
-    UserService.checkFileAuth();
+    UserService.checkAuth();
     PostService.postText(text).then( (res) => {
       console.log(res);
       $state.go('root2.userhome');

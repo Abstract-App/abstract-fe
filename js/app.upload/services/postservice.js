@@ -1,4 +1,4 @@
-let PostService = function($http, FILESERVER, UserService) {
+let PostService = function($http, FILESERVER, SERVER, UserService) {
 
   let url = FILESERVER.URL;
 
@@ -35,7 +35,7 @@ let PostService = function($http, FILESERVER, UserService) {
 
   function postText (textObj) {
     let t = new Text(textObj);
-    return $http.post(url + 'posts', t, FILESERVER.CONFIG);
+    return $http.post(url + 'posts', t, SERVER.CONFIG);
   }
 
   let Link = function (linkObj) {
@@ -46,7 +46,7 @@ let PostService = function($http, FILESERVER, UserService) {
 
   function postLink (linkObj) {
     let l = new Link(linkObj);
-    return $http.post(url + 'posts', l, FILESERVER.CONFIG);
+    return $http.post(url + 'posts', l, SERVER.CONFIG);
   }
 
   let Quote = function (quoteObj) {
@@ -56,12 +56,12 @@ let PostService = function($http, FILESERVER, UserService) {
 
   function postQuote (quoteObj) {
     let q = new Quote(quoteObj);
-    return $http.post(url + 'posts', q, FILESERVER.CONFIG);
+    return $http.post(url + 'posts', q, SERVER.CONFIG);
   }
 
   
 };
 
-PostService.$inject = ['$http', 'FILESERVER', 'UserService'];
+PostService.$inject = ['$http', 'FILESERVER', 'SERVER', 'UserService'];
 
 export default PostService;
