@@ -13,6 +13,7 @@ let config = function($stateProvider, $urlRouterProvider) {
     })
     .state('root.home', {
       url: '/',
+      controller: 'HomeController as vm',
       templateUrl: 'templates/app-projects/splash.tpl.html'
     })
     .state('root.register', {
@@ -43,16 +44,19 @@ let config = function($stateProvider, $urlRouterProvider) {
     .state('text', {
       parent: 'root2.upload',
       url: '/text',
+      controller: 'TextController as vm',
       templateUrl: 'templates/app-upload/textupload.tpl.html'
     })
     .state('link', {
       parent: 'root2.upload',
       url: '/link',
+      controller: 'LinkController as vm',
       templateUrl: 'templates/app-upload/linkupload.tpl.html'
     })
     .state('quote', {
       parent: 'root2.upload',
       url: '/quote',
+      controller: 'QuoteController as vm',
       templateUrl: 'templates/app-upload/quoteupload.tpl.html'
     })
     .state('root2.mood', {

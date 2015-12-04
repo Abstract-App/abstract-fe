@@ -1,5 +1,6 @@
-<form class="link-form">
-  <input placeholder="url">
-  <textarea placeholder="description"></textarea>
+<form ng-submit="vm.uploadLinkPost(link)" class="link-form">
+  <input placeholder="url" ng-model="link.url">
+  <textarea placeholder="description" ng-model="link.description"></textarea>
+  <input placeholder="up to 3 tags that describe this (watercolor, ink, illustration)" ng-model="link.tag_phrases">
   <button>post</button>
 </form>

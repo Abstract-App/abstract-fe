@@ -4,6 +4,9 @@ let PostService = function($http, FILESERVER, UserService) {
 
   this.addImage = addImage;
   this.postForm = postForm;
+  this.postText = postText;
+  this.postLink = postLink;
+  this.postQuote = postQuote;
 
   function addImage (file) {
     console.log(file);
@@ -22,7 +25,38 @@ let PostService = function($http, FILESERVER, UserService) {
     formData.append('title', image.title);
     formData.append('description', image.description);
 
-    return $http.post(url + 'users/' + userId + '/posts',formData, FILESERVER.CONFIG);
+    return $http.post(url + 'posts', formData, FILESERVER.CONFIG);
+  }
+
+  let Text = function (textObj) {
+    this.post_type = 'text';
+    this.status = textObj.status;
+  };
+
+  function postText (textObj) {
+    let t = new Text(textObj);
+    return $http.post(url + 'posts', t, FILESERVER.CONFIG);
+  }
+
+  let Link = function (linkObj) {
+    this.post_type = 'link';
+    this.url = linkObj.url;
+    this.description = linkObj.description;
+  };
+
+  function postLink (linkObj) {
+    let l = new Link(linkObj);
+    return $http.post(url + 'posts', l, FILESERVER.CONFIG);
+  }
+
+  let Quote = function (quoteObj) {
+    this.post_type = 'quote';
+    this.quote = quoteObj.quote;
+  };
+
+  function postQuote (quoteObj) {
+    let q = new Quote(quoteObj);
+    return $http.post(url + 'posts', q, FILESERVER.CONFIG);
   }
 
   
