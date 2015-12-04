@@ -1,8 +1,10 @@
-<div class="user-posts">
-  <h1>Welcome, {{ vm.user.username }}</h1>
+<nav class="side-bar">
+  <img src="{{ vm.profile.picture_thumb }}">
+  <h3>{{ vm.profile.bio }}</h3>
+  <h3>{{ vm.profile.website }}</h3>
+  <h3>{{ vm.profile.location }}</h3>
+</nav>
 
-  <h3>{{ vm.user.picture_thumb }}</h3>
-  <h3>{{ vm.user.bio }}</h3>
-  <h3>{{ vm.user.website }}</h3>
-  <h3>{{ vm.user.location }}</h3>
+<div class="user-posts">
+  <h1>Welcome, {{ vm.profile.username }}</h1>
 </div>

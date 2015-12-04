@@ -65,7 +65,7 @@ let config = function($stateProvider, $urlRouterProvider) {
     })
     .state('root2.userhome', {
       url: '/userhome/:id',
-      controller:  'ProfileController as vm',
+      controller:  'UserPageController as vm',
       templateUrl: 'templates/app-profile/profile.tpl.html'
     });
 };
