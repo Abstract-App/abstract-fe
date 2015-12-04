@@ -8,5 +8,5 @@ import './app.upload/index';
 import './app.projects/index';
 
 angular
-  .module('app', ['app.core', 'app.user', 'app.layout', 'app.projects'])
+  .module('app', ['app.core', 'app.user', 'app.layout', 'app.upload', 'app.projects'])
 ;

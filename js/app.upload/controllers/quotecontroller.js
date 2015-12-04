@@ -5,7 +5,7 @@ let QuoteController = function(PostService, UserService, $state) {
   vm.uploadQuotePost = uploadQuotePost;
 
   function uploadQuotePost (quote) {
-    UserService.checkFileAuth();
+    UserService.checkAuth();
     PostService.postQuote(quote).then( (res) => {
       console.log(res);
       $state.go('root2.userhome');

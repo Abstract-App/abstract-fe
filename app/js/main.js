@@ -245,7 +245,7 @@ var HomeController = function HomeController(ProjectService) {
   var vm = this;
 
   ProjectService.getPosts().then(function (res) {
-    console.log(res);
+    console.log(res.data.posts);
   });
 };
 
@@ -336,7 +336,7 @@ var LinkController = function LinkController(PostService, UserService, $statePar
   vm.uploadLinkPost = uploadLinkPost;
 
   function uploadLinkPost(link) {
-    UserService.checkFileAuth();
+    UserService.checkAuth();
     PostService.postLink(link).then(function (res) {
       console.log(res);
       $state.go('root2.userhome');
@@ -362,7 +362,7 @@ var QuoteController = function QuoteController(PostService, UserService, $state)
   vm.uploadQuotePost = uploadQuotePost;
 
   function uploadQuotePost(quote) {
-    UserService.checkFileAuth();
+    UserService.checkAuth();
     PostService.postQuote(quote).then(function (res) {
       console.log(res);
       $state.go('root2.userhome');
@@ -388,7 +388,7 @@ var TextController = function TextController(PostService, UserService, $statePar
   vm.uploadTextPost = uploadTextPost;
 
   function uploadTextPost(text) {
-    UserService.checkFileAuth();
+    UserService.checkAuth();
     PostService.postText(text).then(function (res) {
       console.log(res);
       $state.go('root2.userhome');
@@ -442,7 +442,7 @@ _angular2['default'].module('app.upload', ['app.core', 'app.user']).controller('
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var PostService = function PostService($http, FILESERVER, UserService) {
+var PostService = function PostService($http, FILESERVER, SERVER, UserService) {
 
   var url = FILESERVER.URL;
 
@@ -479,7 +479,7 @@ var PostService = function PostService($http, FILESERVER, UserService) {
 
   function postText(textObj) {
     var t = new Text(textObj);
-    return $http.post(url + 'posts', t, FILESERVER.CONFIG);
+    return $http.post(url + 'posts', t, SERVER.CONFIG);
   }
 
   var Link = function Link(linkObj) {
@@ -490,7 +490,7 @@ var PostService = function PostService($http, FILESERVER, UserService) {
 
   function postLink(linkObj) {
     var l = new Link(linkObj);
-    return $http.post(url + 'posts', l, FILESERVER.CONFIG);
+    return $http.post(url + 'posts', l, SERVER.CONFIG);
   }
 
   var Quote = function Quote(quoteObj) {
@@ -500,11 +500,11 @@ var PostService = function PostService($http, FILESERVER, UserService) {
 
   function postQuote(quoteObj) {
     var q = new Quote(quoteObj);
-    return $http.post(url + 'posts', q, FILESERVER.CONFIG);
+    return $http.post(url + 'posts', q, SERVER.CONFIG);
   }
 };
 
-PostService.$inject = ['$http', 'FILESERVER', 'UserService'];
+PostService.$inject = ['$http', 'FILESERVER', 'SERVER', 'UserService'];
 
 exports['default'] = PostService;
 module.exports = exports['default'];
@@ -775,7 +775,7 @@ require('./app.upload/index');
 
 require('./app.projects/index');
 
-_angular2['default'].module('app', ['app.core', 'app.user', 'app.layout', 'app.projects']);
+_angular2['default'].module('app', ['app.core', 'app.user', 'app.layout', 'app.upload', 'app.projects']);
 
 },{"./app.core/index":4,"./app.layout/index":7,"./app.projects/index":9,"./app.upload/index":15,"./app.user/index":20,"angular":28,"angular-ui-router":26}],24:[function(require,module,exports){
 /**

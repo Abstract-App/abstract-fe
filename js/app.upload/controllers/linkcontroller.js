@@ -5,7 +5,7 @@ let LinkController = function(PostService, UserService, $stateParams, $state) {
   vm.uploadLinkPost = uploadLinkPost;
 
   function uploadLinkPost (link) {
-    UserService.checkFileAuth();
+    UserService.checkAuth();
     PostService.postLink(link).then( (res) => {
       console.log(res);
       $state.go('root2.userhome');
