@@ -5,7 +5,7 @@ let ProfileController = function(UserService, $stateParams, ProfileService, $sta
   vm.uploadProfile = uploadProfile;
 
   function uploadProfile (profile) {
-    UserService.checkFileAuth();
+    // UserService.checkFileAuth();
     ProfileService.uploadForm(profile).then( (res) => {
       console.log(res);
       $state.go('root.login');

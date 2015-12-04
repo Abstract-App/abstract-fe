@@ -240,11 +240,21 @@ _angular2['default'].module('app.layout', ['app.core', 'app.user', 'app.upload']
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var UserPageController = function UserPageController(UserPageService, UserService) {
+var UserPageController = function UserPageController(ProfileService, UserPageService, UserService, $stateParams, $state) {
 
   var vm = this;
 
   vm.getUserStuff = getUserStuff;
+
+  console.log($stateParams.id);
+
+  var id = $stateParams.id;
+
+  UserService.checkFileAuth();
+  ProfileService.getUser(id).then(function (res) {
+    console.log(res);
+    $state.go('root2.userhome', { id: id });
+  });
 
   function getUserStuff(stuffObj) {
     UserPageService.getUserItems(stuffObj).then(function (res) {
@@ -253,7 +263,7 @@ var UserPageController = function UserPageController(UserPageService, UserServic
   }
 };
 
-UserPageController.$inject = ['UserPageService', 'UserService'];
+UserPageController.$inject = ['ProfileService', 'UserPageService', 'UserService', '$stateParams', '$state'];
 
 exports['default'] = UserPageController;
 module.exports = exports['default'];
@@ -595,9 +605,7 @@ var LoginController = function LoginController(ProfileService, UserService, $sta
     UserService.login(user).then(function (res) {
       var id = res.data.user.id;
       UserService.userSuccess(res);
-      ProfileService.getUser(id).then(function (res) {
-        $state.go('root2.userhome', { id: id });
-      });
+      $state.go('root2.userhome', { id: id });
     });
   }
 };
@@ -620,7 +628,7 @@ var ProfileController = function ProfileController(UserService, $stateParams, Pr
   vm.uploadProfile = uploadProfile;
 
   function uploadProfile(profile) {
-    UserService.checkFileAuth();
+    // UserService.checkFileAuth();
     ProfileService.uploadForm(profile).then(function (res) {
       console.log(res);
       $state.go('root.login');
