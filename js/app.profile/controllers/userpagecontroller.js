@@ -15,7 +15,7 @@ let UserPageController = function(ProfileService, UserPageService, UserService, 
     vm.profile = res.data.profile[0];
   });
 
-  UserPageService.getAllPosts().then( (res) => {
+  UserPageService.getAllPosts(id).then( (res) => {
     console.log(res.data.posts);
     vm.post = res.data.posts;
   });
