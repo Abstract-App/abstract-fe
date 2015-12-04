@@ -336,8 +336,7 @@ var LoginController = function LoginController(ProfileService, UserService, $sta
       UserService.userSuccess(res);
       ProfileService.getUser(id).then(function (res) {
         console.log(res);
-        $state.go('root2.userhome');
-        vm.user = res.data.user;
+        $state.go('root2.userhome', { id: id });
       });
     });
   }
@@ -359,20 +358,12 @@ var ProfileController = function ProfileController(UserService, $stateParams, Pr
   var vm = this;
 
   vm.uploadProfile = uploadProfile;
-  vm.getProfile = getProfile;
 
   function uploadProfile(profile) {
     UserService.checkFileAuth();
     ProfileService.uploadForm(profile).then(function (res) {
       console.log(res);
-      $state.go('root2.userhome');
-    });
-  }
-
-  function getProfile(id) {
-    UserService.checkFileAuth();
-    ProfileService.getUser(id).then(function (res) {
-      console.log(res);
+      $state.go('root.login');
     });
   }
 };
