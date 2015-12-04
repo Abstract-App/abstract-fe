@@ -1,10 +1,12 @@
 let UserPageService = function(SERVER, FILESERVER, $cookies, $http, UserService) {
-  
-  function getUserItems (id) {
-    console.log(id);
+
+  this.getAllPosts = getAllPosts;
+
+  function getAllPosts (id) {
+    console.log();
     UserService.checkAuth();
     UserService.checkFileAuth();
-    return $http.get(FILESERVER.URL + 'users/' + id, FILESERVER.CONFIG);
+    return $http.get(FILESERVER.URL + 'users/' + id + '/posts', FILESERVER.CONFIG);
   }
 
 };

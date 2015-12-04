@@ -244,7 +244,7 @@ var UserPageController = function UserPageController(ProfileService, UserPageSer
 
   var vm = this;
 
-  vm.getUserStuff = getUserStuff;
+  vm.post = [];
 
   console.log($stateParams.id);
 
@@ -254,13 +254,13 @@ var UserPageController = function UserPageController(ProfileService, UserPageSer
   ProfileService.getUser(id).then(function (res) {
     console.log(res);
     $state.go('root2.userhome', { id: id });
+    vm.profile = res.data.profile[0];
   });
 
-  function getUserStuff(stuffObj) {
-    UserPageService.getUserItems(stuffObj).then(function (res) {
-      console.log(res);
-    });
-  }
+  UserPageService.getAllPosts().then(function (res) {
+    console.log(res.data.posts);
+    vm.post = res.data.posts;
+  });
 };
 
 UserPageController.$inject = ['ProfileService', 'UserPageService', 'UserService', '$stateParams', '$state'];
@@ -301,11 +301,13 @@ Object.defineProperty(exports, '__esModule', {
 });
 var UserPageService = function UserPageService(SERVER, FILESERVER, $cookies, $http, UserService) {
 
-  function getUserItems(id) {
-    console.log(id);
+  this.getAllPosts = getAllPosts;
+
+  function getAllPosts(id) {
+    console.log();
     UserService.checkAuth();
     UserService.checkFileAuth();
-    return $http.get(FILESERVER.URL + 'users/' + id, FILESERVER.CONFIG);
+    return $http.get(FILESERVER.URL + 'users/' + id + '/posts', FILESERVER.CONFIG);
   }
 };
 
