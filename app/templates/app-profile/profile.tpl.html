@@ -1,10 +1,11 @@
 <nav class="side-bar">
-  <img src="{{ vm.profile.picture_thumb }}">
-  <h3>{{ vm.profile.bio }}</h3>
-  <h3>{{ vm.profile.website }}</h3>
-  <h3>{{ vm.profile.location }}</h3>
+  <img ng-src="{{ vm.profile.picture_thumb }}">
+  <p>{{ vm.profile.bio }}</p>
+  <p>{{ vm.profile.website }}</p>
+  <p>{{ vm.profile.location }}</p>
 </nav>
 
 <div class="user-posts">
   <h1>Welcome, {{ vm.profile.username }}</h1>
+  <user-tile ng-repeat="p in vm.post" post="p"></user-tile>
 </div>

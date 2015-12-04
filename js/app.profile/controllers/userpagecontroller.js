@@ -2,7 +2,7 @@ let UserPageController = function(ProfileService, UserPageService, UserService, 
   
   let vm = this;
 
-  vm.getUserStuff = getUserStuff;
+  vm.post = [];
 
   console.log($stateParams.id);
 
@@ -12,13 +12,13 @@ let UserPageController = function(ProfileService, UserPageService, UserService, 
   ProfileService.getUser(id).then( (res) => {
     console.log(res);
     $state.go('root2.userhome', {id: id});
+    vm.profile = res.data.profile[0];
   });
 
-  function getUserStuff (stuffObj) {
-    UserPageService.getUserItems(stuffObj).then( (res) => {
-      console.log(res);
-    });
-  }
+  UserPageService.getAllPosts(id).then( (res) => {
+    console.log(res.data.posts);
+    vm.post = res.data.posts;
+  });
 
 };
 
