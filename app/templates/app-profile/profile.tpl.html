@@ -1,11 +1,16 @@
-<nav class="side-bar">
-  <img ng-src="{{ vm.profile.picture_thumb }}">
-  <p>{{ vm.profile.bio }}</p>
-  <p>{{ vm.profile.website }}</p>
-  <p>{{ vm.profile.location }}</p>
-</nav>
+<div>
+  <nav class="side-bar">
+    <img ng-src="{{ vm.profile.picture_medium }}">
+    <h3>{{ vm.profile.username }}</h3>
+    <p>{{ vm.profile.bio }}</p>
+    <a href="{{ vm.profile.website }}">{{ vm.profile.website }}</a>
+    <p>{{ vm.profile.location }}</p>
+  </nav>
 
-<div class="user-posts">
-  <h1>Welcome, {{ vm.profile.username }}</h1>
-  <user-tile ng-repeat="p in vm.post" post="p"></user-tile>
+  <div class="user-posts">
+<!--     <h1>Hello, {{ vm.profile.username }}!</h1> -->
+    <div class="user-tiles">
+      <user-tile ng-repeat="p in vm.post" post="p"></user-tile>
+    </div>
+  </div>
 </div>
