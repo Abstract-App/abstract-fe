@@ -8,13 +8,11 @@ let UserPageController = function(ProfileService, UserPageService, UserService, 
 
   UserService.checkFileAuth();
   ProfileService.getUser(id).then( (res) => {
-    console.log(res);
     $state.go('root2.userhome', {id: id});
     vm.profile = res.data.profile[0];
   });
 
   UserPageService.getAllPosts(id).then( (res) => {
-    console.log(res.data.posts);
     vm.post = res.data.posts;
   });
 

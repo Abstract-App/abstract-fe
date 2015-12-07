@@ -68,6 +68,11 @@ let config = function($stateProvider, $urlRouterProvider) {
       url: '/userhome/:id',
       controller:  'UserPageController as vm',
       templateUrl: 'templates/app-profile/profile.tpl.html'
+    })
+    .state('root2.explore', {
+      url: '/explore',
+      controller: 'ExploreController as vm',
+      templateUrl: 'templates/app-projects/allprojects.tpl.html'
     });
 };
 
