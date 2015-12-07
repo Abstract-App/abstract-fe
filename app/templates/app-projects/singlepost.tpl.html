@@ -8,5 +8,8 @@
   <p>{{ vm.post.quote }}</p>
   <a href="#/userhome/{{ vm.post.user_id }}">{{ vm.post.username }}</a>
 </div>
+<hr>
+
+<button ng-click="vm.deletePost(vm.post.user_id)">delete post</button>
 
 
