@@ -4,8 +4,6 @@ let UserPageController = function(ProfileService, UserPageService, UserService, 
 
   vm.post = [];
 
-  console.log($stateParams.id);
-
   let id = $stateParams.id;
 
   UserService.checkFileAuth();

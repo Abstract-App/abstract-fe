@@ -13,7 +13,7 @@ let PostService = function($http, FILESERVER, SERVER, UserService) {
     return file;
   }
 
-  function postForm (image, userId) {
+  function postForm (image) {
     console.log(image);
 
     UserService.checkFileAuth();
