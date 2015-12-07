@@ -1,0 +1,12 @@
+<div>
+  <img ng-src="{{ vm.post.image_medium }}">
+  <h3>{{ vm.post.title }}</h3>
+  <p>{{ vm.post.description }}</p>
+  <p>{{ vm.post.tags.join('# ') }}</p>
+  <a href="{{ vm.post.url }}">{{ vm.post.url }}</a>
+  <p>{{ vm.post.status }}</p>
+  <p>{{ vm.post.quote }}</p>
+  <a href="#/userhome/{{ vm.post.user_id }}">{{ vm.post.username }}</a>
+</div>
+
+
