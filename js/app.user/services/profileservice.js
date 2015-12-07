@@ -5,7 +5,6 @@ let ProfileService = function($state, $http, UserService, FILESERVER) {
   this.upload = upload;
   this.uploadForm = uploadForm;
   this.getUser = getUser;
-  this.routeUser = routeUser;
 
   function upload (file) {
     console.log(file);
