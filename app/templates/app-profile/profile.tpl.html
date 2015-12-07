@@ -10,7 +10,16 @@
   <div class="user-posts">
 <!--     <h1>Hello, {{ vm.profile.username }}!</h1> -->
     <div class="user-tiles">
-      <user-tile ng-repeat="p in vm.post" post="p"></user-tile>
+      <user-tile ng-repeat="p in vm.postImg" post="p"></user-tile>
     </div>
+    <div class="user-tiles">
+      <user-txttile ng-repeat="p in vm.postTxt" post="p"></user-txttile>
+    </div> 
+    <div class="user-tiles">
+      <user-qtetile ng-repeat="p in vm.postQte" post="p"></user-qtetile>
+    </div>
+    <div class="user-tiles">
+      <user-urltile ng-repeat="p in vm.postUrl" post="p"></user-urltile>
+    </div>   
   </div>
 </div>
