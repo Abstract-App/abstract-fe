@@ -1,4 +1,4 @@
-let splashTiles = function ($state, ProjectService) {
+let splashTxt = function($state, ProjectService) {
   
   return {
     restrict: 'E',
@@ -6,7 +6,7 @@ let splashTiles = function ($state, ProjectService) {
     scope: {
       tile: "="
     },
-    templateUrl: 'templates/app-layout/hometiles.tpl.html',
+    templateUrl: 'templates/app-layout/hometxttiles.tpl.html',
     link: function (scope, element, attrs) {
       // if(scope.tile.post_type !== 'image') {
       //   element.remove();
@@ -22,6 +22,6 @@ let splashTiles = function ($state, ProjectService) {
 
 };
 
-splashTiles.$inject = ['$state', 'ProjectService'];
+splashTxt.$inject = ['$state', 'ProjectService'];
 
-export default splashTiles;
+export default splashTxt;
