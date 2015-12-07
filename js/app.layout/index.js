@@ -9,6 +9,7 @@ import fileUpload from './directives/uploaddirective';
 import imageUpload from './directives/postdirective';
 import userTile from './directives/usertilesdirective';
 import splashTiles from './directives/splashdirective';
+import splashTxt from './directives/splashtextdirective';
 
 angular
   .module('app.layout', ['app.core', 'app.user', 'app.upload', 'app.projects'])
@@ -16,4 +17,5 @@ angular
   .directive('imageUpload', imageUpload)
   .directive('userTile', userTile)
   .directive('splashTiles', splashTiles)
+  .directive('splashTxt', splashTxt)
 ;
