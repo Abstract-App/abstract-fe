@@ -33,6 +33,7 @@ let config = function($stateProvider, $urlRouterProvider) {
     })
     .state('root2.upload', {
       url: '/upload',
+      controller: 'UploadPageController as vm',
       templateUrl: 'templates/app-upload/upload.tpl.html'
     })
     .state('image', {
@@ -72,6 +73,11 @@ let config = function($stateProvider, $urlRouterProvider) {
       url: '/singlepost/:id',
       controller: 'SinglePostController as vm',
       templateUrl: 'templates/app-projects/singlepost.tpl.html'
+    })
+    .state('root2.explore', {
+      url: '/explore',
+      controller: 'ExploreController as vm',
+      templateUrl: 'templates/app-projects/allprojects.tpl.html'
     });
 };
 

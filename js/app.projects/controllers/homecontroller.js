@@ -5,7 +5,6 @@ let HomeController = function(ProjectService) {
   vm.tiles = [];
 
   ProjectService.getPosts().then( (res) => {
-    console.log(res.data.posts);
     vm.tiles = res.data.posts;
   });  
 

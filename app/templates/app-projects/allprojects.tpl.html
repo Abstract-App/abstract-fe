@@ -1,10 +1,10 @@
   <section class="splashnav">
     <div class="quotebox">
-      <p>a community for makers.</p>
-      <a href="#/register"><button>join us</button></a>
+      <p>explore posts from our community.</p>
+      <a href="#/upload"><button>create.</button></a>
     </div>
   </section>
 
-<div class="tiles">
+  <div class="tiles">
   <splash-tiles ng-repeat="t in vm.tiles | orderBy:'-created_at'" tile="t"></splash-tiles>
 </div>

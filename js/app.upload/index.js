@@ -7,6 +7,7 @@ import ImageController from './controllers/imagecontroller';
 import TextController from './controllers/textcontroller';
 import LinkController from './controllers/linkcontroller';
 import QuoteController from './controllers/quotecontroller';
+import UploadPageController from './controllers/uploadpagecontroller';
 
 import PostService from './services/postservice';
 
@@ -16,5 +17,6 @@ angular
   .controller('TextController', TextController)
   .controller('LinkController', LinkController)
   .controller('QuoteController', QuoteController)
+  .controller('UploadPageController', UploadPageController)
   .service('PostService', PostService)
 ;

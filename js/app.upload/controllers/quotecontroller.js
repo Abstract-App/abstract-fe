@@ -7,8 +7,8 @@ let QuoteController = function(PostService, UserService, $state) {
   function uploadQuotePost (quote) {
     UserService.checkAuth();
     PostService.postQuote(quote).then( (res) => {
-      console.log(res);
-      $state.go('root2.userhome');
+      let id = res.data.post[0].user_id;
+      $state.go('root2.userhome', {id: id});
     });
   }
 
