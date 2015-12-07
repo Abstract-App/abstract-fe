@@ -624,6 +624,7 @@ var PostService = function PostService($http, FILESERVER, SERVER, UserService) {
     formData.append('image', image.image);
     formData.append('title', image.title);
     formData.append('description', image.description);
+    formData.append('tag_phrases', image.tag_phrases);
 
     return $http.post(url + 'posts', formData, FILESERVER.CONFIG);
   }
@@ -631,6 +632,7 @@ var PostService = function PostService($http, FILESERVER, SERVER, UserService) {
   var Text = function Text(textObj) {
     this.post_type = 'text';
     this.status = textObj.status;
+    this.tag_phrases = textObj.tag_phrases;
   };
 
   function postText(textObj) {
@@ -642,6 +644,7 @@ var PostService = function PostService($http, FILESERVER, SERVER, UserService) {
     this.post_type = 'link';
     this.url = linkObj.url;
     this.description = linkObj.description;
+    this.tag_phrases = linkObj.tag_phrases;
   };
 
   function postLink(linkObj) {
@@ -652,6 +655,7 @@ var PostService = function PostService($http, FILESERVER, SERVER, UserService) {
   var Quote = function Quote(quoteObj) {
     this.post_type = 'quote';
     this.quote = quoteObj.quote;
+    this.tag_phrases = quoteObj.tag_phrases;
   };
 
   function postQuote(quoteObj) {
