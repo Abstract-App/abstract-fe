@@ -539,12 +539,16 @@ Object.defineProperty(exports, '__esModule', {
 var UserPageService = function UserPageService(SERVER, FILESERVER, $cookies, $http, UserService) {
 
   this.getAllPosts = getAllPosts;
+  this.deletePost = deletePost;
 
   function getAllPosts(id) {
-    console.log(id);
     UserService.checkAuth();
     UserService.checkFileAuth();
     return $http.get(FILESERVER.URL + 'users/' + id + '/posts', FILESERVER.CONFIG);
+  }
+
+  function deletePost(id) {
+    return $http['delete'](FILESERVER.URL + 'posts/' + id, FILESERVER.CONFIG);
   }
 };
 
@@ -629,17 +633,32 @@ module.exports = exports['default'];
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var SinglePostController = function SinglePostController($stateParams, ProjectService, UserPageService) {
+var SinglePostController = function SinglePostController($state, $stateParams, UserService, ProfileService, ProjectService, UserPageService) {
 
   var vm = this;
+
+  vm.deletePost = deletePost;
 
   ProjectService.getPost($stateParams.id).then(function (res) {
     console.log(res.data.post[0]);
     vm.post = res.data.post[0];
+    vm.userId = res.data.post[0].user_id;
+    // console.log(vm.userId);
+    return vm.userId;
   });
+
+  var id = $stateParams.id;
+
+  function deletePost(userId) {
+    console.log('fucking delete it');
+    UserService.checkFileAuth();
+    UserPageService.deletePost(id).then(function (res) {
+      $state.go('root2.userhome', { id: userId });
+    });
+  }
 };
 
-SinglePostController.$inject = ['$stateParams', 'ProjectService', 'UserPageService'];
+SinglePostController.$inject = ['$state', '$stateParams', 'UserService', 'ProfileService', 'ProjectService', 'UserPageService'];
 
 exports['default'] = SinglePostController;
 module.exports = exports['default'];
@@ -1063,13 +1082,14 @@ _angular2['default'].module('app.user', ['app.core', 'app.layout', 'ngCookies'])
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var ProfileService = function ProfileService($http, UserService, FILESERVER) {
+var ProfileService = function ProfileService($state, $http, UserService, FILESERVER) {
 
   var url = FILESERVER.URL;
 
   this.upload = upload;
   this.uploadForm = uploadForm;
   this.getUser = getUser;
+  this.routeUser = routeUser;
 
   function upload(file) {
     console.log(file);
@@ -1090,13 +1110,12 @@ var ProfileService = function ProfileService($http, UserService, FILESERVER) {
   }
 
   function getUser(id) {
-    console.log(id);
     UserService.checkFileAuth();
     return $http.get(FILESERVER.URL + 'users/' + id, FILESERVER.CONFIG);
   }
 };
 
-ProfileService.$inject = ['$http', 'UserService', 'FILESERVER'];
+ProfileService.$inject = ['$state', '$http', 'UserService', 'FILESERVER'];
 
 exports['default'] = ProfileService;
 module.exports = exports['default'];
@@ -1158,7 +1177,7 @@ var UserService = function UserService($http, SERVER, $cookies, $state, FILESERV
       $state.go('root.home');
     }
 
-    console.log(token);
+    // console.log(token);
   }
 
   function checkFileAuth() {

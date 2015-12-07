@@ -1,10 +1,11 @@
-let ProfileService = function($http, UserService, FILESERVER) {
+let ProfileService = function($state, $http, UserService, FILESERVER) {
 
   let url = FILESERVER.URL;
 
   this.upload = upload;
   this.uploadForm = uploadForm;
   this.getUser = getUser;
+  this.routeUser = routeUser;
 
   function upload (file) {
     console.log(file);
@@ -25,13 +26,12 @@ let ProfileService = function($http, UserService, FILESERVER) {
   }
 
   function getUser (id) {
-    console.log(id);
     UserService.checkFileAuth();
     return $http.get(FILESERVER.URL + 'users/' + id, FILESERVER.CONFIG);
   }
    
 };
 
-ProfileService.$inject = ['$http', 'UserService', 'FILESERVER'];
+ProfileService.$inject = ['$state', '$http', 'UserService', 'FILESERVER'];
 
 export default ProfileService;

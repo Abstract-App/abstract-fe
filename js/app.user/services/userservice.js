@@ -49,7 +49,7 @@ let UserService = function($http, SERVER, $cookies, $state, FILESERVER) {
       $state.go('root.home');
     }
 
-    console.log(token);
+    // console.log(token);
   }
 
   function checkFileAuth () {
