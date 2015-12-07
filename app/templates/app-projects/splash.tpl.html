@@ -1,6 +1,10 @@
-<h2>HELLO THERE</h2>
+  <section class="splashnav">
+    <div class="quotebox">
+      <p>a community for makers.</p>
+      <button>learn more</button>
+    </div>
+  </section>
 
-<div>
-  all projects go here
-  <splash-tiles ng-repeat="t in vm.tiles" tile="t"></splash-tiles>
+<div class="tiles">
+  <splash-tiles ng-repeat="t in vm.tiles | orderBy:'-created_at'" tile="t"></splash-tiles>
 </div>
