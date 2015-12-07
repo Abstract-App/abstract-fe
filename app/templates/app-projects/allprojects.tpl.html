@@ -1,1 +1,10 @@
-<h2>all projects here</h2>
+  <section class="splashnav">
+    <div class="quotebox">
+      <p>explore posts from our community.</p>
+      <a href="#/upload"><button>create.</button></a>
+    </div>
+  </section>
+
+  <div class="tiles">
+  <splash-tiles ng-repeat="t in vm.tiles | orderBy:'-created_at'" tile="t"></splash-tiles>
+</div>

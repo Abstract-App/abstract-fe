@@ -392,12 +392,21 @@ module.exports = exports['default'];
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var ExploreController = function ExploreController(ProjectService) {
+var ExploreController = function ExploreController(ProjectService, UserService) {
 
   var vm = this;
+
+  vm.tiles = [];
+
+  UserService.checkAuth();
+
+  ProjectService.getPosts().then(function (res) {
+    console.log(res.data.posts);
+    vm.tiles = res.data.posts;
+  });
 };
 
-ExploreController.$inject = ['ProjectService'];
+ExploreController.$inject = ['ProjectService', 'UserService'];
 
 exports['default'] = ExploreController;
 module.exports = exports['default'];
