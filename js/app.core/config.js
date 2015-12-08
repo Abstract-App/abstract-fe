@@ -9,6 +9,7 @@ let config = function($stateProvider, $urlRouterProvider) {
     })
     .state('root2', {
       abstract: true,
+      controller: 'UsernavController as vm',
       templateUrl: 'templates/app-layout/layout2.tpl.html'
     })
     .state('root.home', {
