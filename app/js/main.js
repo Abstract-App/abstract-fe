@@ -232,11 +232,10 @@ var splashTiles = function splashTiles($state, ProjectService) {
     },
     templateUrl: 'templates/app-layout/hometiles.tpl.html',
     link: function link(scope, element, attrs) {
-      element.find('img', function () {
-        this.element.on('click', function () {
-          $state.go('root2.singlepost', {
-            id: scope.tile.id
-          });
+      element.on('click', function () {
+        console.log(scope.tile.post.id);
+        $state.go('root2.singlepost', {
+          id: scope.tile.post.id
         });
       });
     }
@@ -381,8 +380,9 @@ var userTile = function userTile($state, UserPageService, ProjectService) {
     controller: 'UserPageController as vm',
     link: function link(scope, element, attrs) {
       element.on('click', function () {
+        var id = scope.post.post.id;
         $state.go('root2.singlepost', {
-          id: scope.post.id
+          id: id
         });
       });
     }
@@ -547,11 +547,11 @@ var UserPageController = function UserPageController(ProfileService, UserPageSer
     vm.post = res.data.posts;
 
     angular.forEach(vm.post, function (p) {
-      if (p.post_type === 'image') {
+      if (p.post.post_type === 'image') {
         vm.postImg.push(p);
-      } else if (p.post_type === 'text') {
+      } else if (p.post.post_type === 'text') {
         vm.postTxt.push(p);
-      } else if (p.post_type === 'quote') {
+      } else if (p.post.post_type === 'quote') {
         vm.postQte.push(p);
       } else {
         vm.postUrl.push(p);
@@ -636,11 +636,12 @@ var ExploreController = function ExploreController(ProjectService, UserService) 
 
   ProjectService.getPosts().then(function (res) {
     vm.tiles = res.data.posts;
+    console.log(vm.tiles);
 
     angular.forEach(vm.tiles, function (tile) {
-      if (tile.post_type === 'image') {
+      if (tile.post.post_type === 'image') {
         vm.imgTiles.push(tile);
-      } else if (tile.post_type === 'text') {
+      } else if (tile.post.post_type === 'text') {
         vm.txtTiles.push(tile);
       }
 
@@ -674,9 +675,9 @@ var HomeController = function HomeController(ProjectService) {
     vm.tiles = res.data.posts;
 
     angular.forEach(vm.tiles, function (tile) {
-      if (tile.post_type === 'image') {
+      if (tile.post.post_type === 'image') {
         vm.imgTiles.push(tile);
-      } else if (tile.post_type === 'text') {
+      } else if (tile.post.post_type === 'text') {
         vm.txtTiles.push(tile);
       }
 
@@ -708,10 +709,8 @@ var SinglePostController = function SinglePostController($state, $stateParams, U
   vm.addComment = addComment;
 
   ProjectService.getPost($stateParams.id).then(function (res) {
-    console.log(res.data.post[0]);
-    vm.post = res.data.post[0];
-    vm.userId = res.data.post[0].user_id;
-    // console.log(vm.userId);
+    vm.post = res.data.post;
+    vm.userId = res.data.post.user_id;
     return vm.userId;
   });
 

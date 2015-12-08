@@ -1,12 +1,12 @@
 <div class="tile">
   <div class="tile-image">
-    <img ng-src="{{ tile.image_medium }}">
+    <img ng-src="{{ tile.post.image_medium }}">
   </div>
   <div class="tile-username">
-    <p>{{ tile.username }}</p>
+    <p>{{ tile.post.username }}</p>
     <i class="fa fa-comment-o"></i> 
     <span ng-click="vm.addLike()">
-      <i class="fa fa-heart-o"></i> {{ tile.likes_count }}
+      <i class="fa fa-heart-o"></i> {{ tile.post.likes_count }}
     </span>
   </div>
 </div>

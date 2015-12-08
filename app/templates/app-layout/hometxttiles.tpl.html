@@ -1,10 +1,10 @@
 <div class="tile">
   <div class="tile-image">
-    <p>{{ tile.status }}</p>
+    <p>{{ tile.post.status }}</p>
   </div>
   <div class="tile-username">
-    <p>{{ tile.username }}</p>
+    <p>{{ tile.post.username }}</p>
     <i class="fa fa-comment-o"></i>
-    <i class="fa fa-heart-o"></i>
+    <i class="fa fa-heart-o"></i> {{ tile.post.likes_count }}
   </div>
 </div>
