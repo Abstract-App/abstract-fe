@@ -215,12 +215,11 @@ var splashTiles = function splashTiles($state, ProjectService) {
     },
     templateUrl: 'templates/app-layout/hometiles.tpl.html',
     link: function link(scope, element, attrs) {
-      // if(scope.tile.post_type !== 'image') {
-      //   element.remove();
-      // }
-      element.on('click', function () {
-        $state.go('root2.singlepost', {
-          id: scope.tile.id
+      element.find('img', function () {
+        this.element.on('click', function () {
+          $state.go('root2.singlepost', {
+            id: scope.tile.id
+          });
         });
       });
     }
