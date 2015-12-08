@@ -141,12 +141,18 @@ _angular2['default'].module('app.core', ['ui.router']).constant('SERVER', _const
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var UsernavController = function UsernavController(UserService) {
+var UsernavController = function UsernavController(UserService, $state) {
 
   var vm = this;
+
+  vm.logout = logout;
+
+  function logout() {
+    UserService.logout();
+  }
 };
 
-UsernavController.$inject = ['UserService'];
+UsernavController.$inject = ['UserService', '$state'];
 
 exports['default'] = UsernavController;
 module.exports = exports['default'];
