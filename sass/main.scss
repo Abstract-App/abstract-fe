@@ -238,3 +238,121 @@ body {
     height: 100px;
   }
 }
+
+.mood-form {
+  a {
+    text-decoration: none;
+    color: gray;
+    div {
+      margin-top: 30px;
+      width: 100px;
+      height: 100px;
+      border: 1px solid gray;
+      display: inline-block;
+    }
+  }
+}
+
+.template1 {
+  margin: 0 auto;
+  text-align: center;
+  h1 {
+    color: gray;
+  }
+}
+.temp1 {
+  margin: 0 auto;
+  width: 610px;
+  height: 760px;
+    .temp1sect1 {
+    width: 300px;
+    height: 250px;
+    background: darken(#E5E5E5, 20%);
+    display: inline-block;
+    }
+    .temp1sect2 {
+    width: 300px;
+    height: 250px;
+    background: darken(#E5E5E5, 20%);
+    display: inline-block;
+    }
+    .temp1sect3 {
+    width: 300px;
+    height: 250px;
+    background: darken(#E5E5E5, 20%);
+    display: inline-block;
+    }
+    .temp1sect4 {
+    width: 300px;
+    height: 250px;
+    background: darken(#E5E5E5, 20%);
+    display: inline-block;
+    }
+    .temp1sect5 {
+    width: 300px;
+    height: 250px;
+    background: darken(#E5E5E5, 20%);
+    display: inline-block;
+    }
+    .temp1sect6 {
+    width: 300px;
+    height: 250px;
+    background: darken(#E5E5E5, 20%);
+    display: inline-block;
+    }
+}
+
+.template2 {
+  margin: 0 auto;
+  text-align: center;
+  h1 {
+    color: gray;
+  }
+}
+.temp2 {
+  margin: 0 auto;
+  width: 610px;
+  height: 760px;
+    .temp2sect1 {
+    width: 300px;
+    height: 375px;
+    background: darken(#E5E5E5, 20%);
+    display: inline-block;
+    }
+    .temp2sect2 {
+    width: 100px;
+    height: 375px;
+    background: darken(#E5E5E5, 20%);
+    display: inline-block;
+    }
+    .temp2sect3 {
+    width: 200px;
+    height: 375px;
+    background: darken(#E5E5E5, 20%);
+    display: inline-block;
+    }
+    .temp2left {
+      display: inline-block;
+      width: 300px;
+      height: 375px;
+      .temp2sect4 {
+      width: 300px;
+      height: 185px;
+      background: darken(#E5E5E5, 20%);
+      margin-bottom: 5px;
+      display: block;
+      }
+      .temp2sect5 {
+      width: 300px;
+      height: 185px;
+      background: darken(#E5E5E5, 20%);
+      display: block;
+      }
+    }
+    .temp2sect6 {
+    width: 300px;
+    height: 375px;
+    background: darken(#E5E5E5, 20%);
+    display: inline-block;
+    }
+}
