@@ -559,7 +559,6 @@ var UserPageService = function UserPageService(SERVER, FILESERVER, $cookies, $ht
   this.deletePost = deletePost;
 
   function getAllPosts(id) {
-    UserService.checkAuth();
     UserService.checkFileAuth();
     return $http.get(FILESERVER.URL + 'users/' + id + '/posts', FILESERVER.CONFIG);
   }
