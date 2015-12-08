@@ -59,7 +59,11 @@ var config = function config($stateProvider, $urlRouterProvider) {
     url: '/mood',
     templateUrl: 'templates/app-upload/moodupload.tpl.html'
   }).state('root2.userhome', {
-    url: '/userhome/:id',
+    url: '/userhome',
+    controller: 'UserPageController as vm',
+    templateUrl: 'templates/app-profile/profile.tpl.html'
+  }).state('root2.user', {
+    url: '/user/:id',
     controller: 'UserPageController as vm',
     templateUrl: 'templates/app-profile/profile.tpl.html'
   }).state('root2.singlepost', {
@@ -141,18 +145,25 @@ _angular2['default'].module('app.core', ['ui.router']).constant('SERVER', _const
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var UsernavController = function UsernavController(UserService, $state) {
+var UsernavController = function UsernavController(UserService, $state, $cookies) {
 
   var vm = this;
 
   vm.logout = logout;
+  vm.userHome = userHome;
 
   function logout() {
     UserService.logout();
   }
+
+  function userHome() {
+    console.log('hello');
+    var id = $cookies.get('id');
+    $state.go('root2.user', { id: id });
+  }
 };
 
-UsernavController.$inject = ['UserService', '$state'];
+UsernavController.$inject = ['UserService', '$state', '$cookies'];
 
 exports['default'] = UsernavController;
 module.exports = exports['default'];
@@ -490,7 +501,7 @@ _angular2['default'].module('app.layout', ['app.core', 'app.user', 'app.upload',
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var UserPageController = function UserPageController(ProfileService, UserPageService, UserService, $stateParams, $state) {
+var UserPageController = function UserPageController(ProfileService, UserPageService, UserService, $stateParams, $state, $cookies) {
 
   var vm = this;
 
@@ -500,11 +511,20 @@ var UserPageController = function UserPageController(ProfileService, UserPageSer
   vm.postQte = [];
   vm.postUrl = [];
 
-  var id = $stateParams.id;
+  // function getId () {
+  //   if ($stateParams) { 
+  //     id = $stateParams.id;
+  //   } else {
+  //     id = $cookies.get(id);
+  //     console.log(id);
+  //   } 
+  //   return id;
+  // }
 
   UserService.checkFileAuth();
+  var id = $stateParams.id ? $stateParams.id : $cookies.get('id');
   ProfileService.getUser(id).then(function (res) {
-    $state.go('root2.userhome', { id: id });
+    $state.go('root2.userhome');
     vm.profile = res.data.profile[0];
   });
 
@@ -527,7 +547,7 @@ var UserPageController = function UserPageController(ProfileService, UserPageSer
   });
 };
 
-UserPageController.$inject = ['ProfileService', 'UserPageService', 'UserService', '$stateParams', '$state'];
+UserPageController.$inject = ['ProfileService', 'UserPageService', 'UserService', '$stateParams', '$state', '$cookies'];
 
 exports['default'] = UserPageController;
 module.exports = exports['default'];
@@ -1003,7 +1023,7 @@ var LoginController = function LoginController(ProfileService, UserService, $sta
     UserService.login(user).then(function (res) {
       var id = res.data.user.id;
       UserService.userSuccess(res);
-      $state.go('root2.userhome', { id: id });
+      $state.go('root2.userhome');
     });
   }
 };
@@ -1190,7 +1210,9 @@ var UserService = function UserService($http, SERVER, $cookies, $state, FILESERV
 
   function userSuccess(res) {
     $cookies.put('Auth-Token', res.data.user.auth_token);
+    $cookies.put('id', res.data.user.id);
     SERVER.CONFIG.headers.auth_token = res.data.user.auth_token;
+    SERVER.CONFIG.headers.id = res.data.user.id;
   }
 
   function checkAuth() {
