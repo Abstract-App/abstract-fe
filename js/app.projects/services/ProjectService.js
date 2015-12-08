@@ -1,9 +1,10 @@
-let ProjectService = function($http, FILESERVER) {
+let ProjectService = function($http, FILESERVER, SERVER) {
 
   let url = FILESERVER.URL;
   
   this.getPosts = getPosts;
   this.getPost = getPost;
+  this.postComment = postComment;
 
   function getPosts () {
     return $http.get(url + 'posts', FILESERVER.CONFIG);
@@ -13,10 +14,20 @@ let ProjectService = function($http, FILESERVER) {
     return $http.get(url + 'posts' + '/' + id, FILESERVER.CONFIG);
   }
 
+  let Comment = function (commentObj, id) {
+    this.post_id = id;
+    this.message = commentObj.message;
+  };
+
+  function postComment (commentObj, id) {
+    let c = new Comment(commentObj, id);
+    return $http.post(url + 'posts/' + id + '/comments', c, SERVER.CONFIG);
+  }
+
 
 
 };
 
-ProjectService.$inject = ['$http', 'FILESERVER'];
+ProjectService.$inject = ['$http', 'FILESERVER', 'SERVER'];
 
 export default ProjectService;

@@ -157,7 +157,6 @@ var UsernavController = function UsernavController(UserService, $state, $cookies
   }
 
   function userHome() {
-    console.log('hello');
     var id = $cookies.get('id');
     $state.go('root2.user', { id: id });
   }
@@ -684,6 +683,7 @@ var SinglePostController = function SinglePostController($state, $stateParams, U
   var vm = this;
 
   vm.deletePost = deletePost;
+  vm.addComment = addComment;
 
   ProjectService.getPost($stateParams.id).then(function (res) {
     console.log(res.data.post[0]);
@@ -700,6 +700,14 @@ var SinglePostController = function SinglePostController($state, $stateParams, U
     UserService.checkFileAuth();
     UserPageService.deletePost(id).then(function (res) {
       $state.go('root2.userhome', { id: userId });
+    });
+  }
+
+  function addComment(commentObj) {
+    UserService.checkAuth();
+    ProjectService.postComment(commentObj, id).then(function (res) {
+      console.log(res);
+      $state.reload();
     });
   }
 };
@@ -746,12 +754,13 @@ _angular2['default'].module('app.projects', ['app.core', 'app.layout']).controll
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var ProjectService = function ProjectService($http, FILESERVER) {
+var ProjectService = function ProjectService($http, FILESERVER, SERVER) {
 
   var url = FILESERVER.URL;
 
   this.getPosts = getPosts;
   this.getPost = getPost;
+  this.postComment = postComment;
 
   function getPosts() {
     return $http.get(url + 'posts', FILESERVER.CONFIG);
@@ -760,9 +769,19 @@ var ProjectService = function ProjectService($http, FILESERVER) {
   function getPost(id) {
     return $http.get(url + 'posts' + '/' + id, FILESERVER.CONFIG);
   }
+
+  var Comment = function Comment(commentObj, id) {
+    this.post_id = id;
+    this.message = commentObj.message;
+  };
+
+  function postComment(commentObj, id) {
+    var c = new Comment(commentObj, id);
+    return $http.post(url + 'posts/' + id + '/comments', c, SERVER.CONFIG);
+  }
 };
 
-ProjectService.$inject = ['$http', 'FILESERVER'];
+ProjectService.$inject = ['$http', 'FILESERVER', 'SERVER'];
 
 exports['default'] = ProjectService;
 module.exports = exports['default'];

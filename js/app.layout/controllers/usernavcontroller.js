@@ -10,7 +10,6 @@ let UsernavController = function(UserService, $state, $cookies) {
   }
 
   function userHome () {
-    console.log('hello');
     let id = $cookies.get('id');
     $state.go('root2.user', {id: id});
   }
