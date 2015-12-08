@@ -3,6 +3,7 @@ let SinglePostController = function($state, $stateParams, UserService, ProfileSe
   let vm = this;
 
   vm.deletePost = deletePost;
+  vm.addComment = addComment;
 
   ProjectService.getPost($stateParams.id).then( (res) => {
     console.log(res.data.post[0]);
@@ -19,6 +20,14 @@ let SinglePostController = function($state, $stateParams, UserService, ProfileSe
     UserService.checkFileAuth();
     UserPageService.deletePost(id).then( (res) => {
       $state.go('root2.userhome', {id: userId});
+    });
+  }
+
+  function addComment (commentObj) {
+    UserService.checkAuth();
+    ProjectService.postComment(commentObj, id).then( (res) => {
+      console.log(res);
+      $state.reload();
     });
   }
 

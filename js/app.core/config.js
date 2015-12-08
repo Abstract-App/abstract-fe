@@ -9,6 +9,7 @@ let config = function($stateProvider, $urlRouterProvider) {
     })
     .state('root2', {
       abstract: true,
+      controller: 'UsernavController as vm',
       templateUrl: 'templates/app-layout/layout2.tpl.html'
     })
     .state('root.home', {
@@ -87,8 +88,13 @@ let config = function($stateProvider, $urlRouterProvider) {
       templateUrl: 'templates/app-upload/mood/temp5.tpl.html'
     })
     .state('root2.userhome', {
-      url: '/userhome/:id',
+      url: '/userhome',
       controller:  'UserPageController as vm',
+      templateUrl: 'templates/app-profile/profile.tpl.html'
+    })
+    .state('root2.user', {
+      url: '/user/:id',
+      controller: 'UserPageController as vm',
       templateUrl: 'templates/app-profile/profile.tpl.html'
     })
     .state('root2.singlepost', {

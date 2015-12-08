@@ -1,9 +1,9 @@
 <nav class="nav" data-topbar role="navigation">
   <section class="top-bar-section">
     <ul class="right">
-      <li><a href="#/">profile</a></li>
+      <li ng-click="vm.userHome()">profile</li>
       <li><a href="#/upload">new post</a></li>
-      <li><a href="#/">sign out</a></li>
+      <li ng-click="vm.logout()">sign out</li>
     </ul>
     <ul class="left">
       <li><a href="#/explore"><img class="abstractlogo" src="abstractlogo.png"></a></li>

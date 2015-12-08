@@ -1,4 +1,4 @@
-let UserPageController = function(ProfileService, UserPageService, UserService, $stateParams, $state) {
+let UserPageController = function(ProfileService, UserPageService, UserService, $stateParams, $state, $cookies) {
   
   let vm = this;
 
@@ -8,11 +8,20 @@ let UserPageController = function(ProfileService, UserPageService, UserService, 
   vm.postQte = [];
   vm.postUrl = [];
 
-  let id = $stateParams.id;
+  // function getId () {
+  //   if ($stateParams) {  
+  //     id = $stateParams.id;
+  //   } else {
+  //     id = $cookies.get(id);
+  //     console.log(id);
+  //   }  
+  //   return id;
+  // }
 
   UserService.checkFileAuth();
+  let id = ($stateParams.id) ? $stateParams.id : $cookies.get('id');
   ProfileService.getUser(id).then( (res) => {
-    $state.go('root2.userhome', {id: id});
+    $state.go('root2.userhome');
     vm.profile = res.data.profile[0];
   });
 
@@ -37,6 +46,6 @@ let UserPageController = function(ProfileService, UserPageService, UserService, 
 
 };
 
-UserPageController.$inject = ['ProfileService', 'UserPageService', 'UserService', '$stateParams', '$state'];
+UserPageController.$inject = ['ProfileService', 'UserPageService', 'UserService', '$stateParams', '$state', '$cookies'];
 
 export default UserPageController;
