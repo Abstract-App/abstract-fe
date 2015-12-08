@@ -648,6 +648,8 @@ var HomeController = function HomeController(ProjectService) {
 
   var vm = this;
 
+  vm.addLike = addLike;
+
   vm.tiles = [];
   vm.imgTiles = [];
   vm.txtTiles = [];
@@ -665,6 +667,10 @@ var HomeController = function HomeController(ProjectService) {
       return vm.imgTiles, vm.txtTiles;
     });
   });
+
+  function addLike() {
+    console.log('you are liking this shit');
+  }
 };
 
 HomeController.$inject = ['ProjectService'];
@@ -761,6 +767,7 @@ var ProjectService = function ProjectService($http, FILESERVER, SERVER) {
   this.getPosts = getPosts;
   this.getPost = getPost;
   this.postComment = postComment;
+  this.likePost = likePost;
 
   function getPosts() {
     return $http.get(url + 'posts', FILESERVER.CONFIG);
@@ -778,6 +785,10 @@ var ProjectService = function ProjectService($http, FILESERVER, SERVER) {
   function postComment(commentObj, id) {
     var c = new Comment(commentObj, id);
     return $http.post(url + 'posts/' + id + '/comments', c, SERVER.CONFIG);
+  }
+
+  function likePost() {
+    console.log('post is liked');
   }
 };
 

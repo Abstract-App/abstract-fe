@@ -5,6 +5,8 @@
   <div class="tile-username">
     <p>{{ tile.username }}</p>
     <i class="fa fa-comment-o"></i> 
-    <i class="fa fa-heart-o"></i> 
+    <span ng-click="vm.addLike()">
+      <i class="fa fa-heart-o"></i> {{ tile.likes_count }}
+    </span>
   </div>
 </div>

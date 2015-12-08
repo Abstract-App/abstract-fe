@@ -5,6 +5,7 @@ let ProjectService = function($http, FILESERVER, SERVER) {
   this.getPosts = getPosts;
   this.getPost = getPost;
   this.postComment = postComment;
+  this.likePost = likePost;
 
   function getPosts () {
     return $http.get(url + 'posts', FILESERVER.CONFIG);
@@ -23,6 +24,11 @@ let ProjectService = function($http, FILESERVER, SERVER) {
     let c = new Comment(commentObj, id);
     return $http.post(url + 'posts/' + id + '/comments', c, SERVER.CONFIG);
   }
+
+  function likePost () {
+    console.log('post is liked');
+  }
+
 
 
 
