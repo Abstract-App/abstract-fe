@@ -29,11 +29,11 @@ let UserPageController = function(ProfileService, UserPageService, UserService, 
     vm.post = res.data.posts;
 
     angular.forEach(vm.post, function(p) {
-      if (p.post_type === 'image') {
+      if (p.post.post_type === 'image') {
         vm.postImg.push(p);
-      } else if (p.post_type === 'text') {
+      } else if (p.post.post_type === 'text') {
         vm.postTxt.push(p);
-      } else if (p.post_type === 'quote') {
+      } else if (p.post.post_type === 'quote') {
         vm.postQte.push(p);
       } else {
         vm.postUrl.push(p);

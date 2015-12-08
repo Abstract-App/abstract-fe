@@ -10,8 +10,9 @@ let userTile = function($state, UserPageService, ProjectService) {
     controller: 'UserPageController as vm',
     link: function (scope, element, attrs) {
       element.on('click', function () {
+        let id = scope.post.post.id;
         $state.go('root2.singlepost', {
-          id: scope.post.id
+          id: id
         });
       });
     }

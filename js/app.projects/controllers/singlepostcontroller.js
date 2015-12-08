@@ -6,10 +6,8 @@ let SinglePostController = function($state, $stateParams, UserService, ProfileSe
   vm.addComment = addComment;
 
   ProjectService.getPost($stateParams.id).then( (res) => {
-    console.log(res.data.post[0]);
-    vm.post = res.data.post[0];
-    vm.userId = res.data.post[0].user_id;
-    // console.log(vm.userId);
+    vm.post = res.data.post;
+    vm.userId = res.data.post.user_id;
     return vm.userId;
   });
 

@@ -8,13 +8,12 @@ let splashTiles = function ($state, ProjectService) {
     },
     templateUrl: 'templates/app-layout/hometiles.tpl.html',
     link: function (scope, element, attrs) {
-      element.find('img', function () {
-        this.element.on('click', function () {
-          $state.go('root2.singlepost', {
-            id: scope.tile.id
-          });
-        });   
-      });
+      element.on('click', function () {
+        console.log(scope.tile.post.id);
+        $state.go('root2.singlepost', {
+          id: scope.tile.post.id
+        });
+      });   
     } 
   };
   
