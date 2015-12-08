@@ -10,6 +10,11 @@
 </div>
 <hr>
 
+<form ng-submit="vm.addComment(comment)">
+  <textarea placeholder="add comment here" ng-model="comment.message"></textarea>
+  <button>comment</button>
+</form>
+
 <button ng-click="vm.deletePost(vm.post.user_id)">delete post</button>
 
 

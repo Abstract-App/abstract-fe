@@ -2,6 +2,8 @@ let HomeController = function(ProjectService) {
   
   let vm = this;
 
+  vm.addLike = addLike;
+
   vm.tiles = [];
   vm.imgTiles = [];
   vm.txtTiles = [];
@@ -20,7 +22,11 @@ let HomeController = function(ProjectService) {
     });
 
 
-  });  
+  });
+
+  function addLike () {
+    console.log('you are liking this shit');
+  }  
 
 
 

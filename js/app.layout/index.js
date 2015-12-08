@@ -14,6 +14,8 @@ import userTxttile from './directives/usertxttiles';
 import userQtetile from './directives/userqtetiles';
 import userUrltile from './directives/userurltiles';
 
+import UsernavController from './controllers/usernavcontroller';
+
 angular
   .module('app.layout', ['app.core', 'app.user', 'app.upload', 'app.projects'])
   .directive('fileUpload', fileUpload)
@@ -24,4 +26,5 @@ angular
   .directive('userTxttile', userTxttile)
   .directive('userQtetile', userQtetile)
   .directive('userUrltile', userUrltile)
+  .controller('UsernavController', UsernavController)
 ;
