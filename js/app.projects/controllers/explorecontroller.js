@@ -10,11 +10,12 @@ let ExploreController = function(ProjectService, UserService) {
 
   ProjectService.getPosts().then( (res) => {
     vm.tiles = res.data.posts;
+    console.log(vm.tiles);
 
     angular.forEach(vm.tiles, function(tile) {
-      if (tile.post_type === 'image') {
+      if (tile.post.post_type === 'image') {
         vm.imgTiles.push(tile);
-      } else if (tile.post_type === 'text') {
+      } else if (tile.post.post_type === 'text') {
         vm.txtTiles.push(tile);
       }
 
