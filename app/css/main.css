@@ -285,4 +285,58 @@ body {
     background: #b2b2b2;
     display: inline-block; }
 
+.temp3 {
+  margin: 0 auto;
+  width: 610px;
+  height: 760px; }
+  .temp3 .left {
+    margin: 0 auto;
+    width: 300px;
+    height: 760px;
+    display: inline-block; }
+    .temp3 .left .row1 {
+      display: inline-block; }
+      .temp3 .left .row1 .temp3sect1 {
+        width: 300px;
+        height: 300px;
+        background: #b2b2b2;
+        display: block; }
+    .temp3 .left .row2 {
+      display: inline-block; }
+      .temp3 .left .row2 .column1 {
+        display: inline-block; }
+        .temp3 .left .row2 .column1 .temp3sect2 {
+          width: 140px;
+          height: 450px;
+          background: #b2b2b2; }
+      .temp3 .left .row2 .column2 {
+        display: inline-block; }
+        .temp3 .left .row2 .column2 .temp3sect3 {
+          width: 150px;
+          height: 225px;
+          background: #b2b2b2;
+          margin-bottom: 5px;
+          display: block; }
+        .temp3 .left .row2 .column2 .temp3sect4 {
+          width: 150px;
+          height: 225px;
+          background: #b2b2b2;
+          display: block; }
+  .temp3 .right {
+    margin: 0 auto;
+    width: 300px;
+    height: 760px;
+    display: inline-block; }
+    .temp3 .right .temp3sect5 {
+      width: 300px;
+      height: 250px;
+      background: #b2b2b2;
+      margin-bottom: 5px;
+      display: block; }
+    .temp3 .right .temp3sect6 {
+      width: 300px;
+      height: 500px;
+      background: #b2b2b2;
+      display: block; }
+
 /*# sourceMappingURL=main.css.map */
