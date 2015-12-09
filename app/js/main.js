@@ -355,12 +355,12 @@ var userTile = function userTile($state, UserPageService, ProjectService) {
     templateUrl: 'templates/app-profile/usertiles.tpl.html',
     controller: 'UserPageController as vm',
     link: function link(scope, element, attrs) {
-      element.on('click', function () {
-        var id = scope.post.post.id;
-        $state.go('root2.singlepost', {
-          id: id
-        });
-      });
+      // element.on('click', function () {
+      //   let id = scope.post.post.id;
+      //   $state.go('root2.singlepost', {
+      //     id: id
+      //   });
+      // });
     }
   };
 };
@@ -496,6 +496,8 @@ var UserPageController = function UserPageController(ProfileService, UserPageSer
 
   var vm = this;
 
+  vm.addLike = addLike;
+
   vm.post = [];
   vm.postImg = [];
   vm.postTxt = [];
@@ -526,6 +528,13 @@ var UserPageController = function UserPageController(ProfileService, UserPageSer
       return vm.postImg, vm.postTxt, vm.postQte, vm.postUrl;
     });
   });
+
+  function addLike(postId) {
+    UserService.checkAuth();
+    UserPageService.likePost(postId).then(function (res) {
+      $state.reload();
+    });
+  }
 };
 
 UserPageController.$inject = ['ProfileService', 'UserPageService', 'UserService', '$stateParams', '$state', '$cookies'];
@@ -568,6 +577,7 @@ var UserPageService = function UserPageService(SERVER, FILESERVER, $cookies, $ht
 
   this.getAllPosts = getAllPosts;
   this.deletePost = deletePost;
+  this.likePost = likePost;
 
   function getAllPosts(id) {
     UserService.checkFileAuth();
@@ -576,6 +586,10 @@ var UserPageService = function UserPageService(SERVER, FILESERVER, $cookies, $ht
 
   function deletePost(id) {
     return $http['delete'](FILESERVER.URL + 'posts/' + id, FILESERVER.CONFIG);
+  }
+
+  function likePost(postId) {
+    return $http.post(SERVER.URL + 'posts/' + postId + '/likes', postId, SERVER.CONFIG);
   }
 };
 

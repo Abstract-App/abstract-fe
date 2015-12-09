@@ -2,6 +2,8 @@ let UserPageController = function(ProfileService, UserPageService, UserService, 
   
   let vm = this;
 
+  vm.addLike = addLike;
+
   vm.post = [];
   vm.postImg = [];
   vm.postTxt = [];
@@ -33,6 +35,13 @@ let UserPageController = function(ProfileService, UserPageService, UserService, 
     });
 
   });
+
+  function addLike (postId) {
+    UserService.checkAuth();
+    UserPageService.likePost(postId).then( (res) => {
+      $state.reload();
+    });
+  }
 
 };
 
