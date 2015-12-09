@@ -7,7 +7,7 @@
   <div class="tile-username">
     <p>{{ tile.post.username }}</p>
     <i class="fa fa-comment-o"></i> {{tile.post.comments.length}}
-    <span>
+    <span ng-click="vm.addLike(tile.post.id)">
       <i class="fa fa-heart-o"></i> {{ tile.post.likes_count }}
     </span>
   </div>

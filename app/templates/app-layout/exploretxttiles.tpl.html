@@ -1,13 +1,11 @@
 <div class="tile">
-  <a href="#/singlepost/{{tile.post.id}}">
-    <div class="tile-image">
-      <img ng-src="{{ tile.post.image_medium }}">
-    </div>
-  </a>
+  <div class="tile-image">
+    <p>{{ tile.post.status }}</p>
+  </div>
   <div class="tile-username">
     <p>{{ tile.post.username }}</p>
     <i class="fa fa-comment-o"></i> {{tile.post.comments.length}}
-    <span>
+    <span ng-click="vm.addLike(tile.post.id)">
       <i class="fa fa-heart-o"></i> {{ tile.post.likes_count }}
     </span>
   </div>
