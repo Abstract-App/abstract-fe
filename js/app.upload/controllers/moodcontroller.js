@@ -8,32 +8,32 @@ let MoodController = function(PostService, UserService) {
   vm.showForm4 = showForm4;
   vm.showForm5 = showForm5;
   vm.showForm6 = showForm6;
-  vm.showImageUpload1 = false;
-  vm.showImageUpload2 = false;
-  vm.showImageUpload3 = false;
-  vm.showImageUpload4 = false;
-  vm.showImageUpload5 = false;
-  vm.showImageUpload6 = false;
 
   UserService.checkFileAuth();
 
   function showForm1 () {
-    vm.showImageUpload1 = (vm.showImageUpload1) ? false : true;
+    vm.showImageUpload1 = (vm.showImageUpload1 || vm.showImageUpload2 || vm.showImageUpload3 || vm.showImageUpload4 || vm.showImageUpload5 || vm.showImageUpload6) ? false : true;
+    console.log('showing 1');
   }
   function showForm2 () {
-    vm.showImageUpload2 = (vm.showImageUpload2) ? false : true;
+    vm.showImageUpload2 = (vm.showImageUpload1 || vm.showImageUpload2 || vm.showImageUpload3 || vm.showImageUpload4 || vm.showImageUpload5 || vm.showImageUpload6) ? false : true;
+    console.log('showing 2');
   }
   function showForm3 () {
-    vm.showImageUpload3 = (vm.showImageUpload3) ? false : true;
+    vm.showImageUpload3 = (vm.showImageUpload1 || vm.showImageUpload2 || vm.showImageUpload3 || vm.showImageUpload4 || vm.showImageUpload5 || vm.showImageUpload6) ? false : true;
+    console.log('showing 3');
   }
   function showForm4 () {
-    vm.showImageUpload4 = (vm.showImageUpload4) ? false : true;
+    vm.showImageUpload4 = (vm.showImageUpload1 || vm.showImageUpload2 || vm.showImageUpload3 || vm.showImageUpload4 || vm.showImageUpload5 || vm.showImageUpload6) ? false : true;
+    console.log('showing 4');
   }
   function showForm5 () {
-    vm.showImageUpload5 = (vm.showImageUpload5) ? false : true;
+    vm.showImageUpload5 = (vm.showImageUpload1 || vm.showImageUpload2 || vm.showImageUpload3 || vm.showImageUpload4 || vm.showImageUpload5 || vm.showImageUpload6) ? false : true;
+    console.log('showing 5');
   }
   function showForm6 () {
-    vm.showImageUpload6 = (vm.showImageUpload6) ? false : true;
+    vm.showImageUpload6 = (vm.showImageUpload1 || vm.showImageUpload2 || vm.showImageUpload3 || vm.showImageUpload4 || vm.showImageUpload5 || vm.showImageUpload6) ? false : true;
+    console.log('showing 6');
   }
 
 };
