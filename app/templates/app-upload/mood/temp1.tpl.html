@@ -2,13 +2,19 @@
   <h1>MoodBoard Classic&trade;</h1>
 
   <div class="temp1">
-
-  <div class="temp1sect1"></div>
-  <div class="temp1sect2"></div>
-  <div class="temp1sect3"></div>
-  <div class="temp1sect4"></div>
-  <div class="temp1sect5"></div>
-  <div class="temp1sect6"></div>
-
+    <a ng-click="vm.showForm1()"><div class="box temp1sect1"></div></a>
+    <a ng-click="vm.showForm2()"><div class="box temp1sect2"></div></a>
+    <a ng-click="vm.showForm3()"><div class="box temp1sect3"></div></a>
+    <a ng-click="vm.showForm4()"><div class="box temp1sect4"></div></a>
+    <a ng-click="vm.showForm5()"><div class="box temp1sect5"></div></a>
+    <a ng-click="vm.showForm6()"><div class="box temp1sect6"></div></a>
+  </div>
+  <div class="form">
+    <add-image ng-show="vm.showImageUpload1" mood="vm.mood"></add-image>
+    <add-image ng-show="vm.showImageUpload2" mood="vm.mood"></add-image>
+    <add-image ng-show="vm.showImageUpload3" mood="vm.mood"></add-image>
+    <add-image ng-show="vm.showImageUpload4" mood="vm.mood"></add-image>
+    <add-image ng-show="vm.showImageUpload5" mood="vm.mood"></add-image>
+    <add-image ng-show="vm.showImageUpload6" mood="vm.mood"></add-image>
   </div>
 </section>
