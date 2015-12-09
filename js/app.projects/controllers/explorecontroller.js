@@ -1,4 +1,4 @@
-let ExploreController = function(ProjectService, UserService) {
+let ExploreController = function(ProjectService, UserService, $state) {
   
   let vm = this;
 
@@ -6,11 +6,12 @@ let ExploreController = function(ProjectService, UserService) {
   vm.imgTiles = [];
   vm.txtTiles = [];
 
+  vm.addLike = addLike;
+
   UserService.checkAuth();
 
   ProjectService.getPosts().then( (res) => {
     vm.tiles = res.data.posts;
-    console.log(vm.tiles);
 
     angular.forEach(vm.tiles, function(tile) {
       if (tile.post.post_type === 'image') {
@@ -25,8 +26,17 @@ let ExploreController = function(ProjectService, UserService) {
 
   });  
 
+  function addLike (postId) {
+    console.log('you are liking this shit');
+    UserService.checkAuth();
+    ProjectService.likePost(postId).then( (res) => {
+      console.log(res);
+      $state.reload();
+    });
+  }  
+
 };
 
-ExploreController.$inject = ['ProjectService', 'UserService'];
+ExploreController.$inject = ['ProjectService', 'UserService', '$state'];
 
 export default ExploreController;

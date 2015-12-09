@@ -7,13 +7,13 @@ let splashTiles = function ($state, ProjectService) {
       tile: "="
     },
     templateUrl: 'templates/app-layout/hometiles.tpl.html',
+    controller: 'HomeController as vm',
     link: function (scope, element, attrs) {
-      element.on('click', function () {
-        console.log(scope.tile.post.id);
-        $state.go('root2.singlepost', {
-          id: scope.tile.post.id
-        });
-      });   
+      // element.on('click', function () {
+      //   $state.go('root2.singlepost', {
+      //     id: scope.tile.post.id
+      //   });
+      // });   
     } 
   };
   

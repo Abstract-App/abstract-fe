@@ -1,4 +1,4 @@
-let splashTxt = function($state, ProjectService) {
+let exploreTxt = function($state, ProjectService) {
   
   return {
     restrict: 'E',
@@ -6,7 +6,8 @@ let splashTxt = function($state, ProjectService) {
     scope: {
       tile: "="
     },
-    templateUrl: 'templates/app-layout/hometxttiles.tpl.html',
+    templateUrl: 'templates/app-layout/exploretxttiles.tpl.html',
+    controller: 'ExploreController as vm',
     link: function (scope, element, attrs) {
       // element.on('click', function () {
       //   $state.go('root2.singlepost', {
@@ -19,6 +20,6 @@ let splashTxt = function($state, ProjectService) {
 
 };
 
-splashTxt.$inject = ['$state', 'ProjectService'];
+exploreTxt.$inject = ['$state', 'ProjectService'];
 
-export default splashTxt;
+export default exploreTxt;
