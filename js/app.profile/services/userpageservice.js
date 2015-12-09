@@ -2,6 +2,7 @@ let UserPageService = function(SERVER, FILESERVER, $cookies, $http, UserService)
 
   this.getAllPosts = getAllPosts;
   this.deletePost = deletePost;
+  this.likePost = likePost;
 
   function getAllPosts (id) {
     UserService.checkFileAuth();
@@ -10,6 +11,10 @@ let UserPageService = function(SERVER, FILESERVER, $cookies, $http, UserService)
 
   function deletePost (id) {
     return $http.delete(FILESERVER.URL + 'posts/' + id, FILESERVER.CONFIG);
+  }
+
+  function likePost (postId) {
+    return $http.post(SERVER.URL + 'posts/' + postId + '/likes', postId, SERVER.CONFIG);
   }
 
 };

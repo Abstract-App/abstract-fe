@@ -1,10 +1,14 @@
 <div class="tile">
-  <div class="tile-image">
-    <p>{{ post.post.url }}</p>
-  </div>
+  <a href="#/singlepost/{{post.post.id}}"> 
+    <div class="tile-image">
+      <p>{{ post.post.url }}</p>
+    </div>
+  </a>
   <div class="tile-username">
     <p>{{ post.post.post_type }}</p>
-    <i class="fa fa-comment-o"></i>
-    <span><i class="fa fa-heart-o"></i> {{ post.post.likes_count }}</span>
+    <i class="fa fa-comment-o"></i> {{post.post.comments.length}}
+    <span ng-click="vm.addLike(post.post.id)">
+      <i class="fa fa-heart-o"></i> {{ post.post.likes_count }}
+    </span>
   </div>
 </div>

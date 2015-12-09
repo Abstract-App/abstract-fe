@@ -10,6 +10,8 @@ import imageUpload from './directives/postdirective';
 import userTile from './directives/usertilesdirective';
 import splashTiles from './directives/splashdirective';
 import splashTxt from './directives/splashtextdirective';
+import exploreTiles from './directives/exploredirective';
+import exploreTxt from './directives/exploretxtdirective';
 import userTxttile from './directives/usertxttiles';
 import userQtetile from './directives/userqtetiles';
 import userUrltile from './directives/userurltiles';
@@ -23,6 +25,8 @@ angular
   .directive('userTile', userTile)
   .directive('splashTiles', splashTiles)
   .directive('splashTxt', splashTxt)
+  .directive('exploreTiles', exploreTiles)
+  .directive('exploreTxt', exploreTxt)
   .directive('userTxttile', userTxttile)
   .directive('userQtetile', userQtetile)
   .directive('userUrltile', userUrltile)
