@@ -10,7 +10,7 @@ let userTxttile = function($state, UserPageService, ProjectService) {
     link: function (scope, element, attrs) {
       element.on('click', function () {
         $state.go('root2.singlepost', {
-          id: scope.post.id
+          id: scope.post.post.id
         });
       });
     }

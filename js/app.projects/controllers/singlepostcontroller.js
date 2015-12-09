@@ -8,6 +8,7 @@ let SinglePostController = function($state, $stateParams, UserService, ProfileSe
   ProjectService.getPost($stateParams.id).then( (res) => {
     vm.post = res.data.post;
     vm.userId = res.data.post.user_id;
+    console.log(res);
     return vm.userId;
   });
 

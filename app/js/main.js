@@ -263,12 +263,9 @@ var splashTxt = function splashTxt($state, ProjectService) {
     },
     templateUrl: 'templates/app-layout/hometxttiles.tpl.html',
     link: function link(scope, element, attrs) {
-      // if(scope.tile.post_type !== 'image') {
-      //   element.remove();
-      // }
       element.on('click', function () {
         $state.go('root2.singlepost', {
-          id: scope.tile.id
+          id: scope.tile.post.id
         });
       });
     }
@@ -310,26 +307,6 @@ var fileUpload = function fileUpload(ProfileService) {
 fileUpload.$inject = ['ProfileService'];
 
 exports['default'] = fileUpload;
-
-// let fileUpload = function(ProfileService) {
-
-//   return {
-//     restrict: 'AE',
-//     link: function (scope, element, attrs) {
-//       element.on('change', function () {
-//         let file = element.find('input')[0].files[0];
-//         console.log('image added');
-//         console.log(file);
-//         return file;
-//       });
-//     }
-//   };
-
-// };
-
-// fileUpload.$inject = ['ProfileService'];
-
-// export default fileUpload;
 module.exports = exports['default'];
 
 },{}],10:[function(require,module,exports){
@@ -350,7 +327,7 @@ var userQtetile = function userQtetile($state, UserPageService, ProjectService) 
     link: function link(scope, element, attrs) {
       element.on('click', function () {
         $state.go('root2.singlepost', {
-          id: scope.post.id
+          id: scope.post.post.id
         });
       });
     }
@@ -381,6 +358,7 @@ var userTile = function userTile($state, UserPageService, ProjectService) {
     link: function link(scope, element, attrs) {
       element.on('click', function () {
         var id = scope.post.post.id;
+        console.log(id);
         $state.go('root2.singlepost', {
           id: id
         });
@@ -412,7 +390,7 @@ var userTxttile = function userTxttile($state, UserPageService, ProjectService) 
     link: function link(scope, element, attrs) {
       element.on('click', function () {
         $state.go('root2.singlepost', {
-          id: scope.post.id
+          id: scope.post.post.id
         });
       });
     }
@@ -443,7 +421,7 @@ var userUrltile = function userUrltile($state, UserPageService, ProjectService) 
     link: function link(scope, element, attrs) {
       element.on('click', function () {
         $state.go('root2.singlepost', {
-          id: scope.post.id
+          id: scope.post.post.id
         });
       });
     }
@@ -525,16 +503,6 @@ var UserPageController = function UserPageController(ProfileService, UserPageSer
   vm.postTxt = [];
   vm.postQte = [];
   vm.postUrl = [];
-
-  // function getId () {
-  //   if ($stateParams) { 
-  //     id = $stateParams.id;
-  //   } else {
-  //     id = $cookies.get(id);
-  //     console.log(id);
-  //   } 
-  //   return id;
-  // }
 
   UserService.checkFileAuth();
   var id = $stateParams.id ? $stateParams.id : $cookies.get('id');
@@ -711,6 +679,7 @@ var SinglePostController = function SinglePostController($state, $stateParams, U
   ProjectService.getPost($stateParams.id).then(function (res) {
     vm.post = res.data.post;
     vm.userId = res.data.post.user_id;
+    console.log(res);
     return vm.userId;
   });
 

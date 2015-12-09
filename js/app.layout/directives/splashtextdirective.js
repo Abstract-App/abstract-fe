@@ -8,12 +8,9 @@ let splashTxt = function($state, ProjectService) {
     },
     templateUrl: 'templates/app-layout/hometxttiles.tpl.html',
     link: function (scope, element, attrs) {
-      // if(scope.tile.post_type !== 'image') {
-      //   element.remove();
-      // }
       element.on('click', function () {
         $state.go('root2.singlepost', {
-          id: scope.tile.id
+          id: scope.tile.post.id
         });
       });
     } 
