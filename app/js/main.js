@@ -675,13 +675,13 @@ var SinglePostController = function SinglePostController($state, $stateParams, U
   ProjectService.getPost($stateParams.id).then(function (res) {
     vm.post = res.data.post;
     vm.userId = res.data.post.user_id;
+    vm.comments = res.data.post.comments;
     return vm.userId;
   });
 
   var id = $stateParams.id;
 
   function deletePost(userId) {
-    console.log('fucking delete it');
     UserService.checkFileAuth();
     UserPageService.deletePost(id).then(function (res) {
       $state.go('root2.userhome', { id: userId });
@@ -693,6 +693,10 @@ var SinglePostController = function SinglePostController($state, $stateParams, U
     ProjectService.postComment(commentObj, id).then(function (res) {
       $state.reload();
     });
+  }
+
+  function getComments() {
+    console.log('i want to see comments');
   }
 };
 
@@ -752,7 +756,7 @@ var ProjectService = function ProjectService($http, FILESERVER, SERVER) {
   }
 
   function getPost(id) {
-    return $http.get(url + 'posts' + '/' + id, FILESERVER.CONFIG);
+    return $http.get(url + 'posts/' + id, FILESERVER.CONFIG);
   }
 
   var Comment = function Comment(commentObj, id) {

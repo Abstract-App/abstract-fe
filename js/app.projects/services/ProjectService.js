@@ -12,7 +12,7 @@ let ProjectService = function($http, FILESERVER, SERVER) {
   }
 
   function getPost (id) {
-    return $http.get(url + 'posts' + '/' + id, FILESERVER.CONFIG);
+    return $http.get(url + 'posts/' + id, FILESERVER.CONFIG);
   }
 
   let Comment = function (commentObj, id) {

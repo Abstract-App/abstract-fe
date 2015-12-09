@@ -15,6 +15,16 @@
   <button>comment</button>
 </form>
 
+<hr>
+
+<h3>Comments</h3>
+
+<div class="comment-section" ng-repeat="comment in vm.comments">
+  <img ng-src="{{comment.picture}}">
+  <span>{{comment.username}}</span>
+  <p>{{comment.message}}</p>
+</div>
+
 <button ng-click="vm.deletePost(vm.post.user_id)">delete post</button>
 
 

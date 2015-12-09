@@ -8,13 +8,13 @@ let SinglePostController = function($state, $stateParams, UserService, ProfileSe
   ProjectService.getPost($stateParams.id).then( (res) => {
     vm.post = res.data.post;
     vm.userId = res.data.post.user_id;
+    vm.comments = res.data.post.comments;
     return vm.userId;
   });
 
   let id = $stateParams.id;
 
   function deletePost (userId) {
-    console.log('fucking delete it');
     UserService.checkFileAuth();
     UserPageService.deletePost(id).then( (res) => {
       $state.go('root2.userhome', {id: userId});
@@ -26,6 +26,10 @@ let SinglePostController = function($state, $stateParams, UserService, ProfileSe
     ProjectService.postComment(commentObj, id).then( (res) => {
       $state.reload();
     });
+  }
+
+  function getComments () {
+    console.log('i want to see comments');
   }
 
 };
