@@ -11,13 +11,15 @@ let addImage = function(PostService) {
     link: function (scope, element, attrs) {
       element.on('submit', function () {
 
-        let file = element.find('input')[0].files[0];
-        PostService.upload(file).then( (res) => {
-          CarService.addImage(res.data.upload.file_url, scope.car)
-            .then( (res) => {
+        PostService.postMood();
+
+        // let file = element.find('input')[0].files[0];
+        // PostService.upload(file).then( (res) => {
+        //   CarService.addImage(res.data.upload.file_url, scope.car)
+        //     .then( (res) => {
               
-            });
-        });
+        //     });
+        // });
 
       });
     }

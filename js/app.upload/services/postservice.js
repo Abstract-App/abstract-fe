@@ -7,6 +7,7 @@ let PostService = function($http, FILESERVER, SERVER, UserService) {
   this.postText = postText;
   this.postLink = postLink;
   this.postQuote = postQuote;
+  this.postMood = postMood;
 
   function addImage (file) {
     console.log(file);
@@ -61,6 +62,10 @@ let PostService = function($http, FILESERVER, SERVER, UserService) {
   function postQuote (quoteObj) {
     let q = new Quote(quoteObj);
     return $http.post(url + 'posts', q, SERVER.CONFIG);
+  }
+
+  function postMood () {
+    console.log('post mood service is responding');
   }
 
   

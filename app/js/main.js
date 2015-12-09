@@ -1067,10 +1067,15 @@ var addImage = function addImage(PostService) {
     link: function link(scope, element, attrs) {
       element.on('submit', function () {
 
-        var file = element.find('input')[0].files[0];
-        PostService.upload(file).then(function (res) {
-          CarService.addImage(res.data.upload.file_url, scope.car).then(function (res) {});
-        });
+        PostService.postMood();
+
+        // let file = element.find('input')[0].files[0];
+        // PostService.upload(file).then( (res) => {
+        //   CarService.addImage(res.data.upload.file_url, scope.car)
+        //     .then( (res) => {
+
+        //     });
+        // });
       });
     }
   };
@@ -1143,6 +1148,7 @@ var PostService = function PostService($http, FILESERVER, SERVER, UserService) {
   this.postText = postText;
   this.postLink = postLink;
   this.postQuote = postQuote;
+  this.postMood = postMood;
 
   function addImage(file) {
     console.log(file);
@@ -1197,6 +1203,10 @@ var PostService = function PostService($http, FILESERVER, SERVER, UserService) {
   function postQuote(quoteObj) {
     var q = new Quote(quoteObj);
     return $http.post(url + 'posts', q, SERVER.CONFIG);
+  }
+
+  function postMood() {
+    console.log('post mood service is responding');
   }
 };
 
