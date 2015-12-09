@@ -8,11 +8,11 @@ let userTxttile = function($state, UserPageService, ProjectService) {
     templateUrl: 'templates/app-profile/usertxttiles.tpl.html',
     controller: 'UserPageController as vm',
     link: function (scope, element, attrs) {
-      element.on('click', function () {
-        $state.go('root2.singlepost', {
-          id: scope.post.post.id
-        });
-      });
+      // element.on('click', function () {
+      //   $state.go('root2.singlepost', {
+      //     id: scope.post.post.id
+      //   });
+      // });
     }
   };
   

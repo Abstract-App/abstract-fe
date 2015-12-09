@@ -1,7 +1,9 @@
 <div class="tile">
-  <div class="tile-image">
-    <p>{{ tile.post.status }}</p>
-  </div>
+  <a href="#/singlepost/{{tile.post.id}}">
+    <div class="tile-image">
+      <p>{{ tile.post.status }}</p>
+    </div>
+  </a>
   <div class="tile-username">
     <p>{{ tile.post.username }}</p>
     <i class="fa fa-comment-o"></i> {{tile.post.comments.length}}

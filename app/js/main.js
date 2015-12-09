@@ -386,11 +386,11 @@ var userQtetile = function userQtetile($state, UserPageService, ProjectService) 
     templateUrl: 'templates/app-profile/userqtetiles.tpl.html',
     controller: 'UserPageController as vm',
     link: function link(scope, element, attrs) {
-      element.on('click', function () {
-        $state.go('root2.singlepost', {
-          id: scope.post.post.id
-        });
-      });
+      // element.on('click', function () {
+      //   $state.go('root2.singlepost', {
+      //     id: scope.post.post.id
+      //   });
+      // });
     }
   };
 };
@@ -448,11 +448,11 @@ var userTxttile = function userTxttile($state, UserPageService, ProjectService) 
     templateUrl: 'templates/app-profile/usertxttiles.tpl.html',
     controller: 'UserPageController as vm',
     link: function link(scope, element, attrs) {
-      element.on('click', function () {
-        $state.go('root2.singlepost', {
-          id: scope.post.post.id
-        });
-      });
+      // element.on('click', function () {
+      //   $state.go('root2.singlepost', {
+      //     id: scope.post.post.id
+      //   });
+      // });
     }
   };
 };
@@ -479,11 +479,11 @@ var userUrltile = function userUrltile($state, UserPageService, ProjectService) 
     templateUrl: 'templates/app-profile/userurltiles.tpl.html',
     controller: 'UserPageController as vm',
     link: function link(scope, element, attrs) {
-      element.on('click', function () {
-        $state.go('root2.singlepost', {
-          id: scope.post.post.id
-        });
-      });
+      // element.on('click', function () {
+      //   $state.go('root2.singlepost', {
+      //     id: scope.post.post.id
+      //   });
+      // });
     }
   };
 };
