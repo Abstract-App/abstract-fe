@@ -12,6 +12,8 @@ import MoodController from './controllers/moodcontroller';
 
 import PostService from './services/postservice';
 
+import addImage from './directives/addimagedirective';
+
 angular
   .module('app.upload', ['app.core', 'app.user'])
   .controller('ImageController', ImageController)
@@ -21,4 +23,5 @@ angular
   .controller('UploadPageController', UploadPageController)
   .controller('MoodController', MoodController)
   .service('PostService', PostService)
+  .directive('addImage', addImage)
 ;

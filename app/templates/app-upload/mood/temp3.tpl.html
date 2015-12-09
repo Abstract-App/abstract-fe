@@ -2,26 +2,33 @@
   <h1>Template 3</h1>
 
   <div class="temp3">
-
-  <div class="left">
-    <div class="row1">
-      <div class="temp3sect1"></div>
-    </div>
-    <div class="row2">
-      <div class="column1">
-        <div class="temp3sect2"></div>
+    <div class="left">
+      <div class="row1">
+        <a ng-click="vm.showForm1()"><div class="box temp3sect1"></div></a>
       </div>
-      <div class="column2">
-        <div class="temp3sect3"></div>
-        <div class="temp3sect4"></div>
+      <div class="row2">
+        <div class="column1">
+          <a ng-click="vm.showForm2()"><div class="box temp3sect2"></div></a>
+        </div>
+        <div class="column2">
+          <a ng-click="vm.showForm3()"><div class="box temp3sect3"></div></a>
+          <a ng-click="vm.showForm4()"><div class="box temp3sect4"></div></a>
+        </div>
       </div>
+    </div>
+    <div class="right">
+      <a ng-click="vm.showForm5()"><div class="box temp3sect5"></div></a>
+      <a ng-click="vm.showForm6()"><div class="box temp3sect6"></div></a>
     </div>
   </div>
 
-  <div class="right">
-    <div class="temp3sect5"></div>
-    <div class="temp3sect6"></div>
+  <div class="form">
+    <add-image ng-show="vm.showImageUpload1" mood="vm.mood"></add-image>
+    <add-image ng-show="vm.showImageUpload2" mood="vm.mood"></add-image>
+    <add-image ng-show="vm.showImageUpload3" mood="vm.mood"></add-image>
+    <add-image ng-show="vm.showImageUpload4" mood="vm.mood"></add-image>
+    <add-image ng-show="vm.showImageUpload5" mood="vm.mood"></add-image>
+    <add-image ng-show="vm.showImageUpload6" mood="vm.mood"></add-image>
   </div>
 
-  </div>
 </section>

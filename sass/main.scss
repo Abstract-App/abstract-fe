@@ -261,10 +261,24 @@ body {
     color: gray;
   }
 }
+.form {
+  position: absolute;
+  left: 700px;
+  width: 500px;
+}
 .temp1 {
   margin: 0 auto;
   width: 610px;
   height: 760px;
+  position: absolute;
+  left: 100px;
+    .box {
+
+    }
+    .box:hover {
+      background: #E5E5E5;
+      cursor: pointer;
+    }
     .temp1sect1 {
     width: 300px;
     height: 250px;
@@ -314,6 +328,15 @@ body {
   margin: 0 auto;
   width: 610px;
   height: 760px;
+  position: absolute;
+  left: 100px;
+    .box {
+
+    }
+    .box:hover {
+      background: #E5E5E5;
+      cursor: pointer;
+    }
     .temp2sect1 {
     width: 300px;
     height: 375px;
@@ -343,11 +366,19 @@ body {
       margin-bottom: 5px;
       display: block;
       }
+      .temp2sect4:hover {
+        background: #E5E5E5;
+        cursor: pointer;
+      }
       .temp2sect5 {
       width: 300px;
       height: 185px;
       background: darken(#E5E5E5, 20%);
       display: block;
+      }
+      .temp2sect5:hover {
+        background: #E5E5E5;
+        cursor: pointer;
       }
     }
     .temp2sect6 {
@@ -361,6 +392,8 @@ body {
   margin: 0 auto;
   width: 610px;
   height: 760px;
+  position: absolute;
+  left: 100px;
   .left {
     margin: 0 auto;
     width: 300px;
@@ -374,6 +407,10 @@ body {
       background: darken(#E5E5E5, 20%);
       display: block;
       }
+      .temp3sect1:hover {
+        background: #E5E5E5;
+        cursor: pointer;
+      }
     }
     .row2 {
       display: inline-block;
@@ -383,6 +420,10 @@ body {
           width: 140px;
           height: 450px;
           background: darken(#E5E5E5, 20%);
+        }
+        .temp3sect2:hover {
+          background: #E5E5E5;
+          cursor: pointer;
         }
       }
       .column2 {
@@ -394,11 +435,19 @@ body {
           margin-bottom: 5px;
           display: block;
         }
+        .temp3sect3:hover {
+          background: #E5E5E5;
+          cursor: pointer;
+        }
         .temp3sect4 {
           width: 150px;
           height: 225px;
           background: darken(#E5E5E5, 20%);
           display: block;
+        }
+        .temp3sect4:hover {
+          background: #E5E5E5;
+          cursor: pointer;
         }
       }
     }
@@ -409,17 +458,25 @@ body {
     height: 760px;
     display: inline-block;
     .temp3sect5 {
-    width: 300px;
-    height: 250px;
-    background: darken(#E5E5E5, 20%);
-    margin-bottom: 5px;
-    display: block;
+      width: 300px;
+      height: 250px;
+      background: darken(#E5E5E5, 20%);
+      margin-bottom: 5px;
+      display: block;
+    }
+    .temp3sect5:hover {
+      background: #E5E5E5;
+      cursor: pointer;
     }
     .temp3sect6 {
-    width: 300px;
-    height: 500px;
-    background: darken(#E5E5E5, 20%);
-    display: block;
+      width: 300px;
+      height: 500px;
+      background: darken(#E5E5E5, 20%);
+      display: block;
+    }
+    .temp3sect6:hover {
+      background: #E5E5E5;
+      cursor: pointer;
     }
   }
 }
