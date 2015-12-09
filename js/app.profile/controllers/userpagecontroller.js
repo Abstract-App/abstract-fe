@@ -8,16 +8,6 @@ let UserPageController = function(ProfileService, UserPageService, UserService, 
   vm.postQte = [];
   vm.postUrl = [];
 
-  // function getId () {
-  //   if ($stateParams) {  
-  //     id = $stateParams.id;
-  //   } else {
-  //     id = $cookies.get(id);
-  //     console.log(id);
-  //   }  
-  //   return id;
-  // }
-
   UserService.checkFileAuth();
   let id = ($stateParams.id) ? $stateParams.id : $cookies.get('id');
   ProfileService.getUser(id).then( (res) => {
