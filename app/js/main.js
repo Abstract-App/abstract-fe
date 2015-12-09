@@ -233,7 +233,6 @@ var splashTiles = function splashTiles($state, ProjectService) {
     templateUrl: 'templates/app-layout/hometiles.tpl.html',
     link: function link(scope, element, attrs) {
       element.on('click', function () {
-        console.log(scope.tile.post.id);
         $state.go('root2.singlepost', {
           id: scope.tile.post.id
         });
@@ -295,7 +294,6 @@ var fileUpload = function fileUpload(ProfileService) {
     templateUrl: 'templates/app-layout/fileupload.tpl.html',
     link: function link(scope, element, attrs) {
       element.on('change', function () {
-        console.log('submitted');
         var file = element.find('input')[0].files[0];
         scope.file = file;
         ProfileService.upload(file);
@@ -358,7 +356,6 @@ var userTile = function userTile($state, UserPageService, ProjectService) {
     link: function link(scope, element, attrs) {
       element.on('click', function () {
         var id = scope.post.post.id;
-        console.log(id);
         $state.go('root2.singlepost', {
           id: id
         });
@@ -604,7 +601,6 @@ var ExploreController = function ExploreController(ProjectService, UserService) 
 
   ProjectService.getPosts().then(function (res) {
     vm.tiles = res.data.posts;
-    console.log(vm.tiles);
 
     angular.forEach(vm.tiles, function (tile) {
       if (tile.post.post_type === 'image') {
@@ -679,7 +675,6 @@ var SinglePostController = function SinglePostController($state, $stateParams, U
   ProjectService.getPost($stateParams.id).then(function (res) {
     vm.post = res.data.post;
     vm.userId = res.data.post.user_id;
-    console.log(res);
     return vm.userId;
   });
 
@@ -696,7 +691,6 @@ var SinglePostController = function SinglePostController($state, $stateParams, U
   function addComment(commentObj) {
     UserService.checkAuth();
     ProjectService.postComment(commentObj, id).then(function (res) {
-      console.log(res);
       $state.reload();
     });
   }

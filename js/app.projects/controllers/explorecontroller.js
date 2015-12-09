@@ -10,7 +10,6 @@ let ExploreController = function(ProjectService, UserService) {
 
   ProjectService.getPosts().then( (res) => {
     vm.tiles = res.data.posts;
-    console.log(vm.tiles);
 
     angular.forEach(vm.tiles, function(tile) {
       if (tile.post.post_type === 'image') {

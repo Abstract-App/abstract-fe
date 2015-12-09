@@ -11,7 +11,6 @@ let userTile = function($state, UserPageService, ProjectService) {
     link: function (scope, element, attrs) {
       element.on('click', function () {
         let id = scope.post.post.id;
-        console.log(id);
         $state.go('root2.singlepost', {
           id: id
         });
