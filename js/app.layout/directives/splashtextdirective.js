@@ -8,11 +8,11 @@ let splashTxt = function($state, ProjectService) {
     },
     templateUrl: 'templates/app-layout/hometxttiles.tpl.html',
     link: function (scope, element, attrs) {
-      element.on('click', function () {
-        $state.go('root2.singlepost', {
-          id: scope.tile.post.id
-        });
-      });
+      // element.on('click', function () {
+      //   $state.go('root2.singlepost', {
+      //     id: scope.tile.post.id
+      //   });
+      // });
     } 
   };
   

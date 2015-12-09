@@ -231,12 +231,13 @@ var splashTiles = function splashTiles($state, ProjectService) {
       tile: "="
     },
     templateUrl: 'templates/app-layout/hometiles.tpl.html',
+    controller: 'ExploreController as vm',
     link: function link(scope, element, attrs) {
-      element.on('click', function () {
-        $state.go('root2.singlepost', {
-          id: scope.tile.post.id
-        });
-      });
+      // element.on('click', function () {
+      //   $state.go('root2.singlepost', {
+      //     id: scope.tile.post.id
+      //   });
+      // });  
     }
   };
 };
@@ -262,11 +263,11 @@ var splashTxt = function splashTxt($state, ProjectService) {
     },
     templateUrl: 'templates/app-layout/hometxttiles.tpl.html',
     link: function link(scope, element, attrs) {
-      element.on('click', function () {
-        $state.go('root2.singlepost', {
-          id: scope.tile.post.id
-        });
-      });
+      // element.on('click', function () {
+      //   $state.go('root2.singlepost', {
+      //     id: scope.tile.post.id
+      //   });
+      // });
     }
   };
 };
@@ -589,13 +590,15 @@ module.exports = exports['default'];
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var ExploreController = function ExploreController(ProjectService, UserService) {
+var ExploreController = function ExploreController(ProjectService, UserService, $state) {
 
   var vm = this;
 
   vm.tiles = [];
   vm.imgTiles = [];
   vm.txtTiles = [];
+
+  vm.addLike = addLike;
 
   UserService.checkAuth();
 
@@ -612,9 +615,18 @@ var ExploreController = function ExploreController(ProjectService, UserService) 
       return vm.imgTiles, vm.txtTiles;
     });
   });
+
+  function addLike(postId) {
+    console.log('you are liking this shit');
+    UserService.checkAuth();
+    ProjectService.likePost(postId).then(function (res) {
+      console.log(res);
+      $state.reload();
+    });
+  }
 };
 
-ExploreController.$inject = ['ProjectService', 'UserService'];
+ExploreController.$inject = ['ProjectService', 'UserService', '$state'];
 
 exports['default'] = ExploreController;
 module.exports = exports['default'];
@@ -625,11 +637,9 @@ module.exports = exports['default'];
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var HomeController = function HomeController(ProjectService) {
+var HomeController = function HomeController(ProjectService, UserService) {
 
   var vm = this;
-
-  vm.addLike = addLike;
 
   vm.tiles = [];
   vm.imgTiles = [];
@@ -648,13 +658,9 @@ var HomeController = function HomeController(ProjectService) {
       return vm.imgTiles, vm.txtTiles;
     });
   });
-
-  function addLike() {
-    console.log('you are liking this shit');
-  }
 };
 
-HomeController.$inject = ['ProjectService'];
+HomeController.$inject = ['ProjectService', 'UserService'];
 
 exports['default'] = HomeController;
 module.exports = exports['default'];
@@ -769,8 +775,8 @@ var ProjectService = function ProjectService($http, FILESERVER, SERVER) {
     return $http.post(url + 'posts/' + id + '/comments', c, SERVER.CONFIG);
   }
 
-  function likePost() {
-    console.log('post is liked');
+  function likePost(postId) {
+    return $http.post(url + 'posts/' + postId + '/likes', postId, SERVER.CONFIG);
   }
 };
 

@@ -1,10 +1,12 @@
-let ExploreController = function(ProjectService, UserService) {
+let ExploreController = function(ProjectService, UserService, $state) {
   
   let vm = this;
 
   vm.tiles = [];
   vm.imgTiles = [];
   vm.txtTiles = [];
+
+  vm.addLike = addLike;
 
   UserService.checkAuth();
 
@@ -24,8 +26,17 @@ let ExploreController = function(ProjectService, UserService) {
 
   });  
 
+  function addLike (postId) {
+    console.log('you are liking this shit');
+    UserService.checkAuth();
+    ProjectService.likePost(postId).then( (res) => {
+      console.log(res);
+      $state.reload();
+    });
+  }  
+
 };
 
-ExploreController.$inject = ['ProjectService', 'UserService'];
+ExploreController.$inject = ['ProjectService', 'UserService', '$state'];
 
 export default ExploreController;

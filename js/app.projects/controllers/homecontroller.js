@@ -1,8 +1,6 @@
-let HomeController = function(ProjectService) {
+let HomeController = function(ProjectService, UserService) {
   
   let vm = this;
-
-  vm.addLike = addLike;
 
   vm.tiles = [];
   vm.imgTiles = [];
@@ -25,14 +23,11 @@ let HomeController = function(ProjectService) {
 
   });
 
-  function addLike () {
-    console.log('you are liking this shit');
-  }  
 
 
 
 };
 
-HomeController.$inject = ['ProjectService'];
+HomeController.$inject = ['ProjectService', 'UserService'];
 
 export default HomeController;

@@ -25,8 +25,8 @@ let ProjectService = function($http, FILESERVER, SERVER) {
     return $http.post(url + 'posts/' + id + '/comments', c, SERVER.CONFIG);
   }
 
-  function likePost () {
-    console.log('post is liked');
+  function likePost (postId) {
+    return $http.post(url + 'posts/' + postId + '/likes', postId, SERVER.CONFIG);
   }
 
 
