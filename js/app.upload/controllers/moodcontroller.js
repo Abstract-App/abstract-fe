@@ -21,6 +21,7 @@ let MoodController = function(PostService, UserService, $state, $stateParams) {
 
   PostService.getMood(vm.postId).then( (res) => {
     console.log(res.data.post.moodpieces);
+    console.log(res);
     vm.moodPieces = res.data.post.moodpieces;
     // angular.forEach(moodPieces, function (piece) {
     //   vm.pieceImg = piece.image;
