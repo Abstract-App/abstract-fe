@@ -2312,17 +2312,29 @@ body {
     width: 300px;
     height: 375px;
     background: #b2b2b2;
-    display: inline-block; }
+    display: inline-block;
+    overflow: hidden; }
+    .temp2 .temp2sect1 img {
+      width: 300px;
+      height: 375px; }
   .temp2 .temp2sect2 {
     width: 100px;
     height: 375px;
     background: #b2b2b2;
-    display: inline-block; }
+    display: inline-block;
+    overflow: hidden; }
+    .temp2 .temp2sect2 img {
+      width: 100px;
+      height: 375px; }
   .temp2 .temp2sect3 {
     width: 200px;
     height: 375px;
     background: #b2b2b2;
-    display: inline-block; }
+    display: inline-block;
+    overflow: hidden; }
+    .temp2 .temp2sect3 img {
+      width: 200px;
+      height: 375px; }
   .temp2 .temp2left {
     display: inline-block;
     width: 300px;
@@ -2332,7 +2344,11 @@ body {
       height: 185px;
       background: #b2b2b2;
       margin-bottom: 5px;
-      display: block; }
+      display: block;
+      overflow: hidden; }
+      .temp2 .temp2left .temp2sect4 img {
+        width: 300px;
+        height: 185px; }
     .temp2 .temp2left .temp2sect4:hover {
       background: #E5E5E5;
       cursor: pointer; }
@@ -2340,7 +2356,11 @@ body {
       width: 300px;
       height: 185px;
       background: #b2b2b2;
-      display: block; }
+      display: block;
+      overflow: hidden; }
+      .temp2 .temp2left .temp2sect5 img {
+        width: 300px;
+        height: 185px; }
     .temp2 .temp2left .temp2sect5:hover {
       background: #E5E5E5;
       cursor: pointer; }
@@ -2348,7 +2368,11 @@ body {
     width: 300px;
     height: 375px;
     background: #b2b2b2;
-    display: inline-block; }
+    display: inline-block;
+    overflow: hidden; }
+    .temp2 .temp2sect6 img {
+      width: 300px;
+      height: 375px; }
 
 .temp3 {
   margin: 0 auto;

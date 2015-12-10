@@ -65,19 +65,19 @@ var config = function config($stateProvider, $urlRouterProvider) {
     controller: 'MoodController as vm',
     templateUrl: 'templates/app-upload/mood/temp1.tpl.html'
   }).state('root2.moodtemp2', {
-    url: '/mood/temp2',
+    url: '/mood/temp2/:id',
     controller: 'MoodController as vm',
     templateUrl: 'templates/app-upload/mood/temp2.tpl.html'
   }).state('root2.moodtemp3', {
-    url: '/mood/temp3',
+    url: '/mood/temp3/:id',
     controller: 'MoodController as vm',
     templateUrl: 'templates/app-upload/mood/temp3.tpl.html'
   }).state('root2.moodtemp4', {
-    url: '/mood/temp4',
+    url: '/mood/temp4/:id',
     controller: 'MoodController as vm',
     templateUrl: 'templates/app-upload/mood/temp4.tpl.html'
   }).state('root2.moodtemp5', {
-    url: '/mood/temp5',
+    url: '/mood/temp5/:id',
     controller: 'MoodController as vm',
     templateUrl: 'templates/app-upload/mood/temp5.tpl.html'
   }).state('root2.userhome', {
@@ -938,7 +938,12 @@ var MoodController = function MoodController(PostService, UserService, $state, $
 
   var vm = this;
 
-  vm.selectMood = selectMood;
+  vm.selectMood1 = selectMood1;
+  vm.selectMood2 = selectMood2;
+  vm.selectMood3 = selectMood3;
+  vm.selectMood4 = selectMood4;
+  vm.selectMood5 = selectMood5;
+
   vm.showForm1 = showForm1;
   vm.showForm2 = showForm2;
   vm.showForm3 = showForm3;
@@ -960,7 +965,9 @@ var MoodController = function MoodController(PostService, UserService, $state, $
     // });
   });
 
-  function selectMood() {
+  // select mood template + create initial moodboard
+
+  function selectMood1() {
     console.log('i want this mood!');
     PostService.selectMood().then(function (res) {
       console.log(res);
@@ -968,6 +975,44 @@ var MoodController = function MoodController(PostService, UserService, $state, $
       $state.go('root2.moodtemp1', { id: moodId });
     });
   }
+
+  function selectMood2() {
+    console.log('i want this mood!');
+    PostService.selectMood().then(function (res) {
+      console.log(res);
+      var moodId = res.data.post.id;
+      $state.go('root2.moodtemp2', { id: moodId });
+    });
+  }
+
+  function selectMood3() {
+    console.log('i want this mood!');
+    PostService.selectMood().then(function (res) {
+      console.log(res);
+      var moodId = res.data.post.id;
+      $state.go('root2.moodtemp3', { id: moodId });
+    });
+  }
+
+  function selectMood4() {
+    console.log('i want this mood!');
+    PostService.selectMood().then(function (res) {
+      console.log(res);
+      var moodId = res.data.post.id;
+      $state.go('root2.moodtemp4', { id: moodId });
+    });
+  }
+
+  function selectMood5() {
+    console.log('i want this mood!');
+    PostService.selectMood().then(function (res) {
+      console.log(res);
+      var moodId = res.data.post.id;
+      $state.go('root2.moodtemp5', { id: moodId });
+    });
+  }
+
+  // forms pop up for each box in moodboard template
 
   function showForm1() {
     vm.showImageUpload1 = vm.showImageUpload1 || vm.showImageUpload2 || vm.showImageUpload3 || vm.showImageUpload4 || vm.showImageUpload5 || vm.showImageUpload6 ? false : true;
