@@ -102,10 +102,25 @@ let config = function($stateProvider, $urlRouterProvider) {
       controller: 'UserPageController as vm',
       templateUrl: 'templates/app-profile/profile.tpl.html'
     })
-    .state('root2.singlepost', {
-      url: '/singlepost/:id',
+    .state('root2.imageview', {
+      url: '/image/:id',
       controller: 'SinglePostController as vm',
-      templateUrl: 'templates/app-projects/singlepost.tpl.html'
+      templateUrl: 'templates/app-projects/singleviews/image.tpl.html'
+    })
+    .state('root2.textview', {
+      url: '/text/:id',
+      controller: 'SinglePostController as vm',
+      templateUrl: 'templates/app-projects/singleviews/text.tpl.html'
+    })
+    .state('root2.quoteview', {
+      url: '/quote/:id',
+      controller: 'SinglePostController as vm',
+      templateUrl: 'templates/app-projects/singleviews/quote.tpl.html'
+    })
+    .state('root2.urlurlview', {
+      url: '/url/:id',
+      controller: 'SinglePostController as vm',
+      templateUrl: 'templates/app-projects/singleviews/url.tpl.html'
     })
     .state('root2.explore', {
       url: '/explore',
