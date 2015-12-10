@@ -2245,13 +2245,17 @@ body {
     display: inline-block;
     overflow: hidden; }
     .temp1 .temp1sect1 img {
-      width: 300px; }
+      width: 300px;
+      height: 250px; }
   .temp1 .temp1sect2 {
     width: 300px;
     height: 250px;
     background: #b2b2b2;
     display: inline-block;
     overflow: hidden; }
+    .temp1 .temp1sect2 img {
+      width: 300px;
+      height: 250px; }
   .temp1 .temp1sect3 {
     width: 300px;
     height: 250px;
