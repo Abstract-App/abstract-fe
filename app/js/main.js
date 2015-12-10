@@ -61,7 +61,7 @@ var config = function config($stateProvider, $urlRouterProvider) {
     controller: 'MoodController as vm',
     templateUrl: 'templates/app-upload/moodupload.tpl.html'
   }).state('root2.moodtemp1', {
-    url: '/mood/temp1',
+    url: '/mood/temp1/:id',
     controller: 'MoodController as vm',
     templateUrl: 'templates/app-upload/mood/temp1.tpl.html'
   }).state('root2.moodtemp2', {
@@ -934,46 +934,68 @@ module.exports = exports['default'];
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var MoodController = function MoodController(PostService, UserService) {
+var MoodController = function MoodController(PostService, UserService, $state, $stateParams) {
 
   var vm = this;
 
+  vm.selectMood = selectMood;
   vm.showForm1 = showForm1;
   vm.showForm2 = showForm2;
   vm.showForm3 = showForm3;
   vm.showForm4 = showForm4;
   vm.showForm5 = showForm5;
   vm.showForm6 = showForm6;
-  vm.showImageUpload1 = false;
-  vm.showImageUpload2 = false;
-  vm.showImageUpload3 = false;
-  vm.showImageUpload4 = false;
-  vm.showImageUpload5 = false;
-  vm.showImageUpload6 = false;
+
+  vm.postId = $stateParams.id;
 
   UserService.checkFileAuth();
 
+  PostService.getMood(vm.postId).then(function (res) {
+    console.log(res.data.post.moodpieces);
+    vm.moodPieces = res.data.post.moodpieces;
+    // angular.forEach(moodPieces, function (piece) {
+    //   vm.pieceImg = piece.image;
+    //   vm.pieceClass = piece.div_id;
+    //   console.log(vm.pieceImg, vm.pieceClass);
+    // });
+  });
+
+  function selectMood() {
+    console.log('i want this mood!');
+    PostService.selectMood().then(function (res) {
+      console.log(res);
+      var moodId = res.data.post.id;
+      $state.go('root2.moodtemp1', { id: moodId });
+    });
+  }
+
   function showForm1() {
-    vm.showImageUpload1 = vm.showImageUpload1 ? false : true;
+    vm.showImageUpload1 = vm.showImageUpload1 || vm.showImageUpload2 || vm.showImageUpload3 || vm.showImageUpload4 || vm.showImageUpload5 || vm.showImageUpload6 ? false : true;
+    console.log('showing 1');
   }
   function showForm2() {
-    vm.showImageUpload2 = vm.showImageUpload2 ? false : true;
+    vm.showImageUpload2 = vm.showImageUpload1 || vm.showImageUpload2 || vm.showImageUpload3 || vm.showImageUpload4 || vm.showImageUpload5 || vm.showImageUpload6 ? false : true;
+    console.log('showing 2');
   }
   function showForm3() {
-    vm.showImageUpload3 = vm.showImageUpload3 ? false : true;
+    vm.showImageUpload3 = vm.showImageUpload1 || vm.showImageUpload2 || vm.showImageUpload3 || vm.showImageUpload4 || vm.showImageUpload5 || vm.showImageUpload6 ? false : true;
+    console.log('showing 3');
   }
   function showForm4() {
-    vm.showImageUpload4 = vm.showImageUpload4 ? false : true;
+    vm.showImageUpload4 = vm.showImageUpload1 || vm.showImageUpload2 || vm.showImageUpload3 || vm.showImageUpload4 || vm.showImageUpload5 || vm.showImageUpload6 ? false : true;
+    console.log('showing 4');
   }
   function showForm5() {
-    vm.showImageUpload5 = vm.showImageUpload5 ? false : true;
+    vm.showImageUpload5 = vm.showImageUpload1 || vm.showImageUpload2 || vm.showImageUpload3 || vm.showImageUpload4 || vm.showImageUpload5 || vm.showImageUpload6 ? false : true;
+    console.log('showing 5');
   }
   function showForm6() {
-    vm.showImageUpload6 = vm.showImageUpload6 ? false : true;
+    vm.showImageUpload6 = vm.showImageUpload1 || vm.showImageUpload2 || vm.showImageUpload3 || vm.showImageUpload4 || vm.showImageUpload5 || vm.showImageUpload6 ? false : true;
+    console.log('showing 6');
   }
 };
 
-MoodController.$inject = ['PostService', 'UserService'];
+MoodController.$inject = ['PostService', 'UserService', '$state', '$stateParams'];
 
 exports['default'] = MoodController;
 module.exports = exports['default'];
@@ -1054,11 +1076,11 @@ module.exports = exports['default'];
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var addImage = function addImage(PostService) {
+var addImage = function addImage(PostService, $state) {
 
   return {
 
-    restrict: 'E',
+    restrict: 'EA',
     replace: true,
     scope: {
       mood: '='
@@ -1066,17 +1088,26 @@ var addImage = function addImage(PostService) {
     templateUrl: 'templates/app-upload/mood/moodform.tpl.html',
     link: function link(scope, element, attrs) {
       element.on('submit', function () {
-
-        var file = element.find('input')[0].files[0];
-        PostService.upload(file).then(function (res) {
-          CarService.addImage(res.data.upload.file_url, scope.car).then(function (res) {});
+        var image = element.find('input')[0].files[0];
+        var divId = attrs.mood;
+        var postId = attrs.id;
+        PostService.postMood(image, divId, postId).then(function (res) {
+          console.log(res);
+          $state.reload();
         });
+        // let file = element.find('input')[0].files[0];
+        // PostService.upload(file).then( (res) => {
+        //   CarService.addImage(res.data.upload.file_url, scope.car)
+        //     .then( (res) => {
+
+        //     });
+        // });
       });
     }
   };
 };
 
-addImage.$inject = ['PostService'];
+addImage.$inject = ['PostService', '$state'];
 
 exports['default'] = addImage;
 module.exports = exports['default'];
@@ -1143,6 +1174,9 @@ var PostService = function PostService($http, FILESERVER, SERVER, UserService) {
   this.postText = postText;
   this.postLink = postLink;
   this.postQuote = postQuote;
+  this.selectMood = selectMood;
+  this.postMood = postMood;
+  this.getMood = getMood;
 
   function addImage(file) {
     console.log(file);
@@ -1197,6 +1231,35 @@ var PostService = function PostService($http, FILESERVER, SERVER, UserService) {
   function postQuote(quoteObj) {
     var q = new Quote(quoteObj);
     return $http.post(url + 'posts', q, SERVER.CONFIG);
+  }
+
+  var Mood = function Mood() {
+    this.post_type = 'moodboard';
+  };
+
+  function selectMood() {
+    var m = new Mood();
+    console.log('mood selected and sending');
+    return $http.post(url + 'posts', m, SERVER.CONFIG);
+  }
+
+  function postMood(image, divId, postId) {
+    UserService.checkFileAuth();
+
+    var moodData = new FormData();
+
+    moodData.append('div_id', divId);
+    moodData.append('image', image);
+    moodData.append('post_id', postId);
+
+    console.log(image);
+    console.log(divId);
+    console.log(postId);
+    return $http.post(url + 'posts/' + postId + '/moodpieces', moodData, FILESERVER.CONFIG);
+  }
+
+  function getMood(postId) {
+    return $http.get(url + 'posts/' + postId, FILESERVER.CONFIG);
   }
 };
 

@@ -2,19 +2,45 @@
   <h1>MoodBoard Classic&trade;</h1>
 
   <div class="temp1">
+<<<<<<< HEAD
   <a ng-click="showForm1()"><div class="temp1sect1"></div></a>
   <a ng-click="showForm2()"><div class="temp1sect2"></div></a>
   <a ng-click="showForm3()"><div class="temp1sect3"></div></a>
   <a ng-click="showForm4()"><div class="temp1sect4"></div></a>
   <a ng-click="showForm5()"><div class="temp1sect5"></div></a>
   <a ng-click="showForm6()"><div class="temp1sect6"></div></a>
+=======
+    <a ng-click="vm.showForm1()">
+      <div class="box temp1sect1">
+        <img ng-src="{{vm.moodPieces[0].image}}">
+<!--         <img ng-src="{{moodPiece.image}}"> -->
+      </div>
+  </a>
+    <a ng-click="vm.showForm2()"><div class="box temp1sect2">
+      <img ng-src="{{vm.moodPieces[4].image}}">
+    </div></a>
+    <a ng-click="vm.showForm3()"><div class="box temp1sect3"></div></a>
+    <a ng-click="vm.showForm4()"><div class="box temp1sect4"></div></a>
+    <a ng-click="vm.showForm5()"><div class="box temp1sect5"></div></a>
+    <a ng-click="vm.showForm6()"><div class="box temp1sect6"></div></a>
+>>>>>>> master
   </div>
   <div class="form">
-    <add-image ng-show="vm.showImageUpload1" mood="vm.mood"></add-image>
-    <add-image ng-show="vm.showImageUpload2" mood="vm.mood"></add-image>
-    <add-image ng-show="vm.showImageUpload3" mood="vm.mood"></add-image>
-    <add-image ng-show="vm.showImageUpload4" mood="vm.mood"></add-image>
-    <add-image ng-show="vm.showImageUpload5" mood="vm.mood"></add-image>
-    <add-image ng-show="vm.showImageUpload6" mood="vm.mood"></add-image>
+    <add-image ng-show="vm.showImageUpload1" id="{{vm.postId}}" mood="temp1sect1"></add-image>
+    <add-image ng-show="vm.showImageUpload2" mood="temp1sect2"></add-image>
+    <add-image ng-show="vm.showImageUpload3" mood="temp1sect3"></add-image>
+    <add-image ng-show="vm.showImageUpload4" mood="temp1sect4"></add-image>
+    <add-image ng-show="vm.showImageUpload5" mood="temp1sect5"></add-image>
+    <add-image ng-show="vm.showImageUpload6" mood="temp1sect6"></add-image>
   </div>
+<<<<<<< HEAD
 </section>
+=======
+</section>
+
+<!-- <section class="mood-form" ng-repeat="moodPiece in vm.moodPieces">
+  <div class="{{moodPiece.div_id}}">
+    <img ng-src="{{moodPiece.image}}">
+  </div>
+</section> -->
+>>>>>>> master

@@ -68,7 +68,7 @@ let config = function($stateProvider, $urlRouterProvider) {
       templateUrl: 'templates/app-upload/moodupload.tpl.html'
     })
     .state('root2.moodtemp1', {
-      url: '/mood/temp1',
+      url: '/mood/temp1/:id',
       controller: 'MoodController as vm',
       templateUrl: 'templates/app-upload/mood/temp1.tpl.html'
     })

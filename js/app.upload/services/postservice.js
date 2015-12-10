@@ -7,6 +7,9 @@ let PostService = function($http, FILESERVER, SERVER, UserService) {
   this.postText = postText;
   this.postLink = postLink;
   this.postQuote = postQuote;
+  this.selectMood = selectMood;
+  this.postMood = postMood;
+  this.getMood = getMood;
 
   function addImage (file) {
     console.log(file);
@@ -61,6 +64,35 @@ let PostService = function($http, FILESERVER, SERVER, UserService) {
   function postQuote (quoteObj) {
     let q = new Quote(quoteObj);
     return $http.post(url + 'posts', q, SERVER.CONFIG);
+  }
+
+  let Mood = function () {
+    this.post_type = 'moodboard';
+  };
+
+  function selectMood () {
+    let m = new Mood();
+    console.log('mood selected and sending');
+    return $http.post(url + 'posts', m, SERVER.CONFIG);
+  }
+
+  function postMood (image, divId, postId) {
+    UserService.checkFileAuth();
+
+    let moodData = new FormData();
+
+    moodData.append('div_id', divId);
+    moodData.append('image', image);
+    moodData.append('post_id', postId);
+
+    console.log(image);
+    console.log(divId);
+    console.log(postId);
+    return $http.post(url + 'posts/' + postId + '/moodpieces', moodData, FILESERVER.CONFIG);
+  }
+
+  function getMood (postId) {
+    return $http.get(url + 'posts/' + postId, FILESERVER.CONFIG);
   }
 
   
