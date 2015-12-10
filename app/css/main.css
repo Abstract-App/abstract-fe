@@ -2467,16 +2467,17 @@ body {
     color: gray; }
   .template4 .temp4 {
     margin: 0 auto;
-    width: 610px;
+    width: 620px;
     height: 760px;
     position: absolute;
     left: 100px; }
     .template4 .temp4 .left {
+      margin: 0;
       display: inline-block; }
       .template4 .temp4 .left .row1 {
         display: block; }
         .template4 .temp4 .left .row1 .temp4sect1 {
-          width: 500px;
+          width: 400px;
           height: 300px;
           background: #b2b2b2; }
       .template4 .temp4 .left .row2 {
@@ -2492,21 +2493,86 @@ body {
           background: #b2b2b2;
           display: inline-block; }
     .template4 .temp4 .right {
+      margin: 0;
       display: inline-block; }
       .template4 .temp4 .right .temp4sect4 {
         width: 100px;
-        height: 200px;
+        height: 300px;
         background: #b2b2b2;
         display: inline-block; }
       .template4 .temp4 .right .temp4sect5 {
         width: 100px;
-        height: 100px;
+        height: 300px;
         background: #b2b2b2;
         display: inline-block; }
       .template4 .temp4 .right .temp4sect6 {
         width: 200px;
         height: 450px;
+        background: #b2b2b2; }
+
+.template5 {
+  margin: 0 auto; }
+  .template5 h1 {
+    color: gray; }
+  .template5 .temp5 {
+    width: 630px;
+    height: 760px;
+    overflow: hidden;
+    position: absolute;
+    left: 100px; }
+    .template5 .temp5 .left {
+      margin-left: 0;
+      display: inline-block;
+      overflow: hidden; }
+      .template5 .temp5 .left .row1 {
+        display: block;
+        overflow: hidden;
+        text-align: left; }
+        .template5 .temp5 .left .row1 .temp5sect1 {
+          width: 412px;
+          height: 300px;
+          border: 2px solid #F2F2F2;
+          background: #b2b2b2; }
+      .template5 .temp5 .left .row2 {
+        display: block;
+        text-align: left;
+        overflow: hidden; }
+        .template5 .temp5 .left .row2 .temp5sect2 {
+          width: 204px;
+          height: 450px;
+          border: 2px solid r #F2F2F2;
+          background: #b2b2b2;
+          display: inline-block; }
+        .template5 .temp5 .left .row2 .temp5sect3 {
+          width: 200px;
+          height: 450px;
+          border: 2px solid #F2F2F2;
+          background: #b2b2b2;
+          display: inline-block; }
+    .template5 .temp5 .right {
+      margin: 0;
+      display: inline-block;
+      overflow: hidden;
+      float: none; }
+      .template5 .temp5 .right .temp5sect4 {
+        width: 200px;
+        height: 300px;
+        border: 2px solid #F2F2F2;
         background: #b2b2b2;
-        display: inline-block; }
+        position: relative; }
+      .template5 .temp5 .right .temp5sect5 {
+        width: 200px;
+        height: 200px;
+        border: 2px solid #F2F2F2;
+        border-radius: 100%;
+        background: #b2b2b2;
+        position: absolute;
+        top: 50px;
+        left: 315px; }
+      .template5 .temp5 .right .temp5sect6 {
+        width: 200px;
+        height: 450px;
+        border: 2px solid #F2F2F2;
+        background: #b2b2b2; }
 
 /*# sourceMappingURL=main.css.map */
