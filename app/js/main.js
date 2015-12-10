@@ -595,7 +595,7 @@ _angular2['default'].module('app.layout', ['app.core', 'app.user', 'app.upload',
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var UserPageController = function UserPageController(ProfileService, UserPageService, UserService, $stateParams, $state, $cookies) {
+var UserPageController = function UserPageController(ProjectService, ProfileService, UserPageService, UserService, $stateParams, $state, $cookies, $scope) {
 
   var vm = this;
 
@@ -635,12 +635,14 @@ var UserPageController = function UserPageController(ProfileService, UserPageSer
   function addLike(postId) {
     UserService.checkAuth();
     UserPageService.likePost(postId).then(function (res) {
-      $state.reload();
+      ProjectService.getPost(postId).then(function (res) {
+        $scope.post.post.likes_count = res.data.post.likes_count;
+      });
     });
   }
 };
 
-UserPageController.$inject = ['ProfileService', 'UserPageService', 'UserService', '$stateParams', '$state', '$cookies'];
+UserPageController.$inject = ['ProjectService', 'ProfileService', 'UserPageService', 'UserService', '$stateParams', '$state', '$cookies', '$scope'];
 
 exports['default'] = UserPageController;
 module.exports = exports['default'];
@@ -687,6 +689,7 @@ var UserPageService = function UserPageService(SERVER, FILESERVER, $cookies, $ht
     UserService.checkFileAuth();
     return $http.get(FILESERVER.URL + 'users/' + id + '/posts', FILESERVER.CONFIG);
   }
+
   function editPost(id) {
     return $http.put(FILESERVER.URL + 'posts/' + id, FILESERVER.CONFIG);
   }
@@ -711,7 +714,7 @@ module.exports = exports['default'];
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var ExploreController = function ExploreController(ProjectService, UserService, $state) {
+var ExploreController = function ExploreController(ProjectService, UserService, $state, $scope) {
 
   var vm = this;
 
@@ -743,13 +746,13 @@ var ExploreController = function ExploreController(ProjectService, UserService, 
     ProjectService.likePost(postId).then(function (res) {
       ProjectService.getPost(postId).then(function (res) {
         console.log(res);
-        var tile = res.data.post;
+        $scope.tile.post.likes_count = res.data.post.likes_count;
       });
     });
   }
 };
 
-ExploreController.$inject = ['ProjectService', 'UserService', '$state'];
+ExploreController.$inject = ['ProjectService', 'UserService', '$state', '$scope'];
 
 exports['default'] = ExploreController;
 module.exports = exports['default'];

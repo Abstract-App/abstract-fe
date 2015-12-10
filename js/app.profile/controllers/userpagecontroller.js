@@ -1,4 +1,4 @@
-let UserPageController = function(ProfileService, UserPageService, UserService, $stateParams, $state, $cookies) {
+let UserPageController = function(ProjectService, ProfileService, UserPageService, UserService, $stateParams, $state, $cookies, $scope) {
   
   let vm = this;
 
@@ -39,12 +39,14 @@ let UserPageController = function(ProfileService, UserPageService, UserService, 
   function addLike (postId) {
     UserService.checkAuth();
     UserPageService.likePost(postId).then( (res) => {
-      $state.reload();
+      ProjectService.getPost(postId).then( (res) => {
+        $scope.post.post.likes_count = res.data.post.likes_count;
+      });
     });
   }
 
 };
 
-UserPageController.$inject = ['ProfileService', 'UserPageService', 'UserService', '$stateParams', '$state', '$cookies'];
+UserPageController.$inject = ['ProjectService', 'ProfileService', 'UserPageService', 'UserService', '$stateParams', '$state', '$cookies', '$scope'];
 
 export default UserPageController;

@@ -9,6 +9,7 @@ let UserPageService = function(SERVER, FILESERVER, $cookies, $http, UserService)
     UserService.checkFileAuth();
     return $http.get(FILESERVER.URL + 'users/' + id + '/posts', FILESERVER.CONFIG);
   }
+  
   function editPost (id) {
     return $http.put(FILESERVER.URL + 'posts/' + id, FILESERVER.CONFIG);
   }
