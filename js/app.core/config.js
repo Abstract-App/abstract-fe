@@ -73,22 +73,22 @@ let config = function($stateProvider, $urlRouterProvider) {
       templateUrl: 'templates/app-upload/mood/temp1.tpl.html'
     })
     .state('root2.moodtemp2', {
-      url: '/mood/temp2',
+      url: '/mood/temp2/:id',
       controller: 'MoodController as vm',
       templateUrl: 'templates/app-upload/mood/temp2.tpl.html'
     })
     .state('root2.moodtemp3', {
-      url: '/mood/temp3',
+      url: '/mood/temp3/:id',
       controller: 'MoodController as vm',
       templateUrl: 'templates/app-upload/mood/temp3.tpl.html'
     })
     .state('root2.moodtemp4', {
-      url: '/mood/temp4',
+      url: '/mood/temp4/:id',
       controller: 'MoodController as vm',
       templateUrl: 'templates/app-upload/mood/temp4.tpl.html'
     })
     .state('root2.moodtemp5', {
-      url: '/mood/temp5',
+      url: '/mood/temp5/:id',
       controller: 'MoodController as vm',
       templateUrl: 'templates/app-upload/mood/temp5.tpl.html'
     })

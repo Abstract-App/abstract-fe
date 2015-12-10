@@ -30,8 +30,10 @@ let ExploreController = function(ProjectService, UserService, $state) {
     console.log('you are liking this shit');
     UserService.checkAuth();
     ProjectService.likePost(postId).then( (res) => {
-      console.log(res);
-      $state.reload();
+      ProjectService.getPost(postId).then( (res) => {
+        console.log(res);
+        let tile = res.data.post;
+      });
     });
   }  
 
