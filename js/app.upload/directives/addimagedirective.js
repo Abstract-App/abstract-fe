@@ -14,16 +14,8 @@ let addImage = function(PostService, $state) {
         let divId = attrs.mood;
         let postId = attrs.id;
         PostService.postMood(image, divId, postId).then( (res) => {
-          console.log(res);
           $state.reload();
         });
-        // let file = element.find('input')[0].files[0];
-        // PostService.upload(file).then( (res) => {
-        //   CarService.addImage(res.data.upload.file_url, scope.car)
-        //     .then( (res) => {
-              
-        //     });
-        // });
       });
     }
   };

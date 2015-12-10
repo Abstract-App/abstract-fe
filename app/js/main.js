@@ -709,8 +709,10 @@ var ExploreController = function ExploreController(ProjectService, UserService, 
     console.log('you are liking this shit');
     UserService.checkAuth();
     ProjectService.likePost(postId).then(function (res) {
-      console.log(res);
-      $state.reload();
+      ProjectService.getPost(postId).then(function (res) {
+        console.log(res);
+        var tile = res.data.post;
+      });
     });
   }
 };
@@ -890,7 +892,7 @@ var ImageController = function ImageController(PostService, UserService, $stateP
   function uploadImagePost(image) {
     UserService.checkFileAuth();
     PostService.postForm(image).then(function (res) {
-      var id = res.data.post[0].user_id;
+      var id = res.data.post.user_id;
       $state.go('root2.userhome', { id: id });
     });
   }
@@ -917,7 +919,7 @@ var LinkController = function LinkController(PostService, UserService, $statePar
     UserService.checkAuth();
     PostService.postLink(link).then(function (res) {
       console.log(res);
-      var id = res.data.post[0].user_id;
+      var id = res.data.post.user_id;
       $state.go('root2.userhome', { id: id });
     });
   }
@@ -956,8 +958,6 @@ var MoodController = function MoodController(PostService, UserService, $state, $
   UserService.checkFileAuth();
 
   PostService.getMood(vm.postId).then(function (res) {
-    console.log(res.data.post.moodpieces);
-    console.log(res);
     vm.moodPieces = res.data.post.moodpieces;
     // angular.forEach(moodPieces, function (piece) {
     //   vm.pieceImg = piece.image;
@@ -969,45 +969,35 @@ var MoodController = function MoodController(PostService, UserService, $state, $
   // select mood template + create initial moodboard
 
   function selectMood1() {
-    console.log('i want this mood!');
     PostService.selectMood().then(function (res) {
-      console.log(res);
       var moodId = res.data.post.id;
       $state.go('root2.moodtemp1', { id: moodId });
     });
   }
 
   function selectMood2() {
-    console.log('i want this mood!');
     PostService.selectMood().then(function (res) {
-      console.log(res);
       var moodId = res.data.post.id;
       $state.go('root2.moodtemp2', { id: moodId });
     });
   }
 
   function selectMood3() {
-    console.log('i want this mood!');
     PostService.selectMood().then(function (res) {
-      console.log(res);
       var moodId = res.data.post.id;
       $state.go('root2.moodtemp3', { id: moodId });
     });
   }
 
   function selectMood4() {
-    console.log('i want this mood!');
     PostService.selectMood().then(function (res) {
-      console.log(res);
       var moodId = res.data.post.id;
       $state.go('root2.moodtemp4', { id: moodId });
     });
   }
 
   function selectMood5() {
-    console.log('i want this mood!');
     PostService.selectMood().then(function (res) {
-      console.log(res);
       var moodId = res.data.post.id;
       $state.go('root2.moodtemp5', { id: moodId });
     });
@@ -1061,7 +1051,7 @@ var QuoteController = function QuoteController(PostService, UserService, $state)
   function uploadQuotePost(quote) {
     UserService.checkAuth();
     PostService.postQuote(quote).then(function (res) {
-      var id = res.data.post[0].user_id;
+      var id = res.data.post.user_id;
       $state.go('root2.userhome', { id: id });
     });
   }
@@ -1087,7 +1077,7 @@ var TextController = function TextController(PostService, UserService, $statePar
   function uploadTextPost(text) {
     UserService.checkAuth();
     PostService.postText(text).then(function (res) {
-      var id = res.data.post[0].user_id;
+      var id = res.data.post.user_id;
       $state.go('root2.userhome', { id: id });
     });
   }
@@ -1138,16 +1128,8 @@ var addImage = function addImage(PostService, $state) {
         var divId = attrs.mood;
         var postId = attrs.id;
         PostService.postMood(image, divId, postId).then(function (res) {
-          console.log(res);
           $state.reload();
         });
-        // let file = element.find('input')[0].files[0];
-        // PostService.upload(file).then( (res) => {
-        //   CarService.addImage(res.data.upload.file_url, scope.car)
-        //     .then( (res) => {
-
-        //     });
-        // });
       });
     }
   };
@@ -1225,12 +1207,10 @@ var PostService = function PostService($http, FILESERVER, SERVER, UserService) {
   this.getMood = getMood;
 
   function addImage(file) {
-    console.log(file);
     return file;
   }
 
   function postForm(image) {
-    console.log(image);
 
     UserService.checkFileAuth();
 
@@ -1298,9 +1278,6 @@ var PostService = function PostService($http, FILESERVER, SERVER, UserService) {
     moodData.append('image', image);
     moodData.append('post_id', postId);
 
-    console.log(image);
-    console.log(divId);
-    console.log(postId);
     return $http.post(url + 'posts/' + postId + '/moodpieces', moodData, FILESERVER.CONFIG);
   }
 

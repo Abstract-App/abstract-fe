@@ -20,8 +20,6 @@ let MoodController = function(PostService, UserService, $state, $stateParams) {
   UserService.checkFileAuth();
 
   PostService.getMood(vm.postId).then( (res) => {
-    console.log(res.data.post.moodpieces);
-    console.log(res);
     vm.moodPieces = res.data.post.moodpieces;
     // angular.forEach(moodPieces, function (piece) {
     //   vm.pieceImg = piece.image;
@@ -33,45 +31,35 @@ let MoodController = function(PostService, UserService, $state, $stateParams) {
   // select mood template + create initial moodboard
 
   function selectMood1 () {
-    console.log('i want this mood!');
     PostService.selectMood().then( (res) => {
-      console.log(res);
       let moodId = res.data.post.id;
       $state.go('root2.moodtemp1', {id: moodId});
     });
   }
 
   function selectMood2 () {
-    console.log('i want this mood!');
     PostService.selectMood().then( (res) => {
-      console.log(res);
       let moodId = res.data.post.id;
       $state.go('root2.moodtemp2', {id: moodId});
     });
   }
 
   function selectMood3 () {
-    console.log('i want this mood!');
     PostService.selectMood().then( (res) => {
-      console.log(res);
       let moodId = res.data.post.id;
       $state.go('root2.moodtemp3', {id: moodId});
     });
   }
 
   function selectMood4 () {
-    console.log('i want this mood!');
     PostService.selectMood().then( (res) => {
-      console.log(res);
       let moodId = res.data.post.id;
       $state.go('root2.moodtemp4', {id: moodId});
     });
   }
 
   function selectMood5 () {
-    console.log('i want this mood!');
     PostService.selectMood().then( (res) => {
-      console.log(res);
       let moodId = res.data.post.id;
       $state.go('root2.moodtemp5', {id: moodId});
     });
