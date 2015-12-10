@@ -7,7 +7,7 @@ let TextController = function(PostService, UserService, $stateParams, $state) {
   function uploadTextPost (text) {
     UserService.checkAuth();
     PostService.postText(text).then( (res) => {
-      let id = res.data.post[0].user_id;
+      let id = res.data.post.user_id;
       $state.go('root2.userhome', {id: id});
     });
   }

@@ -12,12 +12,10 @@ let PostService = function($http, FILESERVER, SERVER, UserService) {
   this.getMood = getMood;
 
   function addImage (file) {
-    console.log(file);
     return file;
   }
 
   function postForm (image) {
-    console.log(image);
 
     UserService.checkFileAuth();
 
@@ -85,9 +83,6 @@ let PostService = function($http, FILESERVER, SERVER, UserService) {
     moodData.append('image', image);
     moodData.append('post_id', postId);
 
-    console.log(image);
-    console.log(divId);
-    console.log(postId);
     return $http.post(url + 'posts/' + postId + '/moodpieces', moodData, FILESERVER.CONFIG);
   }
 
