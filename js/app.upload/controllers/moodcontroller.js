@@ -3,7 +3,6 @@ let MoodController = function(PostService, UserService, $state, $stateParams) {
   let vm = this;
 
   vm.selectMood = selectMood;
-
   vm.showForm1 = showForm1;
   vm.showForm2 = showForm2;
   vm.showForm3 = showForm3;
@@ -14,6 +13,16 @@ let MoodController = function(PostService, UserService, $state, $stateParams) {
   vm.postId = $stateParams.id;
 
   UserService.checkFileAuth();
+
+  PostService.getMood(vm.postId).then( (res) => {
+    console.log(res.data.post.moodpieces);
+    vm.moodPieces = res.data.post.moodpieces;
+    // angular.forEach(moodPieces, function (piece) {
+    //   vm.pieceImg = piece.image;
+    //   vm.pieceClass = piece.div_id;
+    //   console.log(vm.pieceImg, vm.pieceClass);
+    // });
+  });
 
   function selectMood () {
     console.log('i want this mood!');

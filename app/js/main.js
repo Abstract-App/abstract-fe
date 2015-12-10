@@ -939,7 +939,6 @@ var MoodController = function MoodController(PostService, UserService, $state, $
   var vm = this;
 
   vm.selectMood = selectMood;
-
   vm.showForm1 = showForm1;
   vm.showForm2 = showForm2;
   vm.showForm3 = showForm3;
@@ -950,6 +949,16 @@ var MoodController = function MoodController(PostService, UserService, $state, $
   vm.postId = $stateParams.id;
 
   UserService.checkFileAuth();
+
+  PostService.getMood(vm.postId).then(function (res) {
+    console.log(res.data.post.moodpieces);
+    vm.moodPieces = res.data.post.moodpieces;
+    // angular.forEach(moodPieces, function (piece) {
+    //   vm.pieceImg = piece.image;
+    //   vm.pieceClass = piece.div_id;
+    //   console.log(vm.pieceImg, vm.pieceClass);
+    // });
+  });
 
   function selectMood() {
     console.log('i want this mood!');
@@ -1167,6 +1176,7 @@ var PostService = function PostService($http, FILESERVER, SERVER, UserService) {
   this.postQuote = postQuote;
   this.selectMood = selectMood;
   this.postMood = postMood;
+  this.getMood = getMood;
 
   function addImage(file) {
     console.log(file);
@@ -1246,6 +1256,10 @@ var PostService = function PostService($http, FILESERVER, SERVER, UserService) {
     console.log(divId);
     console.log(postId);
     return $http.post(url + 'posts/' + postId + '/moodpieces', moodData, FILESERVER.CONFIG);
+  }
+
+  function getMood(postId) {
+    return $http.get(url + 'posts/' + postId, FILESERVER.CONFIG);
   }
 };
 

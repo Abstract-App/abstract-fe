@@ -9,6 +9,7 @@ let PostService = function($http, FILESERVER, SERVER, UserService) {
   this.postQuote = postQuote;
   this.selectMood = selectMood;
   this.postMood = postMood;
+  this.getMood = getMood;
 
   function addImage (file) {
     console.log(file);
@@ -88,6 +89,10 @@ let PostService = function($http, FILESERVER, SERVER, UserService) {
     console.log(divId);
     console.log(postId);
     return $http.post(url + 'posts/' + postId + '/moodpieces', moodData, FILESERVER.CONFIG);
+  }
+
+  function getMood (postId) {
+    return $http.get(url + 'posts/' + postId, FILESERVER.CONFIG);
   }
 
   

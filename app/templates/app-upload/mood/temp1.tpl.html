@@ -2,8 +2,15 @@
   <h1>MoodBoard Classic&trade;</h1>
 
   <div class="temp1">
-    <a ng-click="vm.showForm1()"><div class="box temp1sect1"></div></a>
-    <a ng-click="vm.showForm2()"><div class="box temp1sect2"></div></a>
+    <a ng-click="vm.showForm1()">
+      <div class="box temp1sect1">
+        <img ng-src="{{vm.moodPieces[0].image}}">
+<!--         <img ng-src="{{moodPiece.image}}"> -->
+      </div>
+  </a>
+    <a ng-click="vm.showForm2()"><div class="box temp1sect2">
+      <img ng-src="{{vm.moodPieces[1].image}}">
+    </div></a>
     <a ng-click="vm.showForm3()"><div class="box temp1sect3"></div></a>
     <a ng-click="vm.showForm4()"><div class="box temp1sect4"></div></a>
     <a ng-click="vm.showForm5()"><div class="box temp1sect5"></div></a>
@@ -18,3 +25,9 @@
     <add-image ng-show="vm.showImageUpload6" mood="temp1sect6"></add-image>
   </div>
 </section>
+
+<!-- <section class="mood-form" ng-repeat="moodPiece in vm.moodPieces">
+  <div class="{{moodPiece.div_id}}">
+    <img ng-src="{{moodPiece.image}}">
+  </div>
+</section> -->
