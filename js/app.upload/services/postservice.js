@@ -64,8 +64,9 @@ let PostService = function($http, FILESERVER, SERVER, UserService) {
     return $http.post(url + 'posts', q, SERVER.CONFIG);
   }
 
-  function postMood () {
-    console.log('post mood service is responding');
+  function postMood (image, divId) {
+    console.log(image);
+    console.log(divId);
   }
 
   

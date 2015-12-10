@@ -1058,7 +1058,7 @@ var addImage = function addImage(PostService) {
 
   return {
 
-    restrict: 'E',
+    restrict: 'EA',
     replace: true,
     scope: {
       mood: '='
@@ -1066,9 +1066,9 @@ var addImage = function addImage(PostService) {
     templateUrl: 'templates/app-upload/mood/moodform.tpl.html',
     link: function link(scope, element, attrs) {
       element.on('submit', function () {
-
-        PostService.postMood();
-
+        var image = element.find('input')[0].files[0];
+        var div_id = attrs.mood;
+        PostService.postMood(image, div_id);
         // let file = element.find('input')[0].files[0];
         // PostService.upload(file).then( (res) => {
         //   CarService.addImage(res.data.upload.file_url, scope.car)
@@ -1205,8 +1205,9 @@ var PostService = function PostService($http, FILESERVER, SERVER, UserService) {
     return $http.post(url + 'posts', q, SERVER.CONFIG);
   }
 
-  function postMood() {
-    console.log('post mood service is responding');
+  function postMood(image, divId) {
+    console.log(image);
+    console.log(divId);
   }
 };
 
