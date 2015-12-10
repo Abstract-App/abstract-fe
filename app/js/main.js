@@ -61,7 +61,7 @@ var config = function config($stateProvider, $urlRouterProvider) {
     controller: 'MoodController as vm',
     templateUrl: 'templates/app-upload/moodupload.tpl.html'
   }).state('root2.moodtemp1', {
-    url: '/mood/temp1',
+    url: '/mood/temp1/:id',
     controller: 'MoodController as vm',
     templateUrl: 'templates/app-upload/mood/temp1.tpl.html'
   }).state('root2.moodtemp2', {
@@ -934,9 +934,11 @@ module.exports = exports['default'];
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var MoodController = function MoodController(PostService, UserService) {
+var MoodController = function MoodController(PostService, UserService, $state) {
 
   var vm = this;
+
+  vm.selectMood = selectMood;
 
   vm.showForm1 = showForm1;
   vm.showForm2 = showForm2;
@@ -946,6 +948,15 @@ var MoodController = function MoodController(PostService, UserService) {
   vm.showForm6 = showForm6;
 
   UserService.checkFileAuth();
+
+  function selectMood() {
+    console.log('i want this mood!');
+    PostService.selectMood().then(function (res) {
+      console.log(res);
+      var moodId = res.data.post.id;
+      $state.go('root2.moodtemp1', { id: moodId });
+    });
+  }
 
   function showForm1() {
     vm.showImageUpload1 = vm.showImageUpload1 || vm.showImageUpload2 || vm.showImageUpload3 || vm.showImageUpload4 || vm.showImageUpload5 || vm.showImageUpload6 ? false : true;
@@ -973,7 +984,7 @@ var MoodController = function MoodController(PostService, UserService) {
   }
 };
 
-MoodController.$inject = ['PostService', 'UserService'];
+MoodController.$inject = ['PostService', 'UserService', '$state'];
 
 exports['default'] = MoodController;
 module.exports = exports['default'];
@@ -1148,6 +1159,7 @@ var PostService = function PostService($http, FILESERVER, SERVER, UserService) {
   this.postText = postText;
   this.postLink = postLink;
   this.postQuote = postQuote;
+  this.selectMood = selectMood;
   this.postMood = postMood;
 
   function addImage(file) {
@@ -1205,7 +1217,25 @@ var PostService = function PostService($http, FILESERVER, SERVER, UserService) {
     return $http.post(url + 'posts', q, SERVER.CONFIG);
   }
 
+  var Mood = function Mood() {
+    this.post_type = 'moodboard';
+  };
+
+  function selectMood() {
+    var m = new Mood();
+    console.log('mood selected and sending');
+    return $http.post(url + 'posts', m, SERVER.CONFIG);
+  }
+
   function postMood(image, divId) {
+    UserService.checkFileAuth();
+
+    var moodData = new FormData();
+
+    moodData.append('div_id', divId);
+    moodData.append('image', image);
+
+    console.log(moodData);
     console.log(image);
     console.log(divId);
   }

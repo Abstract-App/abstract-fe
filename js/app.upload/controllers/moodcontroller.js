@@ -1,6 +1,8 @@
-let MoodController = function(PostService, UserService) {
+let MoodController = function(PostService, UserService, $state) {
   
   let vm = this;
+
+  vm.selectMood = selectMood;
 
   vm.showForm1 = showForm1;
   vm.showForm2 = showForm2;
@@ -10,6 +12,15 @@ let MoodController = function(PostService, UserService) {
   vm.showForm6 = showForm6;
 
   UserService.checkFileAuth();
+
+  function selectMood () {
+    console.log('i want this mood!');
+    PostService.selectMood().then( (res) => {
+      console.log(res);
+      let moodId = res.data.post.id;
+      $state.go('root2.moodtemp1', {id: moodId});
+    });
+  }
 
   function showForm1 () {
     vm.showImageUpload1 = (vm.showImageUpload1 || vm.showImageUpload2 || vm.showImageUpload3 || vm.showImageUpload4 || vm.showImageUpload5 || vm.showImageUpload6) ? false : true;
@@ -38,6 +49,6 @@ let MoodController = function(PostService, UserService) {
 
 };
 
-MoodController.$inject = ['PostService', 'UserService'];
+MoodController.$inject = ['PostService', 'UserService', '$state'];
 
 export default MoodController;
