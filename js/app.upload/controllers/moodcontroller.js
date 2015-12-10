@@ -1,4 +1,4 @@
-let MoodController = function(PostService, UserService, $state) {
+let MoodController = function(PostService, UserService, $state, $stateParams) {
   
   let vm = this;
 
@@ -10,6 +10,8 @@ let MoodController = function(PostService, UserService, $state) {
   vm.showForm4 = showForm4;
   vm.showForm5 = showForm5;
   vm.showForm6 = showForm6;
+
+  vm.postId = $stateParams.id;
 
   UserService.checkFileAuth();
 
@@ -49,6 +51,6 @@ let MoodController = function(PostService, UserService, $state) {
 
 };
 
-MoodController.$inject = ['PostService', 'UserService', '$state'];
+MoodController.$inject = ['PostService', 'UserService', '$state', '$stateParams'];
 
 export default MoodController;

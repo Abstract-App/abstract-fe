@@ -934,7 +934,7 @@ module.exports = exports['default'];
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var MoodController = function MoodController(PostService, UserService, $state) {
+var MoodController = function MoodController(PostService, UserService, $state, $stateParams) {
 
   var vm = this;
 
@@ -946,6 +946,8 @@ var MoodController = function MoodController(PostService, UserService, $state) {
   vm.showForm4 = showForm4;
   vm.showForm5 = showForm5;
   vm.showForm6 = showForm6;
+
+  vm.postId = $stateParams.id;
 
   UserService.checkFileAuth();
 
@@ -984,7 +986,7 @@ var MoodController = function MoodController(PostService, UserService, $state) {
   }
 };
 
-MoodController.$inject = ['PostService', 'UserService', '$state'];
+MoodController.$inject = ['PostService', 'UserService', '$state', '$stateParams'];
 
 exports['default'] = MoodController;
 module.exports = exports['default'];
@@ -1065,7 +1067,7 @@ module.exports = exports['default'];
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var addImage = function addImage(PostService) {
+var addImage = function addImage(PostService, $state) {
 
   return {
 
@@ -1078,8 +1080,12 @@ var addImage = function addImage(PostService) {
     link: function link(scope, element, attrs) {
       element.on('submit', function () {
         var image = element.find('input')[0].files[0];
-        var div_id = attrs.mood;
-        PostService.postMood(image, div_id);
+        var divId = attrs.mood;
+        var postId = attrs.id;
+        PostService.postMood(image, divId, postId).then(function (res) {
+          console.log(res);
+          $state.reload();
+        });
         // let file = element.find('input')[0].files[0];
         // PostService.upload(file).then( (res) => {
         //   CarService.addImage(res.data.upload.file_url, scope.car)
@@ -1092,7 +1098,7 @@ var addImage = function addImage(PostService) {
   };
 };
 
-addImage.$inject = ['PostService'];
+addImage.$inject = ['PostService', '$state'];
 
 exports['default'] = addImage;
 module.exports = exports['default'];
@@ -1227,17 +1233,19 @@ var PostService = function PostService($http, FILESERVER, SERVER, UserService) {
     return $http.post(url + 'posts', m, SERVER.CONFIG);
   }
 
-  function postMood(image, divId) {
+  function postMood(image, divId, postId) {
     UserService.checkFileAuth();
 
     var moodData = new FormData();
 
     moodData.append('div_id', divId);
     moodData.append('image', image);
+    moodData.append('post_id', postId);
 
-    console.log(moodData);
     console.log(image);
     console.log(divId);
+    console.log(postId);
+    return $http.post(url + 'posts/' + postId + '/moodpieces', moodData, FILESERVER.CONFIG);
   }
 };
 

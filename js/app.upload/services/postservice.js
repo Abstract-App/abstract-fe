@@ -75,17 +75,19 @@ let PostService = function($http, FILESERVER, SERVER, UserService) {
     return $http.post(url + 'posts', m, SERVER.CONFIG);
   }
 
-  function postMood (image, divId) {
+  function postMood (image, divId, postId) {
     UserService.checkFileAuth();
 
     let moodData = new FormData();
 
     moodData.append('div_id', divId);
     moodData.append('image', image);
+    moodData.append('post_id', postId);
 
-    console.log(moodData);
     console.log(image);
     console.log(divId);
+    console.log(postId);
+    return $http.post(url + 'posts/' + postId + '/moodpieces', moodData, FILESERVER.CONFIG);
   }
 
   

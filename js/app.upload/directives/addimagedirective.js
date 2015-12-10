@@ -1,4 +1,4 @@
-let addImage = function(PostService) {
+let addImage = function(PostService, $state) {
   
   return {
 
@@ -11,8 +11,12 @@ let addImage = function(PostService) {
     link: function (scope, element, attrs) {
       element.on('submit', function () {
         let image = element.find('input')[0].files[0];
-        let div_id = attrs.mood;
-        PostService.postMood(image, div_id);
+        let divId = attrs.mood;
+        let postId = attrs.id;
+        PostService.postMood(image, divId, postId).then( (res) => {
+          console.log(res);
+          $state.reload();
+        });
         // let file = element.find('input')[0].files[0];
         // PostService.upload(file).then( (res) => {
         //   CarService.addImage(res.data.upload.file_url, scope.car)
@@ -26,6 +30,6 @@ let addImage = function(PostService) {
 
 };
 
-addImage.$inject = ['PostService'];
+addImage.$inject = ['PostService', '$state'];
 
 export default addImage;
