@@ -22,7 +22,7 @@
   <p>{{comment.message}}</p>
 </div>
 
-<button ng-click="vm.editPost(vm.post.user_id)">edit post</button>
+<a class="editpost" href="#/edittext/{{ vm.post.user_id }}"><button>edit post</button></a>
 <button ng-click="vm.deletePost(vm.post.user_id)">delete post</button>
 
 

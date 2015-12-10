@@ -100,10 +100,26 @@ var config = function config($stateProvider, $urlRouterProvider) {
     url: '/quote/:id',
     controller: 'SinglePostController as vm',
     templateUrl: 'templates/app-projects/singleviews/quote.tpl.html'
-  }).state('root2.urlurlview', {
+  }).state('root2.urlview', {
     url: '/url/:id',
     controller: 'SinglePostController as vm',
     templateUrl: 'templates/app-projects/singleviews/url.tpl.html'
+  }).state('root2.editimage', {
+    url: '/editimage/:id',
+    controller: 'SinglePostController as vm',
+    templateUrl: 'templates/app-projects/editviews/image.tpl.html'
+  }).state('root2.edittext', {
+    url: '/edittext/:id',
+    controller: 'SinglePostController as vm',
+    templateUrl: 'templates/app-projects/editviews/text.tpl.html'
+  }).state('root2.editquote', {
+    url: '/editquote/:id',
+    controller: 'SinglePostController as vm',
+    templateUrl: 'templates/app-projects/editviews/quote.tpl.html'
+  }).state('root2.editurl', {
+    url: '/editurl/:id',
+    controller: 'SinglePostController as vm',
+    templateUrl: 'templates/app-projects/editviews/url.tpl.html'
   }).state('root2.explore', {
     url: '/explore',
     controller: 'ExploreController as vm',
@@ -663,12 +679,16 @@ Object.defineProperty(exports, '__esModule', {
 var UserPageService = function UserPageService(SERVER, FILESERVER, $cookies, $http, UserService) {
 
   this.getAllPosts = getAllPosts;
+  this.editPost = editPost;
   this.deletePost = deletePost;
   this.likePost = likePost;
 
   function getAllPosts(id) {
     UserService.checkFileAuth();
     return $http.get(FILESERVER.URL + 'users/' + id + '/posts', FILESERVER.CONFIG);
+  }
+  function editPost(id) {
+    return $http.put(FILESERVER.URL + 'posts/' + id, FILESERVER.CONFIG);
   }
 
   function deletePost(id) {
@@ -778,6 +798,10 @@ var SinglePostController = function SinglePostController($state, $stateParams, U
 
   var vm = this;
 
+  vm.editImagePost = editImagePost;
+  vm.editQuotePost = editQuotePost;
+  vm.editTextPost = editTextPost;
+  vm.editUrlPost = editUrlPost;
   vm.deletePost = deletePost;
   vm.addComment = addComment;
 
@@ -789,6 +813,31 @@ var SinglePostController = function SinglePostController($state, $stateParams, U
   });
 
   var id = $stateParams.id;
+
+  function editImagePost(id) {
+    UserService.checkFileAuth();
+    UserPageService.editPost(id).then(function (res) {
+      $state.go('root2.imageview', { id: id });
+    });
+  }
+  function editQuotePost(id) {
+    UserService.checkFileAuth();
+    UserPageService.editPost(id).then(function (res) {
+      $state.go('root2.quoteview', { id: id });
+    });
+  }
+  function editTextPost(id) {
+    UserService.checkFileAuth();
+    UserPageService.editPost(id).then(function (res) {
+      $state.go('root2.textview', { id: id });
+    });
+  }
+  function editUrlPost(id) {
+    UserService.checkFileAuth();
+    UserPageService.editPost(id).then(function (res) {
+      $state.go('root2.urlview', { id: id });
+    });
+  }
 
   function deletePost(userId) {
     UserService.checkFileAuth();

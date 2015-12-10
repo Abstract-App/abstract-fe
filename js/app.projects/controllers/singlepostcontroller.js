@@ -2,6 +2,10 @@ let SinglePostController = function($state, $stateParams, UserService, ProfileSe
   
   let vm = this;
 
+  vm.editImagePost = editImagePost;
+  vm.editQuotePost = editQuotePost;
+  vm.editTextPost = editTextPost;
+  vm.editUrlPost = editUrlPost;
   vm.deletePost = deletePost;
   vm.addComment = addComment;
 
@@ -13,6 +17,31 @@ let SinglePostController = function($state, $stateParams, UserService, ProfileSe
   });
 
   let id = $stateParams.id;
+
+  function editImagePost (id) {
+    UserService.checkFileAuth();
+    UserPageService.editPost(id).then( (res) => {
+      $state.go('root2.imageview', {id: id});
+    });
+  }
+  function editQuotePost (id) {
+    UserService.checkFileAuth();
+    UserPageService.editPost(id).then( (res) => {
+      $state.go('root2.quoteview', {id: id});
+    });
+  }
+  function editTextPost (id) {
+    UserService.checkFileAuth();
+    UserPageService.editPost(id).then( (res) => {
+      $state.go('root2.textview', {id: id});
+    });
+  }
+  function editUrlPost (id) {
+    UserService.checkFileAuth();
+    UserPageService.editPost(id).then( (res) => {
+      $state.go('root2.urlview', {id: id});
+    });
+  }
 
   function deletePost (userId) {
     UserService.checkFileAuth();
