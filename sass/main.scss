@@ -307,6 +307,10 @@ body {
     background: darken(#E5E5E5, 20%);
     display: inline-block;
     overflow: hidden;
+      img {
+        width: 300px;
+        height: 250px;
+      }
     }
     .temp1sect4 {
     width: 300px;
@@ -314,6 +318,10 @@ body {
     background: darken(#E5E5E5, 20%);
     display: inline-block;
     overflow: hidden;
+      img {
+        width: 300px;
+        height: 250px;
+      }
     }
     .temp1sect5 {
     width: 300px;
@@ -321,6 +329,10 @@ body {
     background: darken(#E5E5E5, 20%);
     display: inline-block;
     overflow: hidden;
+      img {
+        width: 300px;
+        height: 250px;
+      }
     }
     .temp1sect6 {
     width: 300px;
@@ -328,6 +340,10 @@ body {
     background: darken(#E5E5E5, 20%);
     display: inline-block;
     overflow: hidden;
+      img {
+        width: 300px;
+        height: 250px;
+      }
     }
 }
 
@@ -356,18 +372,33 @@ body {
     height: 375px;
     background: darken(#E5E5E5, 20%);
     display: inline-block;
+    overflow: hidden;
+      img {
+        width: 300px;
+        height: 375px;
+      }
     }
     .temp2sect2 {
     width: 100px;
     height: 375px;
     background: darken(#E5E5E5, 20%);
     display: inline-block;
+    overflow: hidden;
+      img {
+        width: 100px;
+        height: 375px;
+      }
     }
     .temp2sect3 {
     width: 200px;
     height: 375px;
     background: darken(#E5E5E5, 20%);
     display: inline-block;
+    overflow: hidden;
+      img {
+        width: 200px;
+        height: 375px;
+      }
     }
     .temp2left {
       display: inline-block;
@@ -379,6 +410,11 @@ body {
       background: darken(#E5E5E5, 20%);
       margin-bottom: 5px;
       display: block;
+      overflow: hidden;
+        img {
+          width: 300px;
+          height: 185px;
+        }
       }
       .temp2sect4:hover {
         background: #E5E5E5;
@@ -389,6 +425,11 @@ body {
       height: 185px;
       background: darken(#E5E5E5, 20%);
       display: block;
+      overflow: hidden;
+        img {
+          width: 300px;
+          height: 185px;
+        }
       }
       .temp2sect5:hover {
         background: #E5E5E5;
@@ -400,6 +441,11 @@ body {
     height: 375px;
     background: darken(#E5E5E5, 20%);
     display: inline-block;
+    overflow: hidden;
+      img {
+        width: 300px;
+        height: 375px;
+      }
     }
 }
 .temp3 {
@@ -420,6 +466,11 @@ body {
       height: 300px;
       background: darken(#E5E5E5, 20%);
       display: block;
+      overflow: hidden;
+        img {
+          width: 300px;
+          height: 300px;
+        }
       }
       .temp3sect1:hover {
         background: #E5E5E5;
@@ -434,6 +485,11 @@ body {
           width: 140px;
           height: 450px;
           background: darken(#E5E5E5, 20%);
+          overflow: hidden;
+            img {
+              width: 140px;
+              height: 450px;
+            }
         }
         .temp3sect2:hover {
           background: #E5E5E5;
@@ -448,6 +504,11 @@ body {
           background: darken(#E5E5E5, 20%);
           margin-bottom: 5px;
           display: block;
+          overflow: hidden;
+            img {
+              width: 150px;
+              height: 225px;
+            }
         }
         .temp3sect3:hover {
           background: #E5E5E5;
@@ -458,6 +519,11 @@ body {
           height: 225px;
           background: darken(#E5E5E5, 20%);
           display: block;
+          overflow: hidden;
+            img {
+              width: 150px;
+              height: 225px;
+            }
         }
         .temp3sect4:hover {
           background: #E5E5E5;
@@ -477,6 +543,11 @@ body {
       background: darken(#E5E5E5, 20%);
       margin-bottom: 5px;
       display: block;
+      overflow: hidden;
+        img {
+          width: 300px;
+          height: 760px;
+        }
     }
     .temp3sect5:hover {
       background: #E5E5E5;
@@ -487,6 +558,11 @@ body {
       height: 500px;
       background: darken(#E5E5E5, 20%);
       display: block;
+      overflow: hidden;
+        img {
+          width: 300px;
+          height: 500px;
+        }
     }
     .temp3sect6:hover {
       background: #E5E5E5;

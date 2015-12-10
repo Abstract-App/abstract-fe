@@ -1,14 +1,14 @@
 @charset "UTF-8";
 /*!
- *  Font Awesome 4.5.0 by @davegandy - http://fontawesome.io - @fontawesome
+ *  Font Awesome 4.4.0 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
  */
 /* FONT PATH
  * -------------------------- */
 @font-face {
   font-family: 'FontAwesome';
-  src: url("../fonts/fontawesome-webfont.eot?v=4.5.0");
-  src: url("../fonts/fontawesome-webfont.eot?#iefix&v=4.5.0") format("embedded-opentype"), url("../fonts/fontawesome-webfont.woff2?v=4.5.0") format("woff2"), url("../fonts/fontawesome-webfont.woff?v=4.5.0") format("woff"), url("../fonts/fontawesome-webfont.ttf?v=4.5.0") format("truetype"), url("../fonts/fontawesome-webfont.svg?v=4.5.0#fontawesomeregular") format("svg");
+  src: url("../fonts/fontawesome-webfont.eot?v=4.4.0");
+  src: url("../fonts/fontawesome-webfont.eot?#iefix&v=4.4.0") format("embedded-opentype"), url("../fonts/fontawesome-webfont.woff2?v=4.4.0") format("woff2"), url("../fonts/fontawesome-webfont.woff?v=4.4.0") format("woff"), url("../fonts/fontawesome-webfont.ttf?v=4.4.0") format("truetype"), url("../fonts/fontawesome-webfont.svg?v=4.4.0#fontawesomeregular") format("svg");
   font-weight: normal;
   font-style: normal; }
 
@@ -2018,66 +2018,6 @@
 .fa-fonticons:before {
   content: ""; }
 
-.fa-reddit-alien:before {
-  content: ""; }
-
-.fa-edge:before {
-  content: ""; }
-
-.fa-credit-card-alt:before {
-  content: ""; }
-
-.fa-codiepie:before {
-  content: ""; }
-
-.fa-modx:before {
-  content: ""; }
-
-.fa-fort-awesome:before {
-  content: ""; }
-
-.fa-usb:before {
-  content: ""; }
-
-.fa-product-hunt:before {
-  content: ""; }
-
-.fa-mixcloud:before {
-  content: ""; }
-
-.fa-scribd:before {
-  content: ""; }
-
-.fa-pause-circle:before {
-  content: ""; }
-
-.fa-pause-circle-o:before {
-  content: ""; }
-
-.fa-stop-circle:before {
-  content: ""; }
-
-.fa-stop-circle-o:before {
-  content: ""; }
-
-.fa-shopping-bag:before {
-  content: ""; }
-
-.fa-shopping-basket:before {
-  content: ""; }
-
-.fa-hashtag:before {
-  content: ""; }
-
-.fa-bluetooth:before {
-  content: ""; }
-
-.fa-bluetooth-b:before {
-  content: ""; }
-
-.fa-percent:before {
-  content: ""; }
-
 body {
   background: #f2f2f2; }
 
@@ -2322,24 +2262,36 @@ body {
     background: #b2b2b2;
     display: inline-block;
     overflow: hidden; }
+    .temp1 .temp1sect3 img {
+      width: 300px;
+      height: 250px; }
   .temp1 .temp1sect4 {
     width: 300px;
     height: 250px;
     background: #b2b2b2;
     display: inline-block;
     overflow: hidden; }
+    .temp1 .temp1sect4 img {
+      width: 300px;
+      height: 250px; }
   .temp1 .temp1sect5 {
     width: 300px;
     height: 250px;
     background: #b2b2b2;
     display: inline-block;
     overflow: hidden; }
+    .temp1 .temp1sect5 img {
+      width: 300px;
+      height: 250px; }
   .temp1 .temp1sect6 {
     width: 300px;
     height: 250px;
     background: #b2b2b2;
     display: inline-block;
     overflow: hidden; }
+    .temp1 .temp1sect6 img {
+      width: 300px;
+      height: 250px; }
 
 .template2 {
   margin: 0 auto;
@@ -2360,17 +2312,29 @@ body {
     width: 300px;
     height: 375px;
     background: #b2b2b2;
-    display: inline-block; }
+    display: inline-block;
+    overflow: hidden; }
+    .temp2 .temp2sect1 img {
+      width: 300px;
+      height: 375px; }
   .temp2 .temp2sect2 {
     width: 100px;
     height: 375px;
     background: #b2b2b2;
-    display: inline-block; }
+    display: inline-block;
+    overflow: hidden; }
+    .temp2 .temp2sect2 img {
+      width: 100px;
+      height: 375px; }
   .temp2 .temp2sect3 {
     width: 200px;
     height: 375px;
     background: #b2b2b2;
-    display: inline-block; }
+    display: inline-block;
+    overflow: hidden; }
+    .temp2 .temp2sect3 img {
+      width: 200px;
+      height: 375px; }
   .temp2 .temp2left {
     display: inline-block;
     width: 300px;
@@ -2380,7 +2344,11 @@ body {
       height: 185px;
       background: #b2b2b2;
       margin-bottom: 5px;
-      display: block; }
+      display: block;
+      overflow: hidden; }
+      .temp2 .temp2left .temp2sect4 img {
+        width: 300px;
+        height: 185px; }
     .temp2 .temp2left .temp2sect4:hover {
       background: #E5E5E5;
       cursor: pointer; }
@@ -2388,7 +2356,11 @@ body {
       width: 300px;
       height: 185px;
       background: #b2b2b2;
-      display: block; }
+      display: block;
+      overflow: hidden; }
+      .temp2 .temp2left .temp2sect5 img {
+        width: 300px;
+        height: 185px; }
     .temp2 .temp2left .temp2sect5:hover {
       background: #E5E5E5;
       cursor: pointer; }
@@ -2396,7 +2368,11 @@ body {
     width: 300px;
     height: 375px;
     background: #b2b2b2;
-    display: inline-block; }
+    display: inline-block;
+    overflow: hidden; }
+    .temp2 .temp2sect6 img {
+      width: 300px;
+      height: 375px; }
 
 .temp3 {
   margin: 0 auto;
@@ -2415,7 +2391,11 @@ body {
         width: 300px;
         height: 300px;
         background: #b2b2b2;
-        display: block; }
+        display: block;
+        overflow: hidden; }
+        .temp3 .left .row1 .temp3sect1 img {
+          width: 300px;
+          height: 300px; }
       .temp3 .left .row1 .temp3sect1:hover {
         background: #E5E5E5;
         cursor: pointer; }
@@ -2426,7 +2406,11 @@ body {
         .temp3 .left .row2 .column1 .temp3sect2 {
           width: 140px;
           height: 450px;
-          background: #b2b2b2; }
+          background: #b2b2b2;
+          overflow: hidden; }
+          .temp3 .left .row2 .column1 .temp3sect2 img {
+            width: 140px;
+            height: 450px; }
         .temp3 .left .row2 .column1 .temp3sect2:hover {
           background: #E5E5E5;
           cursor: pointer; }
@@ -2437,7 +2421,11 @@ body {
           height: 225px;
           background: #b2b2b2;
           margin-bottom: 5px;
-          display: block; }
+          display: block;
+          overflow: hidden; }
+          .temp3 .left .row2 .column2 .temp3sect3 img {
+            width: 150px;
+            height: 225px; }
         .temp3 .left .row2 .column2 .temp3sect3:hover {
           background: #E5E5E5;
           cursor: pointer; }
@@ -2445,7 +2433,11 @@ body {
           width: 150px;
           height: 225px;
           background: #b2b2b2;
-          display: block; }
+          display: block;
+          overflow: hidden; }
+          .temp3 .left .row2 .column2 .temp3sect4 img {
+            width: 150px;
+            height: 225px; }
         .temp3 .left .row2 .column2 .temp3sect4:hover {
           background: #E5E5E5;
           cursor: pointer; }
@@ -2459,7 +2451,11 @@ body {
       height: 250px;
       background: #b2b2b2;
       margin-bottom: 5px;
-      display: block; }
+      display: block;
+      overflow: hidden; }
+      .temp3 .right .temp3sect5 img {
+        width: 300px;
+        height: 760px; }
     .temp3 .right .temp3sect5:hover {
       background: #E5E5E5;
       cursor: pointer; }
@@ -2467,7 +2463,11 @@ body {
       width: 300px;
       height: 500px;
       background: #b2b2b2;
-      display: block; }
+      display: block;
+      overflow: hidden; }
+      .temp3 .right .temp3sect6 img {
+        width: 300px;
+        height: 500px; }
     .temp3 .right .temp3sect6:hover {
       background: #E5E5E5;
       cursor: pointer; }

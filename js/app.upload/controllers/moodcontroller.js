@@ -2,7 +2,12 @@ let MoodController = function(PostService, UserService, $state, $stateParams) {
   
   let vm = this;
 
-  vm.selectMood = selectMood;
+  vm.selectMood1 = selectMood1;
+  vm.selectMood2 = selectMood2;
+  vm.selectMood3 = selectMood3;
+  vm.selectMood4 = selectMood4;
+  vm.selectMood5 = selectMood5;
+
   vm.showForm1 = showForm1;
   vm.showForm2 = showForm2;
   vm.showForm3 = showForm3;
@@ -15,7 +20,6 @@ let MoodController = function(PostService, UserService, $state, $stateParams) {
   UserService.checkFileAuth();
 
   PostService.getMood(vm.postId).then( (res) => {
-    console.log(res.data.post.moodpieces);
     vm.moodPieces = res.data.post.moodpieces;
     // angular.forEach(moodPieces, function (piece) {
     //   vm.pieceImg = piece.image;
@@ -24,14 +28,44 @@ let MoodController = function(PostService, UserService, $state, $stateParams) {
     // });
   });
 
-  function selectMood () {
-    console.log('i want this mood!');
+  // select mood template + create initial moodboard
+
+  function selectMood1 () {
     PostService.selectMood().then( (res) => {
-      console.log(res);
       let moodId = res.data.post.id;
       $state.go('root2.moodtemp1', {id: moodId});
     });
   }
+
+  function selectMood2 () {
+    PostService.selectMood().then( (res) => {
+      let moodId = res.data.post.id;
+      $state.go('root2.moodtemp2', {id: moodId});
+    });
+  }
+
+  function selectMood3 () {
+    PostService.selectMood().then( (res) => {
+      let moodId = res.data.post.id;
+      $state.go('root2.moodtemp3', {id: moodId});
+    });
+  }
+
+  function selectMood4 () {
+    PostService.selectMood().then( (res) => {
+      let moodId = res.data.post.id;
+      $state.go('root2.moodtemp4', {id: moodId});
+    });
+  }
+
+  function selectMood5 () {
+    PostService.selectMood().then( (res) => {
+      let moodId = res.data.post.id;
+      $state.go('root2.moodtemp5', {id: moodId});
+    });
+  }
+
+  // forms pop up for each box in moodboard template
 
   function showForm1 () {
     vm.showImageUpload1 = (vm.showImageUpload1 || vm.showImageUpload2 || vm.showImageUpload3 || vm.showImageUpload4 || vm.showImageUpload5 || vm.showImageUpload6) ? false : true;
