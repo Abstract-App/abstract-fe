@@ -3,6 +3,7 @@ let OtherUserController = function(UserPageService, UserService, ProfileService,
   let vm = this;
 
   vm.addLike = addLike;
+  vm.follow = follow;
 
   vm.post = [];
   vm.postImg = [];
@@ -52,6 +53,15 @@ let OtherUserController = function(UserPageService, UserService, ProfileService,
     //     $scope.post.post.likes_count = res.data.post.likes_count;
     //   });
     // });
+  }
+
+  let userId = $stateParams.id;
+
+  function follow () {
+    UserService.checkAuth();
+    UserPageService.followUser(userId).then( (res) => {
+      console.log(res);
+    });
   }
 
 };

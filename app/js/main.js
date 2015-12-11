@@ -604,6 +604,7 @@ var OtherUserController = function OtherUserController(UserPageService, UserServ
   var vm = this;
 
   vm.addLike = addLike;
+  vm.follow = follow;
 
   vm.post = [];
   vm.postImg = [];
@@ -651,6 +652,15 @@ var OtherUserController = function OtherUserController(UserPageService, UserServ
     //     $scope.post.post.likes_count = res.data.post.likes_count;
     //   });
     // });
+  }
+
+  var userId = $stateParams.id;
+
+  function follow() {
+    UserService.checkAuth();
+    UserPageService.followUser(userId).then(function (res) {
+      console.log(res);
+    });
   }
 };
 
@@ -764,6 +774,7 @@ var UserPageService = function UserPageService(SERVER, FILESERVER, $cookies, $ht
   this.editUrlPost = editUrlPost;
   this.deletePost = deletePost;
   this.likePost = likePost;
+  this.followUser = followUser;
 
   function getAllPosts(id) {
     // UserService.checkFileAuth();
@@ -817,6 +828,16 @@ var UserPageService = function UserPageService(SERVER, FILESERVER, $cookies, $ht
 
   function likePost(postId) {
     return $http.post(SERVER.URL + 'posts/' + postId + '/likes', postId, SERVER.CONFIG);
+  }
+
+  function followUser(userId) {
+    var Following = function Following(userId) {
+      this.followed_id = userId;
+    };
+
+    var f = new Following(userId);
+
+    return $http.post(SERVER.URL + 'relationships', f, SERVER.CONFIG);
   }
 };
 
