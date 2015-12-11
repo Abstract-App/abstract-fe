@@ -7,7 +7,7 @@ let userTile = function($state, UserPageService, ProjectService) {
       post: "=post"
     },
     templateUrl: 'templates/app-profile/usertiles.tpl.html',
-    controller: 'UserPageController as vm',
+    // controller: 'UserPageController as vm',
     link: function (scope, element, attrs) {
       // element.on('click', function () {
       //   let id = scope.post.post.id;
