@@ -4,31 +4,56 @@
   <div class="temp5">
     <div class="left">
       <div class="row1">
-        <a ng-click="vm.showForm1()"><div class="box temp5sect1"></div></a>
+        <a ng-click="vm.showForm1()">
+          <div class="box temp5sect1">
+            <img ng-src="{{vm.moodPieces[0].image}}">
+          </div>
+        </a>
       </div>
       <div class="row2">
-        <a ng-click="vm.showForm2()"><div class="box temp5sect2"></div></a>
-        <a ng-click="vm.showForm3()"><div class="box temp5sect3"></div></a>
+        <a ng-click="vm.showForm2()">
+          <div class="box temp5sect2">
+            <img ng-src="{{vm.moodPieces[1].image}}">
+          </div>
+        </a>
+        <a ng-click="vm.showForm3()">
+          <div class="box temp5sect3">
+            <img ng-src="{{vm.moodPieces[2].image}}">
+          </div>
+        </a>
       </div>
     </div>
     <div class="right">
       <div class="row1">
-        <a ng-click="vm.showForm4()"><div class="box temp5sect4"></div></a>
-        <a ng-click="vm.showForm5()"><div class="box temp5sect5"></div></a>
+        <a ng-click="vm.showForm4()">
+          <div class="box temp5sect4">
+            <img ng-src="{{vm.moodPieces[3].image}}">
+          </div>
+        </a>
+        <a ng-click="vm.showForm5()">
+          <div class="box temp5sect5">
+            <img ng-src="{{vm.moodPieces[4].image}}">
+          </div>
+        </a>
       </div>
       <div class="row2">
-        <a ng-click="vm.showForm6()"><div class="box temp5sect6"></div></a>
+        <a ng-click="vm.showForm6()">
+          <div class="box temp5sect6">
+            <img ng-src="{{vm.moodPieces[5].image}}">
+          </div>
+        </a>
       </div>
     </div>
     </div>
   </div>
 
   <div class="form">
-    <add-image ng-show="vm.showImageUpload1" mood="vm.mood"></add-image>
-    <add-image ng-show="vm.showImageUpload2" mood="vm.mood"></add-image>
-    <add-image ng-show="vm.showImageUpload3" mood="vm.mood"></add-image>
-    <add-image ng-show="vm.showImageUpload4" mood="vm.mood"></add-image>
-    <add-image ng-show="vm.showImageUpload5" mood="vm.mood"></add-image>
-    <add-image ng-show="vm.showImageUpload6" mood="vm.mood"></add-image>
+    <add-image ng-show="vm.showImageUpload1" id="{{vm.postId}}" mood="temp5sect1"></add-image>
+    <add-image ng-show="vm.showImageUpload2" id="{{vm.postId}}" mood="temp5sect2"></add-image>
+    <add-image ng-show="vm.showImageUpload3" id="{{vm.postId}}" mood="temp5sect3"></add-image>
+    <add-image ng-show="vm.showImageUpload4" id="{{vm.postId}}" mood="temp5sect4"></add-image>
+    <add-image ng-show="vm.showImageUpload5" id="{{vm.postId}}" mood="temp5sect5"></add-image>
+    <add-image ng-show="vm.showImageUpload6" id="{{vm.postId}}" mood="temp5sect6"></add-image>
   </div>
+
 </section>

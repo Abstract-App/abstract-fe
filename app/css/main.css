@@ -1,14 +1,14 @@
 @charset "UTF-8";
 /*!
- *  Font Awesome 4.5.0 by @davegandy - http://fontawesome.io - @fontawesome
+ *  Font Awesome 4.4.0 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
  */
 /* FONT PATH
  * -------------------------- */
 @font-face {
   font-family: 'FontAwesome';
-  src: url("../fonts/fontawesome-webfont.eot?v=4.5.0");
-  src: url("../fonts/fontawesome-webfont.eot?#iefix&v=4.5.0") format("embedded-opentype"), url("../fonts/fontawesome-webfont.woff2?v=4.5.0") format("woff2"), url("../fonts/fontawesome-webfont.woff?v=4.5.0") format("woff"), url("../fonts/fontawesome-webfont.ttf?v=4.5.0") format("truetype"), url("../fonts/fontawesome-webfont.svg?v=4.5.0#fontawesomeregular") format("svg");
+  src: url("../fonts/fontawesome-webfont.eot?v=4.4.0");
+  src: url("../fonts/fontawesome-webfont.eot?#iefix&v=4.4.0") format("embedded-opentype"), url("../fonts/fontawesome-webfont.woff2?v=4.4.0") format("woff2"), url("../fonts/fontawesome-webfont.woff?v=4.4.0") format("woff"), url("../fonts/fontawesome-webfont.ttf?v=4.4.0") format("truetype"), url("../fonts/fontawesome-webfont.svg?v=4.4.0#fontawesomeregular") format("svg");
   font-weight: normal;
   font-style: normal; }
 
@@ -2018,66 +2018,6 @@
 .fa-fonticons:before {
   content: ""; }
 
-.fa-reddit-alien:before {
-  content: ""; }
-
-.fa-edge:before {
-  content: ""; }
-
-.fa-credit-card-alt:before {
-  content: ""; }
-
-.fa-codiepie:before {
-  content: ""; }
-
-.fa-modx:before {
-  content: ""; }
-
-.fa-fort-awesome:before {
-  content: ""; }
-
-.fa-usb:before {
-  content: ""; }
-
-.fa-product-hunt:before {
-  content: ""; }
-
-.fa-mixcloud:before {
-  content: ""; }
-
-.fa-scribd:before {
-  content: ""; }
-
-.fa-pause-circle:before {
-  content: ""; }
-
-.fa-pause-circle-o:before {
-  content: ""; }
-
-.fa-stop-circle:before {
-  content: ""; }
-
-.fa-stop-circle-o:before {
-  content: ""; }
-
-.fa-shopping-bag:before {
-  content: ""; }
-
-.fa-shopping-basket:before {
-  content: ""; }
-
-.fa-hashtag:before {
-  content: ""; }
-
-.fa-bluetooth:before {
-  content: ""; }
-
-.fa-bluetooth-b:before {
-  content: ""; }
-
-.fa-percent:before {
-  content: ""; }
-
 body {
   background: #f2f2f2; }
 
@@ -2551,19 +2491,31 @@ body {
         .template4 .temp4 .left .row1 .temp4sect1 {
           width: 400px;
           height: 300px;
-          background: #b2b2b2; }
+          background: #b2b2b2;
+          overflow: hidden; }
+          .template4 .temp4 .left .row1 .temp4sect1 img {
+            width: 400px;
+            height: 300px; }
       .template4 .temp4 .left .row2 {
         display: block; }
         .template4 .temp4 .left .row2 .temp4sect2 {
           width: 200px;
           height: 450px;
           background: #b2b2b2;
-          display: inline-block; }
+          display: inline-block;
+          overflow: hidden; }
+          .template4 .temp4 .left .row2 .temp4sect2 img {
+            width: 200px;
+            height: 450px; }
         .template4 .temp4 .left .row2 .temp4sect3 {
           width: 200px;
           height: 450px;
           background: #b2b2b2;
-          display: inline-block; }
+          display: inline-block;
+          overflow: hidden; }
+          .template4 .temp4 .left .row2 .temp4sect3 img {
+            width: 200px;
+            height: 450px; }
     .template4 .temp4 .right {
       margin: 0;
       display: inline-block; }
@@ -2571,16 +2523,28 @@ body {
         width: 100px;
         height: 300px;
         background: #b2b2b2;
-        display: inline-block; }
+        display: inline-block;
+        overflow: hidden; }
+        .template4 .temp4 .right .temp4sect4 img {
+          width: 100px;
+          height: 300px; }
       .template4 .temp4 .right .temp4sect5 {
         width: 100px;
         height: 300px;
         background: #b2b2b2;
-        display: inline-block; }
+        display: inline-block;
+        overflow: hidden; }
+        .template4 .temp4 .right .temp4sect5 img {
+          width: 100px;
+          height: 300px; }
       .template4 .temp4 .right .temp4sect6 {
         width: 200px;
         height: 450px;
-        background: #b2b2b2; }
+        background: #b2b2b2;
+        overflow: hidden; }
+        .template4 .temp4 .right .temp4sect6 img {
+          width: 200px;
+          height: 450px; }
 
 .template5 {
   margin: 0 auto; }
@@ -2604,7 +2568,11 @@ body {
           width: 412px;
           height: 300px;
           border: 2px solid #F2F2F2;
-          background: #b2b2b2; }
+          background: #b2b2b2;
+          overflow: hidden; }
+          .template5 .temp5 .left .row1 .temp5sect1 img {
+            width: 412px;
+            height: 300px; }
       .template5 .temp5 .left .row2 {
         display: block;
         text-align: left;
@@ -2614,13 +2582,21 @@ body {
           height: 450px;
           border: 2px solid r #F2F2F2;
           background: #b2b2b2;
-          display: inline-block; }
+          display: inline-block;
+          overflow: hidden; }
+          .template5 .temp5 .left .row2 .temp5sect2 img {
+            width: 204px;
+            height: 450px; }
         .template5 .temp5 .left .row2 .temp5sect3 {
           width: 200px;
           height: 450px;
           border: 2px solid #F2F2F2;
           background: #b2b2b2;
-          display: inline-block; }
+          display: inline-block;
+          overflow: hidden; }
+          .template5 .temp5 .left .row2 .temp5sect3 img {
+            width: 200px;
+            height: 450px; }
     .template5 .temp5 .right {
       margin: 0;
       display: inline-block;
@@ -2631,7 +2607,11 @@ body {
         height: 300px;
         border: 2px solid #F2F2F2;
         background: #b2b2b2;
-        position: relative; }
+        position: relative;
+        overflow: hidden; }
+        .template5 .temp5 .right .temp5sect4 img {
+          width: 200px;
+          height: 300px; }
       .template5 .temp5 .right .temp5sect5 {
         width: 200px;
         height: 200px;
@@ -2640,11 +2620,19 @@ body {
         background: #b2b2b2;
         position: absolute;
         top: 50px;
-        left: 315px; }
+        left: 315px;
+        overflow: hidden; }
+        .template5 .temp5 .right .temp5sect5 img {
+          width: 200px;
+          height: 200px; }
       .template5 .temp5 .right .temp5sect6 {
         width: 200px;
         height: 450px;
         border: 2px solid #F2F2F2;
-        background: #b2b2b2; }
+        background: #b2b2b2;
+        overflow: hidden; }
+        .template5 .temp5 .right .temp5sect6 img {
+          width: 200px;
+          height: 450px; }
 
 /*# sourceMappingURL=main.css.map */

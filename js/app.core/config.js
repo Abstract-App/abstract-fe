@@ -102,6 +102,11 @@ let config = function($stateProvider, $urlRouterProvider) {
       controller: 'UserPageController as vm',
       templateUrl: 'templates/app-profile/profile.tpl.html'
     })
+    .state('root2.otheruser', {
+      url: '/profile/:id',
+      controller: 'OtherUserController as vm',
+      templateUrl: 'templates/app-profile/profile.tpl.html'
+    })
     .state('root2.imageview', {
       url: '/image/:id',
       controller: 'SinglePostController as vm',

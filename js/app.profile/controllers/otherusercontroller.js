@@ -1,4 +1,4 @@
-let UserPageController = function(ProjectService, ProfileService, UserPageService, UserService, $stateParams, $state, $cookies, $scope) {
+let OtherUserController = function(UserPageService, UserService, ProfileService, ProjectService, $state, $stateParams, $scope) {
   
   let vm = this;
 
@@ -11,11 +11,15 @@ let UserPageController = function(ProjectService, ProfileService, UserPageServic
   vm.postUrl = [];
   vm.postMood = [];
 
-  UserService.checkFileAuth();
-  let id = ($stateParams.id) ? $stateParams.id : $cookies.get('id');
+  // UserService.checkFileAuth();
+
+  let id = $stateParams.id;
+
+  console.log(id);
+
   ProfileService.getUser(id).then( (res) => {
-    $state.go('root2.userhome');
     vm.profile = res.data.profile[0];
+    console.log(vm.profile);
   });
 
   UserPageService.getAllPosts(id).then( (res) => {
@@ -35,21 +39,23 @@ let UserPageController = function(ProjectService, ProfileService, UserPageServic
       }
 
       return vm.postImg, vm.postTxt, vm.postQte, vm.postUrl, vm.postMood;
+
     });
 
   });
 
   function addLike (postId) {
-    UserService.checkAuth();
-    UserPageService.likePost(postId).then( (res) => {
-      ProjectService.getPost(postId).then( (res) => {
-        $scope.post.post.likes_count = res.data.post.likes_count;
-      });
-    });
+    console.log('hi');
+    // UserService.checkAuth();
+    // UserPageService.likePost(postId).then( (res) => {
+    //   ProjectService.getPost(postId).then( (res) => {
+    //     $scope.post.post.likes_count = res.data.post.likes_count;
+    //   });
+    // });
   }
 
 };
 
-UserPageController.$inject = ['ProjectService', 'ProfileService', 'UserPageService', 'UserService', '$stateParams', '$state', '$cookies', '$scope'];
+OtherUserController.$inject = ['UserPageService', 'UserService', 'ProfileService', 'ProjectService', '$state', '$stateParams', '$scope'];
 
-export default UserPageController;
+export default OtherUserController;
