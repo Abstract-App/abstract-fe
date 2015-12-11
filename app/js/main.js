@@ -90,7 +90,7 @@ var config = function config($stateProvider, $urlRouterProvider) {
     templateUrl: 'templates/app-profile/profile.tpl.html'
   }).state('root2.otheruser', {
     url: '/profile/:id',
-    controller: 'OtherUserController as vm',
+    controller: 'UserPageController as vm',
     templateUrl: 'templates/app-profile/profile.tpl.html'
   }).state('root2.imageview', {
     url: '/image/:id',
@@ -452,15 +452,15 @@ var userTile = function userTile($state, UserPageService, ProjectService) {
       post: "=post"
     },
     templateUrl: 'templates/app-profile/usertiles.tpl.html',
-    // controller: 'UserPageController as vm',
-    link: function link(scope, element, attrs) {
-      // element.on('click', function () {
-      //   let id = scope.post.post.id;
-      //   $state.go('root2.singlepost', {
-      //     id: id
-      //   });
-      // });
-    }
+    controller: 'UserPageController as vm'
+    // link: function (scope, element, attrs) {
+    //   // element.on('click', function () {
+    //   //   let id = scope.post.post.id;
+    //   //   $state.go('root2.singlepost', {
+    //   //     id: id
+    //   //   });
+    //   // });
+    // }
   };
 };
 
@@ -691,7 +691,6 @@ var UserPageController = function UserPageController(ProjectService, ProfileServ
   UserService.checkFileAuth();
   var id = $stateParams.id ? $stateParams.id : $cookies.get('id');
   ProfileService.getUser(id).then(function (res) {
-    $state.go('root2.userhome');
     vm.profile = res.data.profile[0];
   });
 
