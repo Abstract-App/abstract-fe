@@ -33,12 +33,25 @@ let UserPageService = function(SERVER, FILESERVER, $cookies, $http, UserService)
     return $http.put(SERVER.URL + 'posts/' + id, q, SERVER.CONFIG);
   }
 
-  function editTextPost(id) {
-
+  function editTextPost(text, id) {
+    let Text = function (text) {
+      this.post_type = 'text';
+      this.status = text.status;
+      this.tag_phrases = '#' + text.tag_phrases;
+    };
+    let t = new Text(text);
+    return $http.put(SERVER.URL + 'posts/' + id, t, SERVER.CONFIG);
   }
 
-  function editUrlPost(id) {
-
+  function editUrlPost(link, id) {
+    let Link = function (link) {
+      this.post_type = 'link';
+      this.url = link.url;
+      this.description = link.description;
+      this.tag_phrases = '#' + link.tag_phrases;
+    };
+    let l = new Link(link);
+    return $http.put(SERVER.URL + 'posts/' + id, l, SERVER.CONFIG);
   }
 
   function deletePost (id) {

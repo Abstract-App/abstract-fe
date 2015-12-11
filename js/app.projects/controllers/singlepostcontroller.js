@@ -28,19 +28,18 @@ let SinglePostController = function($state, $stateParams, UserService, ProfileSe
   function editQuotePost (quote, postId) {
     UserService.checkAuth();
     UserPageService.editQuotePost(quote, postId).then( (res) => {
-      console.log(quote);
       $state.go('root2.quoteview', {id: postId});
     });
   }
-  function editTextPost (postId) {
-    UserService.checkFileAuth();
-    UserPageService.editTextPost(id).then( (res) => {
+  function editTextPost (text, postId) {
+    UserService.checkAuth();
+    UserPageService.editTextPost(text, postId).then( (res) => {
       $state.go('root2.textview', {id: postId});
     });
   }
-  function editUrlPost (postId) {
-    UserService.checkFileAuth();
-    UserPageService.editUrlPost(id).then( (res) => {
+  function editUrlPost (link, postId) {
+    UserService.checkAuth();
+    UserPageService.editUrlPost(link, postId).then( (res) => {
       $state.go('root2.urlview', {id: postId});
     });
   }

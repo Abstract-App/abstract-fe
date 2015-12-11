@@ -711,9 +711,26 @@ var UserPageService = function UserPageService(SERVER, FILESERVER, $cookies, $ht
     return $http.put(SERVER.URL + 'posts/' + id, q, SERVER.CONFIG);
   }
 
-  function editTextPost(id) {}
+  function editTextPost(text, id) {
+    var Text = function Text(text) {
+      this.post_type = 'text';
+      this.status = text.status;
+      this.tag_phrases = '#' + text.tag_phrases;
+    };
+    var t = new Text(text);
+    return $http.put(SERVER.URL + 'posts/' + id, t, SERVER.CONFIG);
+  }
 
-  function editUrlPost(id) {}
+  function editUrlPost(link, id) {
+    var Link = function Link(link) {
+      this.post_type = 'link';
+      this.url = link.url;
+      this.description = link.description;
+      this.tag_phrases = '#' + link.tag_phrases;
+    };
+    var l = new Link(link);
+    return $http.put(SERVER.URL + 'posts/' + id, l, SERVER.CONFIG);
+  }
 
   function deletePost(id) {
     return $http['delete'](FILESERVER.URL + 'posts/' + id, FILESERVER.CONFIG);
@@ -848,19 +865,18 @@ var SinglePostController = function SinglePostController($state, $stateParams, U
   function editQuotePost(quote, postId) {
     UserService.checkAuth();
     UserPageService.editQuotePost(quote, postId).then(function (res) {
-      console.log(quote);
       $state.go('root2.quoteview', { id: postId });
     });
   }
-  function editTextPost(postId) {
-    UserService.checkFileAuth();
-    UserPageService.editTextPost(id).then(function (res) {
+  function editTextPost(text, postId) {
+    UserService.checkAuth();
+    UserPageService.editTextPost(text, postId).then(function (res) {
       $state.go('root2.textview', { id: postId });
     });
   }
-  function editUrlPost(postId) {
-    UserService.checkFileAuth();
-    UserPageService.editUrlPost(id).then(function (res) {
+  function editUrlPost(link, postId) {
+    UserService.checkAuth();
+    UserPageService.editUrlPost(link, postId).then(function (res) {
       $state.go('root2.urlview', { id: postId });
     });
   }
