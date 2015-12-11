@@ -1,1 +1,8 @@
-<h1>Edit</h1>
+<h2>Edit Quote Post</h2>
+
+<form ng-submit="vm.editQuotePost(quote, vm.postId)" class="quote-form">
+  <div class="uploaded-quote">"{{ quote.quote }}"</div>
+  <textarea ng-model="quote.quote" placeholder="What's on your mind?"></textarea>
+  <input placeholder="up to 3 tags that describe this (watercolor, ink, illustration)" ng-model="quote.tag_phrases">
+  <button>post</button>
+</form>

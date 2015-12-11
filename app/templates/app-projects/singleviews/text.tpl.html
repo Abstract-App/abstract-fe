@@ -1,8 +1,8 @@
 <div>
   <h3>{{ vm.post.title }}</h3>
   <p>{{ vm.post.description }}</p>
-  <p>{{ vm.post.tags.split(', ').join(' #') }}</p>
   <p>{{ vm.post.status }}</p>
+  <p>{{ vm.post.tags.split(', ').join(' #') }}</p>
   <a href="#/userhome/{{ vm.post.post.user_id }}">{{ vm.post.username }}</a>
 </div>
 <hr>
@@ -22,7 +22,7 @@
   <p>{{comment.message}}</p>
 </div>
 
-<a class="editpost" href="#/edittext/{{ vm.post.user_id }}"><button>edit post</button></a>
+<a class="editpost" href="#/edittext/{{ vm.post.id }}"><button>edit post</button></a>
 <button ng-click="vm.deletePost(vm.post.user_id)">delete post</button>
 
 

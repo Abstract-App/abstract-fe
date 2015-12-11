@@ -12,34 +12,35 @@ let SinglePostController = function($state, $stateParams, UserService, ProfileSe
   ProjectService.getPost($stateParams.id).then( (res) => {
     vm.post = res.data.post;
     vm.userId = res.data.post.user_id;
+    vm.postId = res.data.post.id;
     vm.comments = res.data.post.comments;
-    return vm.userId;
+    return [vm.userId, vm.postId];
   });
 
   let id = $stateParams.id;
 
-  function editImagePost (id) {
+  function editImagePost (image, postId) {
     UserService.checkFileAuth();
-    UserPageService.editPost(id).then( (res) => {
-      $state.go('root2.imageview', {id: id});
+    UserPageService.editImagePost(image, postId).then( (res) => {
+      $state.go('root2.imageview', {id: postId});
     });
   }
-  function editQuotePost (id) {
-    UserService.checkFileAuth();
-    UserPageService.editPost(id).then( (res) => {
-      $state.go('root2.quoteview', {id: id});
+  function editQuotePost (quote, postId) {
+    UserService.checkAuth();
+    UserPageService.editQuotePost(quote, postId).then( (res) => {
+      $state.go('root2.quoteview', {id: postId});
     });
   }
-  function editTextPost (id) {
-    UserService.checkFileAuth();
-    UserPageService.editPost(id).then( (res) => {
-      $state.go('root2.textview', {id: id});
+  function editTextPost (text, postId) {
+    UserService.checkAuth();
+    UserPageService.editTextPost(text, postId).then( (res) => {
+      $state.go('root2.textview', {id: postId});
     });
   }
-  function editUrlPost (id) {
-    UserService.checkFileAuth();
-    UserPageService.editPost(id).then( (res) => {
-      $state.go('root2.urlview', {id: id});
+  function editUrlPost (link, postId) {
+    UserService.checkAuth();
+    UserPageService.editUrlPost(link, postId).then( (res) => {
+      $state.go('root2.urlview', {id: postId});
     });
   }
 
