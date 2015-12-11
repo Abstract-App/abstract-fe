@@ -679,7 +679,10 @@ Object.defineProperty(exports, '__esModule', {
 var UserPageService = function UserPageService(SERVER, FILESERVER, $cookies, $http, UserService) {
 
   this.getAllPosts = getAllPosts;
-  this.editPost = editPost;
+  this.editImagePost = editImagePost;
+  this.editQuotePost = editQuotePost;
+  this.editTextPost = editTextPost;
+  this.editUrlPost = editUrlPost;
   this.deletePost = deletePost;
   this.likePost = likePost;
 
@@ -687,9 +690,30 @@ var UserPageService = function UserPageService(SERVER, FILESERVER, $cookies, $ht
     UserService.checkFileAuth();
     return $http.get(FILESERVER.URL + 'users/' + id + '/posts', FILESERVER.CONFIG);
   }
-  function editPost(id) {
-    return $http.put(FILESERVER.URL + 'posts/' + id, FILESERVER.CONFIG);
+
+  function editImagePost(image, id) {
+    var formData = new FormData();
+    formData.append('post_type', 'image');
+    formData.append('image', image.image);
+    formData.append('title', image.title);
+    formData.append('description', image.description);
+    formData.append('tag_phrases', '#' + image.tag_phrases);
+    return $http.put(FILESERVER.URL + 'posts/' + id, formData, FILESERVER.CONFIG);
   }
+
+  function editQuotePost(quote, id) {
+    var Quote = function Quote(quote) {
+      this.post_type = 'quote';
+      this.quote = quote.quote;
+      this.tag_phrases = '#' + quote.tag_phrases;
+    };
+    var q = new Quote(quote);
+    return $http.put(SERVER.URL + 'posts/' + id, q, SERVER.CONFIG);
+  }
+
+  function editTextPost(id) {}
+
+  function editUrlPost(id) {}
 
   function deletePost(id) {
     return $http['delete'](FILESERVER.URL + 'posts/' + id, FILESERVER.CONFIG);
@@ -808,34 +832,36 @@ var SinglePostController = function SinglePostController($state, $stateParams, U
   ProjectService.getPost($stateParams.id).then(function (res) {
     vm.post = res.data.post;
     vm.userId = res.data.post.user_id;
+    vm.postId = res.data.post.id;
     vm.comments = res.data.post.comments;
-    return vm.userId;
+    return [vm.userId, vm.postId];
   });
 
   var id = $stateParams.id;
 
-  function editImagePost(id) {
+  function editImagePost(image, postId) {
     UserService.checkFileAuth();
-    UserPageService.editPost(id).then(function (res) {
-      $state.go('root2.imageview', { id: id });
+    UserPageService.editImagePost(image, postId).then(function (res) {
+      $state.go('root2.imageview', { id: postId });
     });
   }
-  function editQuotePost(id) {
-    UserService.checkFileAuth();
-    UserPageService.editPost(id).then(function (res) {
-      $state.go('root2.quoteview', { id: id });
+  function editQuotePost(quote, postId) {
+    UserService.checkAuth();
+    UserPageService.editQuotePost(quote, postId).then(function (res) {
+      console.log(quote);
+      $state.go('root2.quoteview', { id: postId });
     });
   }
-  function editTextPost(id) {
+  function editTextPost(postId) {
     UserService.checkFileAuth();
-    UserPageService.editPost(id).then(function (res) {
-      $state.go('root2.textview', { id: id });
+    UserPageService.editTextPost(id).then(function (res) {
+      $state.go('root2.textview', { id: postId });
     });
   }
-  function editUrlPost(id) {
+  function editUrlPost(postId) {
     UserService.checkFileAuth();
-    UserPageService.editPost(id).then(function (res) {
-      $state.go('root2.urlview', { id: id });
+    UserPageService.editUrlPost(id).then(function (res) {
+      $state.go('root2.urlview', { id: postId });
     });
   }
 
