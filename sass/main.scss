@@ -592,6 +592,11 @@ body {
           width: 400px;
           height: 300px;
           background: darken(#E5E5E5, 20%);
+          overflow: hidden;
+            img {
+              width: 400px;
+              height: 300px;
+            }
         }
       }
       .row2 {
@@ -601,12 +606,22 @@ body {
           height: 450px;
           background: darken(#E5E5E5, 20%);
           display: inline-block;
+          overflow: hidden;
+            img {
+              width: 200px;
+              height: 450px;
+            }
         }
         .temp4sect3 {
           width: 200px;
           height: 450px;
           background: darken(#E5E5E5, 20%);
           display: inline-block;
+          overflow: hidden;
+            img {
+              width: 200px;
+              height: 450px;
+            }
         }
       }
     }
@@ -618,17 +633,32 @@ body {
         height: 300px;
         background: darken(#E5E5E5, 20%);
         display: inline-block;
+        overflow: hidden;
+          img {
+            width: 100px;
+            height: 300px;
+          }
       }
       .temp4sect5 {
         width: 100px;
         height: 300px;
         background: darken(#E5E5E5, 20%);
         display: inline-block;
+        overflow: hidden;
+          img {
+            width: 100px;
+            height: 300px;
+          }
       }
       .temp4sect6 {
         width: 200px;
         height: 450px;
         background: darken(#E5E5E5, 20%);
+        overflow: hidden;
+          img {
+            width: 200px;
+            height: 450px;
+          }
       }
     }
   }
@@ -659,6 +689,11 @@ body {
           height: 300px;
           border: 2px solid #F2F2F2;
           background: darken(#E5E5E5, 20%);
+          overflow: hidden;
+            img {
+              width: 412px;
+              height: 300px;
+            }
         }
       }
       .row2 {
@@ -671,6 +706,11 @@ body {
           border: 2px solid r#F2F2F2;
           background: darken(#E5E5E5, 20%);
           display: inline-block;
+          overflow: hidden;
+            img {
+              width: 204px;
+              height: 450px;
+            }
         }
         .temp5sect3 {
           width: 200px;
@@ -678,6 +718,11 @@ body {
           border: 2px solid #F2F2F2;
           background: darken(#E5E5E5, 20%);
           display: inline-block;
+          overflow: hidden;
+            img {
+              width: 200px;
+              height: 450px;
+            }
         }
       }
     }
@@ -692,6 +737,11 @@ body {
         border: 2px solid #F2F2F2;
         background: darken(#E5E5E5, 20%);
         position: relative;
+        overflow: hidden;
+          img {
+            width: 200px;
+            height: 300px;
+          }
       }
       .temp5sect5 {
         width: 200px;
@@ -702,12 +752,22 @@ body {
         position: absolute;
         top: 50px;
         left: 315px;
+        overflow: hidden;
+          img {
+            width: 200px;
+            height: 200px;
+          }
       }
       .temp5sect6 {
         width: 200px;
         height: 450px;
         border: 2px solid #F2F2F2;
         background: darken(#E5E5E5, 20%);
+        overflow: hidden;
+          img {
+            width: 200px;
+            height: 450px;
+          }
       }
     }
   }

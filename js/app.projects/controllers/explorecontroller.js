@@ -1,4 +1,4 @@
-let ExploreController = function(ProjectService, UserService, $state) {
+let ExploreController = function(ProjectService, UserService, $state, $scope) {
   
   let vm = this;
 
@@ -32,13 +32,13 @@ let ExploreController = function(ProjectService, UserService, $state) {
     ProjectService.likePost(postId).then( (res) => {
       ProjectService.getPost(postId).then( (res) => {
         console.log(res);
-        let tile = res.data.post;
+        $scope.tile.post.likes_count = res.data.post.likes_count;
       });
     });
   }  
 
 };
 
-ExploreController.$inject = ['ProjectService', 'UserService', '$state'];
+ExploreController.$inject = ['ProjectService', 'UserService', '$state', '$scope'];
 
 export default ExploreController;
