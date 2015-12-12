@@ -7,7 +7,11 @@ let PostService = function($http, FILESERVER, SERVER, UserService) {
   this.postText = postText;
   this.postLink = postLink;
   this.postQuote = postQuote;
-  this.selectMood = selectMood;
+  this.selectMood1 = selectMood1;
+  this.selectMood2 = selectMood2;
+  this.selectMood3 = selectMood3;
+  this.selectMood4 = selectMood4;
+  this.selectMood5 = selectMood5;
   this.postMood = postMood;
   this.getMood = getMood;
 
@@ -64,13 +68,50 @@ let PostService = function($http, FILESERVER, SERVER, UserService) {
     return $http.post(url + 'posts', q, SERVER.CONFIG);
   }
 
-  let Mood = function () {
+  let Mood1 = function () {
     this.post_type = 'moodboard';
+    this.moodboard_css_class = 'temp1';
+  };
+  let Mood2 = function () {
+    this.post_type = 'moodboard';
+    this.moodboard_css_class = 'temp2';
+  };
+  let Mood3 = function () {
+    this.post_type = 'moodboard';
+    this.moodboard_css_class = 'temp3';
+  };
+  let Mood4 = function () {
+    this.post_type = 'moodboard';
+    this.moodboard_css_class = 'temp4';
+  };
+  let Mood5 = function () {
+    this.post_type = 'moodboard';
+    this.moodboard_css_class = 'temp5';
   };
 
-  function selectMood () {
-    let m = new Mood();
-    console.log('mood selected and sending');
+  function selectMood1 () {
+    let m = new Mood1();
+    console.log('mood1 selected and sending');
+    return $http.post(url + 'posts', m, SERVER.CONFIG);
+  }
+  function selectMood2 () {
+    let m = new Mood2();
+    console.log('mood2 selected and sending');
+    return $http.post(url + 'posts', m, SERVER.CONFIG);
+  }
+  function selectMood3 () {
+    let m = new Mood3();
+    console.log('mood3 selected and sending');
+    return $http.post(url + 'posts', m, SERVER.CONFIG);
+  }
+  function selectMood4 () {
+    let m = new Mood4();
+    console.log('mood4 selected and sending');
+    return $http.post(url + 'posts', m, SERVER.CONFIG);
+  }
+  function selectMood5 () {
+    let m = new Mood5();
+    console.log('mood5 selected and sending');
     return $http.post(url + 'posts', m, SERVER.CONFIG);
   }
 

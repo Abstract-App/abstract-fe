@@ -9,7 +9,7 @@ let UserPageController = function(ProjectService, ProfileService, UserPageServic
   vm.postTxt = [];
   vm.postQte = [];
   vm.postUrl = [];
-  vm.postMood = [];
+  vm.postMood1 = [];
 
   UserService.checkFileAuth();
   let id = ($stateParams.id) ? $stateParams.id : $cookies.get('id');
@@ -30,10 +30,11 @@ let UserPageController = function(ProjectService, ProfileService, UserPageServic
         vm.postQte.push(p);
       } else if (p.post.post_type === 'link') {
         vm.postUrl.push(p);
-      } else if (p.post.post_type === 'moodboard') {
-        vm.postMood.push(p);
+      } else if (p.post.post_type === 'moodboard' && p.post.moodboard_css_class === 'temp1') {
+        vm.postMood1.push(p);
       }
-      return vm.postImg, vm.postTxt, vm.postQte, vm.postUrl, vm.postMood;
+      console.log(vm.postMood1);
+      return vm.postImg, vm.postTxt, vm.postQte, vm.postUrl, vm.postMood1;
     });
 
   });
