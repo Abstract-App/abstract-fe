@@ -127,6 +127,11 @@ let config = function($stateProvider, $urlRouterProvider) {
       controller: 'SinglePostController as vm',
       templateUrl: 'templates/app-projects/singleviews/url.tpl.html'
     })
+    .state('root2.moodview', {
+      url: '/mood/:id',
+      controller: 'SinglePostController as vm',
+      templateUrl: 'templates/app-projects/singleviews/mood.tpl.html'
+    })
     .state('root2.editimage', {
       url:'/editimage/:id',
       controller: 'SinglePostController as vm',

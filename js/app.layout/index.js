@@ -15,6 +15,7 @@ import exploreTxt from './directives/exploretxtdirective';
 import userTxttile from './directives/usertxttiles';
 import userQtetile from './directives/userqtetiles';
 import userUrltile from './directives/userurltiles';
+import userMoodtile from './directives/usermoodtiles';
 
 import UsernavController from './controllers/usernavcontroller';
 
@@ -30,5 +31,6 @@ angular
   .directive('userTxttile', userTxttile)
   .directive('userQtetile', userQtetile)
   .directive('userUrltile', userUrltile)
+  .directive('userMoodtile', userMoodtile)
   .controller('UsernavController', UsernavController)
 ;

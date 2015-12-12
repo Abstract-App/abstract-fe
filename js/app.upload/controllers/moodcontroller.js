@@ -26,6 +26,7 @@ let MoodController = function(PostService, UserService, $state, $stateParams) {
     //   vm.pieceClass = piece.div_id;
     //   console.log(vm.pieceImg, vm.pieceClass);
     // });
+    console.log(vm.moodPieces);
   });
 
   // select mood template + create initial moodboard

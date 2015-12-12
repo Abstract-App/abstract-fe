@@ -30,10 +30,9 @@ let UserPageController = function(ProjectService, ProfileService, UserPageServic
         vm.postQte.push(p);
       } else if (p.post.post_type === 'link') {
         vm.postUrl.push(p);
-      } else {
+      } else if (p.post.post_type === 'moodboard') {
         vm.postMood.push(p);
       }
-
       return vm.postImg, vm.postTxt, vm.postQte, vm.postUrl, vm.postMood;
     });
 
