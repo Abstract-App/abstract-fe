@@ -2650,9 +2650,7 @@
 .temp3-2 {
   margin: 0 auto;
   width: 610px;
-  height: 760px;
-  position: absolute;
-  left: 100px; }
+  height: 760px; }
   .temp3-2 .left {
     margin: 0 auto;
     width: 300px;
@@ -2753,9 +2751,7 @@
   .template4 .temp4-2 {
     margin: 0 auto;
     width: 620px;
-    height: 760px;
-    position: absolute;
-    left: 100px; }
+    height: 760px; }
     .template4 .temp4-2 .left {
       margin: 0;
       display: inline-block; }
@@ -2826,9 +2822,7 @@
   .template5 .temp5-2 {
     width: 630px;
     height: 760px;
-    overflow: hidden;
-    position: absolute;
-    left: 100px; }
+    overflow: hidden; }
     .template5 .temp5-2 .left {
       margin-left: 0;
       display: inline-block;

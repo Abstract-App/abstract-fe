@@ -10,6 +10,10 @@ let UserPageController = function(ProjectService, ProfileService, UserPageServic
   vm.postQte = [];
   vm.postUrl = [];
   vm.postMood1 = [];
+  vm.postMood2 = [];
+  vm.postMood3 = [];
+  vm.postMood4 = [];
+  vm.postMood5 = [];
 
   UserService.checkFileAuth();
   let id = ($stateParams.id) ? $stateParams.id : $cookies.get('id');
@@ -20,6 +24,7 @@ let UserPageController = function(ProjectService, ProfileService, UserPageServic
 
   UserPageService.getAllPosts(id).then( (res) => {
     vm.post = res.data.posts;
+    console.log(vm.post);
 
     angular.forEach(vm.post, function(p) {
       if (p.post.post_type === 'image') {
@@ -30,11 +35,18 @@ let UserPageController = function(ProjectService, ProfileService, UserPageServic
         vm.postQte.push(p);
       } else if (p.post.post_type === 'link') {
         vm.postUrl.push(p);
-      } else if (p.post.post_type === 'moodboard' && p.post.moodboard_css_class === 'temp1') {
+      } else if (p.post.moodboard_css_class === 'temp1') {
         vm.postMood1.push(p);
-      }
-      console.log(vm.postMood1);
-      return vm.postImg, vm.postTxt, vm.postQte, vm.postUrl, vm.postMood1;
+      } else if (p.post.moodboard_css_class === 'temp2') {
+        vm.postMood2.push(p);
+      } else if (p.post.moodboard_css_class === 'temp3') {
+        vm.postMood3.push(p);
+      } else if (p.post.moodboard_css_class === 'temp4') {
+        vm.postMood4.push(p);
+      } else if (p.post.moodboard_css_class === 'temp5') {
+        vm.postMood5.push(p);
+      } 
+      return vm.postImg, vm.postTxt, vm.postQte, vm.postUrl, vm.postMood1, vm.postMood2, vm.postMood3, vm.postMood4, vm.postMood5;
     });
 
   });

@@ -15,7 +15,7 @@ import exploreTxt from './directives/exploretxtdirective';
 import userTxttile from './directives/usertxttiles';
 import userQtetile from './directives/userqtetiles';
 import userUrltile from './directives/userurltiles';
-import userMoodtile from './directives/usermoodtiles';
+// import userMoodtile from './directives/usermoodtiles';
 import userMoodtile1 from './directives/usermoodtiles1';
 import userMoodtile2 from './directives/usermoodtiles2';
 import userMoodtile3 from './directives/usermoodtiles3';
@@ -36,7 +36,7 @@ angular
   .directive('userTxttile', userTxttile)
   .directive('userQtetile', userQtetile)
   .directive('userUrltile', userUrltile)
-  .directive('userMoodtile', userMoodtile)
+  // .directive('userMoodtile', userMoodtile)
   .directive('userMoodtile1', userMoodtile1)
   .directive('userMoodtile2', userMoodtile2)
   .directive('userMoodtile3', userMoodtile3)
