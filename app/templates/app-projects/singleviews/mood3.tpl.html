@@ -1,0 +1,62 @@
+<div class="temp3-2">
+  <div class="left">
+    <div class="row1">
+      <a ng-click="vm.showForm1()">
+        <div class="box temp3sect1">
+          <img ng-src="{{vm.post.moodpieces[0].image}}">           
+        </div>
+      </a>
+    </div>
+    <div class="row2">
+      <div class="column1">
+        <a ng-click="vm.showForm2()">
+          <div class="box temp3sect2">
+            <img ng-src="{{vm.post.moodpieces[1].image}}">         
+          </div>
+        </a>
+      </div>
+      <div class="column2">
+        <a ng-click="vm.showForm3()">
+          <div class="box temp3sect3">
+          <img ng-src="{{vm.post.moodpieces[2].image}}">       
+          </div>
+        </a>
+        <a ng-click="vm.showForm4()">
+          <div class="box temp3sect4">
+          <img ng-src="{{vm.post.moodpieces[3].image}}">           
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="right">
+    <a ng-click="vm.showForm5()">
+      <div class="box temp3sect5">
+        <img ng-src="{{vm.post.moodpieces[4].image}}">           
+      </div>
+    </a>
+    <a ng-click="vm.showForm6()">
+      <div class="box temp3sect6">
+        <img ng-src="{{vm.post.moodpieces[5].image}}">           
+      </div>
+    </a>
+  </div>
+</div>
+
+<form ng-submit="vm.addComment(comment)">
+  <textarea placeholder="add comment here" ng-model="comment.message"></textarea>
+  <button>comment</button>
+</form>
+
+<hr>
+
+<h3>Comments</h3>
+
+<div class="comment-section" ng-repeat="comment in vm.comments">
+  <img ng-src="{{comment.picture}}">
+  <span>{{comment.username}}</span>
+  <p>{{comment.message}}</p>
+</div>
+
+<a class="editpost" href="#/editimage/{{ vm.post.id }}"><button>edit post</button></a>
+<button ng-click="vm.deletePost(vm.post.user_id)">delete post</button>

@@ -1,0 +1,101 @@
+.template2 {
+  margin: 0 auto;
+  text-align: center;
+  h1 {
+    color: gray;
+  }
+}
+.temp2 {
+  margin: 0 auto;
+  width: 610px;
+  height: 760px;
+  position: absolute;
+  left: 100px;
+    .box {
+
+    }
+    .box:hover {
+      background: #E5E5E5;
+      cursor: pointer;
+    }
+    .temp2sect1 {
+    width: 300px;
+    height: 375px;
+    background: darken(#E5E5E5, 20%);
+    display: inline-block;
+    overflow: hidden;
+      img {
+        width: 300px;
+        height: 375px;
+      }
+    }
+    .temp2sect2 {
+    width: 100px;
+    height: 375px;
+    background: darken(#E5E5E5, 20%);
+    display: inline-block;
+    overflow: hidden;
+      img {
+        width: 100px;
+        height: 375px;
+      }
+    }
+    .temp2sect3 {
+    width: 200px;
+    height: 375px;
+    background: darken(#E5E5E5, 20%);
+    display: inline-block;
+    overflow: hidden;
+      img {
+        width: 200px;
+        height: 375px;
+      }
+    }
+    .temp2left {
+      display: inline-block;
+      width: 300px;
+      height: 375px;
+      .temp2sect4 {
+      width: 300px;
+      height: 185px;
+      background: darken(#E5E5E5, 20%);
+      margin-bottom: 5px;
+      display: block;
+      overflow: hidden;
+        img {
+          width: 300px;
+          height: 185px;
+        }
+      }
+      .temp2sect4:hover {
+        background: #E5E5E5;
+        cursor: pointer;
+      }
+      .temp2sect5 {
+      width: 300px;
+      height: 185px;
+      background: darken(#E5E5E5, 20%);
+      display: block;
+      overflow: hidden;
+        img {
+          width: 300px;
+          height: 185px;
+        }
+      }
+      .temp2sect5:hover {
+        background: #E5E5E5;
+        cursor: pointer;
+      }
+    }
+    .temp2sect6 {
+    width: 300px;
+    height: 375px;
+    background: darken(#E5E5E5, 20%);
+    display: inline-block;
+    overflow: hidden;
+      img {
+        width: 300px;
+        height: 375px;
+      }
+    }
+}
