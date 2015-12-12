@@ -14,6 +14,7 @@ let SinglePostController = function($state, $stateParams, UserService, ProfileSe
     vm.userId = res.data.post.user_id;
     vm.postId = res.data.post.id;
     vm.comments = res.data.post.comments;
+    console.log(vm.post);
     return [vm.userId, vm.postId];
   });
 

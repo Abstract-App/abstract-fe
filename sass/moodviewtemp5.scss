@@ -1,0 +1,108 @@
+.template5 {
+  margin: 0 auto;
+  h1 {
+    color: gray;
+  }
+  .temp5-2 {
+    width: 630px;
+    height: 760px;
+    // border: 1px solid red;
+    overflow: hidden;
+    position: absolute;
+    left: 100px;
+    .left {
+      margin-left: 0;
+      display: inline-block;
+      overflow: hidden;
+      .row1 {
+        display: block;
+        overflow: hidden;
+        text-align: left;
+        .temp5sect1 {
+          width: 412px;
+          height: 300px;
+          border: 2px solid #F2F2F2;
+          background: darken(#E5E5E5, 20%);
+          overflow: hidden;
+            img {
+              width: 412px;
+              height: 300px;
+            }
+        }
+      }
+      .row2 {
+        display: block;
+        text-align: left;
+        overflow: hidden;
+        .temp5sect2 {
+          width: 204px;
+          height: 450px;
+          border: 2px solid r#F2F2F2;
+          background: darken(#E5E5E5, 20%);
+          display: inline-block;
+          overflow: hidden;
+            img {
+              width: 204px;
+              height: 450px;
+            }
+        }
+        .temp5sect3 {
+          width: 200px;
+          height: 450px;
+          border: 2px solid #F2F2F2;
+          background: darken(#E5E5E5, 20%);
+          display: inline-block;
+          overflow: hidden;
+            img {
+              width: 200px;
+              height: 450px;
+            }
+        }
+      }
+    }
+    .right {
+      margin: 0;
+      display: inline-block;
+      overflow: hidden;
+      float: none;
+      .temp5sect4 {
+        width: 200px;
+        height: 300px;
+        border: 2px solid #F2F2F2;
+        background: darken(#E5E5E5, 20%);
+        position: relative;
+        overflow: hidden;
+          img {
+            width: 200px;
+            height: 300px;
+          }
+      }
+      .temp5sect5 {
+        width: 200px;
+        height: 200px;
+        border: 2px solid #F2F2F2;
+        border-radius: 100%;
+        background: darken(#E5E5E5, 20%);
+        position: absolute;
+        top: 50px;
+        left: 315px;
+        overflow: hidden;
+          img {
+            width: 200px;
+            height: 200px;
+          }
+      }
+      .temp5sect6 {
+        width: 200px;
+        height: 450px;
+        border: 2px solid #F2F2F2;
+        background: darken(#E5E5E5, 20%);
+        overflow: hidden;
+          img {
+            width: 200px;
+            height: 450px;
+          }
+      }
+    }
+  }
+}
