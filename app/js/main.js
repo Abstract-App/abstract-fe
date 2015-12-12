@@ -1609,6 +1609,7 @@ var UserService = function UserService($http, SERVER, $cookies, $state, FILESERV
 
   function logout() {
     $cookies.remove('Auth-Token');
+    $cookies.remove('id');
     SERVER.CONFIG.headers.auth_token = null;
     console.log('logged out');
     $state.go('root.home');
