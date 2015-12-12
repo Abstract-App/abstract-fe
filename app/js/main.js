@@ -421,7 +421,7 @@ var userQtetile = function userQtetile($state, UserPageService, ProjectService) 
       post: "=post"
     },
     templateUrl: 'templates/app-profile/userqtetiles.tpl.html',
-    // controller: 'UserPageController as vm',
+    controller: 'UserPageController as vm',
     link: function link(scope, element, attrs) {
       // element.on('click', function () {
       //   $state.go('root2.singlepost', {
@@ -483,7 +483,7 @@ var userTxttile = function userTxttile($state, UserPageService, ProjectService) 
       post: "="
     },
     templateUrl: 'templates/app-profile/usertxttiles.tpl.html',
-    // controller: 'UserPageController as vm',
+    controller: 'UserPageController as vm',
     link: function link(scope, element, attrs) {
       // element.on('click', function () {
       //   $state.go('root2.singlepost', {
@@ -514,7 +514,7 @@ var userUrltile = function userUrltile($state, UserPageService, ProjectService) 
       post: "=post"
     },
     templateUrl: 'templates/app-profile/userurltiles.tpl.html',
-    // controller: 'UserPageController as vm',
+    controller: 'UserPageController as vm',
     link: function link(scope, element, attrs) {
       // element.on('click', function () {
       //   $state.go('root2.singlepost', {
