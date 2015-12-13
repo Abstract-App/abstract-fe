@@ -1,13 +1,12 @@
 .temp3-2 {
-  margin: 0 auto;
-  width: 610px;
-  height: 760px;
-  // position: absolute;
-  // left: 100px;
+  margin-bottom: 50px;
+  width: 600px;
+  height: 750px;
+  position: relative;  
+  left: 100px;
   .left {
     margin: 0 auto;
     width: 300px;
-    height: 760px;
     display: inline-block;
     .row1 {
       display: inline-block;
@@ -17,14 +16,11 @@
       background: darken(#E5E5E5, 20%);
       display: block;
       overflow: hidden;
+      border: 1px solid #F2F2F2;
         img {
           width: 300px;
           height: 300px;
         }
-      }
-      .temp3sect1:hover {
-        background: #E5E5E5;
-        cursor: pointer;
       }
     }
     .row2 {
@@ -36,48 +32,47 @@
           height: 450px;
           background: darken(#E5E5E5, 20%);
           overflow: hidden;
+          border: 1px solid #F2F2F2;
+          position: absolute;
+          bottom: 0px;
             img {
               width: 140px;
               height: 450px;
             }
         }
-        .temp3sect2:hover {
-          background: #E5E5E5;
-          cursor: pointer;
-        }
       }
       .column2 {
         display: inline-block;
         .temp3sect3 {
-          width: 150px;
+          width: 158px;
           height: 225px;
           background: darken(#E5E5E5, 20%);
           margin-bottom: 5px;
           display: block;
           overflow: hidden;
+          border: 1px solid #F2F2F2;
+          position: absolute;
+          bottom: -5px;
+          left: 141px;
             img {
-              width: 150px;
+              width: 158px;
               height: 225px;
             }
         }
-        .temp3sect3:hover {
-          background: #E5E5E5;
-          cursor: pointer;
-        }
         .temp3sect4 {
-          width: 150px;
+          width: 158px;
           height: 225px;
           background: darken(#E5E5E5, 20%);
           display: block;
           overflow: hidden;
+          border: 1px solid #F2F2F2;
+          position: absolute;
+          left: 141px;
+          bottom: 225px;
             img {
-              width: 150px;
+              width: 158px;
               height: 225px;
             }
-        }
-        .temp3sect4:hover {
-          background: #E5E5E5;
-          cursor: pointer;
         }
       }
     }
@@ -85,38 +80,46 @@
   .right {
     margin: 0 auto;
     width: 300px;
-    height: 760px;
+    // height: 760px;
     display: inline-block;
     .temp3sect5 {
-      width: 300px;
+      width: 298px;
       height: 250px;
       background: darken(#E5E5E5, 20%);
-      margin-bottom: 5px;
       display: block;
       overflow: hidden;
+      border: 1px solid #F2F2F2;
         img {
-          width: 300px;
-          height: 760px;
+          width: 298px;
+          height: 250px;
         }
-    }
-    .temp3sect5:hover {
-      background: #E5E5E5;
-      cursor: pointer;
     }
     .temp3sect6 {
-      width: 300px;
+      width: 298px;
       height: 500px;
       background: darken(#E5E5E5, 20%);
+      position: absolute;
+      bottom: 0px;
       display: block;
       overflow: hidden;
+      border: 1px solid #F2F2F2;
         img {
-          width: 300px;
+          width: 298px;
           height: 500px;
         }
-    }
-    .temp3sect6:hover {
-      background: #E5E5E5;
-      cursor: pointer;
-    }
+    }      .temp3sect6 {
+        width: 298px;
+        height: 500px;
+        background: darken(#E5E5E5, 20%);
+        position: absolute;
+        bottom: 0px;
+        display: block;
+        overflow: hidden;
+        border: 1px solid #F2F2F2;
+          img {
+            width: 298px;
+            height: 500px;
+          }
+      }
   }
 }

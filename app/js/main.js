@@ -890,7 +890,6 @@ var UserPageController = function UserPageController(ProjectService, ProfileServ
 
   UserPageService.getAllPosts(id).then(function (res) {
     vm.post = res.data.posts;
-    console.log(vm.post);
 
     angular.forEach(vm.post, function (p) {
       if (p.post.post_type === 'image') {
@@ -1408,23 +1407,23 @@ var MoodController = function MoodController(PostService, UserService, $state, $
     console.log('showing 1');
   }
   function showForm2() {
-    vm.showImageUpload2 = vm.showImageUpload1 || vm.showImageUpload2 || vm.showImageUpload3 || vm.showImageUpload4 || vm.showImageUpload5 || vm.showImageUpload6 ? false : true;
+    vm.showImageUpload2 = vm.showImageUpload2 || vm.showImageUpload1 || vm.showImageUpload3 || vm.showImageUpload4 || vm.showImageUpload5 || vm.showImageUpload6 ? false : true;
     console.log('showing 2');
   }
   function showForm3() {
-    vm.showImageUpload3 = vm.showImageUpload1 || vm.showImageUpload2 || vm.showImageUpload3 || vm.showImageUpload4 || vm.showImageUpload5 || vm.showImageUpload6 ? false : true;
+    vm.showImageUpload3 = vm.showImageUpload3 || vm.showImageUpload2 || vm.showImageUpload1 || vm.showImageUpload4 || vm.showImageUpload5 || vm.showImageUpload6 ? false : true;
     console.log('showing 3');
   }
   function showForm4() {
-    vm.showImageUpload4 = vm.showImageUpload1 || vm.showImageUpload2 || vm.showImageUpload3 || vm.showImageUpload4 || vm.showImageUpload5 || vm.showImageUpload6 ? false : true;
+    vm.showImageUpload4 = vm.showImageUpload4 || vm.showImageUpload3 || vm.showImageUpload2 || vm.showImageUpload1 || vm.showImageUpload5 || vm.showImageUpload6 ? false : true;
     console.log('showing 4');
   }
   function showForm5() {
-    vm.showImageUpload5 = vm.showImageUpload1 || vm.showImageUpload2 || vm.showImageUpload3 || vm.showImageUpload4 || vm.showImageUpload5 || vm.showImageUpload6 ? false : true;
+    vm.showImageUpload5 = vm.showImageUpload5 || vm.showImageUpload4 || vm.showImageUpload3 || vm.showImageUpload2 || vm.showImageUpload1 || vm.showImageUpload6 ? false : true;
     console.log('showing 5');
   }
   function showForm6() {
-    vm.showImageUpload6 = vm.showImageUpload1 || vm.showImageUpload2 || vm.showImageUpload3 || vm.showImageUpload4 || vm.showImageUpload5 || vm.showImageUpload6 ? false : true;
+    vm.showImageUpload6 = vm.showImageUpload6 || vm.showImageUpload5 || vm.showImageUpload4 || vm.showImageUpload3 || vm.showImageUpload2 || vm.showImageUpload1 ? false : true;
     console.log('showing 6');
   }
 };
