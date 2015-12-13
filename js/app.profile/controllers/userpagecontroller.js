@@ -23,7 +23,6 @@ let UserPageController = function(ProjectService, ProfileService, UserPageServic
 
   UserPageService.getAllPosts(id).then( (res) => {
     vm.post = res.data.posts;
-    console.log(vm.post);
 
     angular.forEach(vm.post, function(p) {
       if (p.post.post_type === 'image') {
