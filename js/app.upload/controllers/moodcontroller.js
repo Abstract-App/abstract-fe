@@ -26,40 +26,41 @@ let MoodController = function(PostService, UserService, $state, $stateParams) {
     //   vm.pieceClass = piece.div_id;
     //   console.log(vm.pieceImg, vm.pieceClass);
     // });
+    // console.log(vm.moodPieces);
   });
 
   // select mood template + create initial moodboard
 
   function selectMood1 () {
-    PostService.selectMood().then( (res) => {
+    PostService.selectMood1().then( (res) => {
       let moodId = res.data.post.id;
       $state.go('root2.moodtemp1', {id: moodId});
     });
   }
 
   function selectMood2 () {
-    PostService.selectMood().then( (res) => {
+    PostService.selectMood2().then( (res) => {
       let moodId = res.data.post.id;
       $state.go('root2.moodtemp2', {id: moodId});
     });
   }
 
   function selectMood3 () {
-    PostService.selectMood().then( (res) => {
+    PostService.selectMood3().then( (res) => {
       let moodId = res.data.post.id;
       $state.go('root2.moodtemp3', {id: moodId});
     });
   }
 
   function selectMood4 () {
-    PostService.selectMood().then( (res) => {
+    PostService.selectMood4().then( (res) => {
       let moodId = res.data.post.id;
       $state.go('root2.moodtemp4', {id: moodId});
     });
   }
 
   function selectMood5 () {
-    PostService.selectMood().then( (res) => {
+    PostService.selectMood5().then( (res) => {
       let moodId = res.data.post.id;
       $state.go('root2.moodtemp5', {id: moodId});
     });
