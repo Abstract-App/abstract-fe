@@ -1,4 +1,4 @@
-let SinglePostController = function($state, $stateParams, UserService, ProfileService, ProjectService, UserPageService) {
+let SinglePostController = function($scope, $state, $stateParams, UserService, ProfileService, ProjectService, UserPageService) {
   
   let vm = this;
 
@@ -8,6 +8,7 @@ let SinglePostController = function($state, $stateParams, UserService, ProfileSe
   vm.editUrlPost = editUrlPost;
   vm.deletePost = deletePost;
   vm.addComment = addComment;
+  vm.likePost = likePost;
 
   ProjectService.getPost($stateParams.id).then( (res) => {
     vm.post = res.data.post;
@@ -63,8 +64,16 @@ let SinglePostController = function($state, $stateParams, UserService, ProfileSe
     console.log('i want to see comments');
   }
 
+  function likePost (postId) {
+    ProjectService.likePost(postId).then( (res) => {
+      ProjectService.getPost(id).then( (res) => {
+        vm.post.likes_count = res.data.post.likes_count;
+      });
+    });
+  }
+
 };
 
-SinglePostController.$inject = ['$state', '$stateParams', 'UserService', 'ProfileService', 'ProjectService', 'UserPageService'];
+SinglePostController.$inject = ['$scope', '$state', '$stateParams', 'UserService', 'ProfileService', 'ProjectService', 'UserPageService'];
 
 export default SinglePostController;

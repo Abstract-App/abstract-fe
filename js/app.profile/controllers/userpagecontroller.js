@@ -3,6 +3,7 @@ let UserPageController = function(ProjectService, ProfileService, UserPageServic
   let vm = this;
 
   vm.addLike = addLike;
+  vm.follow = follow;
 
   vm.post = [];
   vm.postImg = [];
@@ -18,7 +19,7 @@ let UserPageController = function(ProjectService, ProfileService, UserPageServic
   UserService.checkFileAuth();
   let id = ($stateParams.id) ? $stateParams.id : $cookies.get('id');
   ProfileService.getUser(id).then( (res) => {   
-    vm.profile = res.data.profile[0];
+    vm.profile = res.data.user;
   });
 
   UserPageService.getAllPosts(id).then( (res) => {
@@ -55,6 +56,12 @@ let UserPageController = function(ProjectService, ProfileService, UserPageServic
       ProjectService.getPost(postId).then( (res) => {
         $scope.post.post.likes_count = res.data.post.likes_count;
       });
+    });
+  }
+
+  function follow () {
+    UserPageService.followUser($stateParams.id).then( (res) => {
+      console.log(res);
     });
   }
 
