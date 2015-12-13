@@ -1012,7 +1012,6 @@ var ExploreController = function ExploreController(ProjectService, UserService, 
     UserService.checkAuth();
     ProjectService.likePost(postId).then(function (res) {
       ProjectService.getPost(postId).then(function (res) {
-        console.log(res);
         $scope.tile.post.likes_count = res.data.post.likes_count;
       });
     });
@@ -1067,7 +1066,7 @@ module.exports = exports['default'];
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var SinglePostController = function SinglePostController($state, $stateParams, UserService, ProfileService, ProjectService, UserPageService) {
+var SinglePostController = function SinglePostController($scope, $state, $stateParams, UserService, ProfileService, ProjectService, UserPageService) {
 
   var vm = this;
 
@@ -1135,12 +1134,14 @@ var SinglePostController = function SinglePostController($state, $stateParams, U
 
   function likePost(postId) {
     ProjectService.likePost(postId).then(function (res) {
-      console.log(res);
+      ProjectService.getPost(id).then(function (res) {
+        vm.post.likes_count = res.data.post.likes_count;
+      });
     });
   }
 };
 
-SinglePostController.$inject = ['$state', '$stateParams', 'UserService', 'ProfileService', 'ProjectService', 'UserPageService'];
+SinglePostController.$inject = ['$scope', '$state', '$stateParams', 'UserService', 'ProfileService', 'ProjectService', 'UserPageService'];
 
 exports['default'] = SinglePostController;
 module.exports = exports['default'];
@@ -1715,9 +1716,8 @@ var ProfileController = function ProfileController(UserService, $stateParams, Pr
   vm.uploadProfile = uploadProfile;
 
   function uploadProfile(profile) {
-    // UserService.checkFileAuth();
+    UserService.checkFileAuth();
     ProfileService.uploadForm(profile).then(function (res) {
-      console.log(res);
       $state.go('root.login');
     });
   }
@@ -1743,7 +1743,7 @@ var RegisterController = function RegisterController(UserService, $state) {
   function register(user) {
     UserService.register(user).then(function (res) {
       console.log(res);
-      UserService.checkAuth();
+      UserService.userSuccess(res);
       $state.go('root.addprofile');
     });
   }
