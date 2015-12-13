@@ -803,6 +803,7 @@ var UserPageController = function UserPageController(ProjectService, ProfileServ
   var vm = this;
 
   vm.addLike = addLike;
+  vm.follow = follow;
 
   vm.post = [];
   vm.postImg = [];
@@ -854,6 +855,12 @@ var UserPageController = function UserPageController(ProjectService, ProfileServ
       ProjectService.getPost(postId).then(function (res) {
         $scope.post.post.likes_count = res.data.post.likes_count;
       });
+    });
+  }
+
+  function follow() {
+    UserPageService.followUser($stateParams.id).then(function (res) {
+      console.log(res);
     });
   }
 };

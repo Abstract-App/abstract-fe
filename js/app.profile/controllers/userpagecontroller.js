@@ -3,6 +3,7 @@ let UserPageController = function(ProjectService, ProfileService, UserPageServic
   let vm = this;
 
   vm.addLike = addLike;
+  vm.follow = follow;
 
   vm.post = [];
   vm.postImg = [];
@@ -55,6 +56,12 @@ let UserPageController = function(ProjectService, ProfileService, UserPageServic
       ProjectService.getPost(postId).then( (res) => {
         $scope.post.post.likes_count = res.data.post.likes_count;
       });
+    });
+  }
+
+  function follow () {
+    UserPageService.followUser($stateParams.id).then( (res) => {
+      console.log(res);
     });
   }
 
