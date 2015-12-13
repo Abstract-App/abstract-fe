@@ -819,7 +819,7 @@ var UserPageController = function UserPageController(ProjectService, ProfileServ
   UserService.checkFileAuth();
   var id = $stateParams.id ? $stateParams.id : $cookies.get('id');
   ProfileService.getUser(id).then(function (res) {
-    vm.profile = res.data.profile[0];
+    vm.profile = res.data.user;
   });
 
   UserPageService.getAllPosts(id).then(function (res) {

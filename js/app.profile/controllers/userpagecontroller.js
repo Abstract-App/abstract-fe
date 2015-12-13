@@ -19,7 +19,7 @@ let UserPageController = function(ProjectService, ProfileService, UserPageServic
   UserService.checkFileAuth();
   let id = ($stateParams.id) ? $stateParams.id : $cookies.get('id');
   ProfileService.getUser(id).then( (res) => {   
-    vm.profile = res.data.profile[0];
+    vm.profile = res.data.user;
   });
 
   UserPageService.getAllPosts(id).then( (res) => {
