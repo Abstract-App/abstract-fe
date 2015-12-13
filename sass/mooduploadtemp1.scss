@@ -1,20 +1,9 @@
-.template1 {
-  margin: 0 auto;
-  text-align: center;
-  h1 {
-    color: gray;
-  }
-}
-.form {
-  position: absolute;
-  left: 700px;
-  width: 500px;
-}
 .temp1 {
-  margin: 0 auto;
-  width: 610px;
-  height: 760px;
-  position: absolute;
+  margin-bottom: 50px;
+  width: 600px;
+  height: 750px;
+  position: relative;
+  overflow: hidden;
   left: 100px;
     .box {
 
@@ -27,8 +16,9 @@
     width: 300px;
     height: 250px;
     background: darken(#E5E5E5, 20%);
-    display: inline-block;
+    position: absolute;
     overflow: hidden;
+    border: 1px solid red;
       img {
         width: 300px;
         height: 250px;
@@ -38,8 +28,10 @@
     width: 300px;
     height: 250px;
     background: darken(#E5E5E5, 20%);
-    display: inline-block;
+    position: absolute;
+    left: 300px;
     overflow: hidden;
+    border: 1px solid red;
       img {
         width: 300px;
         height: 250px;
@@ -49,8 +41,10 @@
     width: 300px;
     height: 250px;
     background: darken(#E5E5E5, 20%);
-    display: inline-block;
+    position: absolute;
+    top: 250px;
     overflow: hidden;
+    border: 1px solid red;
       img {
         width: 300px;
         height: 250px;
@@ -60,8 +54,11 @@
     width: 300px;
     height: 250px;
     background: darken(#E5E5E5, 20%);
-    display: inline-block;
+    position: absolute;
+    left: 300px;
+    top: 250px;
     overflow: hidden;
+    border: 1px solid red;
       img {
         width: 300px;
         height: 250px;
@@ -71,8 +68,10 @@
     width: 300px;
     height: 250px;
     background: darken(#E5E5E5, 20%);
-    display: inline-block;
+    position: absolute;
+    top: 500px;
     overflow: hidden;
+    border: 1px solid red;
       img {
         width: 300px;
         height: 250px;
@@ -82,8 +81,11 @@
     width: 300px;
     height: 250px;
     background: darken(#E5E5E5, 20%);
-    display: inline-block;
+    position: absolute;
+    top: 500px;
+    left: 300px;
     overflow: hidden;
+    border: 1px solid red;
       img {
         width: 300px;
         height: 250px;

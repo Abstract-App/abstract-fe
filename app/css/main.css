@@ -2078,22 +2078,12 @@
 .fa-percent:before {
   content: ""; }
 
-.template1 {
-  margin: 0 auto;
-  text-align: center; }
-  .template1 h1 {
-    color: gray; }
-
-.form {
-  position: absolute;
-  left: 700px;
-  width: 500px; }
-
 .temp1 {
-  margin: 0 auto;
-  width: 610px;
-  height: 760px;
-  position: absolute;
+  margin-bottom: 50px;
+  width: 600px;
+  height: 750px;
+  position: relative;
+  overflow: hidden;
   left: 100px; }
   .temp1 .box:hover {
     background: #E5E5E5;
@@ -2102,8 +2092,9 @@
     width: 300px;
     height: 250px;
     background: #b2b2b2;
-    display: inline-block;
-    overflow: hidden; }
+    position: absolute;
+    overflow: hidden;
+    border: 1px solid red; }
     .temp1 .temp1sect1 img {
       width: 300px;
       height: 250px; }
@@ -2111,8 +2102,10 @@
     width: 300px;
     height: 250px;
     background: #b2b2b2;
-    display: inline-block;
-    overflow: hidden; }
+    position: absolute;
+    left: 300px;
+    overflow: hidden;
+    border: 1px solid red; }
     .temp1 .temp1sect2 img {
       width: 300px;
       height: 250px; }
@@ -2120,8 +2113,10 @@
     width: 300px;
     height: 250px;
     background: #b2b2b2;
-    display: inline-block;
-    overflow: hidden; }
+    position: absolute;
+    top: 250px;
+    overflow: hidden;
+    border: 1px solid red; }
     .temp1 .temp1sect3 img {
       width: 300px;
       height: 250px; }
@@ -2129,8 +2124,11 @@
     width: 300px;
     height: 250px;
     background: #b2b2b2;
-    display: inline-block;
-    overflow: hidden; }
+    position: absolute;
+    left: 300px;
+    top: 250px;
+    overflow: hidden;
+    border: 1px solid red; }
     .temp1 .temp1sect4 img {
       width: 300px;
       height: 250px; }
@@ -2138,8 +2136,10 @@
     width: 300px;
     height: 250px;
     background: #b2b2b2;
-    display: inline-block;
-    overflow: hidden; }
+    position: absolute;
+    top: 500px;
+    overflow: hidden;
+    border: 1px solid red; }
     .temp1 .temp1sect5 img {
       width: 300px;
       height: 250px; }
@@ -2147,8 +2147,11 @@
     width: 300px;
     height: 250px;
     background: #b2b2b2;
-    display: inline-block;
-    overflow: hidden; }
+    position: absolute;
+    top: 500px;
+    left: 300px;
+    overflow: hidden;
+    border: 1px solid red; }
     .temp1 .temp1sect6 img {
       width: 300px;
       height: 250px; }
@@ -2234,101 +2237,115 @@
       width: 300px;
       height: 375px; }
 
-.temp3 {
-  margin: 0 auto;
-  width: 610px;
-  height: 760px;
-  position: absolute;
+.template3 .temp3 {
+  margin-bottom: 50px;
+  width: 600px;
+  height: 750px;
+  position: relative;
+  overflow: hidden;
   left: 100px; }
-  .temp3 .left {
+  .template3 .temp3 .left {
     margin: 0 auto;
     width: 300px;
-    height: 760px;
     display: inline-block; }
-    .temp3 .left .row1 {
+    .template3 .temp3 .left .row1 {
       display: inline-block; }
-      .temp3 .left .row1 .temp3sect1 {
+      .template3 .temp3 .left .row1 .temp3sect1 {
         width: 300px;
         height: 300px;
         background: #b2b2b2;
         display: block;
-        overflow: hidden; }
-        .temp3 .left .row1 .temp3sect1 img {
+        overflow: hidden;
+        border: 1px solid #F2F2F2; }
+        .template3 .temp3 .left .row1 .temp3sect1 img {
           width: 300px;
           height: 300px; }
-      .temp3 .left .row1 .temp3sect1:hover {
+      .template3 .temp3 .left .row1 .temp3sect1:hover {
         background: #E5E5E5;
         cursor: pointer; }
-    .temp3 .left .row2 {
+    .template3 .temp3 .left .row2 {
       display: inline-block; }
-      .temp3 .left .row2 .column1 {
+      .template3 .temp3 .left .row2 .column1 {
         display: inline-block; }
-        .temp3 .left .row2 .column1 .temp3sect2 {
+        .template3 .temp3 .left .row2 .column1 .temp3sect2 {
           width: 140px;
           height: 450px;
           background: #b2b2b2;
-          overflow: hidden; }
-          .temp3 .left .row2 .column1 .temp3sect2 img {
+          overflow: hidden;
+          border: 1px solid #F2F2F2;
+          position: absolute;
+          bottom: 0px; }
+          .template3 .temp3 .left .row2 .column1 .temp3sect2 img {
             width: 140px;
             height: 450px; }
-        .temp3 .left .row2 .column1 .temp3sect2:hover {
+        .template3 .temp3 .left .row2 .column1 .temp3sect2:hover {
           background: #E5E5E5;
           cursor: pointer; }
-      .temp3 .left .row2 .column2 {
+      .template3 .temp3 .left .row2 .column2 {
         display: inline-block; }
-        .temp3 .left .row2 .column2 .temp3sect3 {
-          width: 150px;
-          height: 225px;
+        .template3 .temp3 .left .row2 .column2 .temp3sect3 {
+          width: 158px;
+          height: 250px;
           background: #b2b2b2;
           margin-bottom: 5px;
           display: block;
-          overflow: hidden; }
-          .temp3 .left .row2 .column2 .temp3sect3 img {
-            width: 150px;
-            height: 225px; }
-        .temp3 .left .row2 .column2 .temp3sect3:hover {
+          overflow: hidden;
+          border: 1px solid #F2F2F2;
+          position: absolute;
+          bottom: -5px;
+          left: 141px; }
+          .template3 .temp3 .left .row2 .column2 .temp3sect3 img {
+            width: 158px;
+            height: 250px; }
+        .template3 .temp3 .left .row2 .column2 .temp3sect3:hover {
           background: #E5E5E5;
           cursor: pointer; }
-        .temp3 .left .row2 .column2 .temp3sect4 {
-          width: 150px;
-          height: 225px;
+        .template3 .temp3 .left .row2 .column2 .temp3sect4 {
+          width: 158px;
+          height: 218px;
           background: #b2b2b2;
           display: block;
-          overflow: hidden; }
-          .temp3 .left .row2 .column2 .temp3sect4 img {
-            width: 150px;
-            height: 225px; }
-        .temp3 .left .row2 .column2 .temp3sect4:hover {
+          overflow: hidden;
+          border: 1px solid #F2F2F2;
+          position: absolute;
+          left: 141px;
+          bottom: 232px; }
+          .template3 .temp3 .left .row2 .column2 .temp3sect4 img {
+            width: 158px;
+            height: 218px; }
+        .template3 .temp3 .left .row2 .column2 .temp3sect4:hover {
           background: #E5E5E5;
           cursor: pointer; }
-  .temp3 .right {
+  .template3 .temp3 .right {
     margin: 0 auto;
     width: 300px;
-    height: 760px;
     display: inline-block; }
-    .temp3 .right .temp3sect5 {
-      width: 300px;
+    .template3 .temp3 .right .temp3sect5 {
+      width: 298px;
       height: 250px;
       background: #b2b2b2;
-      margin-bottom: 5px;
       display: block;
-      overflow: hidden; }
-      .temp3 .right .temp3sect5 img {
-        width: 300px;
-        height: 760px; }
-    .temp3 .right .temp3sect5:hover {
+      overflow: hidden;
+      border: 1px solid #F2F2F2; }
+      .template3 .temp3 .right .temp3sect5 img {
+        width: 298px;
+        height: 250px; }
+    .template3 .temp3 .right .temp3sect5:hover {
       background: #E5E5E5;
       cursor: pointer; }
-    .temp3 .right .temp3sect6 {
-      width: 300px;
+    .template3 .temp3 .right .temp3sect6 {
+      width: 298px;
       height: 500px;
       background: #b2b2b2;
+      position: absolute;
+      bottom: 0px;
       display: block;
-      overflow: hidden; }
-      .temp3 .right .temp3sect6 img {
-        width: 300px;
+      overflow: hidden;
+      border: 1px solid #F2F2F2; }
+      .template3 .temp3 .right .temp3sect6 img {
+        width: 298px;
         height: 500px; }
-    .temp3 .right .temp3sect6:hover {
+    .template3 .temp3 .right .temp3sect6:hover {
       background: #E5E5E5;
       cursor: pointer; }
 
@@ -3101,5 +3118,16 @@ body {
     height: 100px;
     border: 1px solid gray;
     display: inline-block; }
+
+.templateheader {
+  margin: 20px auto;
+  text-align: center;
+  color: gray; }
+
+.form {
+  position: absolute;
+  left: 800px;
+  top: 200px;
+  width: 500px; }
 
 /*# sourceMappingURL=main.css.map */
