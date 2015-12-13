@@ -696,7 +696,7 @@ var UserPageService = function UserPageService(SERVER, FILESERVER, $cookies, $ht
   this.followUser = followUser;
 
   function getAllPosts(id) {
-    // UserService.checkFileAuth();
+    UserService.checkFileAuth();
     return $http.get(FILESERVER.URL + 'users/' + id + '/posts', FILESERVER.CONFIG);
   }
 
