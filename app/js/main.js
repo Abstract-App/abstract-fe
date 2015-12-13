@@ -1077,6 +1077,7 @@ var SinglePostController = function SinglePostController($state, $stateParams, U
   vm.editUrlPost = editUrlPost;
   vm.deletePost = deletePost;
   vm.addComment = addComment;
+  vm.likePost = likePost;
 
   ProjectService.getPost($stateParams.id).then(function (res) {
     vm.post = res.data.post;
@@ -1130,6 +1131,12 @@ var SinglePostController = function SinglePostController($state, $stateParams, U
 
   function getComments() {
     console.log('i want to see comments');
+  }
+
+  function likePost(postId) {
+    ProjectService.likePost(postId).then(function (res) {
+      console.log(res);
+    });
   }
 };
 
