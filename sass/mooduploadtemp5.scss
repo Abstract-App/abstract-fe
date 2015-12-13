@@ -1,14 +1,10 @@
 .template5 {
-  margin: 0 auto;
-  h1 {
-    color: gray;
-  }
   .temp5 {
-    width: 630px;
-    height: 760px;
-    // border: 1px solid red;
+    width: 600px;
+    height: 750px;
+    margin-bottom: 50px;
     overflow: hidden;
-    position: absolute;
+    position: relative;
     left: 100px;
     .left {
       margin-left: 0;
@@ -19,15 +15,20 @@
         overflow: hidden;
         text-align: left;
         .temp5sect1 {
-          width: 412px;
+          width: 400px;
           height: 300px;
-          border: 2px solid #F2F2F2;
           background: darken(#E5E5E5, 20%);
           overflow: hidden;
+          position: absolute;
+          border: 1px solid #F2F2F2;
             img {
-              width: 412px;
+              width: 400px;
               height: 300px;
             }
+        }
+        .temp5sect1:hover {
+          background: #E5E5E5;
+          cursor: pointer;
         }
       }
       .row2 {
@@ -35,28 +36,39 @@
         text-align: left;
         overflow: hidden;
         .temp5sect2 {
-          width: 204px;
-          height: 450px;
-          border: 2px solid r#F2F2F2;
-          background: darken(#E5E5E5, 20%);
-          display: inline-block;
-          overflow: hidden;
-            img {
-              width: 204px;
-              height: 450px;
-            }
-        }
-        .temp5sect3 {
           width: 200px;
           height: 450px;
-          border: 2px solid #F2F2F2;
           background: darken(#E5E5E5, 20%);
-          display: inline-block;
+          position: absolute;
+          bottom: 0px;
           overflow: hidden;
+          border: 1px solid #F2F2F2;
             img {
               width: 200px;
               height: 450px;
             }
+        }
+        .temp5sect2:hover {
+          background: #E5E5E5;
+          cursor: pointer;
+        }
+        .temp5sect3 {
+          width: 200px;
+          height: 450px;
+          background: darken(#E5E5E5, 20%);
+          position: absolute;
+          bottom: 0;
+          left: 200px;
+          overflow: hidden;
+          border: 1px solid #F2F2F2;
+            img {
+              width: 200px;
+              height: 450px;
+            }
+        }
+        .temp5sect3:hover {
+          background: #E5E5E5;
+          cursor: pointer;
         }
       }
     }
@@ -68,40 +80,58 @@
       .temp5sect4 {
         width: 200px;
         height: 300px;
-        border: 2px solid #F2F2F2;
         background: darken(#E5E5E5, 20%);
-        position: relative;
+        position: absolute;
+        top: 0;
+        left: 400px;
         overflow: hidden;
+        border: 1px solid #F2F2F2;
           img {
             width: 200px;
             height: 300px;
           }
       }
+      .temp5sect4:hover {
+        background: #E5E5E5;
+        cursor: pointer;
+      }
       .temp5sect5 {
         width: 200px;
         height: 200px;
-        border: 2px solid #F2F2F2;
         border-radius: 100%;
         background: darken(#E5E5E5, 20%);
         position: absolute;
+        z-index: 1000;
         top: 50px;
-        left: 315px;
+        left: 300px;
         overflow: hidden;
+        border: 1px solid #F2F2F2;
           img {
             width: 200px;
             height: 200px;
           }
       }
+      .temp5sect5:hover {
+        background: #E5E5E5;
+        cursor: pointer;
+      }
       .temp5sect6 {
         width: 200px;
         height: 450px;
-        border: 2px solid #F2F2F2;
+        border: 1px solid #F2F2F2;
         background: darken(#E5E5E5, 20%);
         overflow: hidden;
+        position: absolute;
+        bottom: 0;
+        left: 400px;
           img {
             width: 200px;
             height: 450px;
           }
+      }
+      .temp5sect6:hover {
+        background: #E5E5E5;
+        cursor: pointer;
       }
     }
   }
