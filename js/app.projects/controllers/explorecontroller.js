@@ -31,7 +31,6 @@ let ExploreController = function(ProjectService, UserService, $state, $scope) {
     UserService.checkAuth();
     ProjectService.likePost(postId).then( (res) => {
       ProjectService.getPost(postId).then( (res) => {
-        console.log(res);
         $scope.tile.post.likes_count = res.data.post.likes_count;
       });
     });

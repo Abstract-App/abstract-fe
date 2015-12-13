@@ -3,7 +3,8 @@
   <p>{{ vm.post.description }}</p>
   <p>{{ vm.post.status }}</p>
   <p>{{ vm.post.tags.split(', ').join(' #') }}</p>
-  <a href="#/userhome/{{ vm.post.post.user_id }}">{{ vm.post.username }}</a>
+  <a href="#/profile/{{ vm.post.user_id }}">{{ vm.post.username }}</a>
+  <p ng-click="vm.likePost(vm.post.id)"><i class="fa fa-heart-o"></i> {{vm.post.likes_count}}</p>
 </div>
 <hr>
 
