@@ -1,15 +1,12 @@
 .template2 {
-  margin: 0 auto;
-  text-align: center;
-  h1 {
-    color: gray;
-  }
+
 }
 .temp2 {
-  margin: 0 auto;
-  width: 610px;
-  height: 760px;
-  position: absolute;
+  margin-bottom: 50px;
+  width: 600px;
+  height: 750px;
+  position: relative;
+  overflow: hidden;
   left: 100px;
     .box {
 
@@ -22,8 +19,9 @@
     width: 300px;
     height: 375px;
     background: darken(#E5E5E5, 20%);
-    display: inline-block;
+    position: absolute;
     overflow: hidden;
+    border: 1px solid #F2F2F2;
       img {
         width: 300px;
         height: 375px;
@@ -33,8 +31,10 @@
     width: 100px;
     height: 375px;
     background: darken(#E5E5E5, 20%);
-    display: inline-block;
+    position: absolute;
+    left: 300px;
     overflow: hidden;
+    border: 1px solid #F2F2F2;
       img {
         width: 100px;
         height: 375px;
@@ -44,8 +44,11 @@
     width: 200px;
     height: 375px;
     background: darken(#E5E5E5, 20%);
-    display: inline-block;
+    position: absolute;
+    left: 400px;
+    top: 0px;
     overflow: hidden;
+    border: 1px solid #F2F2F2;
       img {
         width: 200px;
         height: 375px;
@@ -57,14 +60,16 @@
       height: 375px;
       .temp2sect4 {
       width: 300px;
-      height: 185px;
+      height: 190px;
       background: darken(#E5E5E5, 20%);
-      margin-bottom: 5px;
-      display: block;
+      position: absolute;
+      bottom: 185px;
+      right: 298px;
       overflow: hidden;
+      border: 1px solid #F2F2F2;
         img {
           width: 300px;
-          height: 185px;
+          height: 190px;
         }
       }
       .temp2sect4:hover {
@@ -73,13 +78,16 @@
       }
       .temp2sect5 {
       width: 300px;
-      height: 185px;
+      height: 190px;
       background: darken(#E5E5E5, 20%);
-      display: block;
+      position: absolute;
+      bottom: 0px;
+      right: 298px;
       overflow: hidden;
+      border: 1px solid #F2F2F2;
         img {
           width: 300px;
-          height: 185px;
+          height: 190px;
         }
       }
       .temp2sect5:hover {
@@ -91,8 +99,11 @@
     width: 300px;
     height: 375px;
     background: darken(#E5E5E5, 20%);
-    display: inline-block;
+    position: absolute;
+    bottom: 0px;
+    left: 300px;
     overflow: hidden;
+    border: 1px solid #F2F2F2;
       img {
         width: 300px;
         height: 375px;

@@ -6,7 +6,6 @@
   </a>
   <div class="tile-username">
     <p>{{ post.post.post_type }}</p>
-    <p>{{ post.post.moodboard_css_class }}</p>
     <i class="fa fa-comment-o"></i> {{post.post.comments.length}}
     <span ng-click="vm.addLike(post.post.id)">
       <i class="fa fa-heart-o"></i> {{ post.post.likes_count }}
