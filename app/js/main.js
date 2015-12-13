@@ -596,7 +596,7 @@ var userQtetile = function userQtetile($state, UserPageService, ProjectService) 
       post: "=post"
     },
     templateUrl: 'templates/app-profile/userqtetiles.tpl.html',
-    // controller: 'UserPageController as vm',
+    controller: 'UserPageController as vm',
     link: function link(scope, element, attrs) {
       // element.on('click', function () {
       //   $state.go('root2.singlepost', {
@@ -658,7 +658,7 @@ var userTxttile = function userTxttile($state, UserPageService, ProjectService) 
       post: "="
     },
     templateUrl: 'templates/app-profile/usertxttiles.tpl.html',
-    // controller: 'UserPageController as vm',
+    controller: 'UserPageController as vm',
     link: function link(scope, element, attrs) {
       // element.on('click', function () {
       //   $state.go('root2.singlepost', {
@@ -689,7 +689,7 @@ var userUrltile = function userUrltile($state, UserPageService, ProjectService) 
       post: "=post"
     },
     templateUrl: 'templates/app-profile/userurltiles.tpl.html',
-    // controller: 'UserPageController as vm',
+    controller: 'UserPageController as vm',
     link: function link(scope, element, attrs) {
       // element.on('click', function () {
       //   $state.go('root2.singlepost', {
@@ -907,7 +907,7 @@ var UserPageService = function UserPageService(SERVER, FILESERVER, $cookies, $ht
   this.followUser = followUser;
 
   function getAllPosts(id) {
-    // UserService.checkFileAuth();
+    UserService.checkFileAuth();
     return $http.get(FILESERVER.URL + 'users/' + id + '/posts', FILESERVER.CONFIG);
   }
 
@@ -1866,6 +1866,7 @@ var UserService = function UserService($http, SERVER, $cookies, $state, FILESERV
 
   function logout() {
     $cookies.remove('Auth-Token');
+    $cookies.remove('id');
     SERVER.CONFIG.headers.auth_token = null;
     console.log('logged out');
     $state.go('root.home');
