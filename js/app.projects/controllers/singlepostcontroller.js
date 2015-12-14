@@ -73,6 +73,7 @@ let SinglePostController = function($cookies, $scope, $state, $stateParams, User
   }
 
   function likePost (postId) {
+    UserService.checkAuth();
     ProjectService.likePost(postId).then( (res) => {
       ProjectService.getPost(id).then( (res) => {
         vm.post.likes_count = res.data.post.likes_count;
