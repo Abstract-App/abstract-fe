@@ -102,6 +102,42 @@ let config = function($stateProvider, $urlRouterProvider) {
       controller: 'UserPageController as vm',
       templateUrl: 'templates/app-profile/profile.tpl.html'
     })
+    .state('allposts', {
+      parent: 'root2.user',
+      url: '/allposts',
+      controller: 'UserPageController as vm',
+      templateUrl: 'templates/app-profile/sorted-views/allposts.tpl.html'
+    })
+    .state('imageposts', {
+      parent: 'root2.user',
+      url: '/imageposts',
+      controller: 'UserPageController as vm',
+      templateUrl: 'templates/app-profile/sorted-views/imageposts.tpl.html'
+    })
+    .state('textposts', {
+      parent: 'root2.user',
+      url: '/textposts',
+      controller: 'UserPageController as vm',
+      templateUrl: 'templates/app-profile/sorted-views/textposts.tpl.html'
+    })
+    .state('quoteposts', {
+      parent: 'root2.user',
+      url: '/quoteposts',
+      controller: 'UserPageController as vm',
+      templateUrl: 'templates/app-profile/sorted-views/quoteposts.tpl.html'
+    })
+    .state('linkposts', {
+      parent: 'root2.user',
+      url: '/linkposts',
+      controller: 'UserPageController as vm',
+      templateUrl: 'templates/app-profile/sorted-views/linkposts.tpl.html'
+    })
+    .state('moodposts', {
+      parent: 'root2.user',
+      url: '/moodposts',
+      controller: 'UserPageController as vm',
+      templateUrl: 'templates/app-profile/sorted-views/moodposts.tpl.html'
+    })
     .state('root2.otheruser', {
       url: '/profile/:id',
       controller: 'UserPageController as vm',
