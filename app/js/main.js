@@ -118,10 +118,6 @@ var config = function config($stateProvider, $urlRouterProvider) {
     url: '/moodposts',
     controller: 'UserPageController as vm',
     templateUrl: 'templates/app-profile/sorted-views/moodposts.tpl.html'
-  }).state('root2.otheruser', {
-    url: '/profile/:id',
-    controller: 'UserPageController as vm',
-    templateUrl: 'templates/app-profile/profile.tpl.html'
   }).state('root2.following', {
     url: '/following/:id',
     controller: 'UserFollowController as vm',
@@ -270,7 +266,7 @@ var UsernavController = function UsernavController(UserService, $state, $cookies
 
   function userHome() {
     var id = $cookies.get('id');
-    $state.go('root2.user', { id: id });
+    $state.go('allposts', { id: id });
   }
 };
 
@@ -1237,7 +1233,7 @@ var SinglePostController = function SinglePostController($cookies, $scope, $stat
   function deletePost(userId) {
     UserService.checkFileAuth();
     UserPageService.deletePost(id).then(function (res) {
-      $state.go('root2.userhome', { id: userId });
+      $state.go('allposts', { id: userId });
     });
   }
 
@@ -1357,7 +1353,7 @@ var ImageController = function ImageController(PostService, UserService, $stateP
     UserService.checkFileAuth();
     PostService.postForm(image).then(function (res) {
       var id = res.data.post.user_id;
-      $state.go('root2.userhome', { id: id });
+      $state.go('allposts', { id: id });
     });
   }
 };
@@ -1384,7 +1380,7 @@ var LinkController = function LinkController(PostService, UserService, $statePar
     PostService.postLink(link).then(function (res) {
       console.log(res);
       var id = res.data.post.user_id;
-      $state.go('root2.userhome', { id: id });
+      $state.go('allposts', { id: id });
     });
   }
 };
@@ -1504,7 +1500,7 @@ var MoodController = function MoodController(UserPageService, PostService, UserS
 
   function navigatePost(userId) {
     UserService.checkFileAuth();
-    $state.go('root2.userhome', { id: userId });
+    $state.go('allposts', { id: userId });
   }
 };
 
@@ -1529,7 +1525,7 @@ var QuoteController = function QuoteController(PostService, UserService, $state)
     UserService.checkAuth();
     PostService.postQuote(quote).then(function (res) {
       var id = res.data.post.user_id;
-      $state.go('root2.userhome', { id: id });
+      $state.go('allposts', { id: id });
     });
   }
 };
@@ -1825,7 +1821,7 @@ var LoginController = function LoginController(ProfileService, UserService, $sta
     UserService.login(user).then(function (res) {
       var id = res.data.user.id;
       UserService.userSuccess(res);
-      $state.go('root2.userhome');
+      $state.go('allposts');
     });
   }
 };

@@ -57,7 +57,7 @@ let SinglePostController = function($cookies, $scope, $state, $stateParams, User
   function deletePost (userId) {
     UserService.checkFileAuth();
     UserPageService.deletePost(id).then( (res) => {
-      $state.go('root2.userhome', {id: userId});
+      $state.go('allposts', {id: userId});
     });
   }
 

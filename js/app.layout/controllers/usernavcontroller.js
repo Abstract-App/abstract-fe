@@ -11,7 +11,7 @@ let UsernavController = function(UserService, $state, $cookies) {
 
   function userHome () {
     let id = $cookies.get('id');
-    $state.go('root2.user', {id: id});
+    $state.go('allposts', {id: id});
   }
 
 };

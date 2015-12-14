@@ -9,7 +9,7 @@ let ImageController = function(PostService, UserService, $stateParams, $state) {
     UserService.checkFileAuth();
     PostService.postForm(image).then( (res) => {
       let id = res.data.post.user_id;
-      $state.go('root2.userhome', {id: id});
+      $state.go('allposts', {id: id});
     });
 
   }

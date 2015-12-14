@@ -8,7 +8,7 @@ let LoginController = function(ProfileService, UserService, $state, $stateParams
     UserService.login(user).then( (res) => {
       let id = res.data.user.id;
       UserService.userSuccess(res);
-      $state.go('root2.userhome');
+      $state.go('allposts');
     });
   }
 
