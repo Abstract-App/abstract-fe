@@ -26,22 +26,16 @@ let UserPageService = function(SERVER, FILESERVER, $cookies, $http, UserService)
     };
 
     let u = new UpdateImg(id, title, des, tags);
-    // let formData = new FormData();
-    // formData.append('post_type', 'image');
-    // formData.append('image', image.image);
-    // formData.append('title', image.title);
-    // formData.append('description', image.description);
-    // formData.append('tag_phrases', '#' +image.tag_phrases);
     return $http.put(SERVER.URL + 'posts/' + id, u, SERVER.CONFIG);
   }
 
-  function editQuotePost(quote, id) {
-    let Quote = function (quote) {
+  function editQuotePost(id, post) {
+    let Quote = function (post) {
       this.post_type = 'quote';
-      this.quote = quote.quote;
-      this.tag_phrases = '#' + quote.tag_phrases;
+      this.quote = post.quote;
+      this.tag_phrases = post.tags;
     };
-    let q = new Quote(quote);
+    let q = new Quote(post);
     return $http.put(SERVER.URL + 'posts/' + id, q, SERVER.CONFIG);
   }
 

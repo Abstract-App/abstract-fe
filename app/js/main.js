@@ -987,22 +987,16 @@ var UserPageService = function UserPageService(SERVER, FILESERVER, $cookies, $ht
     };
 
     var u = new UpdateImg(id, title, des, tags);
-    // let formData = new FormData();
-    // formData.append('post_type', 'image');
-    // formData.append('image', image.image);
-    // formData.append('title', image.title);
-    // formData.append('description', image.description);
-    // formData.append('tag_phrases', '#' +image.tag_phrases);
     return $http.put(SERVER.URL + 'posts/' + id, u, SERVER.CONFIG);
   }
 
-  function editQuotePost(quote, id) {
-    var Quote = function Quote(quote) {
+  function editQuotePost(id, post) {
+    var Quote = function Quote(post) {
       this.post_type = 'quote';
-      this.quote = quote.quote;
-      this.tag_phrases = '#' + quote.tag_phrases;
+      this.quote = post.quote;
+      this.tag_phrases = post.tags;
     };
-    var q = new Quote(quote);
+    var q = new Quote(post);
     return $http.put(SERVER.URL + 'posts/' + id, q, SERVER.CONFIG);
   }
 
@@ -1191,9 +1185,9 @@ var SinglePostController = function SinglePostController($cookies, $scope, $stat
       $state.go('root2.imageview', { id: postId });
     });
   }
-  function editQuotePost(quote, postId) {
+  function editQuotePost(postId, post) {
     UserService.checkAuth();
-    UserPageService.editQuotePost(quote, postId).then(function (res) {
+    UserPageService.editQuotePost(postId, post).then(function (res) {
       $state.go('root2.quoteview', { id: postId });
     });
   }

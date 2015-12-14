@@ -35,9 +35,9 @@ let SinglePostController = function($cookies, $scope, $state, $stateParams, User
       $state.go('root2.imageview', {id: postId});
     });
   }
-  function editQuotePost (quote, postId) {
+  function editQuotePost (postId, post) {
     UserService.checkAuth();
-    UserPageService.editQuotePost(quote, postId).then( (res) => {
+    UserPageService.editQuotePost(postId, post).then( (res) => {
       $state.go('root2.quoteview', {id: postId});
     });
   }
