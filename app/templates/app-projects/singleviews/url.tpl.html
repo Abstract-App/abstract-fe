@@ -6,24 +6,31 @@
   <a href="#/profile/{{ vm.post.user_id }}">{{ vm.post.username }}</a>
   <p ng-click="vm.likePost(vm.post.id)"><i class="fa fa-heart-o"></i> {{vm.post.likes_count}}</p>
 </div>
-<hr>
 
-<form ng-submit="vm.addComment(comment)">
-  <textarea placeholder="add comment here" ng-model="comment.message"></textarea>
-  <button>comment</button>
-</form>
-
-<hr>
-
-<h3>Comments</h3>
-
-<div class="comment-section" ng-repeat="comment in vm.comments">
-  <img ng-src="{{comment.picture}}">
-  <span>{{comment.username}}</span>
-  <p>{{comment.message}}</p>
+<div class="moodbuttons">
+  <a class="editpost" href="#editurl/{{ vm.post.id }}"><button>edit post</button></a>
+  <button ng-click="vm.deletePost(vm.post.user_id)">delete post</button>
 </div>
 
-<a class="editpost" href="#/editurl/{{ vm.post.id }}"><button ng-show="vm.myPost">edit post</button></a>
-<button ng-show="vm.myPost" ng-click="vm.deletePost(vm.post.user_id)">delete post</button>
+<section class="comments">
+  <h3>comments</h3>
+  <hr>
+  <section class="comment-list">
+    <div class="comment-section" ng-repeat="comment in vm.comments">
+      <div class="image">
+        <a href="#/profile/{{comment.user_id}}"><img ng-src="{{comment.picture}}"></a>
+      </div>
+      <div class="content">
+        <small><a href="#/profile/{{comment.user_id}}">{{comment.username}}</a></small>
+        <span>{{comment.message}}</span>
+      </div>
+    </div>
+  </section>
+  <hr>
+  <form ng-submit="vm.addComment(comment)">
+    <textarea placeholder="add comment here" ng-model="comment.message"></textarea>
+    <button>comment</button>
+  </form>
+</section>
 
 
