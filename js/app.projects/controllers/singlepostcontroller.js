@@ -47,9 +47,9 @@ let SinglePostController = function($cookies, $scope, $state, $stateParams, User
       $state.go('root2.textview', {id: postId});
     });
   }
-  function editUrlPost (link, postId) {
+  function editUrlPost (postId, post) {
     UserService.checkAuth();
-    UserPageService.editUrlPost(link, postId).then( (res) => {
+    UserPageService.editUrlPost(postId, post).then( (res) => {
       $state.go('root2.urlview', {id: postId});
     });
   }

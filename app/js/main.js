@@ -1010,14 +1010,14 @@ var UserPageService = function UserPageService(SERVER, FILESERVER, $cookies, $ht
     return $http.put(SERVER.URL + 'posts/' + id, t, SERVER.CONFIG);
   }
 
-  function editUrlPost(link, id) {
-    var Link = function Link(link) {
+  function editUrlPost(id, post) {
+    var Link = function Link(post) {
       this.post_type = 'link';
-      this.url = link.url;
-      this.description = link.description;
-      this.tag_phrases = '#' + link.tag_phrases;
+      this.url = post.url;
+      this.description = post.description;
+      this.tag_phrases = post.tags;
     };
-    var l = new Link(link);
+    var l = new Link(post);
     return $http.put(SERVER.URL + 'posts/' + id, l, SERVER.CONFIG);
   }
 
@@ -1197,9 +1197,9 @@ var SinglePostController = function SinglePostController($cookies, $scope, $stat
       $state.go('root2.textview', { id: postId });
     });
   }
-  function editUrlPost(link, postId) {
+  function editUrlPost(postId, post) {
     UserService.checkAuth();
-    UserPageService.editUrlPost(link, postId).then(function (res) {
+    UserPageService.editUrlPost(postId, post).then(function (res) {
       $state.go('root2.urlview', { id: postId });
     });
   }

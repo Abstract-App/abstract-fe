@@ -49,14 +49,14 @@ let UserPageService = function(SERVER, FILESERVER, $cookies, $http, UserService)
     return $http.put(SERVER.URL + 'posts/' + id, t, SERVER.CONFIG);
   }
 
-  function editUrlPost(link, id) {
-    let Link = function (link) {
+  function editUrlPost(id, post) {
+    let Link = function (post) {
       this.post_type = 'link';
-      this.url = link.url;
-      this.description = link.description;
-      this.tag_phrases = '#' + link.tag_phrases;
+      this.url = post.url;
+      this.description = post.description;
+      this.tag_phrases = post.tags;
     };
-    let l = new Link(link);
+    let l = new Link(post);
     return $http.put(SERVER.URL + 'posts/' + id, l, SERVER.CONFIG);
   }
 
