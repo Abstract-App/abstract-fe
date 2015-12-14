@@ -7,9 +7,10 @@ let UserPageService = function(SERVER, FILESERVER, $cookies, $http, UserService)
   this.editUrlPost = editUrlPost;
   this.deletePost = deletePost;
   this.likePost = likePost;
+  this.followUser = followUser;
 
   function getAllPosts (id) {
-    // UserService.checkFileAuth();
+    UserService.checkFileAuth();
     return $http.get(FILESERVER.URL + 'users/' + id + '/posts', FILESERVER.CONFIG);
   }
 
@@ -60,6 +61,16 @@ let UserPageService = function(SERVER, FILESERVER, $cookies, $http, UserService)
 
   function likePost (postId) {
     return $http.post(SERVER.URL + 'posts/' + postId + '/likes', postId, SERVER.CONFIG);
+  }
+
+  function followUser (userId) {
+    let Following = function (userId) {
+      this.followed_id = userId;
+    };
+
+    let f = new Following (userId);
+
+    return $http.post(SERVER.URL + 'relationships', f, SERVER.CONFIG);
   }
 
 };
