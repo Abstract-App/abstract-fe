@@ -5,14 +5,12 @@
   </div>
 </section>
 
-<h2 class="exploreheader">visual</h2>
+<h2 class="exploreheader">
+  <a href="#/explore/imageposts">visual </a>
+</h2>
+<h2 class="exploreheader">
+  <a href="#/explore/writtenposts">written</a>
+</h2>
 
-<div class="tiles">
-  <explore-tiles ng-repeat="i in vm.imgTiles | orderBy:'-created_at'" tile="i"></explore-tiles>
-</div>
+<div ui-view=""></div>
 
-<h2 class="exploreheader">written</h2>
-
-<div class="tiles">
-  <explore-txt ng-repeat="t in vm.txtTiles | orderBy:'-created_at'" tile="t"></explore-txt>
-</div>
