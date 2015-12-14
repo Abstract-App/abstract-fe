@@ -37,6 +37,7 @@ body {
     list-style: none;
     li {
       display: inline-block;
+      color: grey;
       a {
         text-decoration: none;
         color: grey;
@@ -44,6 +45,10 @@ body {
       a:hover {
         color: lighten(grey, 20%);
       }
+    }
+    li:hover {
+      color: lighten(grey, 20%);
+      cursor: pointer;
     }
   }
 }
@@ -106,6 +111,12 @@ body {
   }
 }
 
+.exploreheader {
+  color: grey;
+  font-weight: 300;
+  margin-left: 130px;
+}
+
 .side-bar {
   width: 300px;
   float: left;
@@ -118,12 +129,29 @@ body {
     margin-top: 50px;
     border-radius: 5px;
   }
+  h2 {
+    font-weight: 300;
+  }
   p {
     font-weight: 300;
   }
   a {
     text-decoration: none;
     color: grey;
+  }
+  a:hover {
+    color: lighten(grey, 20%);
+  }
+  button {
+    width: 100px;
+    padding-left: 10px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-radius: 5px;
+    border: none;
+    color: #F2F2F2;
+    font-weight: 300;
+    background: #F75E55;
   }
 }
 .user-posts {
@@ -226,11 +254,69 @@ body {
     border: none;
     color: #F2F2F2;
     font-weight: 300;
-    background-color: #F75E55;
+    background: #F75E55;
+  }
+  button:hover {
+    background: darken(#F75E55, 5%);
+  }
+}
+
+// Login Form
+.login-form {
+  width: 400px;
+  height: 600px;
+  margin: 0 auto;
+  padding-top: 10px;
+  padding-left: 10px;
+  h2 {
+    font-weight: 300;
+    color: grey;
+  }
+  input {
+    display: block;
+    width: 300px;
+    padding-left: 10px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-radius: 5px;
+    margin-top: 8px;
+    border: 1px solid #E5E5E5;
+  }
+  button {
+    width: 313px;
+    padding-left: 10px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-radius: 5px;
+    margin-top: 28px;
+    border: none;
+    color: #F2F2F2;
+    font-weight: 300;
+    background: #F75E55;
+  }
+  button:hover {
+    background: darken(#F75E55, 5%);
   }
 }
 
 // Upload Forms
+
+.post-select {
+  margin: 0 auto;
+  text-align: center;
+  button {
+    width: 100px;
+    padding-left: 10px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-radius: 5px;
+    border: none;
+    color: #F2F2F2;
+    font-weight: 300;
+    background: #F75E55;
+  }
+}
+
 .image-form {
   .uploaded-image {
     width: 200px;

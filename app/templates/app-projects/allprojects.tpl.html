@@ -5,13 +5,13 @@
   </div>
 </section>
 
-<h2>visual</h2>
+<h2 class="exploreheader">visual</h2>
 
 <div class="tiles">
   <explore-tiles ng-repeat="i in vm.imgTiles | orderBy:'-created_at'" tile="i"></explore-tiles>
 </div>
 
-<h2>written</h2>
+<h2 class="exploreheader">written</h2>
 
 <div class="tiles">
   <explore-txt ng-repeat="t in vm.txtTiles | orderBy:'-created_at'" tile="t"></explore-txt>
