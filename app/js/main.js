@@ -1378,6 +1378,8 @@ var MoodController = function MoodController(UserPageService, PostService, UserS
 
   vm.deletePost = deletePost;
 
+  vm.navigatePost = navigatePost;
+
   vm.postId = $stateParams.id;
 
   UserService.checkFileAuth();
@@ -1455,8 +1457,13 @@ var MoodController = function MoodController(UserPageService, PostService, UserS
   function deletePost(userId) {
     UserService.checkFileAuth();
     UserPageService.deletePost(id).then(function (res) {
-      $state.go('root2.userhome', { id: userId });
+      $state.go('root2.upload');
     });
+  }
+
+  function navigatePost(userId) {
+    UserService.checkFileAuth();
+    $state.go('root2.userhome', { id: userId });
   }
 };
 

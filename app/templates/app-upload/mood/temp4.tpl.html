@@ -71,9 +71,11 @@
       <p>6.</p>
       <add-image id="{{vm.postId}}" mood="temp4sect6"></add-image>
     </div>
+    <div class="mood-complete">
+      <button ng-click="vm.deletePost(vm.post.user_id)">delete</button>
+      <button ng-click="vm.navigatePost(vm.post.user_id)">complete</button>
+    </div>
   </div>
-
-  <button ng-click="vm.deletePost(vm.post.user_id)">Cancel MoodBoard</button>
 
 </section>
 
