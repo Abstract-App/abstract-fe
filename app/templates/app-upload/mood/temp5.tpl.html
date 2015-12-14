@@ -47,12 +47,32 @@
   </div>
 
   <div class="form">
-    <add-image ng-show="vm.showImageUpload1" id="{{vm.postId}}" mood="temp5sect1"></add-image>
-    <add-image ng-show="vm.showImageUpload2" id="{{vm.postId}}" mood="temp5sect2"></add-image>
-    <add-image ng-show="vm.showImageUpload3" id="{{vm.postId}}" mood="temp5sect3"></add-image>
-    <add-image ng-show="vm.showImageUpload4" id="{{vm.postId}}" mood="temp5sect4"></add-image>
-    <add-image ng-show="vm.showImageUpload5" id="{{vm.postId}}" mood="temp5sect5"></add-image>
-    <add-image ng-show="vm.showImageUpload6" id="{{vm.postId}}" mood="temp5sect6"></add-image>
+    <div class="mood-upload">
+      <p>1.</p>
+      <add-image id="{{vm.postId}}" mood="temp5sect1"></add-image>
+    </div>
+    <div class="mood-upload">
+      <p>2.</p>
+      <add-image id="{{vm.postId}}" mood="temp5sect2"></add-image>
+    </div>
+    <div class="mood-upload">
+      <p>3.</p>
+      <add-image id="{{vm.postId}}" mood="temp5sect3"></add-image>
+    </div>
+    <div class="mood-upload">
+      <p>4.</p>
+      <add-image id="{{vm.postId}}" mood="temp5sect4"></add-image>
+    </div>
+    <div class="mood-upload">
+      <p>5.</p>
+      <add-image id="{{vm.postId}}" mood="temp5sect5"></add-image>
+    </div>
+    <div class="mood-upload">
+      <p>6.</p>
+      <add-image id="{{vm.postId}}" mood="temp5sect6"></add-image>
+    </div>
   </div>
+
+  <button ng-click="vm.deletePost(vm.post.user_id)">Cancel MoodBoard</button>
 
 </section>
