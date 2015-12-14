@@ -39,13 +39,13 @@ let UserPageService = function(SERVER, FILESERVER, $cookies, $http, UserService)
     return $http.put(SERVER.URL + 'posts/' + id, q, SERVER.CONFIG);
   }
 
-  function editTextPost(text, id) {
-    let Text = function (text) {
+  function editTextPost(id, post) {
+    let Text = function (post) {
       this.post_type = 'text';
-      this.status = text.status;
-      this.tag_phrases = '#' + text.tag_phrases;
+      this.status = post.status;
+      this.tag_phrases = post.tags;
     };
-    let t = new Text(text);
+    let t = new Text(post);
     return $http.put(SERVER.URL + 'posts/' + id, t, SERVER.CONFIG);
   }
 

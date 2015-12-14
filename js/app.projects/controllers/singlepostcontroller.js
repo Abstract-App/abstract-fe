@@ -41,9 +41,9 @@ let SinglePostController = function($cookies, $scope, $state, $stateParams, User
       $state.go('root2.quoteview', {id: postId});
     });
   }
-  function editTextPost (text, postId) {
+  function editTextPost (postId, post) {
     UserService.checkAuth();
-    UserPageService.editTextPost(text, postId).then( (res) => {
+    UserPageService.editTextPost(postId, post).then( (res) => {
       $state.go('root2.textview', {id: postId});
     });
   }

@@ -1000,13 +1000,13 @@ var UserPageService = function UserPageService(SERVER, FILESERVER, $cookies, $ht
     return $http.put(SERVER.URL + 'posts/' + id, q, SERVER.CONFIG);
   }
 
-  function editTextPost(text, id) {
-    var Text = function Text(text) {
+  function editTextPost(id, post) {
+    var Text = function Text(post) {
       this.post_type = 'text';
-      this.status = text.status;
-      this.tag_phrases = '#' + text.tag_phrases;
+      this.status = post.status;
+      this.tag_phrases = post.tags;
     };
-    var t = new Text(text);
+    var t = new Text(post);
     return $http.put(SERVER.URL + 'posts/' + id, t, SERVER.CONFIG);
   }
 
@@ -1191,9 +1191,9 @@ var SinglePostController = function SinglePostController($cookies, $scope, $stat
       $state.go('root2.quoteview', { id: postId });
     });
   }
-  function editTextPost(text, postId) {
+  function editTextPost(postId, post) {
     UserService.checkAuth();
-    UserPageService.editTextPost(text, postId).then(function (res) {
+    UserPageService.editTextPost(postId, post).then(function (res) {
       $state.go('root2.textview', { id: postId });
     });
   }
