@@ -856,6 +856,22 @@ var UserPageController = function UserPageController(ProjectService, ProfileServ
     vm.profile = res.data.user;
   });
 
+  UserPageService.getFollowing(id).then(function (res) {
+    vm.following = res.data.following;
+    vm.followingNum = vm.following.length;
+  });
+
+  UserPageService.getFollowers(id).then(function (res) {
+    vm.followers = res.data.followers;
+    vm.followerNum = vm.followers.length;
+
+    angular.forEach(vm.followers, function (f) {
+      if (Number(f.user_id) === Number($cookies.get('id'))) {
+        vm.meFollow = f;
+      }
+    });
+  });
+
   UserPageService.getAllPosts(id).then(function (res) {
     vm.post = res.data.posts;
 
@@ -896,20 +912,11 @@ var UserPageController = function UserPageController(ProjectService, ProfileServ
   }
 
   function follow() {
-    UserPageService.followUser($stateParams.id).then(function (res) {
+    UserPageService.followUser(id).then(function (res) {
       console.log(res);
+      $state.reload();
     });
   }
-
-  UserPageService.getFollowing(id).then(function (res) {
-    vm.following = res.data.following;
-    vm.followingNum = vm.following.length;
-  });
-
-  UserPageService.getFollowers(id).then(function (res) {
-    vm.followers = res.data.followers;
-    vm.followerNum = vm.followers.length;
-  });
 };
 
 UserPageController.$inject = ['ProjectService', 'ProfileService', 'UserPageService', 'UserService', '$stateParams', '$state', '$cookies', '$scope'];

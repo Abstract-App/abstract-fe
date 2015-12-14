@@ -22,6 +22,22 @@ let UserPageController = function(ProjectService, ProfileService, UserPageServic
     vm.profile = res.data.user;
   });
 
+  UserPageService.getFollowing(id).then( (res) => {
+    vm.following = res.data.following;
+    vm.followingNum = vm.following.length;
+  });
+
+  UserPageService.getFollowers(id).then( (res) => {
+    vm.followers = res.data.followers;
+    vm.followerNum = vm.followers.length;
+
+    angular.forEach(vm.followers, function(f) {
+      if (Number(f.user_id) === Number($cookies.get('id'))) {
+        vm.meFollow = f;
+      }
+    });
+  });
+
   UserPageService.getAllPosts(id).then( (res) => {
     vm.post = res.data.posts;
 
@@ -64,20 +80,12 @@ let UserPageController = function(ProjectService, ProfileService, UserPageServic
   }
 
   function follow () {
-    UserPageService.followUser($stateParams.id).then( (res) => {
+    UserPageService.followUser(id).then( (res) => {
       console.log(res);
+      $state.reload();
     });
   }
 
-  UserPageService.getFollowing(id).then( (res) => {
-    vm.following = res.data.following;
-    vm.followingNum = vm.following.length;
-  });
-
-  UserPageService.getFollowers(id).then( (res) => {
-    vm.followers = res.data.followers;
-    vm.followerNum = vm.followers.length;
-  });
 
 };
 
