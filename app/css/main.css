@@ -3062,7 +3062,7 @@ body {
   width: 300px;
   float: left;
   background: #d9d9d9;
-  height: 800px;
+  height: 1000px;
   text-align: center;
   color: grey; }
   .side-bar img {
@@ -3088,6 +3088,12 @@ body {
     color: #F2F2F2;
     font-weight: 300;
     background: #F75E55; }
+  .side-bar .side-bar-mood {
+    display: inline-block; }
+    .side-bar .side-bar-mood img {
+      width: 90px;
+      height: 90px;
+      margin: 0; }
 
 .user-posts {
   min-width: 700px; }

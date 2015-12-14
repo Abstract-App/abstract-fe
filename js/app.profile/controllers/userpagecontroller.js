@@ -45,6 +45,10 @@ let UserPageController = function(ProjectService, ProfileService, UserPageServic
       } else if (p.post.moodboard_css_class === 'temp5') {
         vm.postMood5.push(p);
       } 
+
+      vm.postMood = vm.postMood1.concat(vm.postMood2, vm.postMood3, vm.postMood4, vm.postMood5);
+      
+
       return vm.postImg, vm.postTxt, vm.postQte, vm.postUrl, vm.postMood1, vm.postMood2, vm.postMood3, vm.postMood4, vm.postMood5;
     });
 
