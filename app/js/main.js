@@ -476,7 +476,7 @@ var userMoodtile1 = function userMoodtile1($state, UserPageService, ProjectServi
       post: "=post"
     },
     templateUrl: 'templates/app-profile/usermoodtiles1.tpl.html',
-    // controller: 'UserPageController as vm',
+    controller: 'UserPageController as vm',
     link: function link(scope, element, attrs) {
       // element.on('click', function () {
       //   $state.go('root2.singlepost', {
@@ -507,7 +507,7 @@ var userMoodtile2 = function userMoodtile2($state, UserPageService, ProjectServi
       post: "=post"
     },
     templateUrl: 'templates/app-profile/usermoodtiles2.tpl.html',
-    // controller: 'UserPageController as vm',
+    controller: 'UserPageController as vm',
     link: function link(scope, element, attrs) {
       // element.on('click', function () {
       //   $state.go('root2.singlepost', {
@@ -538,7 +538,7 @@ var userMoodtile3 = function userMoodtile3($state, UserPageService, ProjectServi
       post: "=post"
     },
     templateUrl: 'templates/app-profile/usermoodtiles3.tpl.html',
-    // controller: 'UserPageController as vm',
+    controller: 'UserPageController as vm',
     link: function link(scope, element, attrs) {
       // element.on('click', function () {
       //   $state.go('root2.singlepost', {
@@ -569,7 +569,7 @@ var userMoodtile4 = function userMoodtile4($state, UserPageService, ProjectServi
       post: "=post"
     },
     templateUrl: 'templates/app-profile/usermoodtiles4.tpl.html',
-    // controller: 'UserPageController as vm',
+    controller: 'UserPageController as vm',
     link: function link(scope, element, attrs) {
       // element.on('click', function () {
       //   $state.go('root2.singlepost', {
@@ -600,7 +600,7 @@ var userMoodtile5 = function userMoodtile5($state, UserPageService, ProjectServi
       post: "=post"
     },
     templateUrl: 'templates/app-profile/usermoodtiles5.tpl.html',
-    // controller: 'UserPageController as vm',
+    controller: 'UserPageController as vm',
     link: function link(scope, element, attrs) {
       // element.on('click', function () {
       //   $state.go('root2.singlepost', {
