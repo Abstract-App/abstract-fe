@@ -25,7 +25,7 @@
   <p>{{comment.message}}</p>
 </div>
 
-<button ng-click="vm.editPost(vm.post.user_id)">edit post</button>
-<button ng-click="vm.deletePost(vm.post.user_id)">delete post</button>
+<button ng-show="vm.myPost" ng-click="vm.editPost(vm.post.user_id)">edit post</button>
+<button ng-show="vm.myPost" ng-click="vm.deletePost(vm.post.user_id)">delete post</button>
 
 

@@ -16,44 +16,47 @@ let UserPageService = function(SERVER, FILESERVER, $cookies, $http, UserService)
     return $http.get(FILESERVER.URL + 'users/' + id + '/posts', FILESERVER.CONFIG);
   }
 
-  function editImagePost (image, id) {
-    let formData = new FormData();
-    formData.append('post_type', 'image');
-    formData.append('image', image.image);
-    formData.append('title', image.title);
-    formData.append('description', image.description);
-    formData.append('tag_phrases', '#' +image.tag_phrases);
-    return $http.put(FILESERVER.URL + 'posts/' + id, formData, FILESERVER.CONFIG);
+  function editImagePost (id, title, des, tags) {
+    UserService.checkAuth();
+    let UpdateImg = function (id, title, des, tags) {
+      this.post_id = id;
+      this.title = title;
+      this.description = des;
+      this.tag_phrases = tags;
+    };
+
+    let u = new UpdateImg(id, title, des, tags);
+    return $http.put(SERVER.URL + 'posts/' + id, u, SERVER.CONFIG);
   }
 
-  function editQuotePost(quote, id) {
-    let Quote = function (quote) {
+  function editQuotePost(id, post) {
+    let Quote = function (post) {
       this.post_type = 'quote';
-      this.quote = quote.quote;
-      this.tag_phrases = '#' + quote.tag_phrases;
+      this.quote = post.quote;
+      this.tag_phrases = post.tags;
     };
-    let q = new Quote(quote);
+    let q = new Quote(post);
     return $http.put(SERVER.URL + 'posts/' + id, q, SERVER.CONFIG);
   }
 
-  function editTextPost(text, id) {
-    let Text = function (text) {
+  function editTextPost(id, post) {
+    let Text = function (post) {
       this.post_type = 'text';
-      this.status = text.status;
-      this.tag_phrases = '#' + text.tag_phrases;
+      this.status = post.status;
+      this.tag_phrases = post.tags;
     };
-    let t = new Text(text);
+    let t = new Text(post);
     return $http.put(SERVER.URL + 'posts/' + id, t, SERVER.CONFIG);
   }
 
-  function editUrlPost(link, id) {
-    let Link = function (link) {
+  function editUrlPost(id, post) {
+    let Link = function (post) {
       this.post_type = 'link';
-      this.url = link.url;
-      this.description = link.description;
-      this.tag_phrases = '#' + link.tag_phrases;
+      this.url = post.url;
+      this.description = post.description;
+      this.tag_phrases = post.tags;
     };
-    let l = new Link(link);
+    let l = new Link(post);
     return $http.put(SERVER.URL + 'posts/' + id, l, SERVER.CONFIG);
   }
 
