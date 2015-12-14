@@ -1145,7 +1145,7 @@ module.exports = exports['default'];
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var SinglePostController = function SinglePostController($scope, $state, $stateParams, UserService, ProfileService, ProjectService, UserPageService) {
+var SinglePostController = function SinglePostController($cookies, $scope, $state, $stateParams, UserService, ProfileService, ProjectService, UserPageService) {
 
   var vm = this;
 
@@ -1162,8 +1162,14 @@ var SinglePostController = function SinglePostController($scope, $state, $stateP
     vm.userId = res.data.post.user_id;
     vm.postId = res.data.post.id;
     vm.comments = res.data.post.comments;
-    console.log(vm.post);
-    return [vm.userId, vm.postId];
+
+    if (Number(vm.userId) === Number($cookies.get('id'))) {
+      vm.myPost = true;
+    } else {
+      vm.myPost = false;
+    }
+
+    return [vm.userId, vm.postId, vm.myPost];
   });
 
   var id = $stateParams.id;
@@ -1220,7 +1226,7 @@ var SinglePostController = function SinglePostController($scope, $state, $stateP
   }
 };
 
-SinglePostController.$inject = ['$scope', '$state', '$stateParams', 'UserService', 'ProfileService', 'ProjectService', 'UserPageService'];
+SinglePostController.$inject = ['$cookies', '$scope', '$state', '$stateParams', 'UserService', 'ProfileService', 'ProjectService', 'UserPageService'];
 
 exports['default'] = SinglePostController;
 module.exports = exports['default'];

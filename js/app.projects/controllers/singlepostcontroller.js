@@ -1,4 +1,4 @@
-let SinglePostController = function($scope, $state, $stateParams, UserService, ProfileService, ProjectService, UserPageService) {
+let SinglePostController = function($cookies, $scope, $state, $stateParams, UserService, ProfileService, ProjectService, UserPageService) {
   
   let vm = this;
 
@@ -15,8 +15,14 @@ let SinglePostController = function($scope, $state, $stateParams, UserService, P
     vm.userId = res.data.post.user_id;
     vm.postId = res.data.post.id;
     vm.comments = res.data.post.comments;
-    console.log(vm.post);
-    return [vm.userId, vm.postId];
+
+    if (Number(vm.userId) === Number($cookies.get('id'))) {
+      vm.myPost = true;
+    } else {
+      vm.myPost = false;
+    }
+
+    return [vm.userId, vm.postId, vm.myPost];
   });
 
   let id = $stateParams.id;
@@ -74,6 +80,6 @@ let SinglePostController = function($scope, $state, $stateParams, UserService, P
 
 };
 
-SinglePostController.$inject = ['$scope', '$state', '$stateParams', 'UserService', 'ProfileService', 'ProjectService', 'UserPageService'];
+SinglePostController.$inject = ['$cookies', '$scope', '$state', '$stateParams', 'UserService', 'ProfileService', 'ProjectService', 'UserPageService'];
 
 export default SinglePostController;
