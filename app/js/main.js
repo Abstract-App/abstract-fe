@@ -96,6 +96,10 @@ var config = function config($stateProvider, $urlRouterProvider) {
     url: '/following/:id',
     controller: 'UserFollowController as vm',
     templateUrl: 'templates/app-profile/following.tpl.html'
+  }).state('root2.followers', {
+    url: '/followers/:id',
+    controller: 'UserFollowController as vm',
+    templateUrl: 'templates/app-profile/followers.tpl.html'
   }).state('root2.imageview', {
     url: '/image/:id',
     controller: 'SinglePostController as vm',
@@ -810,7 +814,10 @@ var UserFollowController = function UserFollowController(UserPageService, $state
 
   UserPageService.getFollowing(id).then(function (res) {
     vm.following = res.data.following;
-    console.log(vm.following);
+  });
+
+  UserPageService.getFollowers(id).then(function (res) {
+    vm.followers = res.data.followers;
   });
 };
 
@@ -943,6 +950,7 @@ var UserPageService = function UserPageService(SERVER, FILESERVER, $cookies, $ht
   this.likePost = likePost;
   this.followUser = followUser;
   this.getFollowing = getFollowing;
+  this.getFollowers = getFollowers;
 
   function getAllPosts(id) {
     UserService.checkFileAuth();
@@ -1012,6 +1020,12 @@ var UserPageService = function UserPageService(SERVER, FILESERVER, $cookies, $ht
     UserService.checkAuth();
 
     return $http.get(SERVER.URL + 'users/' + userId + '/following', SERVER.CONFIG);
+  }
+
+  function getFollowers(userId) {
+    UserService.checkAuth();
+
+    return $http.get(SERVER.URL + 'users/' + userId + '/followers', SERVER.CONFIG);
   }
 };
 

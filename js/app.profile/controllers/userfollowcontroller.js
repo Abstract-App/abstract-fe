@@ -6,7 +6,10 @@ let UserFollowController = function(UserPageService, $stateParams, $state) {
 
   UserPageService.getFollowing(id).then( (res) => {
     vm.following = res.data.following;
-    console.log(vm.following);
+  });
+
+  UserPageService.getFollowers(id).then( (res) => {
+    vm.followers = res.data.followers;
   });
 
 };

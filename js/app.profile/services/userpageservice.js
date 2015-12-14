@@ -9,6 +9,7 @@ let UserPageService = function(SERVER, FILESERVER, $cookies, $http, UserService)
   this.likePost = likePost;
   this.followUser = followUser;
   this.getFollowing = getFollowing;
+  this.getFollowers = getFollowers;
 
   function getAllPosts (id) {
     UserService.checkFileAuth();
@@ -78,6 +79,12 @@ let UserPageService = function(SERVER, FILESERVER, $cookies, $http, UserService)
     UserService.checkAuth();
     
     return $http.get(SERVER.URL + 'users/' + userId + '/following', SERVER.CONFIG);
+  }
+
+  function getFollowers (userId) {
+    UserService.checkAuth();
+
+    return $http.get(SERVER.URL + 'users/' + userId + '/followers', SERVER.CONFIG);
   }
 
 };
