@@ -1,9 +1,9 @@
-<div>
+<div class="singleview">
   <img ng-src="{{ vm.post.image_large }}">
   <h3>{{ vm.post.title }}</h3>
-  <p>{{ vm.post.description }}</p>
+  <small><a href="#/user/{{ vm.post.user_id }}/allposts">{{ vm.post.username }}</a></small>
+  <p class="description">{{ vm.post.description }}</p>
   <p>{{ vm.post.tags.split(', ').join(' #') }}</p>
-  <a href="#/user/{{ vm.post.user_id }}/allposts">{{ vm.post.username }}</a>
   <p ng-click="vm.likePost(vm.post.id)"><i class="fa fa-heart-o"> {{vm.post.likes_count}}</i></p>
 </div>
 
