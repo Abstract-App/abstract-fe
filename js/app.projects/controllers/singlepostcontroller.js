@@ -57,7 +57,7 @@ let SinglePostController = function($cookies, $scope, $state, $stateParams, User
   function deletePost (userId) {
     UserService.checkFileAuth();
     UserPageService.deletePost(id).then( (res) => {
-      $state.go('root2.userhome', {id: userId});
+      $state.go('allposts', {id: userId});
     });
   }
 
@@ -73,6 +73,7 @@ let SinglePostController = function($cookies, $scope, $state, $stateParams, User
   }
 
   function likePost (postId) {
+    UserService.checkAuth();
     ProjectService.likePost(postId).then( (res) => {
       ProjectService.getPost(id).then( (res) => {
         vm.post.likes_count = res.data.post.likes_count;
