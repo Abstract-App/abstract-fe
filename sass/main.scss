@@ -468,7 +468,7 @@ body {
 }
 
 .moodbuttons {
-  margin-left: 100px;
+  margin-left: 50px;
   margin-bottom: 50px;
   button {
     width: 100px;
@@ -487,13 +487,15 @@ body {
 }
 
 .comments {
+  margin-bottom: 50px;
   h3 {
+    margin-top: 0;
     color: #808080;
     font-weight: 300;
   }
   position: absolute;
-  top: 120px;
-  left: 800px;
+  top: 140px;
+  left: 700px;
   .comment-list {
     margin-top: 20px;
     margin-bottom: 20px;
@@ -555,5 +557,37 @@ body {
       background: #F75E55;
       display: block;
     }
+  }
+}
+
+.singleview {
+  width: 600px;
+  margin-left: 50px;
+  margin-top: 50px;
+  img {
+    max-width: 600px;
+  }
+  h3 {
+    color: gray;
+    font-weight: 300;
+    margin-bottom: 0;
+  }
+  .description {
+    // background: white;
+    // padding: 10px;
+    padding-bottom: 20px;
+  }
+  .text {
+    padding-bottom: 20px;
+  }
+  p {
+    color: gray;
+    font-weight: 300;
+    font-size: 0.8em;
+  }
+  a {
+    text-decoration: none;
+    color: #F75E55;
+    font-size: 0.8em;
   }
 }

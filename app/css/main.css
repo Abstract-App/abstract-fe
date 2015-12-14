@@ -1,14 +1,14 @@
 @charset "UTF-8";
 /*!
- *  Font Awesome 4.4.0 by @davegandy - http://fontawesome.io - @fontawesome
+ *  Font Awesome 4.5.0 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
  */
 /* FONT PATH
  * -------------------------- */
 @font-face {
   font-family: 'FontAwesome';
-  src: url("../fonts/fontawesome-webfont.eot?v=4.4.0");
-  src: url("../fonts/fontawesome-webfont.eot?#iefix&v=4.4.0") format("embedded-opentype"), url("../fonts/fontawesome-webfont.woff2?v=4.4.0") format("woff2"), url("../fonts/fontawesome-webfont.woff?v=4.4.0") format("woff"), url("../fonts/fontawesome-webfont.ttf?v=4.4.0") format("truetype"), url("../fonts/fontawesome-webfont.svg?v=4.4.0#fontawesomeregular") format("svg");
+  src: url("../fonts/fontawesome-webfont.eot?v=4.5.0");
+  src: url("../fonts/fontawesome-webfont.eot?#iefix&v=4.5.0") format("embedded-opentype"), url("../fonts/fontawesome-webfont.woff2?v=4.5.0") format("woff2"), url("../fonts/fontawesome-webfont.woff?v=4.5.0") format("woff"), url("../fonts/fontawesome-webfont.ttf?v=4.5.0") format("truetype"), url("../fonts/fontawesome-webfont.svg?v=4.5.0#fontawesomeregular") format("svg");
   font-weight: normal;
   font-style: normal; }
 
@@ -2018,6 +2018,66 @@
 .fa-fonticons:before {
   content: ""; }
 
+.fa-reddit-alien:before {
+  content: ""; }
+
+.fa-edge:before {
+  content: ""; }
+
+.fa-credit-card-alt:before {
+  content: ""; }
+
+.fa-codiepie:before {
+  content: ""; }
+
+.fa-modx:before {
+  content: ""; }
+
+.fa-fort-awesome:before {
+  content: ""; }
+
+.fa-usb:before {
+  content: ""; }
+
+.fa-product-hunt:before {
+  content: ""; }
+
+.fa-mixcloud:before {
+  content: ""; }
+
+.fa-scribd:before {
+  content: ""; }
+
+.fa-pause-circle:before {
+  content: ""; }
+
+.fa-pause-circle-o:before {
+  content: ""; }
+
+.fa-stop-circle:before {
+  content: ""; }
+
+.fa-stop-circle-o:before {
+  content: ""; }
+
+.fa-shopping-bag:before {
+  content: ""; }
+
+.fa-shopping-basket:before {
+  content: ""; }
+
+.fa-hashtag:before {
+  content: ""; }
+
+.fa-bluetooth:before {
+  content: ""; }
+
+.fa-bluetooth-b:before {
+  content: ""; }
+
+.fa-percent:before {
+  content: ""; }
+
 .temp1 {
   margin-bottom: 50px;
   width: 600px;
@@ -2459,7 +2519,7 @@
   height: 750px;
   position: relative;
   overflow: hidden;
-  left: 100px; }
+  left: 50px; }
   .temp1-2 .temp1sect1 {
     width: 300px;
     height: 250px;
@@ -2535,7 +2595,7 @@
   height: 750px;
   position: relative;
   overflow: hidden;
-  left: 100px; }
+  left: 50px; }
   .temp2-2 .temp2sect1 {
     width: 300px;
     height: 375px;
@@ -3268,7 +3328,7 @@ body {
       opacity: 0.5; }
 
 .moodbuttons {
-  margin-left: 100px;
+  margin-left: 50px;
   margin-bottom: 50px; }
   .moodbuttons button {
     width: 100px;
@@ -3285,10 +3345,12 @@ body {
     border: 1px solid #808080; }
 
 .comments {
+  margin-bottom: 50px;
   position: absolute;
-  top: 120px;
-  left: 800px; }
+  top: 140px;
+  left: 700px; }
   .comments h3 {
+    margin-top: 0;
     color: #808080;
     font-weight: 300; }
   .comments .comment-list {
@@ -3342,5 +3404,28 @@ body {
       font-size: 0.8em;
       background: #F75E55;
       display: block; }
+
+.singleview {
+  width: 600px;
+  margin-left: 50px;
+  margin-top: 50px; }
+  .singleview img {
+    max-width: 600px; }
+  .singleview h3 {
+    color: gray;
+    font-weight: 300;
+    margin-bottom: 0; }
+  .singleview .description {
+    padding-bottom: 20px; }
+  .singleview .text {
+    padding-bottom: 20px; }
+  .singleview p {
+    color: gray;
+    font-weight: 300;
+    font-size: 0.8em; }
+  .singleview a {
+    text-decoration: none;
+    color: #F75E55;
+    font-size: 0.8em; }
 
 /*# sourceMappingURL=main.css.map */
