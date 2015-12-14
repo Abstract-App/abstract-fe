@@ -3341,17 +3341,17 @@ body {
     .form .mood-complete button:hover {
       opacity: 0.5; }
 
-.comments {
+.mood-comments {
   position: absolute;
   top: 120px;
   left: 800px; }
-  .comments .comment-list {
+  .mood-comments .comment-list {
     width: 500px;
     height: 500px;
     overflow: scroll; }
-  .comments form {
+  .mood-comments form {
     margin-top: 10px; }
-    .comments form textarea {
+    .mood-comments form textarea {
       width: 400px;
       padding-left: 10px;
       padding-top: 8px;
@@ -3359,7 +3359,7 @@ body {
       border-radius: 5px;
       border: 1px solid #808080;
       display: inline-block; }
-    .comments form button {
+    .mood-comments form button {
       width: 90px;
       padding-left: 8px;
       padding-top: 6px;
