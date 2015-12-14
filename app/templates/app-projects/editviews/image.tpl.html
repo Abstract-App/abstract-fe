@@ -1,12 +1,13 @@
 <h2>Edit Image Post</h2>
 
-<form ng-submit="(vm.editImagePost(image, vm.postId))" class="image-form"> 
+<form ng-submit="(vm.editImagePost(vm.postId, vm.post.title, vm.post.description, vm.post.tag_phrases))" class="image-form"> 
 
   <div class="image-right-column">
-    <image-upload file="image.image"></image-upload>
-    <input placeholder="title" ng-model="image.title">
-    <textarea placeholder="description" ng-model="image.description"></textarea>
-    <input placeholder="up to 3 tags that describe this (watercolor, ink, illustration)" ng-model="image.tag_phrases">
+<!--     <image-upload file="image.image"></image-upload> -->
+    <img ng-src="{{vm.post.image_large}}">
+    <input type="text" ng-model="vm.post.title">
+    <textarea placeholder="description" ng-model="vm.post.description"></textarea>
+    <input placeholder="up to 3 tags that describe this (watercolor, ink, illustration)" ng-model="vm.post.tag_phrases">
   </div>
 
 <div class="image-center">

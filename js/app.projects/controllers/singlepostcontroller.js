@@ -1,4 +1,4 @@
-let SinglePostController = function($scope, $state, $stateParams, UserService, ProfileService, ProjectService, UserPageService) {
+let SinglePostController = function($cookies, $scope, $state, $stateParams, UserService, ProfileService, ProjectService, UserPageService) {
   
   let vm = this;
 
@@ -15,33 +15,41 @@ let SinglePostController = function($scope, $state, $stateParams, UserService, P
     vm.userId = res.data.post.user_id;
     vm.postId = res.data.post.id;
     vm.comments = res.data.post.comments;
+
     console.log(vm.post);
-    return [vm.userId, vm.postId];
+
+    if (Number(vm.userId) === Number($cookies.get('id'))) {
+      vm.myPost = true;
+    } else {
+      vm.myPost = false;
+    }
+
+    return [vm.userId, vm.postId, vm.myPost];
   });
 
   let id = $stateParams.id;
 
-  function editImagePost (image, postId) {
-    UserService.checkFileAuth();
-    UserPageService.editImagePost(image, postId).then( (res) => {
+  function editImagePost (postId, title, des, tags) {
+    UserService.checkAuth();
+    UserPageService.editImagePost(postId, title, des, tags).then( (res) => {
       $state.go('root2.imageview', {id: postId});
     });
   }
-  function editQuotePost (quote, postId) {
+  function editQuotePost (postId, post) {
     UserService.checkAuth();
-    UserPageService.editQuotePost(quote, postId).then( (res) => {
+    UserPageService.editQuotePost(postId, post).then( (res) => {
       $state.go('root2.quoteview', {id: postId});
     });
   }
-  function editTextPost (text, postId) {
+  function editTextPost (postId, post) {
     UserService.checkAuth();
-    UserPageService.editTextPost(text, postId).then( (res) => {
+    UserPageService.editTextPost(postId, post).then( (res) => {
       $state.go('root2.textview', {id: postId});
     });
   }
-  function editUrlPost (link, postId) {
+  function editUrlPost (postId, post) {
     UserService.checkAuth();
-    UserPageService.editUrlPost(link, postId).then( (res) => {
+    UserPageService.editUrlPost(postId, post).then( (res) => {
       $state.go('root2.urlview', {id: postId});
     });
   }
@@ -74,6 +82,6 @@ let SinglePostController = function($scope, $state, $stateParams, UserService, P
 
 };
 
-SinglePostController.$inject = ['$scope', '$state', '$stateParams', 'UserService', 'ProfileService', 'ProjectService', 'UserPageService'];
+SinglePostController.$inject = ['$cookies', '$scope', '$state', '$stateParams', 'UserService', 'ProfileService', 'ProjectService', 'UserPageService'];
 
 export default SinglePostController;
