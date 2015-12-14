@@ -16,6 +16,8 @@ let SinglePostController = function($cookies, $scope, $state, $stateParams, User
     vm.postId = res.data.post.id;
     vm.comments = res.data.post.comments;
 
+    console.log(vm.post);
+
     if (Number(vm.userId) === Number($cookies.get('id'))) {
       vm.myPost = true;
     } else {
@@ -27,9 +29,9 @@ let SinglePostController = function($cookies, $scope, $state, $stateParams, User
 
   let id = $stateParams.id;
 
-  function editImagePost (image, postId) {
-    UserService.checkFileAuth();
-    UserPageService.editImagePost(image, postId).then( (res) => {
+  function editImagePost (postId, title, des, tags) {
+    UserService.checkAuth();
+    UserPageService.editImagePost(postId, title, des, tags).then( (res) => {
       $state.go('root2.imageview', {id: postId});
     });
   }

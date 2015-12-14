@@ -977,14 +977,23 @@ var UserPageService = function UserPageService(SERVER, FILESERVER, $cookies, $ht
     return $http.get(FILESERVER.URL + 'users/' + id + '/posts', FILESERVER.CONFIG);
   }
 
-  function editImagePost(image, id) {
-    var formData = new FormData();
-    formData.append('post_type', 'image');
-    formData.append('image', image.image);
-    formData.append('title', image.title);
-    formData.append('description', image.description);
-    formData.append('tag_phrases', '#' + image.tag_phrases);
-    return $http.put(FILESERVER.URL + 'posts/' + id, formData, FILESERVER.CONFIG);
+  function editImagePost(id, title, des, tags) {
+    UserService.checkAuth();
+    var UpdateImg = function UpdateImg(id, title, des, tags) {
+      this.post_id = id;
+      this.title = title;
+      this.description = des;
+      this.tag_phrases = tags;
+    };
+
+    var u = new UpdateImg(id, title, des, tags);
+    // let formData = new FormData();
+    // formData.append('post_type', 'image');
+    // formData.append('image', image.image);
+    // formData.append('title', image.title);
+    // formData.append('description', image.description);
+    // formData.append('tag_phrases', '#' +image.tag_phrases);
+    return $http.put(SERVER.URL + 'posts/' + id, u, SERVER.CONFIG);
   }
 
   function editQuotePost(quote, id) {
@@ -1163,6 +1172,8 @@ var SinglePostController = function SinglePostController($cookies, $scope, $stat
     vm.postId = res.data.post.id;
     vm.comments = res.data.post.comments;
 
+    console.log(vm.post);
+
     if (Number(vm.userId) === Number($cookies.get('id'))) {
       vm.myPost = true;
     } else {
@@ -1174,9 +1185,9 @@ var SinglePostController = function SinglePostController($cookies, $scope, $stat
 
   var id = $stateParams.id;
 
-  function editImagePost(image, postId) {
-    UserService.checkFileAuth();
-    UserPageService.editImagePost(image, postId).then(function (res) {
+  function editImagePost(postId, title, des, tags) {
+    UserService.checkAuth();
+    UserPageService.editImagePost(postId, title, des, tags).then(function (res) {
       $state.go('root2.imageview', { id: postId });
     });
   }

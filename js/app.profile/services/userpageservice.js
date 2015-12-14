@@ -16,14 +16,23 @@ let UserPageService = function(SERVER, FILESERVER, $cookies, $http, UserService)
     return $http.get(FILESERVER.URL + 'users/' + id + '/posts', FILESERVER.CONFIG);
   }
 
-  function editImagePost (image, id) {
-    let formData = new FormData();
-    formData.append('post_type', 'image');
-    formData.append('image', image.image);
-    formData.append('title', image.title);
-    formData.append('description', image.description);
-    formData.append('tag_phrases', '#' +image.tag_phrases);
-    return $http.put(FILESERVER.URL + 'posts/' + id, formData, FILESERVER.CONFIG);
+  function editImagePost (id, title, des, tags) {
+    UserService.checkAuth();
+    let UpdateImg = function (id, title, des, tags) {
+      this.post_id = id;
+      this.title = title;
+      this.description = des;
+      this.tag_phrases = tags;
+    };
+
+    let u = new UpdateImg(id, title, des, tags);
+    // let formData = new FormData();
+    // formData.append('post_type', 'image');
+    // formData.append('image', image.image);
+    // formData.append('title', image.title);
+    // formData.append('description', image.description);
+    // formData.append('tag_phrases', '#' +image.tag_phrases);
+    return $http.put(SERVER.URL + 'posts/' + id, u, SERVER.CONFIG);
   }
 
   function editQuotePost(quote, id) {
