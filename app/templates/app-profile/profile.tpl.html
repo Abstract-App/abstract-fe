@@ -5,7 +5,16 @@
     <p>{{ vm.profile.bio }}</p>
     <a href="{{ vm.profile.website }}">{{ vm.profile.website }}</a>
     <p>{{ vm.profile.location }}</p>
-    <button ng-click="vm.follow()">follow me</button>
+    <button ng-if="!vm.meFollow" ng-click="vm.follow()">follow me</button>
+    <button ng-if="vm.meFollow">following</button>
+    <div class="follower-info">
+      <a href="#/following/{{vm.profile.id}}"><span>{{vm.followingNum}} following </span></a>|
+      <a href="#/followers/{{vm.profile.id}}"><span>{{vm.followerNum}} followers</span></a>
+    </div>
+    <p>inspirations</p>
+    <div ng-repeat="p in vm.postMood[0].post.moodpieces" class="side-bar-mood">
+      <img ng-src="{{p.image}}">
+    </div>
   </nav>
 
   <div class="user-posts">
