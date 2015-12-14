@@ -88,10 +88,36 @@ var config = function config($stateProvider, $urlRouterProvider) {
     url: '/user/:id',
     controller: 'UserPageController as vm',
     templateUrl: 'templates/app-profile/profile.tpl.html'
-  }).state('root2.otheruser', {
-    url: '/profile/:id',
+  }).state('allposts', {
+    parent: 'root2.user',
+    url: '/allposts',
     controller: 'UserPageController as vm',
-    templateUrl: 'templates/app-profile/profile.tpl.html'
+    templateUrl: 'templates/app-profile/sorted-views/allposts.tpl.html'
+  }).state('imageposts', {
+    parent: 'root2.user',
+    url: '/imageposts',
+    controller: 'UserPageController as vm',
+    templateUrl: 'templates/app-profile/sorted-views/imageposts.tpl.html'
+  }).state('textposts', {
+    parent: 'root2.user',
+    url: '/textposts',
+    controller: 'UserPageController as vm',
+    templateUrl: 'templates/app-profile/sorted-views/textposts.tpl.html'
+  }).state('quoteposts', {
+    parent: 'root2.user',
+    url: '/quoteposts',
+    controller: 'UserPageController as vm',
+    templateUrl: 'templates/app-profile/sorted-views/quoteposts.tpl.html'
+  }).state('linkposts', {
+    parent: 'root2.user',
+    url: '/linkposts',
+    controller: 'UserPageController as vm',
+    templateUrl: 'templates/app-profile/sorted-views/linkposts.tpl.html'
+  }).state('moodposts', {
+    parent: 'root2.user',
+    url: '/moodposts',
+    controller: 'UserPageController as vm',
+    templateUrl: 'templates/app-profile/sorted-views/moodposts.tpl.html'
   }).state('root2.following', {
     url: '/following/:id',
     controller: 'UserFollowController as vm',
@@ -240,7 +266,7 @@ var UsernavController = function UsernavController(UserService, $state, $cookies
 
   function userHome() {
     var id = $cookies.get('id');
-    $state.go('root2.user', { id: id });
+    $state.go('allposts', { id: id });
   }
 };
 
@@ -450,7 +476,7 @@ var userMoodtile1 = function userMoodtile1($state, UserPageService, ProjectServi
       post: "=post"
     },
     templateUrl: 'templates/app-profile/usermoodtiles1.tpl.html',
-    // controller: 'UserPageController as vm',
+    controller: 'UserPageController as vm',
     link: function link(scope, element, attrs) {
       // element.on('click', function () {
       //   $state.go('root2.singlepost', {
@@ -481,7 +507,7 @@ var userMoodtile2 = function userMoodtile2($state, UserPageService, ProjectServi
       post: "=post"
     },
     templateUrl: 'templates/app-profile/usermoodtiles2.tpl.html',
-    // controller: 'UserPageController as vm',
+    controller: 'UserPageController as vm',
     link: function link(scope, element, attrs) {
       // element.on('click', function () {
       //   $state.go('root2.singlepost', {
@@ -512,7 +538,7 @@ var userMoodtile3 = function userMoodtile3($state, UserPageService, ProjectServi
       post: "=post"
     },
     templateUrl: 'templates/app-profile/usermoodtiles3.tpl.html',
-    // controller: 'UserPageController as vm',
+    controller: 'UserPageController as vm',
     link: function link(scope, element, attrs) {
       // element.on('click', function () {
       //   $state.go('root2.singlepost', {
@@ -543,7 +569,7 @@ var userMoodtile4 = function userMoodtile4($state, UserPageService, ProjectServi
       post: "=post"
     },
     templateUrl: 'templates/app-profile/usermoodtiles4.tpl.html',
-    // controller: 'UserPageController as vm',
+    controller: 'UserPageController as vm',
     link: function link(scope, element, attrs) {
       // element.on('click', function () {
       //   $state.go('root2.singlepost', {
@@ -574,7 +600,7 @@ var userMoodtile5 = function userMoodtile5($state, UserPageService, ProjectServi
       post: "=post"
     },
     templateUrl: 'templates/app-profile/usermoodtiles5.tpl.html',
-    // controller: 'UserPageController as vm',
+    controller: 'UserPageController as vm',
     link: function link(scope, element, attrs) {
       // element.on('click', function () {
       //   $state.go('root2.singlepost', {
@@ -1207,7 +1233,7 @@ var SinglePostController = function SinglePostController($cookies, $scope, $stat
   function deletePost(userId) {
     UserService.checkFileAuth();
     UserPageService.deletePost(id).then(function (res) {
-      $state.go('root2.userhome', { id: userId });
+      $state.go('allposts', { id: userId });
     });
   }
 
@@ -1223,6 +1249,7 @@ var SinglePostController = function SinglePostController($cookies, $scope, $stat
   }
 
   function likePost(postId) {
+    UserService.checkAuth();
     ProjectService.likePost(postId).then(function (res) {
       ProjectService.getPost(id).then(function (res) {
         vm.post.likes_count = res.data.post.likes_count;
@@ -1327,7 +1354,7 @@ var ImageController = function ImageController(PostService, UserService, $stateP
     UserService.checkFileAuth();
     PostService.postForm(image).then(function (res) {
       var id = res.data.post.user_id;
-      $state.go('root2.userhome', { id: id });
+      $state.go('allposts', { id: id });
     });
   }
 };
@@ -1354,7 +1381,7 @@ var LinkController = function LinkController(PostService, UserService, $statePar
     PostService.postLink(link).then(function (res) {
       console.log(res);
       var id = res.data.post.user_id;
-      $state.go('root2.userhome', { id: id });
+      $state.go('allposts', { id: id });
     });
   }
 };
@@ -1474,7 +1501,7 @@ var MoodController = function MoodController(UserPageService, PostService, UserS
 
   function navigatePost(userId) {
     UserService.checkFileAuth();
-    $state.go('root2.userhome', { id: userId });
+    $state.go('allposts', { id: userId });
   }
 };
 
@@ -1499,7 +1526,7 @@ var QuoteController = function QuoteController(PostService, UserService, $state)
     UserService.checkAuth();
     PostService.postQuote(quote).then(function (res) {
       var id = res.data.post.user_id;
-      $state.go('root2.userhome', { id: id });
+      $state.go('allposts', { id: id });
     });
   }
 };
@@ -1795,7 +1822,7 @@ var LoginController = function LoginController(ProfileService, UserService, $sta
     UserService.login(user).then(function (res) {
       var id = res.data.user.id;
       UserService.userSuccess(res);
-      $state.go('root2.userhome');
+      $state.go('allposts');
     });
   }
 };

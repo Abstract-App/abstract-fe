@@ -102,7 +102,7 @@ let MoodController = function(UserPageService, PostService, UserService, $state,
 
   function navigatePost (userId) {
     UserService.checkFileAuth();
-    $state.go('root2.userhome', {id: userId});
+    $state.go('allposts', {id: userId});
   }
 
 };

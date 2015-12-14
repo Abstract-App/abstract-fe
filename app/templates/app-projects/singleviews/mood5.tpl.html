@@ -31,6 +31,10 @@
   </div>
 </div>
 
+<section class="mood-likes">
+  <p ng-click="vm.likePost(vm.post.id)"><i class="fa fa-heart-o"></i> {{vm.post.likes_count}}</p>
+</section>
+
 <form ng-submit="vm.addComment(comment)">
   <textarea placeholder="add comment here" ng-model="comment.message"></textarea>
   <button>comment</button>

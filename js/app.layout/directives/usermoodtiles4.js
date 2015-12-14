@@ -7,7 +7,7 @@ let userMoodtile4 = function($state, UserPageService, ProjectService) {
       post: "=post"
     },
     templateUrl: 'templates/app-profile/usermoodtiles4.tpl.html',
-    // controller: 'UserPageController as vm',
+    controller: 'UserPageController as vm',
     link: function (scope, element, attrs) {
       // element.on('click', function () {
       //   $state.go('root2.singlepost', {

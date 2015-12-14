@@ -9,7 +9,7 @@ let LinkController = function(PostService, UserService, $stateParams, $state) {
     PostService.postLink(link).then( (res) => {
       console.log(res);
       let id = res.data.post.user_id;
-      $state.go('root2.userhome', {id: id});
+      $state.go('allposts', {id: id});
     });
   }
 
