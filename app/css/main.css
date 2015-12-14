@@ -2514,7 +2514,7 @@
 
 .temp1-2 {
   margin-top: 50px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   width: 600px;
   height: 750px;
   position: relative;
@@ -2589,7 +2589,8 @@
       height: 250px; }
 
 .temp2-2 {
-  margin-bottom: 50px;
+  margin-top: 50px;
+  margin-bottom: 20px;
   width: 600px;
   height: 750px;
   position: relative;
@@ -2670,7 +2671,8 @@
       height: 375px; }
 
 .temp3-2 {
-  margin-bottom: 50px;
+  margin-top: 50px;
+  margin-bottom: 20px;
   width: 600px;
   height: 750px;
   position: relative;
@@ -2775,7 +2777,8 @@
         height: 500px; }
 
 .temp4-2 {
-  margin-bottom: 50px;
+  margin-top: 50px;
+  margin-bottom: 20px;
   width: 600px;
   height: 750px;
   position: relative;
@@ -2860,9 +2863,10 @@
         height: 450px; }
 
 .temp5-2 {
+  margin-top: 50px;
   width: 600px;
   height: 750px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   overflow: hidden;
   position: relative;
   left: 100px; }
@@ -2884,9 +2888,6 @@
         .temp5-2 .left .row1 .temp5sect1 img {
           width: 400px;
           height: 300px; }
-      .temp5-2 .left .row1 .temp5sect1:hover {
-        background: #E5E5E5;
-        cursor: pointer; }
     .temp5-2 .left .row2 {
       display: block;
       text-align: left;
@@ -2902,9 +2903,6 @@
         .temp5-2 .left .row2 .temp5sect2 img {
           width: 200px;
           height: 450px; }
-      .temp5-2 .left .row2 .temp5sect2:hover {
-        background: #E5E5E5;
-        cursor: pointer; }
       .temp5-2 .left .row2 .temp5sect3 {
         width: 200px;
         height: 450px;
@@ -2917,9 +2915,6 @@
         .temp5-2 .left .row2 .temp5sect3 img {
           width: 200px;
           height: 450px; }
-      .temp5-2 .left .row2 .temp5sect3:hover {
-        background: #E5E5E5;
-        cursor: pointer; }
   .temp5-2 .right {
     margin: 0;
     display: inline-block;
@@ -2937,9 +2932,6 @@
       .temp5-2 .right .temp5sect4 img {
         width: 200px;
         height: 300px; }
-    .temp5-2 .right .temp5sect4:hover {
-      background: #E5E5E5;
-      cursor: pointer; }
     .temp5-2 .right .temp5sect5 {
       width: 200px;
       height: 200px;
@@ -2954,9 +2946,6 @@
       .temp5-2 .right .temp5sect5 img {
         width: 200px;
         height: 200px; }
-    .temp5-2 .right .temp5sect5:hover {
-      background: #E5E5E5;
-      cursor: pointer; }
     .temp5-2 .right .temp5sect6 {
       width: 200px;
       height: 450px;
@@ -2969,9 +2958,6 @@
       .temp5-2 .right .temp5sect6 img {
         width: 200px;
         height: 450px; }
-    .temp5-2 .right .temp5sect6:hover {
-      background: #E5E5E5;
-      cursor: pointer; }
 
 body {
   background: #f2f2f2; }
@@ -3341,25 +3327,70 @@ body {
     .form .mood-complete button:hover {
       opacity: 0.5; }
 
+.moodbuttons {
+  margin-left: 100px;
+  margin-bottom: 50px; }
+  .moodbuttons button {
+    width: 100px;
+    margin-right: 10px;
+    padding-left: 8px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    border-radius: 5px;
+    border: none;
+    color: #808080;
+    font-weight: 300;
+    font-size: 0.8em;
+    background: none;
+    border: 1px solid #808080; }
+
 .comments {
   position: absolute;
   top: 120px;
   left: 800px; }
+  .comments h3 {
+    color: #808080;
+    font-weight: 300; }
   .comments .comment-list {
+    margin-top: 20px;
+    margin-bottom: 20px;
     width: 500px;
     height: 500px;
     overflow: scroll; }
+    .comments .comment-list .comment-section {
+      background-color: white;
+      padding-left: 5px;
+      padding-top: 10px;
+      padding-bottom: 8px;
+      margin-top: 5px; }
+      .comments .comment-list .comment-section .image {
+        display: inline-block;
+        vertical-align: top; }
+        .comments .comment-list .comment-section .image img {
+          border-radius: 5px;
+          width: 50px; }
+      .comments .comment-list .comment-section .content {
+        display: inline-block;
+        width: 400px; }
+        .comments .comment-list .comment-section .content small {
+          display: block; }
+          .comments .comment-list .comment-section .content small a {
+            text-decoration: none;
+            color: #F75E55; }
+        .comments .comment-list .comment-section .content span {
+          display: block; }
   .comments form {
-    margin-top: 10px; }
+    margin-top: 20px; }
     .comments form textarea {
-      width: 400px;
+      width: 490px;
       padding-left: 10px;
       padding-top: 8px;
       padding-bottom: 8px;
       border-radius: 5px;
       border: 1px solid #808080;
-      display: inline-block; }
+      display: block; }
     .comments form button {
+      margin-top: 10px;
       width: 90px;
       padding-left: 8px;
       padding-top: 6px;
@@ -3370,6 +3401,6 @@ body {
       font-weight: 300;
       font-size: 0.8em;
       background: #F75E55;
-      display: inline-block; }
+      display: block; }
 
 /*# sourceMappingURL=main.css.map */

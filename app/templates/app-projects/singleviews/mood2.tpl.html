@@ -33,20 +33,28 @@
   </a>
 </div>
 
-<form ng-submit="vm.addComment(comment)">
-  <textarea placeholder="add comment here" ng-model="comment.message"></textarea>
-  <button>comment</button>
-</form>
-
-<hr>
-
-<h3>Comments</h3>
-
-<div class="comment-section" ng-repeat="comment in vm.comments">
-  <img ng-src="{{comment.picture}}">
-  <span>{{comment.username}}</span>
-  <p>{{comment.message}}</p>
+<div class="moodbuttons">
+  <a class="editpost" href="#/mood/temp2/{{ vm.post.id }}"><button>edit post</button></a>
+  <button ng-click="vm.deletePost(vm.post.user_id)">delete post</button>
 </div>
 
-<a class="editpost" href="#/mood/temp2/{{ vm.post.id }}"><button>edit post</button></a>
-<button ng-click="vm.deletePost(vm.post.user_id)">delete post</button>
+<section class="comments">
+  <h3>comments</h3>
+  <hr>
+  <section class="comment-list">
+    <div class="comment-section" ng-repeat="comment in vm.comments">
+      <div class="image">
+        <a href="#/profile/{{comment.user_id}}"><img ng-src="{{comment.picture}}"></a>
+      </div>
+      <div class="content">
+        <small><a href="#/profile/{{comment.user_id}}">{{comment.username}}</a></small>
+        <span>{{comment.message}}</span>
+      </div>
+    </div>
+  </section>
+  <hr>
+  <form ng-submit="vm.addComment(comment)">
+    <textarea placeholder="add comment here" ng-model="comment.message"></textarea>
+    <button>comment</button>
+  </form>
+</section>

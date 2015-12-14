@@ -467,27 +467,82 @@ body {
   }
 }
 
-.mood-comments {
+.moodbuttons {
+  margin-left: 100px;
+  margin-bottom: 50px;
+  button {
+    width: 100px;
+    margin-right: 10px;
+    padding-left: 8px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    border-radius: 5px;
+    border: none;
+    color: #808080;
+    font-weight: 300;
+    font-size: 0.8em;
+    background: none;
+    border: 1px solid #808080;
+  }
+}
+
+.comments {
+  h3 {
+    color: #808080;
+    font-weight: 300;
+  }
   position: absolute;
   top: 120px;
   left: 800px;
   .comment-list {
+    margin-top: 20px;
+    margin-bottom: 20px;
     width: 500px;
     height: 500px;
     overflow: scroll;
+    .comment-section {
+      background-color: white;
+      padding-left: 5px;
+      padding-top: 10px;
+      padding-bottom: 8px;
+      margin-top: 5px;
+      .image {
+        display: inline-block;
+        vertical-align: top;
+        img {
+          border-radius: 5px;
+          width: 50px;
+        }
+      }
+      .content {
+        display: inline-block;
+        width: 400px;
+        small {
+          display: block;
+          a {
+            text-decoration: none;
+            color: #F75E55;
+          }
+        }
+        span {
+          display: block;
+        }
+      }
+    }
   }
   form {
-    margin-top: 10px;
+    margin-top: 20px;
     textarea {
-      width: 400px;
+      width: 490px;
       padding-left: 10px;
       padding-top: 8px;
       padding-bottom: 8px;
       border-radius: 5px;
       border: 1px solid #808080;
-      display: inline-block;
+      display: block;
     }
     button {
+      margin-top: 10px;
       width: 90px;
       padding-left: 8px;
       padding-top: 6px;
@@ -498,7 +553,7 @@ body {
       font-weight: 300;
       font-size: 0.8em;
       background: #F75E55;
-      display: inline-block;
+      display: block;
     }
   }
 }
