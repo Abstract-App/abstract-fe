@@ -65,6 +65,16 @@ let UserPageController = function(ProjectService, ProfileService, UserPageServic
     });
   }
 
+  UserPageService.getFollowing(id).then( (res) => {
+    vm.following = res.data.following;
+    vm.followingNum = vm.following.length;
+  });
+
+  UserPageService.getFollowers(id).then( (res) => {
+    vm.followers = res.data.followers;
+    vm.followerNum = vm.followers.length;
+  });
+
 };
 
 UserPageController.$inject = ['ProjectService', 'ProfileService', 'UserPageService', 'UserService', '$stateParams', '$state', '$cookies', '$scope'];

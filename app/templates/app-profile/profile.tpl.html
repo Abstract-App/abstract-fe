@@ -6,6 +6,10 @@
     <a href="{{ vm.profile.website }}">{{ vm.profile.website }}</a>
     <p>{{ vm.profile.location }}</p>
     <button ng-click="vm.follow()">follow me</button>
+    <div class="follower-info">
+      <a href="#/following/{{vm.profile.id}}"><span>{{vm.followingNum}} following </span></a>|
+      <a href="#/followers/{{vm.profile.id}}"><span>{{vm.followerNum}} followers</span></a>
+    </div>
   </nav>
 
   <div class="user-posts">

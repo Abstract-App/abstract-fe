@@ -897,6 +897,16 @@ var UserPageController = function UserPageController(ProjectService, ProfileServ
       console.log(res);
     });
   }
+
+  UserPageService.getFollowing(id).then(function (res) {
+    vm.following = res.data.following;
+    vm.followingNum = vm.following.length;
+  });
+
+  UserPageService.getFollowers(id).then(function (res) {
+    vm.followers = res.data.followers;
+    vm.followerNum = vm.followers.length;
+  });
 };
 
 UserPageController.$inject = ['ProjectService', 'ProfileService', 'UserPageService', 'UserService', '$stateParams', '$state', '$cookies', '$scope'];
