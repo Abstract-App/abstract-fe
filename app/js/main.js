@@ -182,6 +182,16 @@ var config = function config($stateProvider, $urlRouterProvider) {
     url: '/explore',
     controller: 'ExploreController as vm',
     templateUrl: 'templates/app-projects/allprojects.tpl.html'
+  }).state('exploreimages', {
+    parent: 'root2.explore',
+    url: '/imageposts',
+    controller: 'ExploreController as vm',
+    templateUrl: 'templates/app-projects/exploresorted/imageposts.tpl.html'
+  }).state('explorewritten', {
+    parent: 'root2.explore',
+    url: '/writtenposts',
+    controller: 'ExploreController as vm',
+    templateUrl: 'templates/app-projects/exploresorted/textposts.tpl.html'
   });
 };
 

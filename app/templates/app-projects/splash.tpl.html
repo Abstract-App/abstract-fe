@@ -5,17 +5,16 @@
   </div>
 </section>
 
-<h2>visual</h2>
-
 <div class="tiles">
   <splash-tiles ng-repeat="i in vm.imgTiles | orderBy:'-created_at'" tile="i"></splash-tiles>
 </div>
 
-<h2>written</h2>
-
 <div class="tiles">
   <splash-txt ng-repeat="t in vm.txtTiles | orderBy:'-created_at'" tile="t"></splash-txt>
 </div>
+
+
+
 
 
 
