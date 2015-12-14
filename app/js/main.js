@@ -1287,7 +1287,7 @@ module.exports = exports['default'];
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var MoodController = function MoodController(PostService, UserService, $state, $stateParams) {
+var MoodController = function MoodController(UserPageService, PostService, UserService, $state, $stateParams) {
 
   var vm = this;
 
@@ -1303,6 +1303,8 @@ var MoodController = function MoodController(PostService, UserService, $state, $
   vm.showForm4 = showForm4;
   vm.showForm5 = showForm5;
   vm.showForm6 = showForm6;
+
+  vm.deletePost = deletePost;
 
   vm.postId = $stateParams.id;
 
@@ -1358,32 +1360,35 @@ var MoodController = function MoodController(PostService, UserService, $state, $
   // forms pop up for each box in moodboard template
 
   function showForm1() {
-    vm.showImageUpload1 = vm.showImageUpload1 || vm.showImageUpload2 || vm.showImageUpload3 || vm.showImageUpload4 || vm.showImageUpload5 || vm.showImageUpload6 ? false : true;
     console.log('showing 1');
   }
   function showForm2() {
-    vm.showImageUpload2 = vm.showImageUpload2 || vm.showImageUpload1 || vm.showImageUpload3 || vm.showImageUpload4 || vm.showImageUpload5 || vm.showImageUpload6 ? false : true;
     console.log('showing 2');
   }
   function showForm3() {
-    vm.showImageUpload3 = vm.showImageUpload3 || vm.showImageUpload2 || vm.showImageUpload1 || vm.showImageUpload4 || vm.showImageUpload5 || vm.showImageUpload6 ? false : true;
     console.log('showing 3');
   }
   function showForm4() {
-    vm.showImageUpload4 = vm.showImageUpload4 || vm.showImageUpload3 || vm.showImageUpload2 || vm.showImageUpload1 || vm.showImageUpload5 || vm.showImageUpload6 ? false : true;
     console.log('showing 4');
   }
   function showForm5() {
-    vm.showImageUpload5 = vm.showImageUpload5 || vm.showImageUpload4 || vm.showImageUpload3 || vm.showImageUpload2 || vm.showImageUpload1 || vm.showImageUpload6 ? false : true;
     console.log('showing 5');
   }
   function showForm6() {
-    vm.showImageUpload6 = vm.showImageUpload6 || vm.showImageUpload5 || vm.showImageUpload4 || vm.showImageUpload3 || vm.showImageUpload2 || vm.showImageUpload1 ? false : true;
     console.log('showing 6');
+  }
+
+  var id = $stateParams.id;
+
+  function deletePost(userId) {
+    UserService.checkFileAuth();
+    UserPageService.deletePost(id).then(function (res) {
+      $state.go('root2.userhome', { id: userId });
+    });
   }
 };
 
-MoodController.$inject = ['PostService', 'UserService', '$state', '$stateParams'];
+MoodController.$inject = ['UserPageService', 'PostService', 'UserService', '$state', '$stateParams'];
 
 exports['default'] = MoodController;
 module.exports = exports['default'];

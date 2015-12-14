@@ -3347,5 +3347,26 @@ body {
   left: 800px;
   top: 200px;
   width: 500px; }
+  .form .mood-upload p {
+    display: inline-block;
+    color: #808080;
+    font-weight: 300; }
+  .form .mood-upload .upload {
+    display: inline-block; }
+    .form .mood-upload .upload input {
+      width: 200px;
+      font-weight: 300;
+      color: #cccccc; }
+    .form .mood-upload .upload button {
+      width: 100px;
+      padding-left: 8px;
+      padding-top: 6px;
+      padding-bottom: 6px;
+      border-radius: 5px;
+      border: none;
+      color: #F2F2F2;
+      font-weight: 300;
+      font-size: 0.8em;
+      background: #F75E55; }
 
 /*# sourceMappingURL=main.css.map */
