@@ -3182,6 +3182,36 @@ body {
         color: grey;
         font-weight: 300; }
 
+.register-form {
+  width: 400px;
+  height: 600px;
+  margin: 0 auto;
+  padding-top: 10px;
+  padding-left: 10px; }
+  .register-form h2 {
+    font-weight: 300;
+    color: grey; }
+  .register-form input {
+    display: block;
+    width: 300px;
+    padding-left: 10px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-radius: 5px;
+    margin-top: 8px;
+    border: 1px solid #E5E5E5; }
+  .register-form button {
+    width: 313px;
+    padding-left: 10px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-radius: 5px;
+    margin-top: 28px;
+    border: none;
+    color: #F2F2F2;
+    font-weight: 300;
+    background-color: #F75E55; }
+
 .image-form .uploaded-image {
   width: 200px;
   height: 200px;
@@ -3238,7 +3268,8 @@ body {
 .templateheader {
   margin: 20px auto;
   text-align: center;
-  color: gray; }
+  color: gray;
+  font-weight: 300; }
 
 .form {
   position: absolute;

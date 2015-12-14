@@ -195,6 +195,41 @@ body {
   }
 }
 
+// Register Form
+.register-form {
+  width: 400px;
+  height: 600px;
+  margin: 0 auto;
+  padding-top: 10px;
+  padding-left: 10px;
+  h2 {
+    font-weight: 300;
+    color: grey;
+  }
+  input {
+    display: block;
+    width: 300px;
+    padding-left: 10px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-radius: 5px;
+    margin-top: 8px;
+    border: 1px solid #E5E5E5;
+  }
+  button {
+    width: 313px;
+    padding-left: 10px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-radius: 5px;
+    margin-top: 28px;
+    border: none;
+    color: #F2F2F2;
+    font-weight: 300;
+    background-color: #F75E55;
+  }
+}
+
 // Upload Forms
 .image-form {
   .uploaded-image {
@@ -267,6 +302,7 @@ body {
   margin: 20px auto;
   text-align: center;
   color: gray;
+  font-weight: 300;
 }
 .form {
   position: absolute;
