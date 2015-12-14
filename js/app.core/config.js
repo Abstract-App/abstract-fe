@@ -107,6 +107,16 @@ let config = function($stateProvider, $urlRouterProvider) {
       controller: 'UserPageController as vm',
       templateUrl: 'templates/app-profile/profile.tpl.html'
     })
+    .state('root2.following', {
+      url: '/following/:id',
+      controller: 'UserFollowController as vm',
+      templateUrl: 'templates/app-profile/following.tpl.html'
+    })
+    .state('root2.followers', {
+      url: '/followers/:id',
+      controller: 'UserFollowController as vm',
+      templateUrl: 'templates/app-profile/followers.tpl.html'
+    })
     .state('root2.imageview', {
       url: '/image/:id',
       controller: 'SinglePostController as vm',

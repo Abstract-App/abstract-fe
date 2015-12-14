@@ -1,0 +1,6 @@
+<h2>List of Followers</h2>
+
+<div ng-repeat="f in vm.followers" class="follow-list">
+  <img ng-src="{{f.picture_thumb}}">
+  <a href="#/user/{{f.user_id}}"><p>{{f.username}}</p></a>
+</div>
