@@ -8,7 +8,7 @@ let TextController = function(PostService, UserService, $stateParams, $state) {
     UserService.checkAuth();
     PostService.postText(text).then( (res) => {
       let id = res.data.post.user_id;
-      $state.go('root2.userhome', {id: id});
+      $state.go('allposts', {id: id});
     });
   }
 

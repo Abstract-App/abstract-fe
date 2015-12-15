@@ -2693,7 +2693,7 @@
       display: inline-block; }
       .temp3-2 .left .row2 .column1 {
         display: inline-block; }
-        .temp3-2 .left .row2 .column1 .temp3sect2 {
+        .temp3-2 .left .row2 .column1 .temp3sect3 {
           width: 140px;
           height: 450px;
           background: #b2b2b2;
@@ -2701,12 +2701,12 @@
           border: 1px solid #F2F2F2;
           position: absolute;
           bottom: 0px; }
-          .temp3-2 .left .row2 .column1 .temp3sect2 img {
+          .temp3-2 .left .row2 .column1 .temp3sect3 img {
             width: 140px;
             height: 450px; }
       .temp3-2 .left .row2 .column2 {
         display: inline-block; }
-        .temp3-2 .left .row2 .column2 .temp3sect3 {
+        .temp3-2 .left .row2 .column2 .temp3sect5 {
           width: 158px;
           height: 225px;
           background: #b2b2b2;
@@ -2717,7 +2717,7 @@
           position: absolute;
           bottom: -5px;
           left: 141px; }
-          .temp3-2 .left .row2 .column2 .temp3sect3 img {
+          .temp3-2 .left .row2 .column2 .temp3sect5 img {
             width: 158px;
             height: 225px; }
         .temp3-2 .left .row2 .column2 .temp3sect4 {
@@ -2737,14 +2737,14 @@
     margin: 0 auto;
     width: 300px;
     display: inline-block; }
-    .temp3-2 .right .temp3sect5 {
+    .temp3-2 .right .temp3sect2 {
       width: 298px;
       height: 250px;
       background: #b2b2b2;
       display: block;
       overflow: hidden;
       border: 1px solid #F2F2F2; }
-      .temp3-2 .right .temp3sect5 img {
+      .temp3-2 .right .temp3sect2 img {
         width: 298px;
         height: 250px; }
     .temp3-2 .right .temp3sect6 {
@@ -3304,10 +3304,21 @@ body {
     border-radius: 2px;
     box-shadow: 0 1px 1px #d9d9d9;
     background: white; }
+    .user-tiles .tile a {
+      text-decoration: none;
+      color: #4d4d4d; }
     .user-tiles .tile .tile-image {
       width: 200px;
       height: 175px;
       overflow: hidden; }
+      .user-tiles .tile .tile-image .uploaded-quote {
+        text-align: center;
+        font-family: "Arvo", serif;
+        font-size: 2em;
+        width: 100%;
+        height: 300px;
+        overflow: scroll;
+        display: block; }
     .user-tiles .tile .tile-username {
       text-align: left; }
       .user-tiles .tile .tile-username p {
@@ -3613,5 +3624,8 @@ body {
     text-align: right;
     font-family: "Arvo", serif;
     font-size: 2em; }
+
+.follower-info {
+  margin-top: 15px; }
 
 /*# sourceMappingURL=main.css.map */

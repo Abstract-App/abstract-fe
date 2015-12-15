@@ -192,6 +192,12 @@ var config = function config($stateProvider, $urlRouterProvider) {
     url: '/writtenposts',
     controller: 'ExploreController as vm',
     templateUrl: 'templates/app-projects/exploresorted/textposts.tpl.html'
+  }).state('root2.messages', {
+    url: '/messages',
+    templateUrl: 'templates/app-projects/messages.tpl.html'
+  }).state('root2.groups', {
+    url: '/groups',
+    templateUrl: 'templates/app-projects/groups.tpl.html'
   });
 };
 
@@ -1635,7 +1641,7 @@ var TextController = function TextController(PostService, UserService, $statePar
     UserService.checkAuth();
     PostService.postText(text).then(function (res) {
       var id = res.data.post.user_id;
-      $state.go('root2.userhome', { id: id });
+      $state.go('allposts', { id: id });
     });
   }
 };

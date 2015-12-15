@@ -9,16 +9,16 @@
     </div>
     <div class="row2">
       <div class="column1">
-        <a ng-click="vm.showForm2()">
-          <div class="box temp3sect2">
-            <img ng-src="{{vm.post.moodpieces[1].image}}">         
+        <a ng-click="vm.showForm3()">
+          <div class="box temp3sect3">
+            <img ng-src="{{vm.post.moodpieces[2].image}}">         
           </div>
         </a>
       </div>
       <div class="column2">
-        <a ng-click="vm.showForm3()">
-          <div class="box temp3sect3">
-          <img ng-src="{{vm.post.moodpieces[2].image}}">       
+        <a ng-click="vm.showForm5()">
+          <div class="box temp3sect5">
+          <img ng-src="{{vm.post.moodpieces[4].image}}">       
           </div>
         </a>
         <a ng-click="vm.showForm4()">
@@ -30,9 +30,9 @@
     </div>
   </div>
   <div class="right">
-    <a ng-click="vm.showForm5()">
-      <div class="box temp3sect5">
-        <img ng-src="{{vm.post.moodpieces[4].image}}">           
+    <a ng-click="vm.showForm2()">
+      <div class="box temp3sect2">
+        <img ng-src="{{vm.post.moodpieces[1].image}}">           
       </div>
     </a>
     <a ng-click="vm.showForm6()">
@@ -58,10 +58,10 @@
   <section class="comment-list">
     <div class="comment-section" ng-repeat="comment in vm.comments">
       <div class="image">
-        <a href="#/profile/{{comment.user_id}}"><img ng-src="{{comment.picture}}"></a>
+        <a href="#/user/{{comment.user_id}}/allposts"><img ng-src="{{comment.picture}}"></a>
       </div>
       <div class="content">
-        <small><a href="#/profile/{{comment.user_id}}">{{comment.username}}</a></small>
+        <small><a href="#/user/{{comment.user_id}}/allposts">{{comment.username}}</a></small>
         <span>{{comment.message}}</span>
       </div>
     </div>

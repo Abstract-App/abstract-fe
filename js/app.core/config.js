@@ -229,6 +229,14 @@ let config = function($stateProvider, $urlRouterProvider) {
       url: '/writtenposts',
       controller: 'ExploreController as vm',
       templateUrl: 'templates/app-projects/exploresorted/textposts.tpl.html'
+    })
+    .state('root2.messages', {
+      url: '/messages',
+      templateUrl: 'templates/app-projects/messages.tpl.html'
+    })
+    .state('root2.groups', {
+      url: '/groups',
+      templateUrl: 'templates/app-projects/groups.tpl.html'
     });
 };
 
