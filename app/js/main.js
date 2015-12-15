@@ -874,6 +874,7 @@ var UserPageController = function UserPageController(ProjectService, ProfileServ
 
   vm.addLike = addLike;
   vm.follow = follow;
+  vm.morePosts = morePosts;
 
   vm.post = [];
   vm.postImg = [];
@@ -910,7 +911,8 @@ var UserPageController = function UserPageController(ProjectService, ProfileServ
 
   UserPageService.getAllPosts(id).then(function (res) {
     vm.post = res.data.posts;
-    console.log(res);
+
+    vm.num = Number(res.data.page);
 
     angular.forEach(vm.post, function (p) {
       if (p.post.post_type === 'image') {
@@ -950,8 +952,42 @@ var UserPageController = function UserPageController(ProjectService, ProfileServ
 
   function follow() {
     UserPageService.followUser(id).then(function (res) {
-      console.log(res);
       $state.reload();
+    });
+  }
+
+  function morePosts() {
+    UserService.checkAuth();
+
+    vm.num = vm.num + 1;
+
+    UserPageService.getMorePosts(id, vm.num).then(function (res) {
+
+      vm.nextTiles = res.data.posts;
+
+      angular.forEach(vm.nextTiles, function (p) {
+        if (p.post.post_type === 'image') {
+          vm.postImg.push(p);
+        } else if (p.post.post_type === 'text') {
+          vm.postTxt.push(p);
+        } else if (p.post.post_type === 'quote') {
+          vm.postQte.push(p);
+        } else if (p.post.post_type === 'link') {
+          vm.postUrl.push(p);
+        } else if (p.post.moodboard_css_class === 'temp1') {
+          vm.postMood1.push(p);
+        } else if (p.post.moodboard_css_class === 'temp2') {
+          vm.postMood2.push(p);
+        } else if (p.post.moodboard_css_class === 'temp3') {
+          vm.postMood3.push(p);
+        } else if (p.post.moodboard_css_class === 'temp4') {
+          vm.postMood4.push(p);
+        } else if (p.post.moodboard_css_class === 'temp5') {
+          vm.postMood5.push(p);
+        }
+
+        return vm.postImg, vm.postTxt, vm.postQte, vm.postUrl, vm.postMood1, vm.postMood2, vm.postMood3, vm.postMood4, vm.postMood5;
+      });
     });
   }
 };
@@ -1008,6 +1044,7 @@ var UserPageService = function UserPageService(SERVER, FILESERVER, $cookies, $ht
   this.followUser = followUser;
   this.getFollowing = getFollowing;
   this.getFollowers = getFollowers;
+  this.getMorePosts = getMorePosts;
 
   function getAllPosts(id) {
     UserService.checkFileAuth();
@@ -1087,6 +1124,12 @@ var UserPageService = function UserPageService(SERVER, FILESERVER, $cookies, $ht
 
     return $http.get(SERVER.URL + 'users/' + userId + '/followers', SERVER.CONFIG);
   }
+
+  function getMorePosts(userId, num) {
+    UserService.checkAuth();
+
+    return $http.get(FILESERVER.URL + 'users/' + userId + '/posts?page=' + num, FILESERVER.CONFIG);
+  }
 };
 
 UserPageService.$inject = ['SERVER', 'FILESERVER', '$cookies', '$http', 'UserService'];
@@ -1114,7 +1157,6 @@ var ExploreController = function ExploreController(ProjectService, UserService, 
   UserService.checkAuth();
 
   ProjectService.getPosts().then(function (res) {
-    console.log(res);
     vm.tiles = res.data.posts;
 
     vm.num = Number(res.data.page);

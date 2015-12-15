@@ -12,7 +12,6 @@ let ExploreController = function(ProjectService, UserService, $state, $scope) {
   UserService.checkAuth();
 
   ProjectService.getPosts().then( (res) => {
-    console.log(res);
     vm.tiles = res.data.posts;
 
     vm.num = Number(res.data.page);
