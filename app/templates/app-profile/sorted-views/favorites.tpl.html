@@ -1,0 +1,155 @@
+<div class="user-posts">
+  <div ng-repeat="f in vm.faveImg" class="user-tiles">
+      <div class="tile">
+        <a href="#/image/{{f.like.id}}">
+      <div class="tile-image">
+        <img ng-src="{{ f.like.image_medium }}">
+      </div>
+    </a>
+    <div class="tile-username">
+      <a href="#/user/{{f.like.user_id}}/allposts"><p>{{ f.like.username }}</p></a>
+      <i class="fa fa-comment-o"></i> {{f.like.comments.length}}
+      <span ng-click="vm.addLike(f.like.id)">
+        <i class="fa fa-heart-o"></i> {{ f.like.likes_count }}
+      </span>
+    </div>
+  </div>
+  </div>
+
+  <div ng-repeat="f in vm.faveTxt" class="user-tiles">
+    <div class="tile">
+      <a href="#/text/{{f.like.id}}">
+        <div class="tile-image">
+          <p>{{ f.like.status }}</p>
+        </div>  
+      </a>
+      <div class="tile-username">
+        <a href="#/user/{{f.like.user_id}}/allposts"><p>{{ f.like.username }}</p></a>
+        <i class="fa fa-comment-o"></i> {{f.like.comments.length}}
+        <span ng-click="vm.addLike(f.like.id)">
+          <i class="fa fa-heart-o"></i> {{ f.like.likes_count }}
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div ng-repeat="f in vm.faveQte" class="user-tiles">
+    <div class="tile">
+      <a href="#/quote/{{f.like.id}}">
+        <div class="tile-image">
+          <p>{{ f.like.quote }}</p>
+        </div> 
+      </a>
+      <div class="tile-username">
+        <a href="#/user/{{f.like.user_id}}/allposts"><p>{{ f.like.username }}</p></a>
+        <i class="fa fa-comment-o"></i> {{f.like.comments.length}}
+        <span ng-click="vm.addLike(f.like.id)">
+          <i class="fa fa-heart-o"></i> {{ f.like.likes_count }}
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div ng-repeat="f in vm.faveUrl" class="user-tiles">
+    <div class="tile">
+      <a href="#/url/{{f.like.id}}"> 
+        <div class="tile-image">
+          <p>{{ f.like.url }}</p>
+        </div>
+      </a>
+      <div class="tile-username">
+        <a href="#/user/{{f.like.user_id}}/allposts"><p>{{ f.like.username }}</p></a>
+        <i class="fa fa-comment-o"></i> {{f.like.comments.length}}
+        <span ng-click="vm.addLike(f.like.id)">
+          <i class="fa fa-heart-o"></i> {{ f.like.likes_count }}
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div ng-repeat="f in vm.faveMood1" class="user-tiles">
+    <div class="tile">
+      <a href="#/mood1/{{f.like.id}}"> 
+        <div class="tile-image">
+          <img ng-src="{{ f.like.moodpieces[0].image }}">
+        </div>
+      </a>
+      <div class="tile-username">
+        <a href="#/user/{{f.like.user_id}}/allposts"><p>{{ f.like.username }}</p></a>
+        <i class="fa fa-comment-o"></i> {{f.like.comments.length}}
+        <span ng-click="vm.addLike(post.post.id)">
+          <i class="fa fa-heart-o"></i> {{ f.like.likes_count }}
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div ng-repeat="f in vm.faveMood2" class="user-tiles">
+    <div class="tile">
+      <a href="#/mood2/{{f.like.id}}"> 
+        <div class="tile-image">
+          <img ng-src="{{ f.like.moodpieces[0].image }}">
+        </div>
+      </a>
+      <div class="tile-username">
+        <a href="#/user/{{f.like.user_id}}/allposts"><p>{{ f.like.username }}</p></a>
+        <i class="fa fa-comment-o"></i> {{f.like.comments.length}}
+        <span ng-click="vm.addLike(f.like.id)">
+          <i class="fa fa-heart-o"></i> {{ f.like.likes_count }}
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div ng-repeat="f in vm.faveMood3" class="user-tiles">
+    <div class="tile">
+      <a href="#/mood3/{{f.like.id}}"> 
+        <div class="tile-image">
+          <img ng-src="{{ f.like.moodpieces[0].image }}">
+        </div>
+      </a>
+      <div class="tile-username">
+        <a href="#/user/{{f.like.user_id}}/allposts"><p>{{ f.like.username }}</p></a>
+        <i class="fa fa-comment-o"></i> {{f.like.comments.length}}
+        <span ng-click="vm.addLike(f.like.id)">
+          <i class="fa fa-heart-o"></i> {{ f.like.likes_count }}
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div ng-repeat="f in vm.faveMood4" class="user-tiles">
+    <div class="tile">
+      <a href="#/mood4/{{f.like.id}}"> 
+        <div class="tile-image">
+          <img ng-src="{{ f.like.moodpieces[0].image }}">
+        </div>
+      </a>
+      <div class="tile-username">
+        <a href="#/user/{{f.like.user_id}}/allposts"><p>{{ f.like.username }}</p></a>
+        <i class="fa fa-comment-o"></i> {{f.like.comments.length}}
+        <span ng-click="vm.addLike(f.like.id)">
+          <i class="fa fa-heart-o"></i> {{ f.like.likes_count }}
+        </span>
+      </div>
+    </div>    
+  </div>
+
+  <div ng-repeat="f in vm.faveMood5" class="user-tiles">
+    <div class="tile">
+      <a href="#/mood5/{{f.like.id}}"> 
+        <div class="tile-image">
+          <img ng-src="{{ f.like.moodpieces[0].image }}">
+        </div>
+      </a>
+      <div class="tile-username">
+        <a href="#/user/{{f.like.user_id}}/allposts"><p>{{ f.like.username }}</p></a>
+        <i class="fa fa-comment-o"></i> {{f.like.comments.length}}
+        <span ng-click="vm.addLike(f.like.id)">
+          <i class="fa fa-heart-o"></i> {{ f.like.likes_count }}
+        </span>
+      </div>
+    </div>    
+  </div>
+
+</div>
