@@ -1641,7 +1641,7 @@ var TextController = function TextController(PostService, UserService, $statePar
     UserService.checkAuth();
     PostService.postText(text).then(function (res) {
       var id = res.data.post.user_id;
-      $state.go('root2.userhome', { id: id });
+      $state.go('allposts', { id: id });
     });
   }
 };
