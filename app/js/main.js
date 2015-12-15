@@ -123,8 +123,9 @@ var config = function config($stateProvider, $urlRouterProvider) {
     url: '/favorites',
     controller: 'UserPageController as vm',
     templateUrl: 'templates/app-profile/sorted-views/favorites.tpl.html'
-  }).state('root2.following', {
-    url: '/following/:id',
+  }).state('following', {
+    parent: 'root2.user',
+    url: '/following',
     controller: 'UserFollowController as vm',
     templateUrl: 'templates/app-profile/following.tpl.html'
   }).state('followers', {
@@ -933,6 +934,12 @@ var UserPageController = function UserPageController(ProjectService, ProfileServ
     vm.post = res.data.posts;
 
     vm.num = Number(res.data.page);
+
+    vm.pages = Number(res.data.page_count);
+
+    if (vm.pages > 1) {
+      vm.multi = true;
+    }
 
     angular.forEach(vm.post, function (p) {
       if (p.post.post_type === 'image') {

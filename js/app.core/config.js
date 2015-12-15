@@ -144,8 +144,9 @@ let config = function($stateProvider, $urlRouterProvider) {
       controller: 'UserPageController as vm',
       templateUrl: 'templates/app-profile/sorted-views/favorites.tpl.html'
     })
-    .state('root2.following', {
-      url: '/following/:id',
+    .state('following', {
+      parent: 'root2.user',
+      url: '/following',
       controller: 'UserFollowController as vm',
       templateUrl: 'templates/app-profile/following.tpl.html'
     })

@@ -58,6 +58,12 @@ let UserPageController = function(ProjectService, ProfileService, UserPageServic
 
     vm.num = Number(res.data.page);
 
+    vm.pages = Number(res.data.page_count);
+
+    if (vm.pages > 1) {
+      vm.multi = true;
+    }
+
     angular.forEach(vm.post, function(p) {
       if (p.post.post_type === 'image') {
         vm.postImg.push(p);
