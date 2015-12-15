@@ -18,12 +18,14 @@
   </nav>
 
   <div class="sort-posts">
-    <a href="#/user/{{vm.profile.id}}/allposts">all</a>
-    <a href="#/user/{{vm.profile.id}}/imageposts">images</a>
-    <a href="#/user/{{vm.profile.id}}/textposts">texts</a>
-    <a href="#/user/{{vm.profile.id}}/quoteposts">quotes</a>
-    <a href="#/user/{{vm.profile.id}}/linkposts">links</a>
-    <a href="#/user/{{vm.profile.id}}/moodposts">mood boards</a>
+    <div class="post-buttons">
+      <a href="#/user/{{vm.profile.id}}/allposts"><button>all</button></a>
+      <a href="#/user/{{vm.profile.id}}/imageposts"><button>images</button></a>
+      <a href="#/user/{{vm.profile.id}}/textposts"><button>texts</button></a>
+      <a href="#/user/{{vm.profile.id}}/quoteposts"><button>quotes</button></a>
+      <a href="#/user/{{vm.profile.id}}/linkposts"><button>links</button></a>
+      <a href="#/user/{{vm.profile.id}}/moodposts"><button>mood boards</button></a>
+    </div>
     <div ui-view=""></div>
   </div>
 

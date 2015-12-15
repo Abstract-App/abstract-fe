@@ -2676,7 +2676,7 @@
   width: 600px;
   height: 750px;
   position: relative;
-  left: 100px; }
+  left: 50px; }
   .temp3-2 .left {
     margin: 0 auto;
     width: 300px;
@@ -2783,7 +2783,7 @@
   height: 750px;
   position: relative;
   overflow: hidden;
-  left: 100px; }
+  left: 50px; }
   .temp4-2 .left {
     margin: 0;
     display: inline-block; }
@@ -2869,7 +2869,7 @@
   margin-bottom: 20px;
   overflow: hidden;
   position: relative;
-  left: 100px; }
+  left: 50px; }
   .temp5-2 .left {
     margin-left: 0;
     display: inline-block;
@@ -2959,6 +2959,194 @@
         width: 200px;
         height: 450px; }
 
+.image-form {
+  width: 600px;
+  height: 600px;
+  margin: 20px auto;
+  padding-top: 10px;
+  padding-left: 10px; }
+  .image-form input {
+    margin-top: 10px;
+    display: block;
+    width: 600px;
+    padding-left: 10px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-radius: 5px;
+    border: 1px solid #E5E5E5; }
+  .image-form .upload {
+    display: block;
+    border: none;
+    font-weight: 300;
+    color: #cccccc; }
+  .image-form textarea {
+    margin-top: 10px;
+    height: 100px;
+    width: 600px;
+    padding-left: 10px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-radius: 5px;
+    border: 1px solid #E5E5E5; }
+  .image-form button {
+    margin-top: 20px;
+    width: 160px;
+    padding-left: 8px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    border-radius: 5px;
+    border: none;
+    color: #F2F2F2;
+    font-weight: 300;
+    font-size: 0.8em;
+    background: #F75E55; }
+  .image-form button:hover {
+    opacity: 0.5; }
+
+.link-form {
+  width: 600px;
+  height: 600px;
+  margin: 20px auto;
+  padding-top: 10px;
+  padding-left: 10px; }
+  .link-form .link-input {
+    margin-top: 10px;
+    display: block;
+    width: 600px;
+    padding-left: 10px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-radius: 5px;
+    border: 1px solid #E5E5E5; }
+  .link-form .link-textarea {
+    margin-top: 10px;
+    height: 100px;
+    width: 600px;
+    padding-left: 10px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-radius: 5px;
+    border: 1px solid #E5E5E5; }
+  .link-form button {
+    margin-top: 20px;
+    width: 160px;
+    padding-left: 8px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    border-radius: 5px;
+    border: none;
+    color: #F2F2F2;
+    font-weight: 300;
+    font-size: 0.8em;
+    background: #F75E55; }
+  .link-form button:hover {
+    opacity: 0.5; }
+
+.quote-form {
+  width: 600px;
+  height: 600px;
+  margin: 20px auto;
+  padding-top: 10px;
+  padding-left: 10px; }
+  .quote-form .quote-input {
+    margin: 0 auto;
+    margin-top: 10px;
+    display: block;
+    width: 600px;
+    padding-left: 10px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-radius: 5px;
+    border: 1px solid #E5E5E5; }
+  .quote-form .uploaded-quote {
+    text-align: center;
+    font-family: "Arvo", serif;
+    font-size: 3em;
+    width: 100%;
+    height: 300px;
+    overflow: scroll;
+    display: block; }
+  .quote-form .author {
+    text-align: right;
+    font-family: "Arvo", serif;
+    font-size: 2em; }
+  .quote-form .quote-textarea {
+    margin: 0 auto;
+    display: block;
+    margin-top: 10px;
+    height: 100px;
+    width: 600px;
+    padding-left: 10px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-radius: 5px;
+    border: 1px solid #E5E5E5; }
+  .quote-form button {
+    margin-top: 20px;
+    width: 160px;
+    padding-left: 8px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    border-radius: 5px;
+    border: none;
+    color: #F2F2F2;
+    font-weight: 300;
+    font-size: 0.8em;
+    background: #F75E55; }
+  .quote-form button:hover {
+    opacity: 0.5; }
+
+.text-form {
+  width: 600px;
+  height: 600px;
+  margin: 20px auto;
+  padding-top: 10px;
+  padding-left: 10px; }
+  .text-form .text-input {
+    margin: 0 auto;
+    margin-top: 10px;
+    display: block;
+    width: 600px;
+    padding-left: 10px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-radius: 5px;
+    border: 1px solid #E5E5E5; }
+  .text-form .uploaded-text {
+    text-align: center;
+    font-family: "Arvo", serif;
+    font-size: 3em;
+    width: 100%;
+    height: 300px;
+    overflow: scroll;
+    display: block; }
+  .text-form .text-textarea {
+    margin: 0 auto;
+    display: block;
+    margin-top: 10px;
+    height: 100px;
+    width: 600px;
+    padding-left: 10px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-radius: 5px;
+    border: 1px solid #E5E5E5; }
+  .text-form button {
+    margin-top: 20px;
+    width: 160px;
+    padding-left: 8px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    border-radius: 5px;
+    border: none;
+    color: #F2F2F2;
+    font-weight: 300;
+    font-size: 0.8em;
+    background: #F75E55;
+    float: left; }
+  .text-form button:hover {
+    opacity: 0.5; }
+
 body {
   background: #f2f2f2; }
 
@@ -3036,6 +3224,29 @@ body {
       background: none;
       border: 1px solid #e5e5e5;
       border-radius: 5px; }
+
+.sort-posts .post-buttons {
+  margin-left: 328px; }
+
+.sort-posts button {
+  width: 100px;
+  margin-top: 28px;
+  padding-left: 8px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  border-radius: 5px;
+  border: none;
+  color: #808080;
+  font-weight: 300;
+  font-size: 0.8em;
+  background: none;
+  border: 1px solid #808080; }
+
+.sort-posts button:focus {
+  outline: 0; }
+
+.sort-posts button:hover {
+  opacity: 0.5; }
 
 .exploreheader {
   color: grey;
@@ -3199,6 +3410,12 @@ body {
   .login-form button:hover {
     background: #f6473d; }
 
+.post-select-header {
+  margin: 10px auto;
+  text-align: center;
+  color: grey;
+  font-weight: 300; }
+
 .post-select {
   margin: 0 auto;
   text-align: center; }
@@ -3212,49 +3429,8 @@ body {
     color: #F2F2F2;
     font-weight: 300;
     background: #F75E55; }
-
-.image-form .uploaded-image {
-  width: 200px;
-  height: 200px;
-  border: 1px solid grey; }
-
-.image-form .image-left-column {
-  display: inline-block; }
-
-.image-form .image-right-column {
-  display: inline-block; }
-  .image-form .image-right-column input {
-    width: 200px; }
-  .image-form .image-right-column textarea {
-    width: 200px;
-    height: 200px; }
-
-.text-form .uploaded-text {
-  font-family: "Arvo", serif;
-  font-size: 3em;
-  width: 500px;
-  height: 100px; }
-
-.text-form textarea {
-  width: 300px;
-  height: 100px; }
-
-.link-form input {
-  width: 200px; }
-
-.link-form textarea {
-  width: 200px;
-  height: 200px; }
-
-.quote-form .uploaded-quote {
-  font-family: "Arvo", serif;
-  font-size: 3em;
-  width: 500px;
-  height: 100px; }
-
-.quote-form textarea {
-  width: 300px;
-  height: 100px; }
+  .post-select button:focus {
+    outline: 0; }
 
 .mood-form {
   text-align: center; }
@@ -3427,5 +3603,19 @@ body {
     text-decoration: none;
     color: #F75E55;
     font-size: 0.8em; }
+  .singleview .link {
+    font-size: 2em; }
+  .singleview .uploaded-quote {
+    text-align: center;
+    font-family: "Arvo", serif;
+    font-size: 3em;
+    width: 100%;
+    height: 300px;
+    overflow: scroll;
+    display: block; }
+  .singleview .author {
+    text-align: right;
+    font-family: "Arvo", serif;
+    font-size: 2em; }
 
 /*# sourceMappingURL=main.css.map */

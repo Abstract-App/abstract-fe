@@ -1715,6 +1715,7 @@ var PostService = function PostService($http, FILESERVER, SERVER, UserService) {
 
   var Text = function Text(textObj) {
     this.post_type = 'text';
+    this.title = textObj.title;
     this.status = textObj.status;
     this.tag_phrases = '#' + textObj.tag_phrases;
   };
@@ -1726,6 +1727,7 @@ var PostService = function PostService($http, FILESERVER, SERVER, UserService) {
 
   var Link = function Link(linkObj) {
     this.post_type = 'link';
+    this.title = linkObj.title;
     this.url = linkObj.url;
     this.description = linkObj.description;
     this.tag_phrases = '#' + linkObj.tag_phrases;
@@ -1738,7 +1740,9 @@ var PostService = function PostService($http, FILESERVER, SERVER, UserService) {
 
   var Quote = function Quote(quoteObj) {
     this.post_type = 'quote';
+    this.title = quoteObj.title;
     this.quote = quoteObj.quote;
+    this.description = quoteObj.description;
     this.tag_phrases = '#' + quoteObj.tag_phrases;
   };
 
