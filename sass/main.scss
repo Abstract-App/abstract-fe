@@ -12,6 +12,10 @@
 @import "moodviewtemp3";
 @import "moodviewtemp4";
 @import "moodviewtemp5";
+@import "uploadimage";
+@import "uploadlink";
+@import "uploadquote";
+@import "uploadtext";
 
 //fonts
 $typewriter: 'Arvo', serif;
@@ -26,6 +30,7 @@ body {
 }
 
 .nav {
+  // position: fixed;
   min-width: 900px;
   max-width: 100%;
   height: 75px;
@@ -111,6 +116,32 @@ body {
   }
 }
 
+.sort-posts {
+  .post-buttons {
+    margin-left: 328px;
+  }
+  button {
+    width: 100px;
+    margin-top: 28px;
+    padding-left: 8px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    border-radius: 5px;
+    border: none;
+    color: #808080;
+    font-weight: 300;
+    font-size: 0.8em;
+    background: none;
+    border: 1px solid #808080;
+  }
+  button:focus {
+    outline:0;
+  }
+  button:hover {
+    opacity: 0.5;
+  }
+}
+
 .exploreheader {
   color: grey;
   font-weight: 300;
@@ -124,6 +155,7 @@ body {
   height: 1000px;
   text-align: center;
   color: grey;
+  // position: fixed;
   img {
     width: 200px;
     margin-top: 50px;
@@ -309,6 +341,12 @@ body {
 }
 
 // Upload Forms
+.post-select-header {
+  margin: 10px auto;
+  text-align: center;
+  color: grey;
+  font-weight: 300;
+}
 
 .post-select {
   margin: 0 auto;
@@ -324,59 +362,8 @@ body {
     font-weight: 300;
     background: #F75E55;
   }
-}
-
-.image-form {
-  .uploaded-image {
-    width: 200px;
-    height: 200px;
-    border: 1px solid grey;
-  }
-  .image-left-column {
-    display: inline-block;
-  }
-  .image-right-column {
-    display: inline-block;
-    input {
-      width: 200px;
-    }
-    textarea {
-      width: 200px;
-      height: 200px;
-    }
-  }
-}
-.text-form {
-  .uploaded-text {
-    font-family: $typewriter;
-    font-size: 3em;
-    width: 500px;
-    height: 100px;
-  }
-  textarea {
-    width: 300px;
-    height: 100px;
-  }
-}
-.link-form {
-  input {
-    width: 200px;
-  }
-  textarea {
-    width: 200px;
-    height: 200px;
-  }
-}
-.quote-form {
-  .uploaded-quote {
-    font-family: $typewriter;
-    font-size: 3em;
-    width: 500px;
-    height: 100px;
-  }
-  textarea {
-    width: 300px;
-    height: 100px;
+  button:focus {
+    outline:0;
   }
 }
 
@@ -589,5 +576,8 @@ body {
     text-decoration: none;
     color: #F75E55;
     font-size: 0.8em;
+  }
+  .link {
+    font-size: 2em;
   }
 }

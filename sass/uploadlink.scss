@@ -1,0 +1,43 @@
+.link-form {
+  width: 600px;
+  height: 600px;
+  margin: 20px auto;
+  padding-top: 10px;
+  padding-left: 10px;
+  .link-input {
+    margin-top: 10px;
+    display: block;
+    width: 600px;
+    padding-left: 10px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-radius: 5px;
+    border: 1px solid #E5E5E5;
+  }
+  .link-textarea {
+    margin-top: 10px;
+    height: 100px;
+    width: 600px;
+    padding-left: 10px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-radius: 5px;
+    border: 1px solid #E5E5E5;
+  }
+  button {
+    margin-top: 20px;
+    width: 160px;
+    padding-left: 8px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    border-radius: 5px;
+    border: none;
+    color: #F2F2F2;
+    font-weight: 300;
+    font-size: 0.8em;
+    background: #F75E55;
+  }
+  button:hover {
+    opacity: 0.5;
+  }
+}

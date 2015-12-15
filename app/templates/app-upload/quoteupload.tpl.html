@@ -1,6 +1,9 @@
 <form ng-submit="vm.uploadQuotePost(quote)" class="quote-form">
   <div class="uploaded-quote">"{{ quote.quote }}"</div>
-  <textarea ng-model="quote.quote" placeholder="What's on your mind?"></textarea>
-  <input placeholder="up to 3 tags that describe this (watercolor, ink, illustration)" ng-model="quote.tag_phrases">
+  <div class="author"> - <i>{{ quote.description }}</i></div>
+  <input class="quote-input" placeholder="title" ng-model="quote.title">
+  <textarea class="quote-textarea" ng-model="quote.quote" placeholder="What's on your mind?"></textarea>
+  <input class="quote-input" placeholder="author" ng-model="quote.description">
+  <input class="quote-input" placeholder="up to 3 tags that describe this (watercolor, ink, illustration)" ng-model="quote.tag_phrases">
   <button>post</button>
 </form>

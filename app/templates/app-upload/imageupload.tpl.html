@@ -1,15 +1,7 @@
 <form ng-submit="(vm.uploadImagePost(image))" class="image-form"> 
-<!--   <div class="image-left-column">
-    <div class="uploaded-image">(image.jpg)</div>
-  </div> -->
-
-  <div class="image-right-column">
-    <image-upload file="image.image"></image-upload>
-    <input placeholder="title" ng-model="image.title">
-    <textarea placeholder="description" ng-model="image.description"></textarea>
-    <input placeholder="up to 3 tags that describe this (watercolor, ink, illustration)" ng-model="image.tag_phrases">
-  </div>
-
-<div class="image-center">
+  <input placeholder="title" ng-model="image.title">
+  <image-upload class="upload" file="image.image"></image-upload>
+  <textarea placeholder="description" ng-model="image.description"></textarea>
+  <input placeholder="up to 3 tags that describe this (watercolor, ink, illustration)" ng-model="image.tag_phrases">
   <button>post</button>
 </form>
