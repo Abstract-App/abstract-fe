@@ -1,14 +1,14 @@
 @charset "UTF-8";
 /*!
- *  Font Awesome 4.4.0 by @davegandy - http://fontawesome.io - @fontawesome
+ *  Font Awesome 4.5.0 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
  */
 /* FONT PATH
  * -------------------------- */
 @font-face {
   font-family: 'FontAwesome';
-  src: url("../fonts/fontawesome-webfont.eot?v=4.4.0");
-  src: url("../fonts/fontawesome-webfont.eot?#iefix&v=4.4.0") format("embedded-opentype"), url("../fonts/fontawesome-webfont.woff2?v=4.4.0") format("woff2"), url("../fonts/fontawesome-webfont.woff?v=4.4.0") format("woff"), url("../fonts/fontawesome-webfont.ttf?v=4.4.0") format("truetype"), url("../fonts/fontawesome-webfont.svg?v=4.4.0#fontawesomeregular") format("svg");
+  src: url("../fonts/fontawesome-webfont.eot?v=4.5.0");
+  src: url("../fonts/fontawesome-webfont.eot?#iefix&v=4.5.0") format("embedded-opentype"), url("../fonts/fontawesome-webfont.woff2?v=4.5.0") format("woff2"), url("../fonts/fontawesome-webfont.woff?v=4.5.0") format("woff"), url("../fonts/fontawesome-webfont.ttf?v=4.5.0") format("truetype"), url("../fonts/fontawesome-webfont.svg?v=4.5.0#fontawesomeregular") format("svg");
   font-weight: normal;
   font-style: normal; }
 
@@ -2018,6 +2018,66 @@
 .fa-fonticons:before {
   content: ""; }
 
+.fa-reddit-alien:before {
+  content: ""; }
+
+.fa-edge:before {
+  content: ""; }
+
+.fa-credit-card-alt:before {
+  content: ""; }
+
+.fa-codiepie:before {
+  content: ""; }
+
+.fa-modx:before {
+  content: ""; }
+
+.fa-fort-awesome:before {
+  content: ""; }
+
+.fa-usb:before {
+  content: ""; }
+
+.fa-product-hunt:before {
+  content: ""; }
+
+.fa-mixcloud:before {
+  content: ""; }
+
+.fa-scribd:before {
+  content: ""; }
+
+.fa-pause-circle:before {
+  content: ""; }
+
+.fa-pause-circle-o:before {
+  content: ""; }
+
+.fa-stop-circle:before {
+  content: ""; }
+
+.fa-stop-circle-o:before {
+  content: ""; }
+
+.fa-shopping-bag:before {
+  content: ""; }
+
+.fa-shopping-basket:before {
+  content: ""; }
+
+.fa-hashtag:before {
+  content: ""; }
+
+.fa-bluetooth:before {
+  content: ""; }
+
+.fa-bluetooth-b:before {
+  content: ""; }
+
+.fa-percent:before {
+  content: ""; }
+
 .temp1 {
   margin-bottom: 50px;
   width: 600px;
@@ -2028,7 +2088,7 @@
   .temp1 .temp1sect1 {
     width: 300px;
     height: 250px;
-    background: #b2b2b2;
+    background: url(../images/temp1sect1.jpg);
     position: absolute;
     overflow: hidden;
     border: 1px solid #F2F2F2; }
@@ -2038,7 +2098,7 @@
   .temp1 .temp1sect2 {
     width: 300px;
     height: 250px;
-    background: #b2b2b2;
+    background: url(../images/temp1sect2.jpg);
     position: absolute;
     left: 300px;
     overflow: hidden;
@@ -2049,7 +2109,7 @@
   .temp1 .temp1sect3 {
     width: 300px;
     height: 250px;
-    background: #b2b2b2;
+    background: url(../images/temp1sect3.jpg);
     position: absolute;
     top: 250px;
     overflow: hidden;
@@ -2060,7 +2120,7 @@
   .temp1 .temp1sect4 {
     width: 300px;
     height: 250px;
-    background: #b2b2b2;
+    background: url(../images/temp1sect4.jpg);
     position: absolute;
     left: 300px;
     top: 250px;
@@ -2071,8 +2131,7 @@
       height: 250px; }
   .temp1 .temp1sect5 {
     width: 300px;
-    height: 250px;
-    background: #b2b2b2;
+    background: url(../images/temp1sect5.jpg);
     position: absolute;
     top: 500px;
     overflow: hidden;
@@ -2083,7 +2142,7 @@
   .temp1 .temp1sect6 {
     width: 300px;
     height: 250px;
-    background: #b2b2b2;
+    background: url(../images/temp1sect6.jpg);
     position: absolute;
     top: 500px;
     left: 300px;
@@ -2103,7 +2162,7 @@
   .temp2 .temp2sect1 {
     width: 300px;
     height: 375px;
-    background: #b2b2b2;
+    background: url(../images/temp2sect1.jpg);
     position: absolute;
     overflow: hidden;
     border: 1px solid #F2F2F2; }
@@ -2113,7 +2172,7 @@
   .temp2 .temp2sect2 {
     width: 100px;
     height: 375px;
-    background: #b2b2b2;
+    background: url(../images/temp2sect2.jpg);
     position: absolute;
     left: 300px;
     overflow: hidden;
@@ -2124,7 +2183,7 @@
   .temp2 .temp2sect3 {
     width: 200px;
     height: 375px;
-    background: #b2b2b2;
+    background: url(../images/temp2sect3.jpg);
     position: absolute;
     left: 400px;
     top: 0px;
@@ -2140,7 +2199,7 @@
     .temp2 .temp2left .temp2sect4 {
       width: 300px;
       height: 190px;
-      background: #b2b2b2;
+      background: url(../images/temp2sect4.jpg);
       position: absolute;
       bottom: 185px;
       right: 298px;
@@ -2149,13 +2208,10 @@
       .temp2 .temp2left .temp2sect4 img {
         width: 300px;
         height: 190px; }
-    .temp2 .temp2left .temp2sect4:hover {
-      background: #E5E5E5;
-      cursor: pointer; }
     .temp2 .temp2left .temp2sect5 {
       width: 300px;
       height: 190px;
-      background: #b2b2b2;
+      background: url(../images/temp2sect5.jpg);
       position: absolute;
       bottom: 0px;
       right: 298px;
@@ -2167,7 +2223,7 @@
   .temp2 .temp2sect6 {
     width: 300px;
     height: 375px;
-    background: #b2b2b2;
+    background: url(../images/temp2sect6.jpg);
     position: absolute;
     bottom: 0px;
     left: 300px;
@@ -2193,7 +2249,7 @@
       .template3 .temp3 .left .row1 .temp3sect1 {
         width: 300px;
         height: 300px;
-        background: #b2b2b2;
+        background: url(../images/temp3sect1.jpg);
         display: block;
         overflow: hidden;
         border: 1px solid #F2F2F2; }
@@ -2204,23 +2260,23 @@
       display: inline-block; }
       .template3 .temp3 .left .row2 .column1 {
         display: inline-block; }
-        .template3 .temp3 .left .row2 .column1 .temp3sect2 {
+        .template3 .temp3 .left .row2 .column1 .temp3sect3 {
           width: 140px;
           height: 450px;
-          background: #b2b2b2;
+          background: url(../images/temp3sect3.jpg);
           overflow: hidden;
           border: 1px solid #F2F2F2;
           position: absolute;
           bottom: 0px; }
-          .template3 .temp3 .left .row2 .column1 .temp3sect2 img {
+          .template3 .temp3 .left .row2 .column1 .temp3sect3 img {
             width: 140px;
             height: 450px; }
       .template3 .temp3 .left .row2 .column2 {
         display: inline-block; }
-        .template3 .temp3 .left .row2 .column2 .temp3sect3 {
+        .template3 .temp3 .left .row2 .column2 .temp3sect5 {
           width: 158px;
-          height: 250px;
-          background: #b2b2b2;
+          height: 225px;
+          background: url(../images/temp3sect5.jpg);
           margin-bottom: 5px;
           display: block;
           overflow: hidden;
@@ -2228,13 +2284,13 @@
           position: absolute;
           bottom: -5px;
           left: 141px; }
-          .template3 .temp3 .left .row2 .column2 .temp3sect3 img {
+          .template3 .temp3 .left .row2 .column2 .temp3sect5 img {
             width: 158px;
-            height: 250px; }
+            height: 225px; }
         .template3 .temp3 .left .row2 .column2 .temp3sect4 {
           width: 158px;
           height: 225px;
-          background: #b2b2b2;
+          background: url(../images/temp3sect4.jpg);
           display: block;
           overflow: hidden;
           border: 1px solid #F2F2F2;
@@ -2243,25 +2299,25 @@
           bottom: 225px; }
           .template3 .temp3 .left .row2 .column2 .temp3sect4 img {
             width: 158px;
-            height: 218px; }
+            height: 225px; }
   .template3 .temp3 .right {
     margin: 0 auto;
     width: 300px;
     display: inline-block; }
-    .template3 .temp3 .right .temp3sect5 {
+    .template3 .temp3 .right .temp3sect2 {
       width: 298px;
       height: 250px;
-      background: #b2b2b2;
+      background: url(../images/temp3sect2.jpg);
       display: block;
       overflow: hidden;
       border: 1px solid #F2F2F2; }
-      .template3 .temp3 .right .temp3sect5 img {
+      .template3 .temp3 .right .temp3sect2 img {
         width: 298px;
         height: 250px; }
     .template3 .temp3 .right .temp3sect6 {
       width: 298px;
       height: 500px;
-      background: #b2b2b2;
+      background: url(../images/temp3sect6.jpg);
       position: absolute;
       bottom: 0px;
       display: block;
@@ -2286,7 +2342,7 @@
       .template4 .temp4 .left .row1 .temp4sect1 {
         width: 400px;
         height: 300px;
-        background: #b2b2b2;
+        background: url(../images/temp4sect1.jpg);
         overflow: hidden;
         position: absolute;
         border: 1px solid #F2F2F2; }
@@ -2298,7 +2354,7 @@
       .template4 .temp4 .left .row2 .temp4sect2 {
         width: 200px;
         height: 450px;
-        background: #b2b2b2;
+        background: url(../images/temp4sect2.jpg);
         overflow: hidden;
         position: absolute;
         bottom: 0px;
@@ -2309,7 +2365,7 @@
       .template4 .temp4 .left .row2 .temp4sect3 {
         width: 200px;
         height: 450px;
-        background: #b2b2b2;
+        background: url(../images/temp4sect3.jpg);
         overflow: hidden;
         position: absolute;
         bottom: 0px;
@@ -2324,7 +2380,7 @@
     .template4 .temp4 .right .temp4sect4 {
       width: 100px;
       height: 300px;
-      background: #b2b2b2;
+      background: url(../images/temp4sect4.jpg);
       overflow: hidden;
       position: absolute;
       left: 400px;
@@ -2335,7 +2391,7 @@
     .template4 .temp4 .right .temp4sect5 {
       width: 100px;
       height: 300px;
-      background: #b2b2b2;
+      background: url(../images/temp4sect5.jpg);
       overflow: hidden;
       position: absolute;
       left: 500px;
@@ -2346,7 +2402,7 @@
     .template4 .temp4 .right .temp4sect6 {
       width: 200px;
       height: 450px;
-      background: #b2b2b2;
+      background: url(../images/temp4sect6.jpg);
       overflow: hidden;
       position: absolute;
       bottom: 0px;
@@ -2374,7 +2430,7 @@
       .template5 .temp5 .left .row1 .temp5sect1 {
         width: 400px;
         height: 300px;
-        background: #b2b2b2;
+        background: url(../images/temp5sect1.jpg);
         overflow: hidden;
         position: absolute;
         border: 1px solid #F2F2F2; }
@@ -2388,7 +2444,7 @@
       .template5 .temp5 .left .row2 .temp5sect2 {
         width: 200px;
         height: 450px;
-        background: #b2b2b2;
+        background: url(../images/temp5sect2.jpg);
         position: absolute;
         bottom: 0px;
         overflow: hidden;
@@ -2399,7 +2455,7 @@
       .template5 .temp5 .left .row2 .temp5sect3 {
         width: 200px;
         height: 450px;
-        background: #b2b2b2;
+        background: url(../images/temp5sect3.jpg);
         position: absolute;
         bottom: 0;
         left: 200px;
@@ -2416,7 +2472,7 @@
     .template5 .temp5 .right .temp5sect4 {
       width: 200px;
       height: 300px;
-      background: #b2b2b2;
+      background: url(../images/temp5sect4.jpg);
       position: absolute;
       top: 0;
       left: 400px;
@@ -2429,7 +2485,7 @@
       width: 200px;
       height: 200px;
       border-radius: 100%;
-      background: #b2b2b2;
+      background: url(../images/temp5sect5.jpg);
       position: absolute;
       z-index: 1000;
       top: 50px;
@@ -2443,7 +2499,7 @@
       width: 200px;
       height: 450px;
       border: 1px solid #F2F2F2;
-      background: #b2b2b2;
+      background: url(../images/temp5sect6.jpg);
       overflow: hidden;
       position: absolute;
       bottom: 0;

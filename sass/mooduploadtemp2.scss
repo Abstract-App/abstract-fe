@@ -18,7 +18,7 @@
     .temp2sect1 {
     width: 300px;
     height: 375px;
-    background: darken(#E5E5E5, 20%);
+    background: url(../images/temp2sect1.jpg);
     position: absolute;
     overflow: hidden;
     border: 1px solid #F2F2F2;
@@ -30,7 +30,7 @@
     .temp2sect2 {
     width: 100px;
     height: 375px;
-    background: darken(#E5E5E5, 20%);
+    background: url(../images/temp2sect2.jpg);
     position: absolute;
     left: 300px;
     overflow: hidden;
@@ -43,7 +43,7 @@
     .temp2sect3 {
     width: 200px;
     height: 375px;
-    background: darken(#E5E5E5, 20%);
+    background: url(../images/temp2sect3.jpg);
     position: absolute;
     left: 400px;
     top: 0px;
@@ -61,7 +61,7 @@
       .temp2sect4 {
       width: 300px;
       height: 190px;
-      background: darken(#E5E5E5, 20%);
+    background: url(../images/temp2sect4.jpg);
       position: absolute;
       bottom: 185px;
       right: 298px;
@@ -72,14 +72,10 @@
           height: 190px;
         }
       }
-      .temp2sect4:hover {
-        background: #E5E5E5;
-        cursor: pointer;
-      }
       .temp2sect5 {
       width: 300px;
       height: 190px;
-      background: darken(#E5E5E5, 20%);
+    background: url(../images/temp2sect5.jpg);
       position: absolute;
       bottom: 0px;
       right: 298px;
@@ -90,15 +86,11 @@
           height: 190px;
         }
       }
-      // .temp2sect5:hover {
-      //   background: #E5E5E5;
-      //   cursor: pointer;
-      // }
     }
     .temp2sect6 {
     width: 300px;
     height: 375px;
-    background: darken(#E5E5E5, 20%);
+    background: url(../images/temp2sect6.jpg);
     position: absolute;
     bottom: 0px;
     left: 300px;
