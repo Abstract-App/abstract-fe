@@ -1,3 +1,7 @@
 <div class="tiles">
   <explore-txt ng-repeat="t in vm.txtTiles | orderBy:'-created_at'" tile="t"></explore-txt>
 </div>
+
+<div class="post-select">
+  <button ng-click="vm.morePosts()">see more posts</button> 
+</div>
