@@ -7,8 +7,8 @@
 </div>
 
 <div class="moodbuttons">
-  <a class="editpost" href="#edittext/{{ vm.post.id }}"><button>edit post</button></a>
-  <button ng-click="vm.deletePost(vm.post.user_id)">delete post</button>
+  <a class="editpost" href="#edittext/{{ vm.post.id }}"><button ng-show="vm.myPost">edit post</button></a>
+  <button ng-show="vm.myPost" ng-click="vm.deletePost(vm.post.user_id)">delete post</button>
 </div>
 
 <section class="comments">

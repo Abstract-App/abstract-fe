@@ -4,6 +4,7 @@ let UserPageController = function(ProjectService, ProfileService, UserPageServic
 
   vm.addLike = addLike;
   vm.follow = follow;
+  vm.morePosts = morePosts;
 
   vm.post = [];
   vm.postImg = [];
@@ -40,7 +41,8 @@ let UserPageController = function(ProjectService, ProfileService, UserPageServic
 
   UserPageService.getAllPosts(id).then( (res) => {
     vm.post = res.data.posts;
-    console.log(res);
+
+    vm.num = Number(res.data.page);
 
     angular.forEach(vm.post, function(p) {
       if (p.post.post_type === 'image') {
@@ -82,8 +84,42 @@ let UserPageController = function(ProjectService, ProfileService, UserPageServic
 
   function follow () {
     UserPageService.followUser(id).then( (res) => {
-      console.log(res);
       $state.reload();
+    });
+  }
+
+  function morePosts () {
+    UserService.checkAuth();
+
+    vm.num = vm.num + 1;
+    
+    UserPageService.getMorePosts(id, vm.num).then( (res) => {
+
+      vm.nextTiles = res.data.posts;
+
+      angular.forEach(vm.nextTiles, function(p) {
+        if (p.post.post_type === 'image') {
+          vm.postImg.push(p);
+        } else if (p.post.post_type === 'text') {
+          vm.postTxt.push(p);
+        } else if (p.post.post_type === 'quote') {
+          vm.postQte.push(p);
+        } else if (p.post.post_type === 'link') {
+          vm.postUrl.push(p);
+        } else if (p.post.moodboard_css_class === 'temp1') {
+          vm.postMood1.push(p);
+        } else if (p.post.moodboard_css_class === 'temp2') {
+          vm.postMood2.push(p);
+        } else if (p.post.moodboard_css_class === 'temp3') {
+          vm.postMood3.push(p);
+        } else if (p.post.moodboard_css_class === 'temp4') {
+          vm.postMood4.push(p);
+        } else if (p.post.moodboard_css_class === 'temp5') {
+          vm.postMood5.push(p);
+        }
+
+        return vm.postImg, vm.postTxt, vm.postQte, vm.postUrl, vm.postMood1, vm.postMood2, vm.postMood3, vm.postMood4, vm.postMood5;
+      });
     });
   }
 
