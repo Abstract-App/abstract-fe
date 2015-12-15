@@ -145,7 +145,32 @@ body {
 .exploreheader {
   color: grey;
   font-weight: 300;
-  margin-left: 130px;
+}
+
+.sort-explore {
+  .explore-buttons {
+    text-align: center;
+  }
+  button {
+    width: 100px;
+    margin-top: 28px;
+    padding-left: 8px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    border-radius: 5px;
+    border: none;
+    color: #808080;
+    font-weight: 300;
+    font-size: 0.8em;
+    background: none;
+    border: 1px solid #808080;
+  }
+  button:focus {
+    outline:0;
+  }
+  button:hover {
+    opacity: 0.5;
+  }
 }
 
 .follow-head {
