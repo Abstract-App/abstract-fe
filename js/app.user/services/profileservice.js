@@ -20,6 +20,7 @@ let ProfileService = function($state, $http, UserService, FILESERVER) {
     formData.append('bio', profile.bio);
     formData.append('website', profile.website);
     formData.append('location', profile.location);
+    formData.append('tag_phrases', profile.tag_phrases);
 
     return $http.post(url + 'profiles', formData, FILESERVER.CONFIG);
   }

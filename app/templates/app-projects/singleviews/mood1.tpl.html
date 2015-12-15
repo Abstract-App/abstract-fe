@@ -19,13 +19,13 @@
   </div>
 </div>
 
-<section class="mood-likes">
+<div class="singleview">
   <p ng-click="vm.likePost(vm.post.id)"><i class="fa fa-heart-o"></i> {{vm.post.likes_count}}</p>
-</section>
+</div>
 
 <div class="moodbuttons">
-  <a class="editpost" href="#/mood/temp1/{{ vm.post.id }}"><button>edit post</button></a>
-  <button ng-click="vm.deletePost(vm.post.user_id)">delete post</button>
+  <a class="editpost" href="#/mood/temp1/{{ vm.post.id }}"><button ng-show="vm.myPost">edit post</button></a>
+  <button ng-show="vm.myPost" ng-click="vm.deletePost(vm.post.user_id)">delete post</button>
 </div>
 
 <section class="comments">
