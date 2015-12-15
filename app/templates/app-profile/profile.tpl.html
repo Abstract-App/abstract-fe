@@ -9,7 +9,7 @@
     <button ng-if="vm.meFollow">following</button>
     <div class="follower-info">
       <a href="#/following/{{vm.profile.id}}"><span>{{vm.followingNum}} following </span></a>|
-      <a href="#/followers/{{vm.profile.id}}"><span>{{vm.followerNum}} followers</span></a>
+      <a href="#/user/{{vm.profile.id}}/followers"><span>{{vm.followerNum}} followers</span></a>
     </div>
     <p>inspirations</p>
     <div ng-repeat="p in vm.postMood[0].post.moodpieces" class="side-bar-mood">

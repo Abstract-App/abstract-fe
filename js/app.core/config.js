@@ -149,8 +149,9 @@ let config = function($stateProvider, $urlRouterProvider) {
       controller: 'UserFollowController as vm',
       templateUrl: 'templates/app-profile/following.tpl.html'
     })
-    .state('root2.followers', {
-      url: '/followers/:id',
+    .state('followers', {
+      parent: 'root2.user',
+      url: '/followers',
       controller: 'UserFollowController as vm',
       templateUrl: 'templates/app-profile/followers.tpl.html'
     })
