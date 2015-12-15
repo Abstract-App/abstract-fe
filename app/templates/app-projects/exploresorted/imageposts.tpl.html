@@ -1,3 +1,7 @@
 <div class="tiles">
   <explore-tiles ng-repeat="i in vm.imgTiles | orderBy:'-created_at'" tile="i"></explore-tiles>
 </div>
+
+<div class="post-select">
+  <button ng-click="vm.morePosts()">see more posts</button> 
+</div>
