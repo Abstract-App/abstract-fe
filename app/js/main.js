@@ -2035,6 +2035,7 @@ var ProfileService = function ProfileService($state, $http, UserService, FILESER
     formData.append('bio', profile.bio);
     formData.append('website', profile.website);
     formData.append('location', profile.location);
+    formData.append('tag_phrases', profile.tag_phrases);
 
     return $http.post(url + 'profiles', formData, FILESERVER.CONFIG);
   }

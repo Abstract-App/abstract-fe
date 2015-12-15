@@ -41,11 +41,9 @@
       </a>
     </div>
   </div>
+<p class="mood-likes" ng-click="vm.likePost(vm.post.id)"><i class="fa fa-heart-o"></i> {{vm.post.likes_count}}</p>
 </div>
 
-<section class="mood-likes">
-  <p ng-click="vm.likePost(vm.post.id)"><i class="fa fa-heart-o"></i> {{vm.post.likes_count}}</p>
-</section>
 
 <div class="moodbuttons">
   <a class="editpost" href="#/mood/temp4/{{ vm.post.id }}"><button>edit post</button></a>
