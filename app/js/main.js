@@ -118,12 +118,19 @@ var config = function config($stateProvider, $urlRouterProvider) {
     url: '/moodposts',
     controller: 'UserPageController as vm',
     templateUrl: 'templates/app-profile/sorted-views/moodposts.tpl.html'
-  }).state('root2.following', {
-    url: '/following/:id',
+  }).state('favorites', {
+    parent: 'root2.user',
+    url: '/favorites',
+    controller: 'UserPageController as vm',
+    templateUrl: 'templates/app-profile/sorted-views/favorites.tpl.html'
+  }).state('following', {
+    parent: 'root2.user',
+    url: '/following',
     controller: 'UserFollowController as vm',
     templateUrl: 'templates/app-profile/following.tpl.html'
-  }).state('root2.followers', {
-    url: '/followers/:id',
+  }).state('followers', {
+    parent: 'root2.user',
+    url: '/followers',
     controller: 'UserFollowController as vm',
     templateUrl: 'templates/app-profile/followers.tpl.html'
   }).state('root2.imageview', {
@@ -882,6 +889,8 @@ var UserPageController = function UserPageController(ProjectService, ProfileServ
   vm.follow = follow;
   vm.morePosts = morePosts;
 
+  // for posts
+
   vm.post = [];
   vm.postImg = [];
   vm.postTxt = [];
@@ -892,6 +901,18 @@ var UserPageController = function UserPageController(ProjectService, ProfileServ
   vm.postMood3 = [];
   vm.postMood4 = [];
   vm.postMood5 = [];
+
+  // for favorites
+
+  vm.faveImg = [];
+  vm.faveTxt = [];
+  vm.faveQte = [];
+  vm.faveUrl = [];
+  vm.faveMood1 = [];
+  vm.faveMood2 = [];
+  vm.faveMood3 = [];
+  vm.faveMood4 = [];
+  vm.faveMood5 = [];
 
   UserService.checkFileAuth();
   var id = $stateParams.id ? $stateParams.id : $cookies.get('id');
@@ -920,6 +941,12 @@ var UserPageController = function UserPageController(ProjectService, ProfileServ
 
     vm.num = Number(res.data.page);
 
+    vm.pages = Number(res.data.page_count);
+
+    if (vm.pages > 1) {
+      vm.multi = true;
+    }
+
     angular.forEach(vm.post, function (p) {
       if (p.post.post_type === 'image') {
         vm.postImg.push(p);
@@ -944,6 +971,34 @@ var UserPageController = function UserPageController(ProjectService, ProfileServ
       vm.postMood = vm.postMood1.concat(vm.postMood2, vm.postMood3, vm.postMood4, vm.postMood5);
 
       return vm.postImg, vm.postTxt, vm.postQte, vm.postUrl, vm.postMood1, vm.postMood2, vm.postMood3, vm.postMood4, vm.postMood5;
+    });
+  });
+
+  UserPageService.getSavedPosts(id).then(function (res) {
+    vm.favorites = res.data.likes;
+
+    angular.forEach(vm.favorites, function (f) {
+      if (f.like.post_type === 'image') {
+        vm.faveImg.push(f);
+      } else if (f.like.post_type === 'text') {
+        vm.faveTxt.push(f);
+      } else if (f.like.post_type === 'quote') {
+        vm.faveQte.push(f);
+      } else if (f.like.post_type === 'link') {
+        vm.faveUrl.push(f);
+      } else if (f.like.moodboard_css_class === 'temp1') {
+        vm.faveMood1.push(f);
+      } else if (f.like.moodboard_css_class === 'temp2') {
+        vm.faveMood2.push(f);
+      } else if (f.like.moodboard_css_class === 'temp3') {
+        vm.faveMood3.push(f);
+      } else if (f.like.moodboard_css_class === 'temp4') {
+        vm.faveMood4.push(f);
+      } else if (f.like.moodboard_css_class === 'temp5') {
+        vm.faveMood5.push(f);
+      }
+
+      return vm.faveImg, vm.faveTxt, vm.faveQte, vm.faveUrl, vm.faveMood1, vm.faveMood2, vm.faveMood3, vm.faveMood4, vm.faveMood5;
     });
   });
 
@@ -1051,6 +1106,7 @@ var UserPageService = function UserPageService(SERVER, FILESERVER, $cookies, $ht
   this.getFollowing = getFollowing;
   this.getFollowers = getFollowers;
   this.getMorePosts = getMorePosts;
+  this.getSavedPosts = getSavedPosts;
 
   function getAllPosts(id) {
     UserService.checkFileAuth();
@@ -1135,6 +1191,12 @@ var UserPageService = function UserPageService(SERVER, FILESERVER, $cookies, $ht
     UserService.checkAuth();
 
     return $http.get(FILESERVER.URL + 'users/' + userId + '/posts?page=' + num, FILESERVER.CONFIG);
+  }
+
+  function getSavedPosts(userId) {
+    UserService.checkAuth();
+
+    return $http.get(FILESERVER.URL + 'users/' + userId + '/likes?likeable_type=post', FILESERVER.CONFIG);
   }
 };
 
