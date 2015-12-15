@@ -910,6 +910,7 @@ var UserPageController = function UserPageController(ProjectService, ProfileServ
 
   UserPageService.getAllPosts(id).then(function (res) {
     vm.post = res.data.posts;
+    console.log(res);
 
     angular.forEach(vm.post, function (p) {
       if (p.post.post_type === 'image') {
