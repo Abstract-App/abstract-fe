@@ -18,7 +18,7 @@
   <section class="comment-list">
     <div class="comment-section" ng-repeat="comment in vm.comments">
       <div class="image">
-        <a href="#/user/allposts/{{comment.user_id}}/allposts"><img ng-src="{{comment.picture}}"></a>
+        <a href="#/user/{{comment.user_id}}/allposts"><img ng-src="{{comment.picture}}"></a>
       </div>
       <div class="content">
         <small><a href="#/user/{{comment.user_id}}/allposts">{{comment.username}}</a></small>
