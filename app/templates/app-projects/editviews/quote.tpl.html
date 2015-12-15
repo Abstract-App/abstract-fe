@@ -1,8 +1,9 @@
-<h2>Edit Quote Post</h2>
-
 <form ng-submit="vm.editQuotePost(vm.postId, vm.post)" class="quote-form">
   <div class="uploaded-quote">"{{ vm.post.quote }}"</div>
-  <textarea ng-model="vm.post.quote"></textarea>
-  <input placeholder="up to 3 tags that describe this (watercolor, ink, illustration)" ng-model="vm.post.tags">
+  <div class="author"> - <i>{{ vm.post.description }}</i></div>
+  <input class="quote-input" placeholder="title" ng-model="vm.post.title">
+  <textarea class="quote-textarea" ng-model="vm.post.quote"></textarea>
+  <input class="quote-input" placeholder="author" ng-model="vm.post.description">
+  <input class="quote-input" placeholder="up to 3 tags that describe this (watercolor, ink, illustration)" ng-model="vm.post.tags">
   <button>post</button>
 </form>

@@ -1,8 +1,7 @@
-<h2>Edit Text Post</h2>
-
 <form ng-submit="vm.editTextPost(vm.postId, vm.post)" class="text-form">
   <div class="uploaded-text">{{ vm.post.status }}</div>
-  <textarea ng-model="vm.post.status"></textarea>
-  <input placeholder="up to 3 tags that describe this (watercolor, ink, illustration)" ng-model="vm.post.tags">
+  <input class="text-input" placeholder="title" ng-model="vm.post.title">
+  <textarea class="text-textarea" ng-model="vm.post.status"></textarea>
+  <input class="text-input" placeholder="up to 3 tags that describe this (watercolor, ink, illustration)" ng-model="vm.post.tags">
   <button>post</button>
 </form>

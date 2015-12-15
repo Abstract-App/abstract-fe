@@ -1,8 +1,7 @@
-<h2>Edit URL Post</h2>
-
 <form ng-submit="vm.editUrlPost(vm.postId, vm.post)" class="link-form">
-  <input ng-model="vm.post.url">
-  <textarea ng-model="vm.post.description"></textarea>
-  <input placeholder="up to 3 tags that describe this (watercolor, ink, illustration)" ng-model="vm.post.tags">
+  <input class="link-input" ng-model="vm.post.title">
+  <input class="link-input" ng-model="vm.post.url">
+  <textarea class="link-textarea" ng-model="vm.post.description"></textarea>
+  <input class="link-input" placeholder="up to 3 tags that describe this (watercolor, ink, illustration)" ng-model="vm.post.tags">
   <button>post</button>
 </form>
