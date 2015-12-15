@@ -6,9 +6,10 @@ let ProjectService = function($http, FILESERVER, SERVER) {
   this.getPost = getPost;
   this.postComment = postComment;
   this.likePost = likePost;
+  this.getMorePosts = getMorePosts;
 
   function getPosts () {
-    return $http.get(url + 'posts', FILESERVER.CONFIG);
+    return $http.get(url + 'posts?page=1', FILESERVER.CONFIG);
   }
 
   function getPost (id) {
@@ -29,8 +30,9 @@ let ProjectService = function($http, FILESERVER, SERVER) {
     return $http.post(url + 'posts/' + postId + '/likes', postId, SERVER.CONFIG);
   }
 
-
-
+  function getMorePosts (num) {
+    return $http.get(url + 'posts?page=' + num, FILESERVER.CONFIG);
+  }
 
 };
 

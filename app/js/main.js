@@ -1108,11 +1108,15 @@ var ExploreController = function ExploreController(ProjectService, UserService, 
   vm.txtTiles = [];
 
   vm.addLike = addLike;
+  vm.morePosts = morePosts;
 
   UserService.checkAuth();
 
   ProjectService.getPosts().then(function (res) {
+    console.log(res);
     vm.tiles = res.data.posts;
+
+    vm.num = Number(res.data.page);
 
     angular.forEach(vm.tiles, function (tile) {
       if (tile.post.post_type === 'image') {
@@ -1121,7 +1125,7 @@ var ExploreController = function ExploreController(ProjectService, UserService, 
         vm.txtTiles.push(tile);
       }
 
-      return vm.imgTiles, vm.txtTiles;
+      return vm.num, vm.imgTiles, vm.txtTiles;
     });
   });
 
@@ -1131,6 +1135,27 @@ var ExploreController = function ExploreController(ProjectService, UserService, 
     ProjectService.likePost(postId).then(function (res) {
       ProjectService.getPost(postId).then(function (res) {
         $scope.tile.post.likes_count = res.data.post.likes_count;
+      });
+    });
+  }
+
+  function morePosts() {
+    UserService.checkAuth();
+
+    vm.num = vm.num + 1;
+
+    ProjectService.getMorePosts(vm.num).then(function (res) {
+
+      vm.nextTiles = res.data.posts;
+
+      angular.forEach(vm.nextTiles, function (tile) {
+        if (tile.post.post_type === 'image') {
+          vm.imgTiles.push(tile);
+        } else if (tile.post.post_type === 'text') {
+          vm.txtTiles.push(tile);
+        }
+
+        return vm.imgTiles, vm.txtTiles;
       });
     });
   }
@@ -1318,9 +1343,10 @@ var ProjectService = function ProjectService($http, FILESERVER, SERVER) {
   this.getPost = getPost;
   this.postComment = postComment;
   this.likePost = likePost;
+  this.getMorePosts = getMorePosts;
 
   function getPosts() {
-    return $http.get(url + 'posts', FILESERVER.CONFIG);
+    return $http.get(url + 'posts?page=1', FILESERVER.CONFIG);
   }
 
   function getPost(id) {
@@ -1339,6 +1365,10 @@ var ProjectService = function ProjectService($http, FILESERVER, SERVER) {
 
   function likePost(postId) {
     return $http.post(url + 'posts/' + postId + '/likes', postId, SERVER.CONFIG);
+  }
+
+  function getMorePosts(num) {
+    return $http.get(url + 'posts?page=' + num, FILESERVER.CONFIG);
   }
 };
 
