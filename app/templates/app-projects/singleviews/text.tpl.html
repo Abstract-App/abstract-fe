@@ -1,4 +1,5 @@
 <div class="singleview">
+  <h3>{{ vm.post.title }}</h3>
   <small><a href="#/user/{{ vm.post.user_id }}/allposts">{{ vm.post.username }}</a></small>
   <p class="text">{{ vm.post.status }}</p>
   <p>{{ vm.post.tags.split(', ').join(' #') }}</p>

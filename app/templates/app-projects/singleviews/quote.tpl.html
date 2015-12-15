@@ -1,6 +1,8 @@
 <div class="singleview">
+  <h3>{{ vm.post.title }}</h3>
   <small><a href="#/user/{{ vm.post.user_id }}/allposts">{{ vm.post.username }}</a></small>
-  <p class="text">{{ vm.post.quote }}</p>
+  <p class="uploaded-quote">{{ vm.post.quote }}</p>
+  <p class="author">- <i>{{ vm.post.description }}</i></p>
   <p>{{ vm.post.tags.split(', ').join(' #') }}</p>
   <p ng-click="vm.likePost(vm.post.id)"><i class="fa fa-heart-o"></i> {{vm.post.likes_count}}</p>
 </div>
