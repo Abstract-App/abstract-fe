@@ -138,13 +138,21 @@ let config = function($stateProvider, $urlRouterProvider) {
       controller: 'UserPageController as vm',
       templateUrl: 'templates/app-profile/sorted-views/moodposts.tpl.html'
     })
-    .state('root2.following', {
-      url: '/following/:id',
+    .state('favorites', {
+      parent: 'root2.user',
+      url: '/favorites',
+      controller: 'UserPageController as vm',
+      templateUrl: 'templates/app-profile/sorted-views/favorites.tpl.html'
+    })
+    .state('following', {
+      parent: 'root2.user',
+      url: '/following',
       controller: 'UserFollowController as vm',
       templateUrl: 'templates/app-profile/following.tpl.html'
     })
-    .state('root2.followers', {
-      url: '/followers/:id',
+    .state('followers', {
+      parent: 'root2.user',
+      url: '/followers',
       controller: 'UserFollowController as vm',
       templateUrl: 'templates/app-profile/followers.tpl.html'
     })

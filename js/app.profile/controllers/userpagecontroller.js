@@ -6,6 +6,8 @@ let UserPageController = function(ProjectService, ProfileService, UserPageServic
   vm.follow = follow;
   vm.morePosts = morePosts;
 
+  // for posts
+
   vm.post = [];
   vm.postImg = [];
   vm.postTxt = [];
@@ -16,6 +18,18 @@ let UserPageController = function(ProjectService, ProfileService, UserPageServic
   vm.postMood3 = [];
   vm.postMood4 = [];
   vm.postMood5 = [];
+
+  // for favorites
+
+  vm.faveImg = [];
+  vm.faveTxt = [];
+  vm.faveQte = [];
+  vm.faveUrl = [];
+  vm.faveMood1 = [];
+  vm.faveMood2 = [];
+  vm.faveMood3 = [];
+  vm.faveMood4 = [];
+  vm.faveMood5 = [];
 
   UserService.checkFileAuth();
   let id = ($stateParams.id) ? $stateParams.id : $cookies.get('id');
@@ -44,6 +58,12 @@ let UserPageController = function(ProjectService, ProfileService, UserPageServic
 
     vm.num = Number(res.data.page);
 
+    vm.pages = Number(res.data.page_count);
+
+    if (vm.pages > 1) {
+      vm.multi = true;
+    }
+
     angular.forEach(vm.post, function(p) {
       if (p.post.post_type === 'image') {
         vm.postImg.push(p);
@@ -71,6 +91,34 @@ let UserPageController = function(ProjectService, ProfileService, UserPageServic
       return vm.postImg, vm.postTxt, vm.postQte, vm.postUrl, vm.postMood1, vm.postMood2, vm.postMood3, vm.postMood4, vm.postMood5;
     });
 
+  });
+
+  UserPageService.getSavedPosts(id).then( (res) => {
+    vm.favorites = res.data.likes;
+
+    angular.forEach(vm.favorites, function(f) {
+      if (f.like.post_type === 'image') {
+        vm.faveImg.push(f);
+      } else if (f.like.post_type === 'text') {
+        vm.faveTxt.push(f);
+      } else if (f.like.post_type === 'quote') {
+        vm.faveQte.push(f);
+      } else if (f.like.post_type === 'link') {
+        vm.faveUrl.push(f);
+      } else if (f.like.moodboard_css_class === 'temp1') {
+        vm.faveMood1.push(f);
+      } else if (f.like.moodboard_css_class === 'temp2') {
+        vm.faveMood2.push(f);
+      } else if (f.like.moodboard_css_class === 'temp3') {
+        vm.faveMood3.push(f);
+      } else if (f.like.moodboard_css_class === 'temp4') {
+        vm.faveMood4.push(f);
+      } else if (f.like.moodboard_css_class === 'temp5') {
+        vm.faveMood5.push(f);
+      } 
+      
+      return vm.faveImg, vm.faveTxt, vm.faveQte, vm.faveUrl, vm.faveMood1, vm.faveMood2, vm.faveMood3, vm.faveMood4, vm.faveMood5;
+    });
   });
 
   function addLike (postId) {

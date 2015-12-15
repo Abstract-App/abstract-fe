@@ -11,6 +11,7 @@ let UserPageService = function(SERVER, FILESERVER, $cookies, $http, UserService)
   this.getFollowing = getFollowing;
   this.getFollowers = getFollowers;
   this.getMorePosts = getMorePosts;
+  this.getSavedPosts = getSavedPosts;
 
   function getAllPosts (id) {
     UserService.checkFileAuth();
@@ -95,6 +96,12 @@ let UserPageService = function(SERVER, FILESERVER, $cookies, $http, UserService)
     UserService.checkAuth();
 
     return $http.get(FILESERVER.URL + 'users/' + userId + '/posts?page=' + num, FILESERVER.CONFIG);
+  }
+
+  function getSavedPosts (userId) {
+    UserService.checkAuth();
+
+    return $http.get(FILESERVER.URL + 'users/' + userId + '/likes?likeable_type=post', FILESERVER.CONFIG);
   }
 
 };
