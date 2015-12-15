@@ -147,6 +147,54 @@ body {
   font-weight: 300;
 }
 
+.tile {
+  margin: 10px;
+  display: inline-block;
+  border-top: 10px solid white;
+  border-right: 10px solid white;
+  border-left: 10px solid white;
+  border-bottom: 10px solid white;
+  border-radius: 2px;
+  box-shadow: 0 1px 1px lighten(grey, 35%);
+  background: white;
+  a {
+    text-decoration: none;
+    color: darken(gray, 20%);
+  }
+  .tile-image {
+    width: 200px;
+    height: 175px;
+    overflow: hidden;
+    .uploaded-quote {
+      text-align: center;
+      font-family: $typewriter;
+      font-size: 2em;
+      width: 100%;
+      height: 300px;
+      overflow: scroll;
+      display: block;
+    }
+  }
+  .tile-username {
+    text-align: left;
+    p {
+      margin-top: 5px;
+      margin-bottom: 5px;
+      color: grey;
+      font-weight: 300;
+    }
+  }
+}
+
+.tile-username {
+  p {
+    a {
+      text-decoration: none;
+      color: #F75E55;
+    }
+  }
+}
+
 .sort-explore {
   .explore-buttons {
     text-align: center;
