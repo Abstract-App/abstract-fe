@@ -1,6 +1,6 @@
 <div class="user-posts">
-  <div ng-repeat="f in vm.faveImg" class="user-tiles">
-      <div class="tile">
+  <div class="user-tiles">
+    <div class="tile" ng-repeat="f in vm.faveImg">
         <a href="#/image/{{f.like.id}}">
       <div class="tile-image">
         <img ng-src="{{ f.like.image_medium }}">
@@ -13,11 +13,9 @@
         <i class="fa fa-heart-o"></i> {{ f.like.likes_count }}
       </span>
     </div>
-  </div>
-  </div>
+    </div>
 
-  <div ng-repeat="f in vm.faveTxt" class="user-tiles">
-    <div class="tile">
+    <div class="tile" ng-repeat="f in vm.faveTxt">
       <a href="#/text/{{f.like.id}}">
         <div class="tile-image">
           <p>{{ f.like.status }}</p>
@@ -31,10 +29,8 @@
         </span>
       </div>
     </div>
-  </div>
 
-  <div ng-repeat="f in vm.faveQte" class="user-tiles">
-    <div class="tile">
+    <div class="tile" ng-repeat="f in vm.faveQte">
       <a href="#/quote/{{f.like.id}}">
         <div class="tile-image">
           <p>{{ f.like.quote }}</p>
@@ -48,10 +44,8 @@
         </span>
       </div>
     </div>
-  </div>
 
-  <div ng-repeat="f in vm.faveUrl" class="user-tiles">
-    <div class="tile">
+    <div class="tile" ng-repeat="f in vm.faveUrl">
       <a href="#/url/{{f.like.id}}"> 
         <div class="tile-image">
           <p>{{ f.like.url }}</p>
@@ -65,10 +59,8 @@
         </span>
       </div>
     </div>
-  </div>
 
-  <div ng-repeat="f in vm.faveMood1" class="user-tiles">
-    <div class="tile">
+    <div class="tile" ng-repeat="f in vm.faveMood1">
       <a href="#/mood1/{{f.like.id}}"> 
         <div class="tile-image">
           <img ng-src="{{ f.like.moodpieces[0].image }}">
@@ -82,10 +74,8 @@
         </span>
       </div>
     </div>
-  </div>
 
-  <div ng-repeat="f in vm.faveMood2" class="user-tiles">
-    <div class="tile">
+    <div class="tile" ng-repeat="f in vm.faveMood2">
       <a href="#/mood2/{{f.like.id}}"> 
         <div class="tile-image">
           <img ng-src="{{ f.like.moodpieces[0].image }}">
@@ -99,10 +89,8 @@
         </span>
       </div>
     </div>
-  </div>
 
-  <div ng-repeat="f in vm.faveMood3" class="user-tiles">
-    <div class="tile">
+    <div class="tile" ng-repeat="f in vm.faveMood3">
       <a href="#/mood3/{{f.like.id}}"> 
         <div class="tile-image">
           <img ng-src="{{ f.like.moodpieces[0].image }}">
@@ -116,10 +104,8 @@
         </span>
       </div>
     </div>
-  </div>
 
-  <div ng-repeat="f in vm.faveMood4" class="user-tiles">
-    <div class="tile">
+    <div class="tile" ng-repeat="f in vm.faveMood4">
       <a href="#/mood4/{{f.like.id}}"> 
         <div class="tile-image">
           <img ng-src="{{ f.like.moodpieces[0].image }}">
@@ -133,10 +119,8 @@
         </span>
       </div>
     </div>    
-  </div>
 
-  <div ng-repeat="f in vm.faveMood5" class="user-tiles">
-    <div class="tile">
+    <div class="tile" ng-repeat="f in vm.faveMood5">
       <a href="#/mood5/{{f.like.id}}"> 
         <div class="tile-image">
           <img ng-src="{{ f.like.moodpieces[0].image }}">
@@ -150,6 +134,7 @@
         </span>
       </div>
     </div>    
-  </div>
 
+
+  </div>
 </div>
