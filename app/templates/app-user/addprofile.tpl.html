@@ -1,10 +1,9 @@
-<h2>Tell us more about you</h2>
-
-<form ng-submit="vm.uploadProfile(profile)">
-  <file-upload file="profile.picture"></file-upload>
+<form class="register-form" ng-submit="vm.uploadProfile(profile)">
+  <h2> tell us more about you</h2>
+  <file-upload class="file-upload" file="profile.picture"></file-upload>
   <textarea placeholder="Short Bio" name="bio" ng-model="profile.bio"></textarea>
   <input placeholder="http://yourwebsite.com" name="website" ng-model="profile.website">
   <input placeholder="Where do you live?" name="location" ng-model="profile.location">
   <input placeholder="up to 3 tags that describe you (watercolor, ink, illustration)" ng-model="profile.tag_phrases">
-  <button>CONTINUE TO ABSTRACT</button>
+  <button>continue to abstract</button>
 </form>

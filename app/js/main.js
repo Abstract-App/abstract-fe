@@ -918,6 +918,7 @@ var UserPageController = function UserPageController(ProjectService, ProfileServ
   var id = $stateParams.id ? $stateParams.id : $cookies.get('id');
   ProfileService.getUser(id).then(function (res) {
     vm.profile = res.data.user;
+    vm.profile.website = vm.profile.website.replace('http://', '');
   });
 
   UserPageService.getFollowing(id).then(function (res) {
