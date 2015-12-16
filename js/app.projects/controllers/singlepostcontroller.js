@@ -18,11 +18,11 @@ let SinglePostController = function($cookies, $scope, $state, $stateParams, User
 
     console.log(vm.post);
 
-    if (vm.post.post_type === 'image') {
-      let colorThief = new ColorThief();
-      colorThief.getPalette(vm.post.image_large, 8);
-      console.log(colorThief);
-    }
+    // if (vm.post.post_type === 'image') {
+    //   let colorThief = new ColorThief();
+    //   colorThief.getPalette(vm.post.image_large, 8);
+    //   console.log(colorThief);
+    // }
 
     if (Number(vm.userId) === Number($cookies.get('id'))) {
       vm.myPost = true;

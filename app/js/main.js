@@ -1129,7 +1129,9 @@ var UserPageService = function UserPageService(SERVER, FILESERVER, $cookies, $ht
   function editQuotePost(id, post) {
     var Quote = function Quote(post) {
       this.post_type = 'quote';
+      this.title = post.title;
       this.quote = post.quote;
+      this.description = post.description;
       this.tag_phrases = post.tags;
     };
     var q = new Quote(post);
@@ -1340,11 +1342,11 @@ var SinglePostController = function SinglePostController($cookies, $scope, $stat
 
     console.log(vm.post);
 
-    if (vm.post.post_type === 'image') {
-      var colorThief = new ColorThief();
-      colorThief.getPalette(vm.post.image_large, 8);
-      console.log(colorThief);
-    }
+    // if (vm.post.post_type === 'image') {
+    //   let colorThief = new ColorThief();
+    //   colorThief.getPalette(vm.post.image_large, 8);
+    //   console.log(colorThief);
+    // }
 
     if (Number(vm.userId) === Number($cookies.get('id'))) {
       vm.myPost = true;
