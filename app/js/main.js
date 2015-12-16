@@ -1348,21 +1348,22 @@ var SinglePostController = function SinglePostController($element, $cookies, $sc
     if (vm.post.post_type === 'image') {
       (function () {
 
-        var image = new Image();
-        image.src = vm.post.image_large;
+        //   let image = new Image();
+        //   image.src = vm.post.image_large;
+        //   image.crossOrigin = "Anonymous";
+        //   image.onload = function() {
+        //     let colorThief = new ColorThief();
+        //     let palette = colorThief.getPalette(image, 8, 8);
+        //     console.log(palette);
+        // }
+
+        var image = document.querySelector('.img');
+        console.log(image);
         image.onload = function () {
           var colorThief = new _colorthiefJs2['default']();
           var palette = colorThief.getPalette(image, 8);
           console.log(palette);
         };
-
-        // let image = document.querySelector('.img');
-        // console.log(image);
-        // image.onload = function() {
-        //   let colorThief = new ColorThief();
-        //   let palette = colorThief.getPalette(image, 8);
-        //   console.log(palette);
-        // }
         // let colorThief = new ColorThief();
 
         // vm.pic = $element.find('img');
