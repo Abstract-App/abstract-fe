@@ -1,3 +1,5 @@
+import ColorThief from '../../colorthief.js';
+
 let SinglePostController = function($cookies, $scope, $state, $stateParams, UserService, ProfileService, ProjectService, UserPageService) {
   
   let vm = this;
@@ -20,7 +22,7 @@ let SinglePostController = function($cookies, $scope, $state, $stateParams, User
 
     if (vm.post.post_type === 'image') {
       let colorThief = new ColorThief();
-      colorThief.getPalette(vm.post.image_large, 8);
+      // colorThief.getPalette(vm.post.image_large, 8);
       console.log(colorThief);
     }
 
