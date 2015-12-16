@@ -3596,20 +3596,22 @@ body {
   width: 600px;
   margin-left: 50px;
   margin-top: 50px; }
-  .singleview .color-palette {
+  .singleview .pal-container .color-palette {
+    margin-top: 3px;
     display: inline-block; }
-    .singleview .color-palette .col-pal {
-      height: 50px;
-      width: 50px;
-      border-radius: 50%;
-      margin-right: 5px;
+    .singleview .pal-container .color-palette .col-pal {
+      height: 30px;
+      width: 30px;
+      border-radius: 5px;
+      margin-right: 3px;
       display: inline-block; }
   .singleview img {
     max-width: 600px; }
   .singleview h3 {
     color: gray;
     font-weight: 300;
-    margin-bottom: 0; }
+    margin-bottom: 0;
+    margin-top: 5px; }
   .singleview .description {
     padding-bottom: 20px; }
   .singleview .text {
