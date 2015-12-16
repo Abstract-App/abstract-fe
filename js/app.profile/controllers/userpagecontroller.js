@@ -35,6 +35,7 @@ let UserPageController = function(ProjectService, ProfileService, UserPageServic
   let id = ($stateParams.id) ? $stateParams.id : $cookies.get('id');
   ProfileService.getUser(id).then( (res) => {   
     vm.profile = res.data.user;
+    vm.profile.website = vm.profile.website.replace('http://', '');
   });
 
   UserPageService.getFollowing(id).then( (res) => {
