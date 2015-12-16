@@ -1327,7 +1327,7 @@ var _colorthiefJs = require('../../colorthief.js');
 
 var _colorthiefJs2 = _interopRequireDefault(_colorthiefJs);
 
-var SinglePostController = function SinglePostController($cookies, $scope, $state, $stateParams, UserService, ProfileService, ProjectService, UserPageService) {
+var SinglePostController = function SinglePostController($element, $cookies, $scope, $state, $stateParams, UserService, ProfileService, ProjectService, UserPageService) {
 
   var vm = this;
 
@@ -1345,12 +1345,30 @@ var SinglePostController = function SinglePostController($cookies, $scope, $stat
     vm.postId = res.data.post.id;
     vm.comments = res.data.post.comments;
 
-    console.log(vm.post);
-
     if (vm.post.post_type === 'image') {
-      var colorThief = new _colorthiefJs2['default']();
-      // colorThief.getPalette(vm.post.image_large, 8);
-      console.log(colorThief);
+      (function () {
+
+        var image = new Image();
+        image.src = vm.post.image_large;
+        image.onload = function () {
+          var colorThief = new _colorthiefJs2['default']();
+          var palette = colorThief.getPalette(image, 8);
+          console.log(palette);
+        };
+
+        // let image = document.querySelector('.img');
+        // console.log(image);
+        // image.onload = function() {
+        //   let colorThief = new ColorThief();
+        //   let palette = colorThief.getPalette(image, 8);
+        //   console.log(palette);
+        // }
+        // let colorThief = new ColorThief();
+
+        // vm.pic = $element.find('img');
+        // colorThief.getPalette(vm.pic[0], 8);
+        // console.log(vm.pic[0]);
+      })();
     }
 
     if (Number(vm.userId) === Number($cookies.get('id'))) {
@@ -1417,7 +1435,7 @@ var SinglePostController = function SinglePostController($cookies, $scope, $stat
   }
 };
 
-SinglePostController.$inject = ['$cookies', '$scope', '$state', '$stateParams', 'UserService', 'ProfileService', 'ProjectService', 'UserPageService'];
+SinglePostController.$inject = ['$element', '$cookies', '$scope', '$state', '$stateParams', 'UserService', 'ProfileService', 'ProjectService', 'UserPageService'];
 
 exports['default'] = SinglePostController;
 module.exports = exports['default'];

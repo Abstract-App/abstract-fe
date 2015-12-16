@@ -1,6 +1,6 @@
 import ColorThief from '../../colorthief.js';
 
-let SinglePostController = function($cookies, $scope, $state, $stateParams, UserService, ProfileService, ProjectService, UserPageService) {
+let SinglePostController = function($element, $cookies, $scope, $state, $stateParams, UserService, ProfileService, ProjectService, UserPageService) {
   
   let vm = this;
 
@@ -18,12 +18,29 @@ let SinglePostController = function($cookies, $scope, $state, $stateParams, User
     vm.postId = res.data.post.id;
     vm.comments = res.data.post.comments;
 
-    console.log(vm.post);
-
     if (vm.post.post_type === 'image') {
-      let colorThief = new ColorThief();
-      // colorThief.getPalette(vm.post.image_large, 8);
-      console.log(colorThief);
+
+      let image = new Image();
+      image.src = vm.post.image_large;
+      image.onload = function() {
+        let colorThief = new ColorThief();
+        let palette = colorThief.getPalette(image, 8);
+        console.log(palette);
+    }
+
+
+      // let image = document.querySelector('.img');
+      // console.log(image);
+      // image.onload = function() {
+      //   let colorThief = new ColorThief();
+      //   let palette = colorThief.getPalette(image, 8);
+      //   console.log(palette);
+      // }
+      // let colorThief = new ColorThief();
+
+      // vm.pic = $element.find('img');
+      // colorThief.getPalette(vm.pic[0], 8);
+      // console.log(vm.pic[0]);
     }
 
     if (Number(vm.userId) === Number($cookies.get('id'))) {
@@ -91,6 +108,6 @@ let SinglePostController = function($cookies, $scope, $state, $stateParams, User
 
 };
 
-SinglePostController.$inject = ['$cookies', '$scope', '$state', '$stateParams', 'UserService', 'ProfileService', 'ProjectService', 'UserPageService'];
+SinglePostController.$inject = ['$element','$cookies', '$scope', '$state', '$stateParams', 'UserService', 'ProfileService', 'ProjectService', 'UserPageService'];
 
 export default SinglePostController;
