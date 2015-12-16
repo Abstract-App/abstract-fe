@@ -20,23 +20,27 @@ let SinglePostController = function($element, $cookies, $scope, $state, $statePa
 
     if (vm.post.post_type === 'image') {
 
-    //   let image = new Image();
-    //   image.src = vm.post.image_large;
-    //   image.crossOrigin = "Anonymous";
-    //   image.onload = function() {
-    //     let colorThief = new ColorThief();
-    //     let palette = colorThief.getPalette(image, 8, 8);
-    //     console.log(palette);
-    // }
+      let colorThief = new ColorThief();
+
+      let image = new Image();
+      image.crossOrigin = '';
+      image.src = vm.post.image_large;
+      image.width = 200;
+      image.height = 400;
+
+      image.onload =  function () {
+        let palette = colorThief.getPalette(image, 8, 8);
+        console.log(palette);
+      };
 
 
-      let image = document.querySelector('.img');
-      console.log(image);
-      // image.onload = function() {
-      //   let colorThief = new ColorThief();
-      //   let palette = colorThief.getPalette(image, 8, 8);
-      //   console.log(palette);  
-      // }
+
+
+      // let image = document.querySelector('.img');
+      // console.log(image);
+      // let colorThief = new ColorThief();
+      // let palette = colorThief.getPalette(image, 8, 8);
+      // console.log(palette);  
       // let colorThief = new ColorThief();
 
       // vm.pic = $element.find('img');
