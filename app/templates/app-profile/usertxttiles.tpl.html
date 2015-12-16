@@ -8,7 +8,7 @@
     <p>{{ post.post.post_type }}</p>
     <i class="fa fa-comment-o"></i> {{post.post.comments.length}}
     <span ng-click="vm.addLike(post.post.id)">
-      <i class="fa fa-heart-o"></i> {{ post.post.likes_count }}
+      <i class="fa like-button fa-heart-o"></i> {{ post.post.likes_count }}
     </span>
   </div>
 </div>
