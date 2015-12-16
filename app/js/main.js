@@ -1357,20 +1357,8 @@ var SinglePostController = function SinglePostController($element, $cookies, $sc
         image.height = 400;
 
         image.onload = function () {
-          var palette = colorThief.getPalette(image, 8, 8);
-          console.log(palette);
+          vm.palette = colorThief.getPalette(image, 8, 8);
         };
-
-        // let image = document.querySelector('.img');
-        // console.log(image);
-        // let colorThief = new ColorThief();
-        // let palette = colorThief.getPalette(image, 8, 8);
-        // console.log(palette); 
-        // let colorThief = new ColorThief();
-
-        // vm.pic = $element.find('img');
-        // colorThief.getPalette(vm.pic[0], 8);
-        // console.log(vm.pic[0]);
       })();
     }
 

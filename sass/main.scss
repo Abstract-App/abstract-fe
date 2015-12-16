@@ -643,6 +643,15 @@ body {
   width: 600px;
   margin-left: 50px;
   margin-top: 50px;
+  .color-palette {
+    display: inline-block;
+    .col-pal {
+      height: 50px;
+      width: 50px;
+      display: inline-block;
+      border: 1px solid black;
+    }  
+  }
   img {
     max-width: 600px;
   }

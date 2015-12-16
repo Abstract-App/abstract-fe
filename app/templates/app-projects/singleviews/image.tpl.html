@@ -1,5 +1,8 @@
 <div class="singleview">
   <img class="img" ng-src="{{vm.post.image_large}}">
+  <div ng-repeat="color in vm.palette" class="color-palette">
+    <div class="col-pal" ng-style="{'background-color': 'rgb({{color[0]}}, {{color[1]}}, {{color[2]}})'}"></div>
+  </div>
   <h3>{{ vm.post.title }}</h3>
   <small><a href="#/user/{{ vm.post.user_id }}/allposts">{{ vm.post.username }}</a></small>
   <p class="description">{{ vm.post.description }}</p>

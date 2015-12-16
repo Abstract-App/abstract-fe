@@ -3596,6 +3596,13 @@ body {
   width: 600px;
   margin-left: 50px;
   margin-top: 50px; }
+  .singleview .color-palette {
+    display: inline-block; }
+    .singleview .color-palette .col-pal {
+      height: 50px;
+      width: 50px;
+      display: inline-block;
+      border: 1px solid black; }
   .singleview img {
     max-width: 600px; }
   .singleview h3 {
