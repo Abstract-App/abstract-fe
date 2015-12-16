@@ -3601,8 +3601,9 @@ body {
     .singleview .color-palette .col-pal {
       height: 50px;
       width: 50px;
-      display: inline-block;
-      border: 1px solid black; }
+      border-radius: 50%;
+      margin-right: 5px;
+      display: inline-block; }
   .singleview img {
     max-width: 600px; }
   .singleview h3 {

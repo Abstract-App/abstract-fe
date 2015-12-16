@@ -29,10 +29,9 @@ let SinglePostController = function($element, $cookies, $scope, $state, $statePa
       image.height = 400;
 
       image.onload =  function () {
-        vm.palette = colorThief.getPalette(image, 8, 8);
+        vm.palette = colorThief.getPalette(image, 6);
+        console.log(vm.palette);
       };
-
-
     }
 
     if (Number(vm.userId) === Number($cookies.get('id'))) {
