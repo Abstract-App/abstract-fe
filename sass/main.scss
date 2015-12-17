@@ -667,6 +667,19 @@ body {
   width: 600px;
   margin-left: 50px;
   margin-top: 50px;
+  .pal-container {
+    .color-palette {
+      margin-top: 3px;
+      display: inline-block;
+      .col-pal {
+        height: 30px;
+        width: 30px;
+        border-radius: 5px;
+        margin-right: 3px;
+        display: inline-block;
+      }  
+    } 
+  }
   img {
     max-width: 600px;
   }
@@ -674,6 +687,7 @@ body {
     color: gray;
     font-weight: 300;
     margin-bottom: 0;
+    margin-top: 5px;
   }
   .description {
     // background: white;

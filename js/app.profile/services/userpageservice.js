@@ -34,7 +34,9 @@ let UserPageService = function(SERVER, FILESERVER, $cookies, $http, UserService)
   function editQuotePost(id, post) {
     let Quote = function (post) {
       this.post_type = 'quote';
+      this.title = post.title;
       this.quote = post.quote;
+      this.description = post.description;
       this.tag_phrases = post.tags;
     };
     let q = new Quote(post);

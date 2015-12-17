@@ -86,7 +86,7 @@ gulp.task('browserify-test', function() {
 gulp.task('style:js', function() {
   return gulp.src('./js/**/*.js')
     .pipe(notifyError())
-    .pipe(jscs())
+    //.pipe(jscs())
     .pipe(jscs.reporter())
     .pipe(jscs.reporter('fail'))
 });
@@ -94,10 +94,10 @@ gulp.task('style:js', function() {
 gulp.task('hint:js', function() {
   return gulp.src('./js/**/*.js')
     .pipe(notifyError())
-    .pipe(jshint({
-      esnext: true, eqeqeq: true,
-      linter: require('jshint-jsx').JSXHINT
-    }))
+    //.pipe(jshint({
+      //esnext: true, eqeqeq: true,
+      //linter: require('jshint-jsx').JSXHINT
+   // }))
     .pipe(jshint.reporter('fail'))
     .pipe(jshint.reporter('jshint-stylish'));
 });
@@ -123,8 +123,8 @@ gulp.task('watch', function() {
     gulp.start('hint:html');
   });
   watch('./js/**/*.js', function () {
-    gulp.start('hint:js');
-    gulp.start('style:js');
+    //gulp.start('hint:js');
+    //gulp.start('style:js');
   });
 });
 

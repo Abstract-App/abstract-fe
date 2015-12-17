@@ -1,4 +1,5 @@
 import angular from 'angular';
+// import colorThief from '../colorthief.js';
 
 import '../app.core/index';
 import '../app.layout/index';

@@ -3,7 +3,7 @@
     <img ng-src="{{ vm.profile.picture_medium }}">
     <h2>{{ vm.profile.username }}</h2>
     <p>{{ vm.profile.bio }}</p>
-    <a href="http://{{ vm.profile.website }}">{{ vm.profile.website }}</a>
+    <a ng-show="(vm.profile.website !== 'undefined')" href="http://{{ vm.profile.website }}">{{ vm.profile.website }}</a>
     <p>{{ vm.profile.location }}</p>
     <button ng-if="!vm.meFollow" ng-click="vm.follow()">follow me</button>
     <button ng-if="vm.meFollow">following</button>
