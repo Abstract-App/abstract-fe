@@ -3086,6 +3086,10 @@
 body {
   background: #f2f2f2; }
 
+.like-button:hover {
+  color: #F75E55;
+  cursor: pointer; }
+
 .abstractlogo {
   width: 150px;
   display: inline-block; }
