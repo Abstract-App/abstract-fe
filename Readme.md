@@ -1,46 +1,39 @@
-## Welcome to My Project
+## abstract:  a community for makers
 
-> http://abstract.surge.sh/
+One of the greatest tools a maker can have is a supportive community.  With this in mind, we set out to create a space for all types of creatives to share ideas and gain feedback from like-minded inviduals.  Unlike products like Behance and Dribbble, which focus on polished portfolios, abstract offers ways for makers to build and explore concepts from the ground up.
 
+### Live page
 
-## Usage
+> http://abstract.surge.sh
+
+### User abilities
+
+- Register for an account
+- Create image, text, link, quote, and moodboard posts
+- custom profiles showcasing ideas and inspirations
+- follow other users and liking posts
+- organized views for different posts and likes
+
+### User abilities coming soon
+
+- Groups
+- Messaging
+
+### Tools and Assets
+
+- AngularJS
+- [ui.router](https://github.com/angular-ui/ui-router) to navigate through app
+- [Color Thief](http://lokeshdhakar.com/projects/color-thief/)
+- [abstract app API](https://github.com/Abstract-App/abstract-be) built by Sepehr Vakili
+
+### Team
+
+- [Cori Fowler](https://github.com/corifowler)
+- [Jonny Warren](https://github.com/thedoublewolf)
+- [Sepehr Vakili](https://github.com/sepehrvakili)
+
+### Usage
 
 - Clone this repo
 - Run `npm install` to install all necessary dependencies
 - Run `gulp start` to start the server and a handful of other tasks
-
-
-## Assets Installed By Default
-
-- [Normalize CSS](https://necolas.github.io/normalize.css/)
-
-## Assets Setup and ready for use
-
-- [Bourbon](http://bourbon.io/)
-- [Neat](http://neat.bourbon.io/)
-- [Font Awesome](https://fortawesome.github.io/Font-Awesome/)
-- [Foundation 5](http://foundation.zurb.com/)
-
-#### How to use them?
-
-At the top of your `main.scss` file, just import any of the following:
-
-```scss
-@import "bourbon";
-@import "neat";
-
-@import "foundation";
-
-@import "font-awesome";
-```
-
-> Note: You probably don't want to use BOTH Bourbon/Neat & Foundation. Just pick one.
-
-## NPM Tools Used
-
-- [Babel](https://babeljs.io/)
-- [Browserify](http://browserify.org/)
-- [JavaScript Code Style](http://jscs.info/)
-- [SASS](http://sass-lang.com/)
-- [Mocha](https://mochajs.org/)
-- [Chai](http://chaijs.com/)
